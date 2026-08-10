@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 
 <meta name="viewport"
 content="width=device-width,
 initial-scale=1.0,
 maximum-scale=1.0,
-user-scalable=no">
+user-scalable=no,
+viewport-fit=cover">
 
 <title>NOVUS | KRUSS Makers</title>
 
 <style>
+
+/* =====================================================
+   NOVUS AI MUSEUM GUIDE
+   SCREEN 1 + SCREEN 2 + SCREEN 3
+   iPAD PORTRAIT
+===================================================== */
+
 
 /* =====================================================
    RESET
@@ -32,7 +42,11 @@ body{
 }
 
 body{
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
     background:
     radial-gradient(
         circle at 50% 30%,
@@ -40,27 +54,35 @@ body{
         #061a29 45%,
         #02080e 100%
     );
+
     color:white;
 }
 
 
 /* =====================================================
-   GENERIC SCREEN
+   SCREEN
 ===================================================== */
 
 .screen{
-    width:100vw;
-    height:100vh;
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
 
     display:none;
 
     flex-direction:column;
+
     align-items:center;
 
     padding:
-    max(24px, env(safe-area-inset-top))
+    max(22px, env(safe-area-inset-top))
     28px
-    max(18px, env(safe-area-inset-bottom));
+    max(16px, env(safe-area-inset-bottom));
+
 }
 
 .screen.active{
@@ -73,40 +95,81 @@ body{
 ===================================================== */
 
 .header{
+
+    width:100%;
+
     text-align:center;
+
     flex:0 0 auto;
+
 }
+
 
 .novus{
-    font-size:70px;
+
+    font-size:
+    clamp(
+        54px,
+        9vw,
+        76px
+    );
+
     font-weight:900;
+
     letter-spacing:12px;
+
     line-height:.95;
-    color:#fff;
+
+    color:#ffffff;
 
     text-shadow:
-    0 0 10px #25dfff,
-    0 0 28px rgba(37,223,255,.65);
+
+    0 0 8px #31ddff,
+
+    0 0 25px rgba(49,221,255,.70),
+
+    0 0 50px rgba(49,221,255,.20);
+
 }
+
 
 .by-kruss{
+
     margin-top:8px;
 
-    font-size:15px;
+    font-size:
+    clamp(
+        12px,
+        2vw,
+        16px
+    );
+
     font-weight:700;
+
     letter-spacing:4px;
 
-    color:#59e4ff;
+    color:#5ce5ff;
+
 }
 
+
 .tagline{
+
     margin-top:16px;
 
-    font-size:21px;
+    font-size:
+    clamp(
+        17px,
+        3vw,
+        22px
+    );
+
     font-weight:400;
+
     letter-spacing:5px;
 
-    color:#e5fbff;
+    color:#e4fbff;
+
 }
 
 
@@ -115,24 +178,40 @@ body{
 ===================================================== */
 
 .video-area{
+
     width:100%;
+
     flex:1 1 auto;
+
     min-height:0;
 
     display:flex;
+
     justify-content:center;
     align-items:center;
 
-    padding-top:20px;
+    padding-top:18px;
+
 }
 
+
 .video-frame{
+
     position:relative;
 
-    width:min(88vw, 690px);
-    height:min(47vh, 560px);
+    width:
+    min(
+        88vw,
+        690px
+    );
 
-    min-height:330px;
+    height:
+    min(
+        47vh,
+        560px
+    );
+
+    min-height:300px;
 
     overflow:hidden;
 
@@ -140,32 +219,32 @@ body{
 
     background:#000;
 
-    border:2px solid rgba(70,220,255,.50);
+    border:
+    2px solid
+    rgba(76,222,255,.55);
 
     box-shadow:
-    0 0 26px rgba(0,210,255,.22),
-    0 0 65px rgba(0,210,255,.12);
+
+    0 0 25px
+    rgba(0,210,255,.22),
+
+    0 0 60px
+    rgba(0,210,255,.10);
+
 }
+
 
 .video-frame video{
+
     width:100%;
     height:100%;
-    object-fit:cover;
+
     display:block;
-}
 
-.video-frame::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    pointer-events:none;
+    object-fit:cover;
 
-    background:
-    linear-gradient(
-        to bottom,
-        transparent 60%,
-        rgba(0,8,16,.55)
-    );
+    background:#000;
+
 }
 
 
@@ -174,7 +253,9 @@ body{
 ===================================================== */
 
 .sleep-badge{
+
     position:absolute;
+
     z-index:5;
 
     left:50%;
@@ -183,27 +264,46 @@ body{
     transform:translateX(-50%);
 
     display:flex;
+
     align-items:center;
+
+    justify-content:center;
+
     gap:10px;
 
-    padding:10px 18px;
+    padding:
+    10px
+    18px;
 
     border-radius:40px;
 
     white-space:nowrap;
 
-    background:rgba(0,8,15,.80);
+    background:
+    rgba(0,8,15,.82);
 
-    border:1px solid rgba(90,225,255,.25);
+    border:
+    1px solid
+    rgba(90,225,255,.30);
 
-    font-size:13px;
+    font-size:
+    clamp(
+        10px,
+        2vw,
+        13px
+    );
+
     font-weight:700;
+
     letter-spacing:2px;
 
     color:#dffaff;
+
 }
 
+
 .sleep-light{
+
     width:10px;
     height:10px;
 
@@ -214,456 +314,747 @@ body{
     box-shadow:
     0 0 10px #4ce1ff;
 
-    animation:sleepPulse 2s infinite;
+    animation:
+    sleepPulse 2s infinite;
+
 }
+
 
 @keyframes sleepPulse{
-    0%,100%{opacity:.3;}
-    50%{opacity:1;}
-}
 
-
-/* =====================================================
-   NEON BUTTON BASE
-===================================================== */
-
-.neon-button{
-    border:none;
-    outline:none;
-
-    border-radius:60px;
-
-    cursor:pointer;
-
-    transition:
-    transform .15s ease,
-    box-shadow .15s ease;
-
-    animation:neonPulse 2.2s infinite;
-}
-
-.neon-button:active{
-    transform:scale(.96);
-}
-
-@keyframes neonPulse{
     0%,100%{
-        box-shadow:
-        0 0 18px rgba(57,216,255,.50),
-        0 0 40px rgba(57,216,255,.20);
-    }
-
-    50%{
-        box-shadow:
-        0 0 28px rgba(57,216,255,.85),
-        0 0 65px rgba(57,216,255,.30);
-    }
-}
-
-
-/* =====================================================
-   START BUTTON
-===================================================== */
-
-.start-area{
-    width:100%;
-    flex:0 0 auto;
-
-    text-align:center;
-
-    padding-top:18px;
-}
-
-.start-button{
-    width:min(88vw, 650px);
-
-    min-height:78px;
-
-    padding:18px 28px;
-
-    font-size:22px;
-    font-weight:900;
-    letter-spacing:2.5px;
-
-    color:#00151d;
-
-    background:
-    linear-gradient(
-        90deg,
-        #39d8ff,
-        #ddfbff,
-        #ffffff,
-        #ddfbff,
-        #39d8ff
-    );
-}
-
-.tap-text{
-    margin-top:8px;
-
-    font-size:11px;
-    font-weight:600;
-    letter-spacing:3px;
-
-    color:rgba(215,247,255,.48);
-}
-
-
-/* =====================================================
-   SPIKE STATUS
-===================================================== */
-
-.bottom-area{
-    width:100%;
-    flex:0 0 auto;
-
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-
-    gap:8px;
-
-    padding-top:14px;
-}
-
-.spike-status{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    gap:10px;
-
-    min-width:320px;
-
-    padding:10px 20px;
-
-    border-radius:35px;
-
-    background:rgba(0,0,0,.32);
-
-    border:1px solid rgba(255,255,255,.10);
-}
-
-.connection-light{
-    width:13px;
-    height:13px;
-
-    border-radius:50%;
-}
-
-.connection-text{
-    font-size:13px;
-    font-weight:800;
-    letter-spacing:2px;
-}
-
-.spike-status.disconnected{
-    color:#ff96a1;
-}
-
-.spike-status.disconnected .connection-light{
-    background:#ff3048;
-
-    box-shadow:
-    0 0 7px #ff3048,
-    0 0 17px rgba(255,48,72,.85);
-
-    animation:redBlink 1.2s infinite;
-}
-
-@keyframes redBlink{
-    0%,100%{opacity:.3;}
-    50%{opacity:1;}
-}
-
-.spike-status.connected{
-    color:#83ffb0;
-}
-
-.spike-status.connected .connection-light{
-    background:#35ff78;
-
-    box-shadow:
-    0 0 7px #35ff78,
-    0 0 17px rgba(53,255,120,.9);
-}
-
-.spike-status.connecting{
-    color:#ffe58e;
-}
-
-.spike-status.connecting .connection-light{
-    background:#ffd43b;
-
-    box-shadow:
-    0 0 7px #ffd43b,
-    0 0 17px rgba(255,212,59,.85);
-
-    animation:yellowBlink .8s infinite;
-}
-
-@keyframes yellowBlink{
-    0%,100%{opacity:.3;}
-    50%{opacity:1;}
-}
-
-.system-footer{
-    font-size:9px;
-    letter-spacing:4px;
-
-    color:rgba(190,235,245,.25);
-}
-
-
-/* =====================================================
-   WELCOME VIDEO SCREEN
-===================================================== */
-
-.welcome-title{
-    margin-top:18px;
-
-    font-size:19px;
-    letter-spacing:4px;
-
-    color:#dffaff;
-}
-
-
-/* =====================================================
-   LANGUAGE SCREEN
-===================================================== */
-
-.language-content{
-    width:100%;
-    flex:1 1 auto;
-
-    display:flex;
-    flex-direction:column;
-
-    justify-content:center;
-    align-items:center;
-
-    gap:16px;
-}
-
-.language-heading{
-    text-align:center;
-
-    margin-bottom:10px;
-}
-
-.language-heading h2{
-    font-size:26px;
-    letter-spacing:4px;
-
-    color:#fff;
-
-    text-shadow:
-    0 0 12px rgba(60,220,255,.65);
-}
-
-.language-heading p{
-    margin-top:8px;
-
-    font-size:14px;
-    letter-spacing:2px;
-
-    color:#7be9ff;
-}
-
-.language-button{
-    width:min(86vw, 620px);
-
-    min-height:88px;
-
-    padding:14px 20px;
-
-    background:
-    linear-gradient(
-        135deg,
-        rgba(7,34,50,.95),
-        rgba(11,60,82,.95)
-    );
-
-    border:
-    1px solid rgba(70,220,255,.65);
-
-    color:#fff;
-
-    box-shadow:
-    0 0 18px rgba(57,216,255,.40),
-    inset 0 0 20px rgba(57,216,255,.05);
-}
-
-.language-main{
-    display:block;
-
-    font-size:20px;
-    font-weight:900;
-    letter-spacing:2px;
-}
-
-.language-native{
-    display:block;
-
-    margin-top:7px;
-
-    font-size:23px;
-    font-weight:700;
-
-    color:#70e9ff;
-}
-
-.language-button:hover{
-    box-shadow:
-    0 0 28px rgba(57,216,255,.75),
-    0 0 55px rgba(57,216,255,.25);
-}
-
-
-/* =====================================================
-   EXIT BUTTON
-===================================================== */
-
-.exit-button{
-    margin-top:8px;
-
-    width:min(62vw, 420px);
-
-    min-height:58px;
-
-    padding:12px 20px;
-
-    border:1px solid rgba(255,65,82,.70);
-
-    color:#ffd8dc;
-
-    background:
-    linear-gradient(
-        135deg,
-        rgba(60,4,12,.90),
-        rgba(95,9,19,.90)
-    );
-
-    font-size:15px;
-    font-weight:900;
-    letter-spacing:3px;
-
-    box-shadow:
-    0 0 16px rgba(255,45,65,.40),
-    0 0 34px rgba(255,45,65,.18);
-
-    animation:redNeonPulse 2s infinite;
-}
-
-@keyframes redNeonPulse{
-    0%,100%{
-        box-shadow:
-        0 0 14px rgba(255,45,65,.35),
-        0 0 28px rgba(255,45,65,.16);
-    }
-
-    50%{
-        box-shadow:
-        0 0 26px rgba(255,45,65,.80),
-        0 0 52px rgba(255,45,65,.30);
-    }
-}
-
-
-/* =====================================================
-   WAKE SCREEN
-===================================================== */
-
-.wake-screen{
-    position:fixed;
-    inset:0;
-
-    z-index:999;
-
-    display:flex;
-    flex-direction:column;
-
-    justify-content:center;
-    align-items:center;
-
-    background:
-    radial-gradient(
-        circle,
-        #123954,
-        #04131f 55%,
-        #010508
-    );
-
-    opacity:0;
-    visibility:hidden;
-
-    transition:opacity .35s ease;
-}
-
-.wake-screen.show{
-    opacity:1;
-    visibility:visible;
-}
-
-.wake-logo{
-    font-size:90px;
-    font-weight:900;
-    letter-spacing:12px;
-
-    text-shadow:
-    0 0 15px #48e1ff,
-    0 0 45px rgba(72,225,255,.45);
-}
-
-.loader{
-    display:flex;
-    gap:13px;
-
-    margin-top:35px;
-}
-
-.loader span{
-    width:13px;
-    height:13px;
-
-    border-radius:50%;
-
-    background:#45dfff;
-
-    box-shadow:
-    0 0 10px #45dfff;
-
-    animation:loaderAnimation 1.1s infinite;
-}
-
-.loader span:nth-child(2){
-    animation-delay:.18s;
-}
-
-.loader span:nth-child(3){
-    animation-delay:.36s;
-}
-
-@keyframes loaderAnimation{
-    0%,100%{
-        opacity:.3;
-        transform:scale(.7);
+        opacity:.25;
     }
 
     50%{
         opacity:1;
-        transform:scale(1.25);
     }
+
 }
 
-.wake-message{
-    margin-top:30px;
 
-    font-size:21px;
-    letter-spacing:5px;
+/* =====================================================
+   COMMON NEON BUTTON
+===================================================== */
 
-    color:#dffaff;
+.neon-button{
+
+    outline:none;
+
+    cursor:pointer;
+
+    transition:
+    transform .12s ease;
+
+}
+
+
+.neon-button:active{
+
+    transform:scale(.96);
+
+}
+
+
+/* =====================================================
+   BEGIN TOUR
+===================================================== */
+
+.start-area{
+
+    width:100%;
+
+    flex:0 0 auto;
+
+    text-align:center;
+
+    padding-top:16px;
+
+}
+
+
+.start-button{
+
+    width:
+    min(
+        88vw,
+        650px
+    );
+
+    min-height:78px;
+
+    padding:
+    16px
+    25px;
+
+    border:
+    1px solid
+    rgba(127,240,255,.80);
+
+    border-radius:60px;
+
+    color:#00151d;
+
+    background:
+
+    linear-gradient(
+        90deg,
+
+        #36d8ff,
+
+        #d7faff,
+
+        #ffffff,
+
+        #d7faff,
+
+        #36d8ff
+    );
+
+    font-size:
+    clamp(
+        17px,
+        3vw,
+        22px
+    );
+
+    font-weight:900;
+
+    letter-spacing:2px;
+
+    box-shadow:
+
+    0 0 18px
+    rgba(57,216,255,.60),
+
+    0 0 45px
+    rgba(57,216,255,.25);
+
+    animation:
+    startGlow 2s infinite;
+
+}
+
+
+@keyframes startGlow{
+
+    0%,100%{
+
+        box-shadow:
+
+        0 0 15px
+        rgba(57,216,255,.45),
+
+        0 0 30px
+        rgba(57,216,255,.18);
+
+    }
+
+    50%{
+
+        box-shadow:
+
+        0 0 28px
+        rgba(57,216,255,.90),
+
+        0 0 55px
+        rgba(57,216,255,.35);
+
+    }
+
+}
+
+
+.tap-text{
+
+    margin-top:8px;
+
+    font-size:10px;
+
+    font-weight:600;
+
+    letter-spacing:3px;
+
+    color:
+    rgba(215,247,255,.48);
+
+}
+
+
+/* =====================================================
+   SPIKE PRIME STATUS
+===================================================== */
+
+.bottom-area{
+
+    width:100%;
+
+    flex:0 0 auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:7px;
+
+    padding-top:13px;
+
+}
+
+
+.spike-status{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    min-width:310px;
+
+    padding:
+    9px
+    18px;
+
+    border-radius:35px;
+
+    background:
+    rgba(0,0,0,.30);
+
+    border:
+    1px solid
+    rgba(255,255,255,.10);
+
+}
+
+
+.connection-light{
+
+    width:12px;
+    height:12px;
+
+    border-radius:50%;
+
+    flex-shrink:0;
+
+}
+
+
+.connection-text{
+
+    font-size:
+    clamp(
+        10px,
+        2vw,
+        13px
+    );
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+}
+
+
+/* RED */
+
+.spike-status.disconnected{
+
+    color:#ff96a1;
+
+}
+
+
+.spike-status.disconnected
+.connection-light{
+
+    background:#ff3048;
+
+    box-shadow:
+
+    0 0 7px #ff3048,
+
+    0 0 17px
+    rgba(255,48,72,.85);
+
+    animation:
+    redBlink 1.2s infinite;
+
+}
+
+
+@keyframes redBlink{
+
+    0%,100%{
+        opacity:.3;
+    }
+
+    50%{
+        opacity:1;
+    }
+
+}
+
+
+/* YELLOW */
+
+.spike-status.connecting{
+
+    color:#ffe58e;
+
+}
+
+
+.spike-status.connecting
+.connection-light{
+
+    background:#ffd43b;
+
+    box-shadow:
+
+    0 0 7px #ffd43b,
+
+    0 0 17px
+    rgba(255,212,59,.85);
+
+}
+
+
+/* GREEN */
+
+.spike-status.connected{
+
+    color:#83ffb0;
+
+}
+
+
+.spike-status.connected
+.connection-light{
+
+    background:#35ff78;
+
+    box-shadow:
+
+    0 0 7px #35ff78,
+
+    0 0 17px
+    rgba(53,255,120,.90);
+
+}
+
+
+.system-footer{
+
+    font-size:9px;
+
+    letter-spacing:4px;
+
+    color:
+    rgba(190,235,245,.25);
+
+}
+
+
+/* =====================================================
+   SCREEN 2
+===================================================== */
+
+.welcome-status{
+
+    width:100%;
+
+    text-align:center;
+
+    flex:0 0 auto;
+
+    padding-top:14px;
+
+}
+
+
+.welcome-status-main{
+
+    font-size:
+    clamp(
+        15px,
+        2.5vw,
+        19px
+    );
+
+    font-weight:700;
+
+    letter-spacing:4px;
+
+    color:#e8fcff;
+
+    text-shadow:
+    0 0 10px
+    rgba(70,220,255,.55);
+
+}
+
+
+.welcome-status-small{
+
+    margin-top:7px;
+
+    font-size:10px;
+
+    letter-spacing:3px;
+
+    color:
+    rgba(190,240,250,.45);
+
+}
+
+
+/* =====================================================
+   VIDEO ERROR
+===================================================== */
+
+.video-error{
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:20;
+
+    display:none;
+
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:30px;
+
+    background:
+    rgba(1,8,14,.95);
+
+}
+
+
+.video-error.show{
+
+    display:flex;
+
+}
+
+
+.video-error-title{
+
+    font-size:20px;
+
+    font-weight:900;
+
+    letter-spacing:3px;
+
+    color:#ff8d9a;
+
+}
+
+
+.video-error-text{
+
+    margin-top:14px;
+
+    font-size:13px;
+
+    line-height:1.6;
+
+    color:#d9f8ff;
+
+}
+
+
+/* =====================================================
+   SCREEN 3 LANGUAGE
+===================================================== */
+
+.language-content{
+
+    width:100%;
+
+    flex:1 1 auto;
+
+    min-height:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:14px;
+
+    padding-top:16px;
+
+}
+
+
+.language-heading{
+
+    text-align:center;
+
+    margin-bottom:8px;
+
+}
+
+
+.language-heading h2{
+
+    font-size:
+    clamp(
+        21px,
+        4vw,
+        28px
+    );
+
+    font-weight:900;
+
+    letter-spacing:3px;
+
+    color:#ffffff;
+
+    text-shadow:
+
+    0 0 10px
+    rgba(60,220,255,.70),
+
+    0 0 22px
+    rgba(60,220,255,.30);
+
+}
+
+
+.language-heading p{
+
+    margin-top:8px;
+
+    font-size:13px;
+
+    letter-spacing:2px;
+
+    color:#67e5ff;
+
+}
+
+
+/* =====================================================
+   LANGUAGE BUTTON
+===================================================== */
+
+.language-button{
+
+    width:
+    min(
+        86vw,
+        620px
+    );
+
+    min-height:88px;
+
+    padding:
+    13px
+    20px;
+
+    border:
+    1px solid
+    rgba(75,225,255,.75);
+
+    border-radius:22px;
+
+    background:
+
+    linear-gradient(
+        135deg,
+
+        rgba(6,30,46,.97),
+
+        rgba(8,58,81,.97)
+    );
+
+    color:#ffffff;
+
+    box-shadow:
+
+    0 0 15px
+    rgba(57,216,255,.42),
+
+    0 0 35px
+    rgba(57,216,255,.15),
+
+    inset
+    0 0 20px
+    rgba(57,216,255,.06);
+
+    animation:
+    languageGlow 2.2s infinite;
+
+}
+
+
+@keyframes languageGlow{
+
+    0%,100%{
+
+        box-shadow:
+
+        0 0 12px
+        rgba(57,216,255,.35),
+
+        0 0 28px
+        rgba(57,216,255,.12);
+
+    }
+
+    50%{
+
+        box-shadow:
+
+        0 0 23px
+        rgba(57,216,255,.72),
+
+        0 0 45px
+        rgba(57,216,255,.22);
+
+    }
+
+}
+
+
+.language-main{
+
+    display:block;
+
+    font-size:
+    clamp(
+        16px,
+        3vw,
+        20px
+    );
+
+    font-weight:900;
+
+    letter-spacing:2px;
+
+}
+
+
+.language-native{
+
+    display:block;
+
+    margin-top:6px;
+
+    font-size:
+    clamp(
+        19px,
+        4vw,
+        24px
+    );
+
+    font-weight:700;
+
+    color:#71e9ff;
+
+}
+
+
+/* =====================================================
+   EXIT
+===================================================== */
+
+.exit-button{
+
+    width:
+    min(
+        58vw,
+        400px
+    );
+
+    min-height:55px;
+
+    margin-top:3px;
+
+    padding:
+    10px
+    18px;
+
+    border:
+    1px solid
+    rgba(255,62,80,.80);
+
+    border-radius:40px;
+
+    background:
+
+    linear-gradient(
+        135deg,
+
+        rgba(57,4,11,.95),
+
+        rgba(92,8,18,.95)
+    );
+
+    color:#ffd8dd;
+
+    font-size:14px;
+
+    font-weight:900;
+
+    letter-spacing:3px;
+
+    box-shadow:
+
+    0 0 14px
+    rgba(255,48,69,.45),
+
+    0 0 32px
+    rgba(255,48,69,.18);
+
+    animation:
+    exitGlow 2s infinite;
+
+}
+
+
+@keyframes exitGlow{
+
+    0%,100%{
+
+        box-shadow:
+
+        0 0 12px
+        rgba(255,48,69,.35),
+
+        0 0 25px
+        rgba(255,48,69,.12);
+
+    }
+
+    50%{
+
+        box-shadow:
+
+        0 0 23px
+        rgba(255,48,69,.80),
+
+        0 0 45px
+        rgba(255,48,69,.28);
+
+    }
+
 }
 
 
@@ -674,423 +1065,590 @@ body{
 @media(max-height:950px){
 
     .screen{
-        padding-top:16px;
-        padding-bottom:10px;
+
+        padding-top:14px;
+
+        padding-bottom:9px;
+
     }
+
 
     .novus{
-        font-size:56px;
+
+        font-size:52px;
+
     }
+
+
+    .by-kruss{
+
+        margin-top:5px;
+
+    }
+
 
     .tagline{
-        margin-top:9px;
-        font-size:18px;
+
+        margin-top:8px;
+
+        font-size:17px;
+
     }
+
 
     .video-area{
-        padding-top:10px;
+
+        padding-top:9px;
+
     }
+
 
     .video-frame{
+
         height:42vh;
-        min-height:260px;
+
+        min-height:255px;
+
     }
+
 
     .start-area{
-        padding-top:10px;
+
+        padding-top:9px;
+
     }
+
 
     .start-button{
-        min-height:64px;
-        font-size:18px;
-    }
 
-    .language-content{
-        gap:10px;
-    }
+        min-height:62px;
 
-    .language-button{
-        min-height:70px;
-    }
-
-    .language-main{
         font-size:17px;
+
     }
 
-    .language-native{
-        font-size:20px;
-    }
 
     .bottom-area{
-        padding-top:8px;
+
+        padding-top:7px;
+
     }
+
+
+    .language-content{
+
+        gap:9px;
+
+        padding-top:8px;
+
+    }
+
+
+    .language-button{
+
+        min-height:68px;
+
+    }
+
+
+    .language-native{
+
+        margin-top:3px;
+
+    }
+
+
+    .exit-button{
+
+        min-height:48px;
+
+    }
+
 }
 
 </style>
+
 </head>
+
 
 <body>
 
 
 <!-- =====================================================
-     SCREEN 1 - SLEEP MODE
+     SCREEN 1
+     SLEEP MODE
 ===================================================== -->
 
-<section id="screen1" class="screen active">
+<section
+id="screen1"
+class="screen active">
 
-    <header class="header">
 
-        <div class="novus">
-            NOVUS
-        </div>
+<header class="header">
 
-        <div class="by-kruss">
-            BY KRUSS MAKERS
-        </div>
-
-        <div class="tagline">
-            YOUR AI MUSEUM GUIDE
-        </div>
-
-    </header>
-
-
-    <div class="video-area">
-
-        <div class="video-frame">
-
-            <video
-                id="sleepVideo"
-                autoplay
-                muted
-                loop
-                playsinline
-                preload="auto">
-
-                <source
-                    src="media/sleepmode.mp4"
-                    type="video/mp4">
-
-            </video>
-
-
-            <div class="sleep-badge">
-
-                <span class="sleep-light"></span>
-
-                NOVUS IS IN SLEEP MODE
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="start-area">
-
-        <button
-            id="startButton"
-            class="start-button neon-button">
-
-            ✦ TOUCH HERE TO BEGIN TOUR
-
-        </button>
-
-        <div class="tap-text">
-            TAP TO WAKE NOVUS
-        </div>
-
-    </div>
-
-
-    <div class="bottom-area">
-
-        <div class="spike-status disconnected sharedSpikeStatus">
-
-            <span class="connection-light"></span>
-
-            <span class="connection-text">
-                SPIKE PRIME DISCONNECTED
-            </span>
-
-        </div>
-
-        <div class="system-footer">
-            SMART • INTERACTIVE • AUTONOMOUS
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     SCREEN 2 - WELCOME VIDEO
-===================================================== -->
-
-<section id="screen2" class="screen">
-
-    <header class="header">
-
-        <div class="novus">
-            NOVUS
-        </div>
-
-        <div class="by-kruss">
-            BY KRUSS MAKERS
-        </div>
-
-        <div class="tagline">
-            YOUR AI MUSEUM GUIDE
-        </div>
-
-    </header>
-
-
-    <div class="video-area">
-
-        <div class="video-frame">
-
-            <video
-                id="welcomeVideo"
-                muted
-                playsinline
-                preload="auto">
-
-                <source
-                    src="media/WELCOME_VIDEO.mp4"
-                    type="video/mp4">
-
-            </video>
-
-        </div>
-
-    </div>
-
-
-    <div class="welcome-title">
-        WELCOME TO YOUR MUSEUM EXPERIENCE
-    </div>
-
-
-    <div class="bottom-area">
-
-        <div class="spike-status disconnected sharedSpikeStatus">
-
-            <span class="connection-light"></span>
-
-            <span class="connection-text">
-                SPIKE PRIME DISCONNECTED
-            </span>
-
-        </div>
-
-        <div class="system-footer">
-            SMART • INTERACTIVE • AUTONOMOUS
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     SCREEN 3 - LANGUAGE
-===================================================== -->
-
-<section id="screen3" class="screen">
-
-    <header class="header">
-
-        <div class="novus">
-            NOVUS
-        </div>
-
-        <div class="by-kruss">
-            BY KRUSS MAKERS
-        </div>
-
-        <div class="tagline">
-            YOUR AI MUSEUM GUIDE
-        </div>
-
-    </header>
-
-
-    <div class="language-content">
-
-
-        <div class="language-heading">
-
-            <h2>
-                SELECT YOUR LANGUAGE
-            </h2>
-
-            <p>
-                SILA PILIH BAHASA
-            </p>
-
-        </div>
-
-
-        <button
-            class="language-button neon-button"
-            onclick="selectLanguage('BM')">
-
-            <span class="language-main">
-                BAHASA MELAYU
-            </span>
-
-            <span class="language-native">
-                Bahasa Melayu
-            </span>
-
-        </button>
-
-
-        <button
-            class="language-button neon-button"
-            onclick="selectLanguage('EN')">
-
-            <span class="language-main">
-                ENGLISH
-            </span>
-
-            <span class="language-native">
-                English
-            </span>
-
-        </button>
-
-
-        <button
-            class="language-button neon-button"
-            onclick="selectLanguage('ZH')">
-
-            <span class="language-main">
-                CHINESE
-            </span>
-
-            <span class="language-native">
-                中文
-            </span>
-
-        </button>
-
-
-        <button
-            class="language-button neon-button"
-            onclick="selectLanguage('TA')">
-
-            <span class="language-main">
-                BAHASA TAMIL
-            </span>
-
-            <span class="language-native">
-                தமிழ்
-            </span>
-
-        </button>
-
-
-        <button
-            class="exit-button neon-button"
-            onclick="exitTour()">
-
-            ✕ EXIT TOUR
-
-        </button>
-
-
-    </div>
-
-
-    <div class="bottom-area">
-
-        <div class="spike-status disconnected sharedSpikeStatus">
-
-            <span class="connection-light"></span>
-
-            <span class="connection-text">
-                SPIKE PRIME DISCONNECTED
-            </span>
-
-        </div>
-
-        <div class="system-footer">
-            SMART • INTERACTIVE • AUTONOMOUS
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     WAKE OVERLAY
-===================================================== -->
-
-<div
-    id="wakeScreen"
-    class="wake-screen">
-
-    <div class="wake-logo">
+    <div class="novus">
         NOVUS
     </div>
 
-    <div class="loader">
-
-        <span></span>
-        <span></span>
-        <span></span>
-
+    <div class="by-kruss">
+        BY KRUSS MAKERS
     </div>
 
-    <div
-        id="wakeMessage"
-        class="wake-message">
+    <div class="tagline">
+        YOUR AI MUSEUM GUIDE
+    </div>
 
-        WAKING UP...
+</header>
+
+
+<div class="video-area">
+
+    <div class="video-frame">
+
+
+        <video
+        id="sleepVideo"
+        autoplay
+        muted
+        loop
+        playsinline
+        webkit-playsinline
+        preload="auto">
+
+
+            <source
+            src="media/sleepmode.mp4"
+            type="video/mp4">
+
+
+        </video>
+
+
+        <div class="sleep-badge">
+
+            <span class="sleep-light">
+            </span>
+
+            NOVUS IS IN SLEEP MODE
+
+        </div>
+
 
     </div>
 
 </div>
 
 
+<div class="start-area">
+
+    <button
+    id="startButton"
+    class="start-button neon-button">
+
+        ✦ TOUCH HERE TO BEGIN TOUR
+
+    </button>
+
+
+    <div class="tap-text">
+
+        TAP TO WAKE NOVUS
+
+    </div>
+
+</div>
+
+
+<div class="bottom-area">
+
+    <div
+    class="spike-status disconnected
+    sharedSpikeStatus">
+
+
+        <span class="connection-light">
+        </span>
+
+
+        <span class="connection-text">
+
+            SPIKE PRIME DISCONNECTED
+
+        </span>
+
+
+    </div>
+
+
+    <div class="system-footer">
+
+        SMART • INTERACTIVE • AUTONOMOUS
+
+    </div>
+
+</div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     SCREEN 2
+     WELCOME VIDEO
+===================================================== -->
+
+<section
+id="screen2"
+class="screen">
+
+
+<header class="header">
+
+    <div class="novus">
+        NOVUS
+    </div>
+
+    <div class="by-kruss">
+        BY KRUSS MAKERS
+    </div>
+
+    <div class="tagline">
+        YOUR AI MUSEUM GUIDE
+    </div>
+
+</header>
+
+
+<div class="video-area">
+
+
+    <div class="video-frame">
+
+
+        <video
+        id="welcomeVideo"
+        playsinline
+        webkit-playsinline
+        preload="auto">
+
+
+            <source
+            src="media/WELCOME_VIDEO.mp4"
+            type="video/mp4">
+
+
+        </video>
+
+
+        <div
+        id="videoError"
+        class="video-error">
+
+
+            <div class="video-error-title">
+
+                VIDEO ERROR
+
+            </div>
+
+
+            <div class="video-error-text">
+
+                Welcome video could not be played.
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+<div class="welcome-status">
+
+    <div class="welcome-status-main">
+
+        WELCOME TO NOVUS
+
+    </div>
+
+    <div class="welcome-status-small">
+
+        PLEASE ENJOY THE WELCOME MESSAGE
+
+    </div>
+
+</div>
+
+
+<div class="bottom-area">
+
+    <div
+    class="spike-status disconnected
+    sharedSpikeStatus">
+
+
+        <span class="connection-light">
+        </span>
+
+
+        <span class="connection-text">
+
+            SPIKE PRIME DISCONNECTED
+
+        </span>
+
+
+    </div>
+
+
+    <div class="system-footer">
+
+        SMART • INTERACTIVE • AUTONOMOUS
+
+    </div>
+
+</div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     SCREEN 3
+     LANGUAGE SELECTION
+===================================================== -->
+
+<section
+id="screen3"
+class="screen">
+
+
+<header class="header">
+
+    <div class="novus">
+        NOVUS
+    </div>
+
+    <div class="by-kruss">
+        BY KRUSS MAKERS
+    </div>
+
+    <div class="tagline">
+        YOUR AI MUSEUM GUIDE
+    </div>
+
+</header>
+
+
+
+<div class="language-content">
+
+
+    <div class="language-heading">
+
+        <h2>
+            SELECT YOUR LANGUAGE
+        </h2>
+
+        <p>
+            SILA PILIH BAHASA
+        </p>
+
+    </div>
+
+
+
+    <!-- MALAY -->
+
+    <button
+    class="language-button neon-button"
+    onclick="selectLanguage('BM')">
+
+
+        <span class="language-main">
+
+            BAHASA MELAYU
+
+        </span>
+
+
+        <span class="language-native">
+
+            Bahasa Melayu
+
+        </span>
+
+
+    </button>
+
+
+
+    <!-- ENGLISH -->
+
+    <button
+    class="language-button neon-button"
+    onclick="selectLanguage('EN')">
+
+
+        <span class="language-main">
+
+            ENGLISH
+
+        </span>
+
+
+        <span class="language-native">
+
+            English
+
+        </span>
+
+
+    </button>
+
+
+
+    <!-- CHINESE -->
+
+    <button
+    class="language-button neon-button"
+    onclick="selectLanguage('ZH')">
+
+
+        <span class="language-main">
+
+            CHINESE
+
+        </span>
+
+
+        <span class="language-native">
+
+            中文
+
+        </span>
+
+
+    </button>
+
+
+
+    <!-- TAMIL -->
+
+    <button
+    class="language-button neon-button"
+    onclick="selectLanguage('TA')">
+
+
+        <span class="language-main">
+
+            BAHASA TAMIL
+
+        </span>
+
+
+        <span class="language-native">
+
+            தமிழ்
+
+        </span>
+
+
+    </button>
+
+
+
+    <!-- EXIT -->
+
+    <button
+    class="exit-button neon-button"
+    onclick="exitTour()">
+
+        ✕ EXIT TOUR
+
+    </button>
+
+
+</div>
+
+
+
+<div class="bottom-area">
+
+
+    <div
+    class="spike-status disconnected
+    sharedSpikeStatus">
+
+
+        <span class="connection-light">
+        </span>
+
+
+        <span class="connection-text">
+
+            SPIKE PRIME DISCONNECTED
+
+        </span>
+
+
+    </div>
+
+
+    <div class="system-footer">
+
+        SMART • INTERACTIVE • AUTONOMOUS
+
+    </div>
+
+
+</div>
+
+
+</section>
+
+
 
 <script>
 
 /* =====================================================
-   ELEMENTS
+   NOVUS APP
 ===================================================== */
+
 
 const screen1 =
 document.getElementById("screen1");
 
+
 const screen2 =
 document.getElementById("screen2");
+
 
 const screen3 =
 document.getElementById("screen3");
 
+
 const sleepVideo =
 document.getElementById("sleepVideo");
+
 
 const welcomeVideo =
 document.getElementById("welcomeVideo");
 
+
 const startButton =
 document.getElementById("startButton");
 
-const wakeScreen =
-document.getElementById("wakeScreen");
 
-const wakeMessage =
-document.getElementById("wakeMessage");
+const videoError =
+document.getElementById("videoError");
 
 
 let selectedLanguage = null;
@@ -1098,162 +1656,341 @@ let selectedLanguage = null;
 let spikeConnected = false;
 
 
+
 /* =====================================================
-   SCREEN MANAGEMENT
+   SHOW SCREEN
 ===================================================== */
 
 function showScreen(screen){
 
-    screen1.classList.remove("active");
-    screen2.classList.remove("active");
-    screen3.classList.remove("active");
+    screen1.classList.remove(
+        "active"
+    );
 
-    screen.classList.add("active");
+    screen2.classList.remove(
+        "active"
+    );
+
+    screen3.classList.remove(
+        "active"
+    );
+
+
+    screen.classList.add(
+        "active"
+    );
 
 }
 
 
+
 /* =====================================================
-   INITIAL START
+   START APP
 ===================================================== */
 
 window.addEventListener(
 "load",
 function(){
 
+
     sleepVideo.muted = true;
 
+
     sleepVideo.play()
-    .catch(function(){
+    .catch(function(error){
 
         console.log(
-        "Autoplay waiting for user interaction."
+            "Sleep video autoplay:",
+            error
         );
 
     });
 
+
+    updateSpikeStatus(
+        "disconnected"
+    );
+
 });
 
 
+
 /* =====================================================
-   START TOUR
+   BEGIN TOUR
+
+   IMPORTANT:
+   Welcome video is started DIRECTLY
+   from the user's button press.
+   This is much more reliable on iPad.
 ===================================================== */
 
 startButton.addEventListener(
 "click",
 function(){
 
+
+    /* Stop sleep video */
+
     sleepVideo.pause();
 
-    wakeScreen.classList.add("show");
 
-    wakeMessage.textContent =
-    "WAKING UP...";
+    /*
+       Display Screen 2 FIRST.
+       The video element is now visible.
+    */
 
-
-    setTimeout(function(){
-
-        wakeMessage.textContent =
-        "INITIALISING NOVUS...";
-
-    },700);
+    showScreen(
+        screen2
+    );
 
 
-    setTimeout(function(){
+    /*
+       Reset welcome video.
+    */
 
-        wakeMessage.textContent =
-        "NOVUS IS READY";
+    welcomeVideo.pause();
 
-    },1400);
+    welcomeVideo.currentTime = 0;
 
 
-    setTimeout(function(){
+    /*
+       IMPORTANT:
+       Do NOT mute welcome video.
 
-        wakeScreen.classList.remove("show");
+       Play is called directly
+       from this touch/click.
+    */
 
-        showScreen(screen2);
+    welcomeVideo.muted = false;
 
-        playWelcomeVideo();
+    welcomeVideo.volume = 1;
 
-    },2100);
+
+    const playPromise =
+    welcomeVideo.play();
+
+
+    if(
+        playPromise !== undefined
+    ){
+
+        playPromise
+        .then(function(){
+
+            console.log(
+                "WELCOME VIDEO PLAYING"
+            );
+
+        })
+
+        .catch(function(error){
+
+            console.error(
+                "WELCOME VIDEO ERROR:",
+                error
+            );
+
+
+            /*
+               SECOND ATTEMPT:
+               Play muted if Safari
+               rejects audio.
+            */
+
+            welcomeVideo.muted = true;
+
+
+            welcomeVideo.play()
+            .then(function(){
+
+                console.log(
+                "WELCOME VIDEO PLAYING MUTED"
+                );
+
+            })
+
+            .catch(function(error2){
+
+                console.error(
+                    "WELCOME VIDEO FAILED:",
+                    error2
+                );
+
+
+                videoError.classList.add(
+                    "show"
+                );
+
+            });
+
+        });
+
+    }
 
 });
 
 
-/* =====================================================
-   WELCOME VIDEO
-===================================================== */
-
-function playWelcomeVideo(){
-
-    welcomeVideo.currentTime = 0;
-
-    welcomeVideo.muted = false;
-
-    welcomeVideo.play()
-    .catch(function(){
-
-        /*
-        iPad Safari may block audio autoplay
-        in some situations.
-
-        If blocked, video still attempts playback.
-        */
-
-        welcomeVideo.muted = true;
-
-        welcomeVideo.play();
-
-    });
-
-}
-
 
 /* =====================================================
-   VIDEO ENDED
-   AUTOMATICALLY GO TO LANGUAGE SCREEN
+   WHEN WELCOME VIDEO FINISHES
+   GO DIRECTLY TO SCREEN 3
 ===================================================== */
 
 welcomeVideo.addEventListener(
 "ended",
 function(){
 
-    showScreen(screen3);
+
+    console.log(
+        "WELCOME VIDEO ENDED"
+    );
+
+
+    showLanguageScreen();
 
 });
+
+
+
+/* =====================================================
+   EXTRA SAFETY
+
+   If video somehow reaches the end
+   but Safari misses 'ended'
+===================================================== */
+
+welcomeVideo.addEventListener(
+"timeupdate",
+function(){
+
+
+    if(
+
+        welcomeVideo.duration > 0
+
+        &&
+
+        welcomeVideo.currentTime >=
+        welcomeVideo.duration - 0.15
+
+    ){
+
+        showLanguageScreen();
+
+    }
+
+});
+
+
+
+/* =====================================================
+   LANGUAGE SCREEN
+===================================================== */
+
+let languageScreenOpened = false;
+
+
+function showLanguageScreen(){
+
+
+    if(
+        languageScreenOpened
+    ){
+
+        return;
+
+    }
+
+
+    languageScreenOpened = true;
+
+
+    welcomeVideo.pause();
+
+
+    showScreen(
+        screen3
+    );
+
+
+    console.log(
+        "LANGUAGE SCREEN OPENED"
+    );
+
+}
+
 
 
 /* =====================================================
    LANGUAGE SELECTION
 ===================================================== */
 
-function selectLanguage(language){
+function selectLanguage(
+language
+){
 
-    selectedLanguage = language;
+
+    selectedLanguage =
+    language;
+
 
     console.log(
-    "Selected Language:",
-    selectedLanguage
+        "Selected language:",
+        selectedLanguage
     );
 
 
     /*
-    NEXT DEVELOPMENT:
-
-    PAPARAN 4
-    SELECT DESTINATION
-
-    Example:
-
-    showScreen(screen4);
+       PAPARAN 4 AKAN KITA
+       TAMBAHKAN SELEPAS INI.
     */
 
-    alert(
-    "Language selected: " +
-    selectedLanguage
-    );
+
+    if(
+        language === "BM"
+    ){
+
+        alert(
+            "Bahasa Melayu dipilih"
+        );
+
+    }
+
+
+    else if(
+        language === "EN"
+    ){
+
+        alert(
+            "English selected"
+        );
+
+    }
+
+
+    else if(
+        language === "ZH"
+    ){
+
+        alert(
+            "已选择中文"
+        );
+
+    }
+
+
+    else if(
+        language === "TA"
+    ){
+
+        alert(
+            "தமிழ் தேர்ந்தெடுக்கப்பட்டது"
+        );
+
+    }
 
 }
+
 
 
 /* =====================================================
@@ -1262,23 +1999,45 @@ function selectLanguage(language){
 
 function exitTour(){
 
-    selectedLanguage = null;
+
+    selectedLanguage =
+    null;
+
+
+    languageScreenOpened =
+    false;
+
 
     welcomeVideo.pause();
 
-    welcomeVideo.currentTime = 0;
+    welcomeVideo.currentTime =
+    0;
 
-    showScreen(screen1);
 
-    sleepVideo.currentTime = 0;
+    videoError.classList.remove(
+        "show"
+    );
 
-    sleepVideo.muted = true;
+
+    showScreen(
+        screen1
+    );
+
+
+    sleepVideo.currentTime =
+    0;
+
+
+    sleepVideo.muted =
+    true;
+
 
     sleepVideo.play()
-    .catch(function(){
+    .catch(function(error){
 
         console.log(
-        "Unable to restart sleep video."
+            "Sleep video restart:",
+            error
         );
 
     });
@@ -1286,59 +2045,71 @@ function exitTour(){
 }
 
 
+
 /* =====================================================
    SPIKE PRIME STATUS
 ===================================================== */
 
-function updateSpikeStatus(state){
+function updateSpikeStatus(
+state
+){
 
-    const statusBoxes =
+
+    const boxes =
     document.querySelectorAll(
-    ".sharedSpikeStatus"
+        ".sharedSpikeStatus"
     );
 
-    statusBoxes.forEach(
+
+    boxes.forEach(
     function(box){
 
+
         box.classList.remove(
-        "connected",
-        "disconnected",
-        "connecting"
+            "connected",
+            "disconnected",
+            "connecting"
         );
 
 
         const text =
         box.querySelector(
-        ".connection-text"
+            ".connection-text"
         );
 
 
-        if(state === "connected"){
+        if(
+            state ===
+            "connected"
+        ){
 
             box.classList.add(
-            "connected"
+                "connected"
             );
 
             text.textContent =
             "SPIKE PRIME CONNECTED";
 
-            spikeConnected = true;
+            spikeConnected =
+            true;
 
         }
 
 
         else if(
-        state === "connecting"
+            state ===
+            "connecting"
         ){
 
             box.classList.add(
-            "connecting"
+                "connecting"
             );
 
             text.textContent =
             "CONNECTING TO SPIKE PRIME...";
 
-            spikeConnected = false;
+            spikeConnected =
+            false;
 
         }
 
@@ -1346,28 +2117,25 @@ function updateSpikeStatus(state){
         else{
 
             box.classList.add(
-            "disconnected"
+                "disconnected"
             );
 
             text.textContent =
             "SPIKE PRIME DISCONNECTED";
 
-            spikeConnected = false;
+            spikeConnected =
+            false;
 
         }
+
 
     });
 
 }
 
-
-/* DEFAULT STATUS */
-
-updateSpikeStatus(
-"disconnected"
-);
-
 </script>
 
+
 </body>
+
 </html>
