@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 
 <meta name="viewport"
-content="
-width=device-width,
+content="width=device-width,
 initial-scale=1.0,
 maximum-scale=1.0,
 user-scalable=no,
@@ -17,10 +14,6 @@ viewport-fit=cover">
 
 <style>
 
-/* =====================================================
-   RESET
-===================================================== */
-
 *{
     margin:0;
     padding:0;
@@ -28,96 +21,77 @@ viewport-fit=cover">
     -webkit-tap-highlight-color:transparent;
 }
 
-html,
-body{
+html,body{
     width:100%;
     height:100%;
     overflow:hidden;
 }
 
 body{
-    font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
+    color:white;
 
     background:
     radial-gradient(
-        circle at 50% 28%,
+        circle at 50% 25%,
         #123b5b 0%,
         #061a29 45%,
         #02080e 100%
     );
-
-    color:white;
 }
 
-
 /* =====================================================
-   SCREEN
+   SCREENS
 ===================================================== */
 
 .screen{
     position:absolute;
     inset:0;
 
-    width:100%;
-    height:100%;
-
     display:none;
-
     flex-direction:column;
     align-items:center;
 
+    width:100%;
+    height:100%;
+
     padding:
-    max(14px, env(safe-area-inset-top))
+    max(14px,env(safe-area-inset-top))
     22px
-    max(8px, env(safe-area-inset-bottom));
+    max(8px,env(safe-area-inset-bottom));
 }
 
 .screen.active{
     display:flex;
 }
 
-
 /* =====================================================
    HEADER
 ===================================================== */
 
 .header{
-    width:100%;
-    text-align:center;
     flex:0 0 auto;
+    text-align:center;
 }
 
 .novus{
-    font-size:
-    clamp(
-        46px,
-        9vw,
-        68px
-    );
-
+    font-size:58px;
     font-weight:900;
     letter-spacing:12px;
-    line-height:.95;
-
-    color:#ffffff;
 
     text-shadow:
-    0 0 9px #31ddff,
-    0 0 25px rgba(49,221,255,.70),
-    0 0 50px rgba(49,221,255,.20);
+    0 0 10px #34ddff,
+    0 0 30px rgba(52,221,255,.65);
 }
 
-.by-kruss{
-    margin-top:6px;
+.by{
+    margin-top:5px;
 
-    font-size:14px;
+    font-size:13px;
     font-weight:700;
     letter-spacing:4px;
 
-    color:#5ce5ff;
+    color:#62e6ff;
 }
 
 .tagline{
@@ -126,158 +100,115 @@ body{
     font-size:17px;
     letter-spacing:5px;
 
-    color:#e4fbff;
+    color:#e7fbff;
 }
-
 
 /* =====================================================
    VIDEO
 ===================================================== */
 
 .video-area{
-    width:100%;
-    flex:1 1 auto;
+    flex:1;
     min-height:0;
+
+    width:100%;
 
     display:flex;
     justify-content:center;
     align-items:center;
-
-    padding-top:10px;
 }
 
 .video-frame{
     position:relative;
 
-    width:min(88vw,690px);
-    height:min(44vh,540px);
-
-    min-height:270px;
+    width:min(88vw,680px);
+    height:min(45vh,530px);
 
     overflow:hidden;
 
     border-radius:28px;
 
-    background:#000;
+    background:black;
 
-    border:
-    2px solid rgba(76,222,255,.55);
+    border:2px solid rgba(69,224,255,.55);
 
     box-shadow:
-    0 0 25px rgba(0,210,255,.22),
-    0 0 60px rgba(0,210,255,.10);
+    0 0 30px rgba(57,216,255,.18);
 }
 
 .video-frame video{
     width:100%;
     height:100%;
 
-    display:block;
-
     object-fit:cover;
-
-    background:#000;
+    display:block;
 }
-
-
-/* =====================================================
-   SLEEP BADGE
-===================================================== */
 
 .sleep-badge{
     position:absolute;
 
+    bottom:17px;
     left:50%;
-    bottom:16px;
 
     transform:translateX(-50%);
 
-    display:flex;
-    align-items:center;
+    padding:9px 16px;
 
-    gap:10px;
+    border-radius:30px;
 
-    padding:
-    9px
-    16px;
-
-    border-radius:40px;
+    background:rgba(0,8,15,.82);
 
     white-space:nowrap;
-
-    background:
-    rgba(0,8,15,.82);
-
-    border:
-    1px solid rgba(90,225,255,.30);
 
     font-size:11px;
     font-weight:700;
     letter-spacing:2px;
-
-    color:#dffaff;
 }
 
-.sleep-light{
-    width:10px;
-    height:10px;
+.sleep-dot{
+    display:inline-block;
+
+    width:9px;
+    height:9px;
+
+    margin-right:8px;
 
     border-radius:50%;
 
-    background:#4ce1ff;
+    background:#45ddff;
 
-    box-shadow:
-    0 0 10px #4ce1ff;
+    box-shadow:0 0 10px #45ddff;
 
-    animation:
-    sleepPulse 2s infinite;
+    animation:pulse 1.8s infinite;
 }
 
-@keyframes sleepPulse{
-    0%,100%{opacity:.25;}
-    50%{opacity:1;}
+@keyframes pulse{
+    0%,100%{opacity:.3}
+    50%{opacity:1}
 }
-
 
 /* =====================================================
-   GENERIC NEON BUTTON
+   GENERAL BUTTON
 ===================================================== */
 
-.neon-button{
+button{
+    font-family:inherit;
+}
+
+.neon{
     cursor:pointer;
-    outline:none;
 
     transition:
     transform .12s ease,
     opacity .15s ease;
 }
 
-.neon-button:active{
+.neon:active{
     transform:scale(.96);
 }
 
-
 /* =====================================================
-   GLOW
-===================================================== */
-
-@keyframes cyanGlow{
-    0%,100%{
-        box-shadow:
-        0 0 14px rgba(57,216,255,.40),
-        0 0 30px rgba(57,216,255,.15);
-    }
-
-    50%{
-        box-shadow:
-        0 0 27px rgba(57,216,255,.90),
-        0 0 55px rgba(57,216,255,.32);
-    }
-}
-
-
-/* =====================================================
-   START BUTTON
+   SCREEN 1 START
 ===================================================== */
 
 .start-area{
@@ -288,60 +219,65 @@ body{
 }
 
 .start-button{
-    width:min(88vw,650px);
-
+    width:min(88vw,640px);
     min-height:68px;
 
-    padding:
-    14px
-    24px;
-
-    border:
-    1px solid rgba(127,240,255,.80);
-
-    border-radius:60px;
-
-    background:
-    linear-gradient(
-        90deg,
-        #36d8ff,
-        #d7faff,
-        #ffffff,
-        #d7faff,
-        #36d8ff
-    );
-
-    color:#00151d;
+    border:1px solid #63e8ff;
+    border-radius:50px;
 
     font-size:18px;
     font-weight:900;
     letter-spacing:2px;
 
-    animation:
-    cyanGlow 2s infinite;
+    color:#00151d;
+
+    background:
+    linear-gradient(
+        90deg,
+        #35d8ff,
+        #e0fbff,
+        #fff,
+        #e0fbff,
+        #35d8ff
+    );
+
+    box-shadow:
+    0 0 22px rgba(57,216,255,.65);
+
+    animation:cyanGlow 2s infinite;
+}
+
+@keyframes cyanGlow{
+    0%,100%{
+        box-shadow:
+        0 0 14px rgba(57,216,255,.4);
+    }
+
+    50%{
+        box-shadow:
+        0 0 30px rgba(57,216,255,.9),
+        0 0 55px rgba(57,216,255,.25);
+    }
 }
 
 .tap-text{
     margin-top:7px;
 
     font-size:10px;
-    font-weight:600;
     letter-spacing:3px;
 
-    color:
-    rgba(215,247,255,.48);
+    opacity:.45;
 }
 
-
 /* =====================================================
-   CONTENT
+   HEADINGS
 ===================================================== */
 
-.content-area{
-    width:100%;
-
-    flex:1 1 auto;
+.content{
+    flex:1;
     min-height:0;
+
+    width:100%;
 
     display:flex;
     flex-direction:column;
@@ -349,75 +285,62 @@ body{
     align-items:center;
     justify-content:center;
 
-    gap:8px;
-
-    padding-top:8px;
+    gap:9px;
 }
 
 .page-heading{
     text-align:center;
 
-    margin-bottom:4px;
+    margin-bottom:6px;
 }
 
 .page-heading h2{
     font-size:23px;
-    font-weight:900;
     letter-spacing:3px;
 
     text-shadow:
-    0 0 10px rgba(60,220,255,.70),
-    0 0 22px rgba(60,220,255,.30);
+    0 0 15px rgba(65,220,255,.7);
 }
 
 .page-heading p{
-    margin-top:6px;
+    margin-top:7px;
 
     font-size:12px;
     letter-spacing:2px;
 
-    color:#67e5ff;
+    color:#6fe8ff;
 }
 
-
 /* =====================================================
-   LANGUAGE
+   LANGUAGE BUTTONS
 ===================================================== */
 
 .language-button{
-    width:min(86vw,620px);
-
+    width:min(86vw,610px);
     min-height:70px;
 
-    padding:
-    10px
-    20px;
-
-    border:
-    1px solid rgba(75,225,255,.75);
-
-    border-radius:22px;
+    border:1px solid rgba(77,225,255,.75);
+    border-radius:20px;
 
     background:
     linear-gradient(
         135deg,
-        rgba(6,30,46,.97),
-        rgba(8,58,81,.97)
+        rgba(5,29,45,.97),
+        rgba(8,59,81,.97)
     );
 
     color:white;
 
-    animation:
-    cyanGlow 2.2s infinite;
+    box-shadow:
+    0 0 15px rgba(57,216,255,.4);
 }
 
 .language-button.selected{
-    border:
-    2px solid #ffffff;
+    border:2px solid white;
 
     box-shadow:
-    0 0 25px rgba(57,216,255,.95),
-    0 0 55px rgba(57,216,255,.35);
+    0 0 28px rgba(57,216,255,.95),
+    0 0 50px rgba(57,216,255,.3);
 }
 
 .language-main{
@@ -436,56 +359,45 @@ body{
     font-size:20px;
     font-weight:700;
 
-    color:#71e9ff;
+    color:#72eaff;
 }
-
 
 /* =====================================================
    STATIONS
 ===================================================== */
 
 .station-button{
-    width:min(88vw,650px);
+    width:min(88vw,640px);
+    min-height:66px;
 
-    min-height:68px;
+    padding:8px 16px;
 
-    padding:
-    8px
-    16px;
+    border-radius:19px;
 
-    border-radius:20px;
-
-    background:
-    rgba(3,20,30,.92);
+    background:rgba(3,20,30,.92);
 
     color:white;
-
-    text-align:left;
 
     display:flex;
     align-items:center;
 
     gap:14px;
+
+    text-align:left;
 }
 
 .station-button.selected{
     border-width:2px;
-
-    transform:
-    scale(1.01);
+    transform:scale(1.01);
 }
 
-.station-dot{
-    width:20px;
-    height:20px;
+.dot{
+    width:19px;
+    height:19px;
 
     border-radius:50%;
 
     flex-shrink:0;
-}
-
-.station-text{
-    flex:1;
 }
 
 .station-number{
@@ -495,112 +407,74 @@ body{
     font-weight:900;
     letter-spacing:2px;
 
-    opacity:.72;
+    opacity:.7;
 }
 
 .station-name{
     display:block;
 
-    margin-top:4px;
+    margin-top:3px;
 
     font-size:15px;
     font-weight:800;
-
-    line-height:1.2;
 }
 
-
-/* RED */
-
-.station-red{
+.red{
     border:1px solid #ff4058;
-
-    box-shadow:
-    0 0 15px rgba(255,64,88,.35);
+    box-shadow:0 0 14px rgba(255,64,88,.35);
 }
 
-.station-red .station-dot{
+.red .dot{
     background:#ff3048;
-
-    box-shadow:
-    0 0 12px #ff3048;
+    box-shadow:0 0 11px #ff3048;
 }
 
-
-/* BLUE */
-
-.station-blue{
+.blue{
     border:1px solid #33a8ff;
-
-    box-shadow:
-    0 0 15px rgba(51,168,255,.35);
+    box-shadow:0 0 14px rgba(51,168,255,.35);
 }
 
-.station-blue .station-dot{
+.blue .dot{
     background:#279cff;
-
-    box-shadow:
-    0 0 12px #279cff;
+    box-shadow:0 0 11px #279cff;
 }
 
-
-/* GREEN */
-
-.station-green{
+.green{
     border:1px solid #35ff78;
-
-    box-shadow:
-    0 0 15px rgba(53,255,120,.35);
+    box-shadow:0 0 14px rgba(53,255,120,.35);
 }
 
-.station-green .station-dot{
+.green .dot{
     background:#35ff78;
-
-    box-shadow:
-    0 0 12px #35ff78;
+    box-shadow:0 0 11px #35ff78;
 }
 
-
-/* YELLOW */
-
-.station-yellow{
+.yellow{
     border:1px solid #ffd93f;
-
-    box-shadow:
-    0 0 15px rgba(255,217,63,.35);
+    box-shadow:0 0 14px rgba(255,217,63,.35);
 }
 
-.station-yellow .station-dot{
+.yellow .dot{
     background:#ffd93f;
-
-    box-shadow:
-    0 0 12px #ffd93f;
+    box-shadow:0 0 11px #ffd93f;
 }
 
-
-/* PURPLE */
-
-.station-purple{
+.purple{
     border:1px solid #c05cff;
-
-    box-shadow:
-    0 0 15px rgba(192,92,255,.35);
+    box-shadow:0 0 14px rgba(192,92,255,.35);
 }
 
-.station-purple .station-dot{
+.purple .dot{
     background:#bf52ff;
-
-    box-shadow:
-    0 0 12px #bf52ff;
+    box-shadow:0 0 11px #bf52ff;
 }
-
 
 /* =====================================================
    NAVIGATION
 ===================================================== */
 
-.navigation-3{
-    width:min(88vw,650px);
+.nav3{
+    width:min(88vw,640px);
 
     display:grid;
 
@@ -612,8 +486,8 @@ body{
     margin-top:8px;
 }
 
-.navigation-4{
-    width:min(88vw,650px);
+.nav4{
+    width:min(88vw,640px);
 
     display:grid;
 
@@ -625,135 +499,101 @@ body{
     margin-top:8px;
 }
 
-.symbol-button{
-    min-height:50px;
+.nav-button{
+    min-height:52px;
 
-    border-radius:18px;
+    border-radius:17px;
 
-    border:
-    1px solid rgba(69,224,255,.65);
+    border:1px solid rgba(69,224,255,.7);
 
     background:
     linear-gradient(
         135deg,
-        rgba(3,31,47,.96),
-        rgba(6,64,84,.96)
+        rgba(3,31,47,.97),
+        rgba(6,64,84,.97)
     );
 
-    color:#e4fbff;
+    color:#e7fcff;
 
-    font-size:26px;
+    font-size:27px;
     font-weight:900;
 
     box-shadow:
-    0 0 13px rgba(57,216,255,.35);
-
-    animation:
-    navGlow 2s infinite;
+    0 0 14px rgba(57,216,255,.4);
 }
 
-@keyframes navGlow{
-    0%,100%{
-        box-shadow:
-        0 0 10px rgba(57,216,255,.25);
-    }
-
-    50%{
-        box-shadow:
-        0 0 22px rgba(57,216,255,.78),
-        0 0 38px rgba(57,216,255,.18);
-    }
-}
-
-.symbol-button:disabled{
-    opacity:.25;
-
-    animation:none;
-
+.nav-button:disabled{
+    opacity:.28;
     cursor:default;
 }
 
-.exit-symbol{
-    border-color:
-    rgba(255,70,90,.75);
+.exit-button{
+    border-color:#ff5366;
 
-    color:#ff9da8;
+    color:#ffabb4;
 
     background:
     linear-gradient(
         135deg,
-        rgba(55,3,10,.95),
-        rgba(85,6,16,.95)
+        #3a050c,
+        #650b18
     );
 
     box-shadow:
-    0 0 14px rgba(255,48,69,.40);
+    0 0 16px rgba(255,48,69,.45);
 }
-
 
 /* =====================================================
    SCREEN 2 EXIT
 ===================================================== */
 
-.video-exit-area{
-    width:100%;
-
-    display:flex;
-
-    justify-content:center;
+.welcome-info{
+    text-align:center;
 
     padding-top:7px;
 }
 
-.video-exit-button{
-    width:min(45vw,300px);
+.welcome-title{
+    font-size:16px;
+    font-weight:700;
+    letter-spacing:4px;
+}
 
-    min-height:46px;
+.welcome-small{
+    margin-top:5px;
 
-    border:
-    1px solid rgba(255,70,90,.75);
+    font-size:10px;
+    letter-spacing:3px;
 
+    opacity:.45;
+}
+
+.exit-tour-button{
+    margin-top:8px;
+
+    min-width:210px;
+    min-height:44px;
+
+    border:1px solid #ff5366;
     border-radius:35px;
 
-    background:
-    linear-gradient(
-        135deg,
-        rgba(55,3,10,.95),
-        rgba(85,6,16,.95)
-    );
+    background:#580914;
 
-    color:#ffb0b9;
+    color:#ffb4bd;
 
     font-size:13px;
     font-weight:900;
     letter-spacing:2px;
 
     box-shadow:
-    0 0 14px rgba(255,48,69,.40);
-
-    animation:
-    exitGlow 2s infinite;
+    0 0 17px rgba(255,48,69,.4);
 }
-
-@keyframes exitGlow{
-    0%,100%{
-        box-shadow:
-        0 0 10px rgba(255,48,69,.30);
-    }
-
-    50%{
-        box-shadow:
-        0 0 23px rgba(255,48,69,.75),
-        0 0 40px rgba(255,48,69,.20);
-    }
-}
-
 
 /* =====================================================
-   CONNECTION STATUS
+   CONNECTION
 ===================================================== */
 
-.bottom-area{
+.footer{
     width:100%;
 
     display:flex;
@@ -761,12 +601,12 @@ body{
 
     align-items:center;
 
-    gap:6px;
+    gap:5px;
 
     padding-top:7px;
 }
 
-.connection-box{
+.connection{
     min-width:340px;
 
     display:flex;
@@ -774,131 +614,67 @@ body{
     align-items:center;
     justify-content:center;
 
-    gap:10px;
+    gap:9px;
 
-    padding:
-    9px
-    16px;
+    padding:8px 14px;
 
-    border-radius:35px;
+    border-radius:30px;
 
-    background:
-    rgba(0,0,0,.32);
+    background:rgba(0,0,0,.3);
 
-    border:
-    1px solid rgba(255,255,255,.10);
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:1.6px;
 }
 
-.connection-light{
-    width:13px;
-    height:13px;
+.connection-dot{
+    width:12px;
+    height:12px;
 
     border-radius:50%;
 }
 
-.connection-text{
-    font-size:11px;
-    font-weight:800;
-    letter-spacing:1.7px;
+.connection.disconnected{
+    color:#ff9da7;
 }
 
-
-/* DISCONNECTED */
-
-.connection-box.disconnected{
-    color:#ff96a1;
-}
-
-.connection-box.disconnected
-.connection-light{
+.connection.disconnected .connection-dot{
     background:#ff3048;
 
     box-shadow:
-    0 0 7px #ff3048,
-    0 0 17px rgba(255,48,72,.85);
+    0 0 10px #ff3048;
 
-    animation:
-    redBlink 1.2s infinite;
+    animation:pulse 1.2s infinite;
 }
 
-@keyframes redBlink{
-    0%,100%{opacity:.3;}
-    50%{opacity:1;}
+.connection.connecting{
+    color:#ffe38a;
 }
 
-
-/* CONNECTING */
-
-.connection-box.connecting{
-    color:#ffe58e;
-}
-
-.connection-box.connecting
-.connection-light{
+.connection.connecting .connection-dot{
     background:#ffd43b;
 
     box-shadow:
-    0 0 7px #ffd43b,
-    0 0 17px rgba(255,212,59,.85);
+    0 0 10px #ffd43b;
 }
 
-
-/* CONNECTED */
-
-.connection-box.connected{
-    color:#83ffb0;
+.connection.connected{
+    color:#8dffb5;
 }
 
-.connection-box.connected
-.connection-light{
+.connection.connected .connection-dot{
     background:#35ff78;
 
     box-shadow:
-    0 0 7px #35ff78,
-    0 0 17px rgba(53,255,120,.90);
+    0 0 10px #35ff78;
 }
 
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
-.system-footer{
-    font-size:9px;
+.footer-text{
+    font-size:8px;
     letter-spacing:4px;
 
-    color:
-    rgba(190,235,245,.25);
+    opacity:.25;
 }
-
-
-/* =====================================================
-   WELCOME
-===================================================== */
-
-.welcome-status{
-    width:100%;
-    text-align:center;
-
-    padding-top:7px;
-}
-
-.welcome-status-main{
-    font-size:16px;
-    font-weight:700;
-    letter-spacing:4px;
-}
-
-.welcome-status-small{
-    margin-top:5px;
-
-    font-size:10px;
-    letter-spacing:3px;
-
-    color:
-    rgba(190,240,250,.45);
-}
-
 
 /* =====================================================
    SMALL IPAD
@@ -907,768 +683,595 @@ body{
 @media(max-height:950px){
 
     .screen{
-        padding-top:8px;
+        padding-top:7px;
         padding-bottom:4px;
     }
 
     .novus{
-        font-size:44px;
+        font-size:43px;
     }
 
-    .by-kruss{
-        margin-top:3px;
+    .by{
+        font-size:11px;
     }
 
     .tagline{
-        margin-top:5px;
-        font-size:14px;
-    }
-
-    .video-area{
-        padding-top:4px;
+        margin-top:4px;
+        font-size:13px;
     }
 
     .video-frame{
         height:37vh;
-        min-height:215px;
-    }
-
-    .start-area{
-        padding-top:4px;
-    }
-
-    .start-button{
-        min-height:52px;
-        font-size:15px;
-    }
-
-    .content-area{
-        gap:5px;
-        padding-top:2px;
     }
 
     .language-button{
-        min-height:53px;
+        min-height:52px;
     }
 
     .language-main{
-        font-size:15px;
+        font-size:14px;
     }
 
     .language-native{
-        font-size:18px;
+        font-size:17px;
     }
 
     .station-button{
-        min-height:53px;
+        min-height:51px;
     }
 
     .station-name{
-        font-size:13px;
+        font-size:12px;
     }
 
-    .navigation-3,
-    .navigation-4{
-        margin-top:4px;
-        gap:6px;
+    .nav-button{
+        min-height:40px;
+        font-size:21px;
     }
 
-    .symbol-button{
-        min-height:41px;
-        font-size:22px;
-    }
-
-    .video-exit-button{
-        min-height:38px;
-    }
-
-    .connection-box{
-        min-width:300px;
-
-        padding:
-        6px
-        11px;
-    }
-
-    .connection-text{
-        font-size:9px;
+    .connection{
+        min-width:295px;
+        font-size:8px;
     }
 }
 
 </style>
-
 </head>
+
 
 <body>
 
 
 <!-- =====================================================
-     PAPARAN 1
+     SCREEN 1
 ===================================================== -->
 
-<section
-id="screen1"
-class="screen active">
+<section id="screen1" class="screen active">
 
-<header class="header">
+    <header class="header">
 
-<div class="novus">
-NOVUS
-</div>
+        <div class="novus">
+            NOVUS
+        </div>
 
-<div class="by-kruss">
-BY KRUSS MAKERS
-</div>
+        <div class="by">
+            BY KRUSS MAKERS
+        </div>
 
-<div class="tagline">
-YOUR AI MUSEUM GUIDE
-</div>
+        <div class="tagline">
+            YOUR AI MUSEUM GUIDE
+        </div>
 
-</header>
+    </header>
 
 
-<div class="video-area">
+    <div class="video-area">
 
-<div class="video-frame">
+        <div class="video-frame">
 
-<video
-id="sleepVideo"
-autoplay
-muted
-loop
-playsinline
-webkit-playsinline
-preload="auto">
+            <video
+            id="sleepVideo"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto">
 
-<source
-src="media/sleepmode.mp4"
-type="video/mp4">
+                <source
+                src="media/sleepmode.mp4"
+                type="video/mp4">
 
-</video>
-
-
-<div class="sleep-badge">
-
-<span class="sleep-light"></span>
-
-NOVUS IS IN SLEEP MODE
-
-</div>
-
-</div>
-
-</div>
+            </video>
 
 
-<div class="start-area">
+            <div class="sleep-badge">
 
-<button
-id="startButton"
-class="start-button neon-button">
+                <span class="sleep-dot"></span>
 
-✦ TOUCH HERE TO BEGIN TOUR
+                NOVUS IS IN SLEEP MODE
 
-</button>
+            </div>
 
-<div class="tap-text">
+        </div>
 
-TAP TO WAKE NOVUS
-
-</div>
-
-</div>
+    </div>
 
 
-<div class="bottom-area">
+    <div class="start-area">
 
-<div
-class="
-connection-box
-disconnected
-sharedConnectionStatus">
+        <button
+        id="startButton"
+        class="start-button neon">
 
-<span class="connection-light"></span>
+            ✦ TOUCH HERE TO BEGIN TOUR
 
-<span class="connection-text">
+        </button>
 
-iPAD ↔ SPIKE PRIME : DISCONNECTED
+        <div class="tap-text">
+            TAP TO WAKE NOVUS
+        </div>
 
-</span>
+    </div>
 
-</div>
 
-<div class="system-footer">
+    <div class="footer">
 
-SMART • INTERACTIVE • AUTONOMOUS
+        <div class="connection disconnected connectionStatus">
 
-</div>
+            <span class="connection-dot"></span>
 
-</div>
+            <span class="connection-label">
+                iPAD ↔ SPIKE PRIME : DISCONNECTED
+            </span>
+
+        </div>
+
+        <div class="footer-text">
+            SMART • INTERACTIVE • AUTONOMOUS
+        </div>
+
+    </div>
 
 </section>
-
 
 
 <!-- =====================================================
-     PAPARAN 2
+     SCREEN 2
 ===================================================== -->
 
-<section
-id="screen2"
-class="screen">
+<section id="screen2" class="screen">
 
-<header class="header">
+    <header class="header">
 
-<div class="novus">
-NOVUS
-</div>
+        <div class="novus">
+            NOVUS
+        </div>
 
-<div class="by-kruss">
-BY KRUSS MAKERS
-</div>
+        <div class="by">
+            BY KRUSS MAKERS
+        </div>
 
-<div class="tagline">
-YOUR AI MUSEUM GUIDE
-</div>
+        <div class="tagline">
+            YOUR AI MUSEUM GUIDE
+        </div>
 
-</header>
+    </header>
 
 
-<div class="video-area">
+    <div class="video-area">
 
-<div class="video-frame">
+        <div class="video-frame">
 
-<video
-id="welcomeVideo"
-playsinline
-webkit-playsinline
-preload="auto">
+            <video
+            id="welcomeVideo"
+            playsinline
+            preload="auto">
 
-<source
-src="media/WELCOME_VIDEO.mp4"
-type="video/mp4">
+                <source
+                src="media/WELCOME_VIDEO.mp4"
+                type="video/mp4">
 
-</video>
+            </video>
 
-</div>
+        </div>
 
-</div>
-
-
-<div class="welcome-status">
-
-<div class="welcome-status-main">
-
-WELCOME TO NOVUS
-
-</div>
-
-<div class="welcome-status-small">
-
-PLEASE ENJOY THE WELCOME MESSAGE
-
-</div>
-
-</div>
+    </div>
 
 
-<div class="video-exit-area">
+    <div class="welcome-info">
 
-<button
-id="exit2"
-class="
-video-exit-button
-neon-button">
+        <div class="welcome-title">
+            WELCOME TO NOVUS
+        </div>
 
-✕ EXIT TOUR
-
-</button>
-
-</div>
+        <div class="welcome-small">
+            PLEASE ENJOY THE WELCOME MESSAGE
+        </div>
 
 
-<div class="bottom-area">
+        <button
+        id="exit2"
+        class="exit-tour-button neon">
 
-<div
-class="
-connection-box
-disconnected
-sharedConnectionStatus">
+            ✕ EXIT TOUR
 
-<span class="connection-light"></span>
+        </button>
 
-<span class="connection-text">
+    </div>
 
-iPAD ↔ SPIKE PRIME : DISCONNECTED
 
-</span>
+    <div class="footer">
 
-</div>
+        <div class="connection disconnected connectionStatus">
 
-<div class="system-footer">
+            <span class="connection-dot"></span>
 
-SMART • INTERACTIVE • AUTONOMOUS
+            <span class="connection-label">
+                iPAD ↔ SPIKE PRIME : DISCONNECTED
+            </span>
 
-</div>
+        </div>
 
-</div>
+        <div class="footer-text">
+            SMART • INTERACTIVE • AUTONOMOUS
+        </div>
+
+    </div>
 
 </section>
-
 
 
 <!-- =====================================================
-     PAPARAN 3 = HOME
+     SCREEN 3 = HOME
 ===================================================== -->
 
-<section
-id="screen3"
-class="screen">
+<section id="screen3" class="screen">
 
-<header class="header">
+    <header class="header">
 
-<div class="novus">
-NOVUS
-</div>
+        <div class="novus">
+            NOVUS
+        </div>
 
-<div class="by-kruss">
-BY KRUSS MAKERS
-</div>
+        <div class="by">
+            BY KRUSS MAKERS
+        </div>
 
-<div class="tagline">
-YOUR AI MUSEUM GUIDE
-</div>
+        <div class="tagline">
+            YOUR AI MUSEUM GUIDE
+        </div>
 
-</header>
+    </header>
 
 
-<div class="content-area">
+    <div class="content">
 
-<div class="page-heading">
+        <div class="page-heading">
 
-<h2>
-SELECT YOUR LANGUAGE
-</h2>
+            <h2>
+                SELECT YOUR LANGUAGE
+            </h2>
 
-<p>
-SILA PILIH BAHASA
-</p>
+            <p>
+                SILA PILIH BAHASA
+            </p>
 
-</div>
-
-
-<button
-class="
-language-button
-neon-button"
-data-language="BM">
-
-<span class="language-main">
-BAHASA MELAYU
-</span>
-
-<span class="language-native">
-Bahasa Melayu
-</span>
-
-</button>
+        </div>
 
 
-<button
-class="
-language-button
-neon-button"
-data-language="EN">
+        <button class="language-button neon" data-language="BM">
 
-<span class="language-main">
-ENGLISH
-</span>
+            <span class="language-main">
+                BAHASA MELAYU
+            </span>
 
-<span class="language-native">
-English
-</span>
+            <span class="language-native">
+                Bahasa Melayu
+            </span>
 
-</button>
+        </button>
 
 
-<button
-class="
-language-button
-neon-button"
-data-language="ZH">
+        <button class="language-button neon" data-language="EN">
 
-<span class="language-main">
-CHINESE
-</span>
+            <span class="language-main">
+                ENGLISH
+            </span>
 
-<span class="language-native">
-中文
-</span>
+            <span class="language-native">
+                English
+            </span>
 
-</button>
+        </button>
 
 
-<button
-class="
-language-button
-neon-button"
-data-language="TA">
+        <button class="language-button neon" data-language="ZH">
 
-<span class="language-main">
-BAHASA TAMIL
-</span>
+            <span class="language-main">
+                CHINESE
+            </span>
 
-<span class="language-native">
-தமிழ்
-</span>
+            <span class="language-native">
+                中文
+            </span>
 
-</button>
-
-</div>
+        </button>
 
 
-<div class="navigation-3">
+        <button class="language-button neon" data-language="TA">
 
-<button
-id="back3"
-class="
-symbol-button
-neon-button"
-aria-label="Back">
+            <span class="language-main">
+                BAHASA TAMIL
+            </span>
 
-‹
+            <span class="language-native">
+                தமிழ்
+            </span>
 
-</button>
+        </button>
 
-
-<button
-id="next3"
-class="
-symbol-button
-neon-button"
-aria-label="Next"
-disabled>
-
-›
-
-</button>
+    </div>
 
 
-<button
-id="exit3"
-class="
-symbol-button
-exit-symbol
-neon-button"
-aria-label="Exit">
+    <!-- BACK / NEXT / EXIT -->
 
-✕
+    <div class="nav3">
 
-</button>
+        <button
+        id="back3"
+        class="nav-button neon"
+        aria-label="Back">
 
-</div>
+            ‹
+
+        </button>
 
 
-<div class="bottom-area">
+        <button
+        id="next3"
+        class="nav-button neon"
+        aria-label="Next"
+        disabled>
 
-<div
-class="
-connection-box
-disconnected
-sharedConnectionStatus">
+            ›
 
-<span class="connection-light"></span>
+        </button>
 
-<span class="connection-text">
 
-iPAD ↔ SPIKE PRIME : DISCONNECTED
+        <button
+        id="exit3"
+        class="nav-button exit-button neon"
+        aria-label="Exit">
 
-</span>
+            ✕
 
-</div>
+        </button>
 
-<div class="system-footer">
+    </div>
 
-SMART • INTERACTIVE • AUTONOMOUS
 
-</div>
+    <div class="footer">
 
-</div>
+        <div class="connection disconnected connectionStatus">
+
+            <span class="connection-dot"></span>
+
+            <span class="connection-label">
+                iPAD ↔ SPIKE PRIME : DISCONNECTED
+            </span>
+
+        </div>
+
+        <div class="footer-text">
+            SMART • INTERACTIVE • AUTONOMOUS
+        </div>
+
+    </div>
 
 </section>
-
 
 
 <!-- =====================================================
-     PAPARAN 4
+     SCREEN 4
 ===================================================== -->
 
-<section
-id="screen4"
-class="screen">
+<section id="screen4" class="screen">
 
-<header class="header">
+    <header class="header">
 
-<div class="novus">
-NOVUS
-</div>
+        <div class="novus">
+            NOVUS
+        </div>
 
-<div class="by-kruss">
-BY KRUSS MAKERS
-</div>
+        <div class="by">
+            BY KRUSS MAKERS
+        </div>
 
-<div class="tagline">
-YOUR AI MUSEUM GUIDE
-</div>
+        <div class="tagline">
+            YOUR AI MUSEUM GUIDE
+        </div>
 
-</header>
+    </header>
 
 
-<div class="content-area">
+    <div class="content">
 
-<div class="page-heading">
+        <div class="page-heading">
 
-<h2
-id="destinationHeading">
+            <h2 id="destinationHeading">
+                SELECT YOUR DESTINATION
+            </h2>
 
-SELECT YOUR DESTINATION
+            <p id="destinationSubheading">
+                PILIH DESTINASI ANDA
+            </p>
 
-</h2>
+        </div>
 
-<p
-id="destinationSubheading">
 
-PILIH DESTINASI ANDA
+        <button class="station-button red neon" data-station="1">
 
-</p>
+            <span class="dot"></span>
 
-</div>
+            <span>
 
+                <span class="station-number">
+                    STATION 1
+                </span>
 
-<button
-class="
-station-button
-station-red
-neon-button"
-data-station="1">
+                <span id="station1Name" class="station-name">
+                    Pengenalan Muzium Melaka
+                </span>
 
-<span class="station-dot"></span>
+            </span>
 
-<span class="station-text">
+        </button>
 
-<span class="station-number">
-STATION 1
-</span>
 
-<span
-id="station1Name"
-class="station-name">
+        <button class="station-button blue neon" data-station="2">
 
-Pengenalan Muzium Melaka
+            <span class="dot"></span>
 
-</span>
+            <span>
 
-</span>
+                <span class="station-number">
+                    STATION 2
+                </span>
 
-</button>
+                <span id="station2Name" class="station-name">
+                    Sejarah Melaka
+                </span>
 
+            </span>
 
-<button
-class="
-station-button
-station-blue
-neon-button"
-data-station="2">
+        </button>
 
-<span class="station-dot"></span>
 
-<span class="station-text">
+        <button class="station-button green neon" data-station="3">
 
-<span class="station-number">
-STATION 2
-</span>
+            <span class="dot"></span>
 
-<span
-id="station2Name"
-class="station-name">
+            <span>
 
-Sejarah Melaka
+                <span class="station-number">
+                    STATION 3
+                </span>
 
-</span>
+                <span id="station3Name" class="station-name">
+                    Sultan Melaka
+                </span>
 
-</span>
+            </span>
 
-</button>
+        </button>
 
 
-<button
-class="
-station-button
-station-green
-neon-button"
-data-station="3">
+        <button class="station-button yellow neon" data-station="4">
 
-<span class="station-dot"></span>
+            <span class="dot"></span>
 
-<span class="station-text">
+            <span>
 
-<span class="station-number">
-STATION 3
-</span>
+                <span class="station-number">
+                    STATION 4
+                </span>
 
-<span
-id="station3Name"
-class="station-name">
+                <span id="station4Name" class="station-name">
+                    Penaklukan Melaka
+                </span>
 
-Sultan Melaka
+            </span>
 
-</span>
+        </button>
 
-</span>
 
-</button>
+        <button class="station-button purple neon" data-station="5">
 
+            <span class="dot"></span>
 
-<button
-class="
-station-button
-station-yellow
-neon-button"
-data-station="4">
+            <span>
 
-<span class="station-dot"></span>
+                <span class="station-number">
+                    STATION 5
+                </span>
 
-<span class="station-text">
+                <span id="station5Name" class="station-name">
+                    Serangan Portugis ke atas Melaka
+                </span>
 
-<span class="station-number">
-STATION 4
-</span>
+            </span>
 
-<span
-id="station4Name"
-class="station-name">
+        </button>
 
-Penaklukan Melaka
+    </div>
 
-</span>
 
-</span>
+    <!-- BACK / HOME / NEXT / EXIT -->
 
-</button>
+    <div class="nav4">
 
+        <button
+        id="back4"
+        class="nav-button neon"
+        aria-label="Back">
 
-<button
-class="
-station-button
-station-purple
-neon-button"
-data-station="5">
+            ‹
 
-<span class="station-dot"></span>
+        </button>
 
-<span class="station-text">
 
-<span class="station-number">
-STATION 5
-</span>
+        <button
+        id="home4"
+        class="nav-button neon"
+        aria-label="Home">
 
-<span
-id="station5Name"
-class="station-name">
+            ⌂
 
-Serangan Portugis ke atas Melaka
+        </button>
 
-</span>
 
-</span>
+        <button
+        id="next4"
+        class="nav-button neon"
+        aria-label="Next"
+        disabled>
 
-</button>
+            ›
 
-</div>
+        </button>
 
 
-<div class="navigation-4">
+        <button
+        id="exit4"
+        class="nav-button exit-button neon"
+        aria-label="Exit">
 
-<button
-id="back4"
-class="
-symbol-button
-neon-button"
-aria-label="Back">
+            ✕
 
-‹
+        </button>
 
-</button>
+    </div>
 
 
-<button
-id="home4"
-class="
-symbol-button
-neon-button"
-aria-label="Home">
+    <div class="footer">
 
-⌂
+        <div class="connection disconnected connectionStatus">
 
-</button>
+            <span class="connection-dot"></span>
 
+            <span class="connection-label">
+                iPAD ↔ SPIKE PRIME : DISCONNECTED
+            </span>
 
-<button
-id="next4"
-class="
-symbol-button
-neon-button"
-aria-label="Next"
-disabled>
+        </div>
 
-›
+        <div class="footer-text">
+            SMART • INTERACTIVE • AUTONOMOUS
+        </div>
 
-</button>
-
-
-<button
-id="exit4"
-class="
-symbol-button
-exit-symbol
-neon-button"
-aria-label="Exit">
-
-✕
-
-</button>
-
-</div>
-
-
-<div class="bottom-area">
-
-<div
-class="
-connection-box
-disconnected
-sharedConnectionStatus">
-
-<span class="connection-light"></span>
-
-<span class="connection-text">
-
-iPAD ↔ SPIKE PRIME : DISCONNECTED
-
-</span>
-
-</div>
-
-<div class="system-footer">
-
-SMART • INTERACTIVE • AUTONOMOUS
-
-</div>
-
-</div>
+    </div>
 
 </section>
-
 
 
 <script>
@@ -1719,43 +1322,29 @@ document.getElementById("exit4");
 
 
 const destinationHeading =
-document.getElementById(
-    "destinationHeading"
-);
+document.getElementById("destinationHeading");
 
 const destinationSubheading =
-document.getElementById(
-    "destinationSubheading"
-);
+document.getElementById("destinationSubheading");
 
 const station1Name =
-document.getElementById(
-    "station1Name"
-);
+document.getElementById("station1Name");
 
 const station2Name =
-document.getElementById(
-    "station2Name"
-);
+document.getElementById("station2Name");
 
 const station3Name =
-document.getElementById(
-    "station3Name"
-);
+document.getElementById("station3Name");
 
 const station4Name =
-document.getElementById(
-    "station4Name"
-);
+document.getElementById("station4Name");
 
 const station5Name =
-document.getElementById(
-    "station5Name"
-);
+document.getElementById("station5Name");
 
 
 /* =====================================================
-   APP STATE
+   STATE
 ===================================================== */
 
 let currentScreen = 1;
@@ -1764,166 +1353,82 @@ let selectedLanguage = null;
 
 let selectedStation = null;
 
-let connectionState =
-"disconnected";
+let connectionState = "disconnected";
 
 
 /* =====================================================
-   SAFE SCREEN NAVIGATION
+   SCREEN MANAGER
 ===================================================== */
 
-function showScreen(
-    screenNumber
-){
+function showScreen(number){
 
-    const target =
-    screens[screenNumber];
-
-    if(!target){
-        return;
-    }
-
-
-    Object.values(
-        screens
-    )
+    Object.values(screens)
     .forEach(function(screen){
 
-        screen.classList.remove(
-            "active"
-        );
+        screen.classList.remove("active");
 
     });
 
 
-    target.classList.add(
-        "active"
-    );
+    screens[number].classList.add("active");
 
-
-    currentScreen =
-    screenNumber;
-
-
-    console.log(
-        "SCREEN:",
-        currentScreen
-    );
+    currentScreen = number;
 
 }
 
 
 /* =====================================================
-   SAFE VIDEO STOP
+   VIDEO
 ===================================================== */
 
-function stopWelcomeVideo(){
+function stopWelcome(){
 
-    try{
-
-        welcomeVideo.pause();
-
-    }
-    catch(error){
-
-        console.log(
-            "Welcome pause error:",
-            error
-        );
-
-    }
+    welcomeVideo.pause();
 
 }
 
 
-/* =====================================================
-   SAFE WELCOME PLAY
-===================================================== */
+function playWelcome(){
 
-function playWelcomeVideo(){
+    welcomeVideo.pause();
 
-    stopWelcomeVideo();
+    welcomeVideo.currentTime = 0;
 
+    welcomeVideo.muted = false;
 
-    try{
-
-        welcomeVideo.currentTime =
-        0;
-
-    }
-    catch(error){
-
-        console.log(
-            "Video reset error:",
-            error
-        );
-
-    }
+    welcomeVideo.volume = 1;
 
 
-    welcomeVideo.muted =
-    false;
+    welcomeVideo.play()
 
-    welcomeVideo.volume =
-    1;
+    .catch(function(){
 
+        welcomeVideo.muted = true;
 
-    const playAttempt =
-    welcomeVideo.play();
-
-
-    if(
-        playAttempt
-        &&
-        typeof playAttempt.catch ===
-        "function"
-    ){
-
-        playAttempt.catch(
-        function(error){
+        welcomeVideo.play()
+        .catch(function(error){
 
             console.log(
-                "Audio play blocked:",
+                "Welcome video:",
                 error
             );
 
-
-            welcomeVideo.muted =
-            true;
-
-
-            welcomeVideo.play()
-            .catch(function(error2){
-
-                console.log(
-                    "Muted video failed:",
-                    error2
-                );
-
-            });
-
         });
 
-    }
+    });
 
 }
 
 
-/* =====================================================
-   SLEEP PLAY
-===================================================== */
+function playSleep(){
 
-function playSleepVideo(){
-
-    sleepVideo.muted =
-    true;
-
+    sleepVideo.muted = true;
 
     sleepVideo.play()
     .catch(function(error){
 
         console.log(
-            "Sleep play error:",
+            "Sleep video:",
             error
         );
 
@@ -1933,7 +1438,7 @@ function playSleepVideo(){
 
 
 /* =====================================================
-   INITIAL LOAD
+   INITIAL
 ===================================================== */
 
 window.addEventListener(
@@ -1942,9 +1447,9 @@ function(){
 
     showScreen(1);
 
-    playSleepVideo();
+    playSleep();
 
-    updateConnectionStatus(
+    setConnection(
         "disconnected"
     );
 
@@ -1952,7 +1457,7 @@ function(){
 
 
 /* =====================================================
-   SCREEN 1 -> SCREEN 2
+   SCREEN 1
 ===================================================== */
 
 startButton.addEventListener(
@@ -1963,7 +1468,7 @@ function(){
 
     showScreen(2);
 
-    playWelcomeVideo();
+    playWelcome();
 
 });
 
@@ -1972,25 +1477,31 @@ function(){
    SCREEN 2 -> SCREEN 3
 ===================================================== */
 
-function goToLanguageScreen(){
+function openLanguage(){
 
-    stopWelcomeVideo();
+    stopWelcome();
 
     showScreen(3);
 
-    syncLanguageUI();
+    /*
+       IMPORTANT:
+       LANGUAGE BUTTONS ARE ALWAYS ACTIVE.
+    */
+
+    enableLanguageScreen();
 
 }
 
 
 welcomeVideo.addEventListener(
 "ended",
-function(){
+openLanguage
+);
 
-    goToLanguageScreen();
 
-});
-
+/*
+Backup for Safari.
+*/
 
 welcomeVideo.addEventListener(
 "timeupdate",
@@ -2000,39 +1511,56 @@ function(){
         welcomeVideo.duration > 0
         &&
         welcomeVideo.currentTime >=
-        welcomeVideo.duration - 0.12
+        welcomeVideo.duration - .15
     ){
 
-        goToLanguageScreen();
+        openLanguage();
 
     }
 
 });
 
 
-/* =====================================================
-   SCREEN 2 EXIT
-===================================================== */
-
 exit2.addEventListener(
 "click",
-function(){
-
-    exitTour();
-
-});
+exitTour
+);
 
 
 /* =====================================================
-   LANGUAGE BUTTONS
+   LANGUAGE SCREEN RESET/ENABLE
+===================================================== */
+
+function enableLanguageScreen(){
+
+    document
+    .querySelectorAll(
+        ".language-button"
+    )
+    .forEach(function(button){
+
+        button.disabled = false;
+
+        button.style.pointerEvents =
+        "auto";
+
+    });
+
+
+    syncLanguage();
+
+}
+
+
+/* =====================================================
+   LANGUAGE SELECTION
 ===================================================== */
 
 document
 .querySelectorAll(
     ".language-button"
 )
-.forEach(
-function(button){
+.forEach(function(button){
 
     button.addEventListener(
     "click",
@@ -2042,7 +1570,7 @@ function(button){
         button.dataset.language;
 
 
-        syncLanguageUI();
+        syncLanguage();
 
 
         updateDestinationLanguage();
@@ -2052,20 +1580,15 @@ function(button){
 });
 
 
-/* =====================================================
-   LANGUAGE UI
-===================================================== */
-
-function syncLanguageUI(){
+function syncLanguage(){
 
     document
     .querySelectorAll(
         ".language-button"
     )
-    .forEach(
-    function(button){
+    .forEach(function(button){
 
-        const isSelected =
+        const selected =
         button.dataset.language
         ===
         selectedLanguage;
@@ -2073,42 +1596,40 @@ function syncLanguageUI(){
 
         button.classList.toggle(
             "selected",
-            isSelected
+            selected
         );
 
     });
 
 
     next3.disabled =
-    !selectedLanguage;
+    selectedLanguage === null;
 
 }
 
 
 /* =====================================================
-   SCREEN 3 BACK
+   SCREEN 3 NAVIGATION
 ===================================================== */
 
 back3.addEventListener(
 "click",
 function(){
 
+    stopWelcome();
+
     showScreen(2);
 
-    playWelcomeVideo();
+    playWelcome();
 
 });
 
-
-/* =====================================================
-   SCREEN 3 NEXT
-===================================================== */
 
 next3.addEventListener(
 "click",
 function(){
 
-    if(!selectedLanguage){
+    if(selectedLanguage === null){
         return;
     }
 
@@ -2116,7 +1637,12 @@ function(){
     updateDestinationLanguage();
 
 
-    clearStationSelection();
+    /*
+       Always start Screen 4
+       with no station selected.
+    */
+
+    clearStation();
 
 
     showScreen(4);
@@ -2124,29 +1650,19 @@ function(){
 });
 
 
-/* =====================================================
-   SCREEN 3 EXIT
-===================================================== */
-
 exit3.addEventListener(
 "click",
-function(){
-
-    exitTour();
-
-});
+exitTour
+);
 
 
 /* =====================================================
-   DESTINATION LANGUAGE
+   STATION LANGUAGE
 ===================================================== */
 
 function updateDestinationLanguage(){
 
-    if(
-        selectedLanguage ===
-        "BM"
-    ){
+    if(selectedLanguage === "BM"){
 
         destinationHeading.textContent =
         "PILIH DESTINASI";
@@ -2172,10 +1688,7 @@ function updateDestinationLanguage(){
     }
 
 
-    else if(
-        selectedLanguage ===
-        "EN"
-    ){
+    else if(selectedLanguage === "EN"){
 
         destinationHeading.textContent =
         "SELECT YOUR DESTINATION";
@@ -2201,10 +1714,7 @@ function updateDestinationLanguage(){
     }
 
 
-    else if(
-        selectedLanguage ===
-        "ZH"
-    ){
+    else if(selectedLanguage === "ZH"){
 
         destinationHeading.textContent =
         "选择您的目的地";
@@ -2230,10 +1740,7 @@ function updateDestinationLanguage(){
     }
 
 
-    else if(
-        selectedLanguage ===
-        "TA"
-    ){
+    else if(selectedLanguage === "TA"){
 
         destinationHeading.textContent =
         "உங்கள் இடத்தைத் தேர்ந்தெடுக்கவும்";
@@ -2262,15 +1769,14 @@ function updateDestinationLanguage(){
 
 
 /* =====================================================
-   STATION BUTTONS
+   STATION SELECTION
 ===================================================== */
 
 document
 .querySelectorAll(
     ".station-button"
 )
-.forEach(
-function(button){
+.forEach(function(button){
 
     button.addEventListener(
     "click",
@@ -2282,35 +1788,27 @@ function(button){
         );
 
 
-        syncStationUI();
+        syncStation();
 
     });
 
 });
 
 
-/* =====================================================
-   STATION UI
-===================================================== */
-
-function syncStationUI(){
+function syncStation(){
 
     document
     .querySelectorAll(
         ".station-button"
     )
-    .forEach(
-    function(button){
-
-        const number =
-        Number(
-            button.dataset.station
-        );
-
+    .forEach(function(button){
 
         button.classList.toggle(
             "selected",
-            number ===
+            Number(
+                button.dataset.station
+            )
+            ===
             selectedStation
         );
 
@@ -2318,56 +1816,68 @@ function syncStationUI(){
 
 
     next4.disabled =
-    !selectedStation;
+    selectedStation === null;
 
 }
 
 
-/* =====================================================
-   CLEAR STATION ONLY
-===================================================== */
+function clearStation(){
 
-function clearStationSelection(){
+    selectedStation = null;
 
-    selectedStation =
-    null;
-
-
-    syncStationUI();
+    syncStation();
 
 }
 
 
 /* =====================================================
    SCREEN 4 BACK
+
+   IMPORTANT:
+   GO TO LANGUAGE SCREEN.
+   DO NOT DISABLE LANGUAGE BUTTONS.
 ===================================================== */
 
 back4.addEventListener(
 "click",
 function(){
 
-    clearStationSelection();
+    clearStation();
+
 
     showScreen(3);
 
-    syncLanguageUI();
+
+    enableLanguageScreen();
 
 });
 
 
 /* =====================================================
    SCREEN 4 HOME
+
+   HOME = SCREEN 3.
 ===================================================== */
 
 home4.addEventListener(
 "click",
 function(){
 
-    clearStationSelection();
+    clearStation();
+
+
+    /*
+       HOME means start again
+       from language selection.
+    */
+
+    selectedLanguage = null;
+
 
     showScreen(3);
 
-    syncLanguageUI();
+
+    enableLanguageScreen();
 
 });
 
@@ -2380,16 +1890,15 @@ next4.addEventListener(
 "click",
 function(){
 
-    if(!selectedStation){
+    if(selectedStation === null){
         return;
     }
 
 
     /*
-       PAPARAN 5 AKAN MASUK
-       DI SINI.
+       SCREEN 5 WILL BE
+       INSERTED HERE.
     */
-
 
     alert(
         "STATION "
@@ -2408,59 +1917,40 @@ function(){
 
 exit4.addEventListener(
 "click",
-function(){
-
-    exitTour();
-
-});
+exitTour
+);
 
 
 /* =====================================================
-   FULL EXIT RESET
+   EXIT TOUR
 
-   ONLY EXIT RETURNS
-   TO SLEEP MODE
+   EXIT ONLY -> SCREEN 1
 ===================================================== */
 
 function exitTour(){
 
-    stopWelcomeVideo();
+    stopWelcome();
 
 
-    selectedLanguage =
-    null;
+    selectedLanguage = null;
 
-    selectedStation =
-    null;
+    selectedStation = null;
 
 
-    syncLanguageUI();
+    syncLanguage();
 
-    syncStationUI();
-
-
-    try{
-
-        welcomeVideo.currentTime =
-        0;
-
-    }
-    catch(error){}
+    syncStation();
 
 
-    try{
+    welcomeVideo.currentTime = 0;
 
-        sleepVideo.currentTime =
-        0;
-
-    }
-    catch(error){}
+    sleepVideo.currentTime = 0;
 
 
     showScreen(1);
 
 
-    playSleepVideo();
+    playSleep();
 
 }
 
@@ -2469,47 +1959,38 @@ function exitTour(){
    CONNECTION STATUS
 ===================================================== */
 
-function updateConnectionStatus(
-state
-){
+function setConnection(state){
 
     connectionState =
     state;
 
 
-    const boxes =
-    document.querySelectorAll(
-        ".sharedConnectionStatus"
-    );
-
-
-    boxes.forEach(
-    function(box){
+    document
+    .querySelectorAll(
+        ".connectionStatus"
+    )
+    .forEach(function(box){
 
         box.classList.remove(
             "connected",
-            "disconnected",
-            "connecting"
+            "connecting",
+            "disconnected"
         );
 
 
-        const text =
+        const label =
         box.querySelector(
-            ".connection-text"
+            ".connection-label"
         );
 
 
-        if(
-            state ===
-            "connected"
-        ){
+        if(state === "connected"){
 
             box.classList.add(
                 "connected"
             );
 
-
-            text.textContent =
+            label.textContent =
             "iPAD ↔ SPIKE PRIME : CONNECTED";
 
         }
@@ -2524,8 +2005,7 @@ state
                 "connecting"
             );
 
-
-            text.textContent =
+            label.textContent =
             "iPAD ↔ SPIKE PRIME : CONNECTING...";
 
         }
@@ -2537,8 +2017,7 @@ state
                 "disconnected"
             );
 
-
-            text.textContent =
+            label.textContent =
             "iPAD ↔ SPIKE PRIME : DISCONNECTED";
 
         }
@@ -2547,29 +2026,7 @@ state
 
 }
 
-
-/* =====================================================
-   FUTURE BLE
-===================================================== */
-
-/*
-
-updateConnectionStatus(
-    "connecting"
-);
-
-updateConnectionStatus(
-    "connected"
-);
-
-updateConnectionStatus(
-    "disconnected"
-);
-
-*/
-
 </script>
 
 </body>
-
 </html>
