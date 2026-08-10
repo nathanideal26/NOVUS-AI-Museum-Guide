@@ -1,88 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
 
     <meta name="viewport"
           content="width=device-width,
-          initial-scale=1.0,
-          maximum-scale=1.0,
-          user-scalable=no">
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no">
+
+    <meta name="theme-color" content="#02070d">
 
     <title>NOVUS | KRUSS Makers</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
+
 <body>
 
-    <main class="welcome-screen">
+    <main id="welcomeScreen" class="welcome-screen">
+
+
+        <!-- =========================================
+             HEADER
+        ========================================== -->
 
         <header class="header">
 
-            <h1>NOVUS</h1>
+            <h1 class="novus-title">
+                NOVUS
+            </h1>
 
-            <p class="byline">
+            <div class="kruss-title">
                 BY KRUSS MAKERS
-            </p>
+            </div>
 
-            <h2>
+            <h2 class="tagline">
                 YOUR AI MUSEUM GUIDE
             </h2>
 
         </header>
 
-        <section class="video-wrapper">
 
-            <video
-                id="sleepVideo"
-                autoplay
-                muted
-                loop
-                playsinline
-                preload="auto">
 
-                <source
-                    src="media/sleepmode.mp4"
-                    type="video/mp4">
+        <!-- =========================================
+             VIDEO ROBOT SLEEP MODE
+        ========================================== -->
 
-                Your browser does not support video.
-            </video>
+        <section class="video-section">
 
-            <div class="video-overlay"></div>
+            <div class="video-container">
 
-            <div class="sleep-status">
-                <span class="status-dot"></span>
-                NOVUS IS IN SLEEP MODE
+                <video
+                    id="sleepVideo"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    preload="auto">
+
+                    <source
+                        src="media/sleepmode.mp4"
+                        type="video/mp4">
+
+                    Your browser does not support video playback.
+
+                </video>
+
+
+                <!-- DARK GRADIENT OVER VIDEO -->
+
+                <div class="video-overlay"></div>
+
+
+                <!-- SLEEP MODE INDICATOR -->
+
+                <div class="sleep-indicator">
+
+                    <span class="sleep-dot"></span>
+
+                    <span>
+                        NOVUS IS IN SLEEP MODE
+                    </span>
+
+                </div>
+
             </div>
 
         </section>
 
-        <section class="button-area">
+
+
+        <!-- =========================================
+             BEGIN TOUR
+        ========================================== -->
+
+        <section class="start-section">
 
             <button
                 id="beginTourButton"
-                class="begin-button">
+                class="begin-tour-button">
 
-                <span class="touch-icon">✦</span>
+                <span class="button-icon">
+                    ✦
+                </span>
 
-                TOUCH HERE TO BEGIN TOUR
+                <span id="buttonText">
+                    TOUCH HERE TO BEGIN TOUR
+                </span>
 
             </button>
 
-            <p class="instruction">
-                Tap the screen to wake NOVUS
-            </p>
+
+            <div class="tap-message">
+
+                TAP TO WAKE NOVUS
+
+            </div>
 
         </section>
 
-        <footer>
-            SMART • INTERACTIVE • AUTONOMOUS
+
+
+        <!-- =========================================
+             SPIKE PRIME CONNECTION STATUS
+        ========================================== -->
+
+        <footer class="footer">
+
+            <div
+                id="spikeStatus"
+                class="spike-status disconnected">
+
+                <span
+                    id="connectionLight"
+                    class="connection-light">
+                </span>
+
+                <span
+                    id="connectionText"
+                    class="connection-text">
+
+                    SPIKE PRIME DISCONNECTED
+
+                </span>
+
+            </div>
+
+
+            <div class="system-text">
+
+                SMART • INTERACTIVE • AUTONOMOUS
+
+            </div>
+
         </footer>
 
+
     </main>
+
+
+
+    <!-- =========================================
+         WAKE-UP OVERLAY
+    ========================================== -->
+
+    <div
+        id="wakeOverlay"
+        class="wake-overlay">
+
+        <div class="wake-content">
+
+            <div class="wake-logo">
+                NOVUS
+            </div>
+
+            <div class="wake-loader">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+            <div id="wakeText" class="wake-text">
+
+                WAKING UP...
+
+            </div>
+
+        </div>
+
+    </div>
+
+
 
     <script src="script.js"></script>
 
 </body>
+
 </html>
