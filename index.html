@@ -18,14 +18,13 @@
 
     <main class="welcome-screen">
 
-        <!-- HEADER -->
         <header class="header">
 
             <h1>NOVUS</h1>
 
-            <div class="creator">
+            <p class="byline">
                 BY KRUSS MAKERS
-            </div>
+            </p>
 
             <h2>
                 YOUR AI MUSEUM GUIDE
@@ -33,47 +32,52 @@
 
         </header>
 
-
-        <!-- ROBOT VIDEO -->
-        <section class="robot-area">
+        <section class="video-wrapper">
 
             <video
                 id="sleepVideo"
                 autoplay
                 muted
                 loop
-                playsinline>
+                playsinline
+                preload="auto">
 
                 <source
-                    src="media/novus-sleep.mp4"
+                    src="media/sleepmode.mp4"
                     type="video/mp4">
 
+                Your browser does not support video.
             </video>
 
-            <div class="sleep-text">
-                NOVUS IS SLEEPING...
+            <div class="video-overlay"></div>
+
+            <div class="sleep-status">
+                <span class="status-dot"></span>
+                NOVUS IS IN SLEEP MODE
             </div>
 
         </section>
 
-
-        <!-- START BUTTON -->
-        <section class="start-area">
+        <section class="button-area">
 
             <button
-                id="startButton"
-                class="start-button">
+                id="beginTourButton"
+                class="begin-button">
+
+                <span class="touch-icon">✦</span>
 
                 TOUCH HERE TO BEGIN TOUR
 
             </button>
 
+            <p class="instruction">
+                Tap the screen to wake NOVUS
+            </p>
+
         </section>
 
-
-        <!-- FOOTER -->
         <footer>
-            Interactive Museum Experience
+            SMART • INTERACTIVE • AUTONOMOUS
         </footer>
 
     </main>
