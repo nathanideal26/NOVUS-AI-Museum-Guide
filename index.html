@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
@@ -16,12 +15,6 @@ viewport-fit=cover">
 
 <style>
 
-/* =====================================================
-   NOVUS AI MUSEUM GUIDE
-   SCREEN 1 - 5
-   IPAD MINI 6 PORTRAIT
-===================================================== */
-
 *{
     margin:0;
     padding:0;
@@ -29,18 +22,15 @@ viewport-fit=cover">
     -webkit-tap-highlight-color:transparent;
 }
 
-html,
-body{
+html,body{
     width:100%;
     height:100%;
     overflow:hidden;
 }
 
 body{
-    font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
+    color:white;
 
     background:
     radial-gradient(
@@ -49,247 +39,157 @@ body{
         #061a29 45%,
         #02080e 100%
     );
-
-    color:white;
 }
-
 
 /* =====================================================
    SCREEN
 ===================================================== */
 
 .screen{
-
     position:absolute;
-
     inset:0;
+
+    display:none;
+    flex-direction:column;
+    align-items:center;
 
     width:100%;
     height:100%;
 
-    display:none;
-
-    flex-direction:column;
-
-    align-items:center;
-
     padding:
-    max(13px,env(safe-area-inset-top))
+    max(14px,env(safe-area-inset-top))
     22px
-    max(7px,env(safe-area-inset-bottom));
-
+    max(8px,env(safe-area-inset-bottom));
 }
 
 .screen.active{
     display:flex;
 }
 
-
 /* =====================================================
    HEADER
 ===================================================== */
 
 .header{
-
-    width:100%;
-
-    text-align:center;
-
     flex:0 0 auto;
-
+    text-align:center;
 }
 
 .novus{
-
-    font-size:
-    clamp(
-        45px,
-        9vw,
-        64px
-    );
-
+    font-size:58px;
     font-weight:900;
-
     letter-spacing:12px;
 
-    line-height:.95;
-
-    color:#ffffff;
-
     text-shadow:
-
-    0 0 9px #31ddff,
-
-    0 0 25px
-    rgba(49,221,255,.70),
-
-    0 0 50px
-    rgba(49,221,255,.20);
-
+    0 0 10px #34ddff,
+    0 0 30px rgba(52,221,255,.65);
 }
 
 .by{
-
     margin-top:5px;
 
     font-size:13px;
-
     font-weight:700;
-
     letter-spacing:4px;
 
-    color:#5ce5ff;
-
+    color:#62e6ff;
 }
 
 .tagline{
+    margin-top:10px;
 
-    margin-top:9px;
-
-    font-size:16px;
-
+    font-size:17px;
     letter-spacing:5px;
 
-    color:#e4fbff;
-
+    color:#e7fbff;
 }
-
 
 /* =====================================================
    VIDEO
 ===================================================== */
 
 .video-area{
+    flex:1;
+    min-height:0;
 
     width:100%;
 
-    flex:1 1 auto;
-
-    min-height:0;
-
     display:flex;
-
     justify-content:center;
     align-items:center;
-
-    padding-top:9px;
-
 }
 
 .video-frame{
-
     position:relative;
 
     width:min(88vw,680px);
-
-    height:min(44vh,530px);
-
-    min-height:260px;
+    height:min(45vh,530px);
 
     overflow:hidden;
 
     border-radius:28px;
 
-    background:#000;
+    background:black;
 
-    border:
-    2px solid
-    rgba(69,224,255,.55);
+    border:2px solid rgba(69,224,255,.55);
 
     box-shadow:
-
-    0 0 25px
-    rgba(57,216,255,.20),
-
-    0 0 55px
-    rgba(57,216,255,.08);
-
+    0 0 30px rgba(57,216,255,.18);
 }
 
 .video-frame video{
-
     width:100%;
     height:100%;
 
     object-fit:cover;
-
     display:block;
-
 }
 
-
-/* =====================================================
-   SLEEP
-===================================================== */
-
 .sleep-badge{
-
     position:absolute;
 
+    bottom:17px;
     left:50%;
-    bottom:16px;
 
     transform:translateX(-50%);
-
-    display:flex;
-
-    align-items:center;
-
-    white-space:nowrap;
 
     padding:9px 16px;
 
     border-radius:30px;
 
-    background:
-    rgba(0,8,15,.84);
+    background:rgba(0,8,15,.82);
 
-    border:
-    1px solid
-    rgba(70,220,255,.28);
+    white-space:nowrap;
 
     font-size:11px;
-
     font-weight:700;
-
     letter-spacing:2px;
-
 }
 
 .sleep-dot{
+    display:inline-block;
 
     width:9px;
     height:9px;
 
-    margin-right:9px;
+    margin-right:8px;
 
     border-radius:50%;
 
     background:#45ddff;
 
-    box-shadow:
-    0 0 10px #45ddff;
+    box-shadow:0 0 10px #45ddff;
 
-    animation:
-    pulse 1.8s infinite;
-
+    animation:pulse 1.8s infinite;
 }
 
 @keyframes pulse{
-
-    0%,100%{
-        opacity:.3;
-    }
-
-    50%{
-        opacity:1;
-    }
-
+    0%,100%{opacity:.3}
+    50%{opacity:1}
 }
 
-
 /* =====================================================
-   GENERIC BUTTON
+   GENERAL BUTTON
 ===================================================== */
 
 button{
@@ -297,207 +197,130 @@ button{
 }
 
 .neon{
-
     cursor:pointer;
 
     transition:
     transform .12s ease,
     opacity .15s ease;
-
 }
 
 .neon:active{
-
-    transform:
-    scale(.96);
-
+    transform:scale(.96);
 }
 
-
-/* =====================================================
-   CYAN GLOW
-===================================================== */
-
 @keyframes cyanGlow{
-
     0%,100%{
-
         box-shadow:
-        0 0 12px rgba(57,216,255,.35),
-        0 0 25px rgba(57,216,255,.12);
-
+        0 0 14px rgba(57,216,255,.4);
     }
 
     50%{
-
         box-shadow:
-        0 0 27px rgba(57,216,255,.90),
-        0 0 50px rgba(57,216,255,.27);
-
+        0 0 30px rgba(57,216,255,.9),
+        0 0 55px rgba(57,216,255,.25);
     }
-
 }
 
-
 /* =====================================================
-   SCREEN 1 START
+   SCREEN 1
 ===================================================== */
 
 .start-area{
-
     width:100%;
-
     text-align:center;
 
-    padding-top:9px;
-
+    padding-top:10px;
 }
 
 .start-button{
-
     width:min(88vw,640px);
+    min-height:68px;
 
-    min-height:66px;
-
-    padding:
-    13px
-    22px;
-
-    border:
-    1px solid
-    #65eaff;
-
+    border:1px solid #63e8ff;
     border-radius:50px;
+
+    font-size:18px;
+    font-weight:900;
+    letter-spacing:2px;
 
     color:#00151d;
 
     background:
-
     linear-gradient(
         90deg,
         #35d8ff,
-        #dffbff,
-        #ffffff,
-        #dffbff,
+        #e0fbff,
+        #fff,
+        #e0fbff,
         #35d8ff
     );
 
-    font-size:18px;
-
-    font-weight:900;
-
-    letter-spacing:2px;
-
-    animation:
-    cyanGlow 2s infinite;
-
+    animation:cyanGlow 2s infinite;
 }
 
 .tap-text{
-
-    margin-top:6px;
+    margin-top:7px;
 
     font-size:10px;
-
     letter-spacing:3px;
 
     opacity:.45;
-
 }
 
-
 /* =====================================================
-   MAIN CONTENT
+   CONTENT
 ===================================================== */
 
 .content{
-
-    flex:1 1 auto;
-
+    flex:1;
     min-height:0;
 
     width:100%;
 
     display:flex;
-
     flex-direction:column;
 
     align-items:center;
-
     justify-content:center;
 
-    gap:8px;
-
-    padding-top:7px;
-
+    gap:9px;
 }
 
-
-/* =====================================================
-   PAGE HEADING
-===================================================== */
-
 .page-heading{
-
     text-align:center;
 
-    margin-bottom:5px;
-
+    margin-bottom:6px;
 }
 
 .page-heading h2{
-
-    font-size:22px;
-
-    font-weight:900;
-
+    font-size:23px;
     letter-spacing:3px;
 
     text-shadow:
-
-    0 0 10px
-    rgba(65,220,255,.70),
-
-    0 0 20px
-    rgba(65,220,255,.25);
-
+    0 0 15px rgba(65,220,255,.7);
 }
 
 .page-heading p{
-
-    margin-top:6px;
+    margin-top:7px;
 
     font-size:12px;
-
     letter-spacing:2px;
 
     color:#6fe8ff;
-
 }
 
-
 /* =====================================================
-   LANGUAGE BUTTON
+   LANGUAGE
 ===================================================== */
 
 .language-button{
-
     width:min(86vw,610px);
+    min-height:70px;
 
-    min-height:68px;
-
-    padding:
-    9px
-    20px;
-
-    border:
-    1px solid
-    rgba(77,225,255,.75);
-
+    border:1px solid rgba(77,225,255,.75);
     border-radius:20px;
 
     background:
-
     linear-gradient(
         135deg,
         rgba(5,29,45,.97),
@@ -506,296 +329,195 @@ button{
 
     color:white;
 
-    animation:
-    cyanGlow 2.2s infinite;
+    box-shadow:
+    0 0 15px rgba(57,216,255,.4);
 
+    animation:cyanGlow 2.2s infinite;
+}
+
+.language-button.confirming{
+    border:2px solid white;
+
+    box-shadow:
+    0 0 30px rgba(57,216,255,.95),
+    0 0 55px rgba(57,216,255,.3);
 }
 
 .language-main{
-
     display:block;
 
     font-size:17px;
-
     font-weight:900;
-
     letter-spacing:2px;
-
 }
 
 .language-native{
-
     display:block;
 
     margin-top:4px;
 
     font-size:20px;
-
     font-weight:700;
 
     color:#72eaff;
-
 }
 
-
 /* =====================================================
-   STATION BUTTON
+   STATIONS
 ===================================================== */
 
 .station-button{
-
     width:min(88vw,640px);
+    min-height:66px;
 
-    min-height:64px;
-
-    padding:
-    8px
-    15px;
+    padding:8px 16px;
 
     border-radius:19px;
 
-    background:
-    rgba(3,20,30,.92);
+    background:rgba(3,20,30,.92);
 
     color:white;
 
     display:flex;
-
     align-items:center;
 
     gap:14px;
 
     text-align:left;
-
 }
 
 .station-button.selected{
-
     border-width:2px;
-
-    transform:
-    scale(1.01);
-
+    transform:scale(1.01);
 }
 
 .dot{
-
     width:19px;
-
     height:19px;
 
     border-radius:50%;
 
     flex-shrink:0;
-
 }
 
 .station-number{
-
     display:block;
 
     font-size:11px;
-
     font-weight:900;
-
     letter-spacing:2px;
 
-    opacity:.70;
-
+    opacity:.7;
 }
 
 .station-name{
-
     display:block;
 
     margin-top:3px;
 
     font-size:15px;
-
     font-weight:800;
-
 }
 
-
-/* =====================================================
-   STATION COLOURS
-===================================================== */
-
 .red{
-
-    border:
-    1px solid
-    #ff4058;
-
-    box-shadow:
-    0 0 14px
-    rgba(255,64,88,.35);
-
+    border:1px solid #ff4058;
+    box-shadow:0 0 14px rgba(255,64,88,.35);
 }
 
 .red .dot{
-
     background:#ff3048;
-
-    box-shadow:
-    0 0 11px #ff3048;
-
+    box-shadow:0 0 11px #ff3048;
 }
 
-
 .blue{
-
-    border:
-    1px solid
-    #33a8ff;
-
-    box-shadow:
-    0 0 14px
-    rgba(51,168,255,.35);
-
+    border:1px solid #33a8ff;
+    box-shadow:0 0 14px rgba(51,168,255,.35);
 }
 
 .blue .dot{
-
     background:#279cff;
-
-    box-shadow:
-    0 0 11px #279cff;
-
+    box-shadow:0 0 11px #279cff;
 }
 
-
 .green{
-
-    border:
-    1px solid
-    #35ff78;
-
-    box-shadow:
-    0 0 14px
-    rgba(53,255,120,.35);
-
+    border:1px solid #35ff78;
+    box-shadow:0 0 14px rgba(53,255,120,.35);
 }
 
 .green .dot{
-
     background:#35ff78;
-
-    box-shadow:
-    0 0 11px #35ff78;
-
+    box-shadow:0 0 11px #35ff78;
 }
 
-
 .yellow{
-
-    border:
-    1px solid
-    #ffd93f;
-
-    box-shadow:
-    0 0 14px
-    rgba(255,217,63,.35);
-
+    border:1px solid #ffd93f;
+    box-shadow:0 0 14px rgba(255,217,63,.35);
 }
 
 .yellow .dot{
-
     background:#ffd93f;
-
-    box-shadow:
-    0 0 11px #ffd93f;
-
+    box-shadow:0 0 11px #ffd93f;
 }
 
-
 .purple{
-
-    border:
-    1px solid
-    #c05cff;
-
-    box-shadow:
-    0 0 14px
-    rgba(192,92,255,.35);
-
+    border:1px solid #c05cff;
+    box-shadow:0 0 14px rgba(192,92,255,.35);
 }
 
 .purple .dot{
-
     background:#bf52ff;
-
-    box-shadow:
-    0 0 11px #bf52ff;
-
+    box-shadow:0 0 11px #bf52ff;
 }
-
 
 /* =====================================================
    NAVIGATION
 ===================================================== */
 
 .nav2{
-
     width:min(88vw,640px);
 
     display:grid;
-
-    grid-template-columns:
-    1fr;
+    grid-template-columns:1fr;
 
     gap:8px;
 
     margin-top:7px;
-
 }
 
+/* SCREEN 3 ONLY BACK + EXIT */
 
 .nav3{
-
     width:min(88vw,640px);
 
     display:grid;
-
-    grid-template-columns:
-    1fr 1fr;
+    grid-template-columns:1fr 1fr;
 
     gap:10px;
 
-    margin-top:7px;
-
+    margin-top:8px;
 }
-
 
 .nav4,
 .nav5{
-
     width:min(88vw,640px);
 
     display:grid;
-
     grid-template-columns:
     1fr 1fr 1fr 1fr;
 
     gap:8px;
 
-    margin-top:7px;
-
+    margin-top:8px;
 }
 
-
 .nav-button{
-
-    min-height:50px;
+    min-height:52px;
 
     border-radius:17px;
 
-    border:
-    1px solid
-    rgba(69,224,255,.70);
+    border:1px solid rgba(69,224,255,.7);
 
     background:
-
     linear-gradient(
         135deg,
         rgba(3,31,47,.97),
@@ -804,37 +526,24 @@ button{
 
     color:#e7fcff;
 
-    font-size:26px;
-
+    font-size:27px;
     font-weight:900;
 
     box-shadow:
-    0 0 14px
-    rgba(57,216,255,.38);
-
+    0 0 14px rgba(57,216,255,.4);
 }
-
 
 .nav-button:disabled{
-
-    opacity:.23;
-
+    opacity:.28;
     cursor:default;
-
-    box-shadow:none;
-
 }
 
-
 .exit-button{
-
-    border-color:
-    #ff5366;
+    border-color:#ff5366;
 
     color:#ffabb4;
 
     background:
-
     linear-gradient(
         135deg,
         #3a050c,
@@ -842,58 +551,41 @@ button{
     );
 
     box-shadow:
-    0 0 16px
-    rgba(255,48,69,.45);
-
+    0 0 16px rgba(255,48,69,.45);
 }
 
-
 /* =====================================================
-   SCREEN 2
+   SCREEN 2 EXIT
 ===================================================== */
 
 .welcome-info{
-
     text-align:center;
 
-    padding-top:6px;
-
+    padding-top:7px;
 }
 
 .welcome-title{
-
     font-size:16px;
-
     font-weight:700;
-
     letter-spacing:4px;
-
 }
 
 .welcome-small{
-
-    margin-top:4px;
+    margin-top:5px;
 
     font-size:10px;
-
     letter-spacing:3px;
 
     opacity:.45;
-
 }
 
 .exit-tour-button{
-
-    margin-top:7px;
+    margin-top:8px;
 
     min-width:210px;
+    min-height:44px;
 
-    min-height:43px;
-
-    border:
-    1px solid
-    #ff5366;
-
+    border:1px solid #ff5366;
     border-radius:35px;
 
     background:#580914;
@@ -901,185 +593,201 @@ button{
     color:#ffb4bd;
 
     font-size:13px;
-
     font-weight:900;
-
     letter-spacing:2px;
 
     box-shadow:
-    0 0 17px
-    rgba(255,48,69,.40);
-
+    0 0 17px rgba(255,48,69,.4);
 }
-
 
 /* =====================================================
    CONNECTION
 ===================================================== */
 
 .footer{
-
     width:100%;
 
     display:flex;
-
     flex-direction:column;
 
     align-items:center;
 
     gap:5px;
 
-    padding-top:6px;
-
+    padding-top:7px;
 }
 
-
 .connection{
-
     min-width:340px;
 
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
     gap:9px;
 
-    padding:
-    8px
-    14px;
+    padding:8px 14px;
 
     border-radius:30px;
 
-    background:
-    rgba(0,0,0,.30);
+    background:rgba(0,0,0,.3);
 
     font-size:10px;
-
     font-weight:800;
-
     letter-spacing:1.6px;
-
 }
 
-
 .connection-dot{
-
     width:12px;
-
     height:12px;
 
     border-radius:50%;
-
 }
-
 
 .connection.disconnected{
-
     color:#ff9da7;
-
 }
 
-.connection.disconnected
-.connection-dot{
-
+.connection.disconnected .connection-dot{
     background:#ff3048;
 
     box-shadow:
     0 0 10px #ff3048;
 
-    animation:
-    pulse 1.2s infinite;
-
+    animation:pulse 1.2s infinite;
 }
-
 
 .connection.connecting{
-
     color:#ffe38a;
-
 }
 
-.connection.connecting
-.connection-dot{
-
+.connection.connecting .connection-dot{
     background:#ffd43b;
 
     box-shadow:
     0 0 10px #ffd43b;
-
 }
-
 
 .connection.connected{
-
     color:#8dffb5;
-
 }
 
-.connection.connected
-.connection-dot{
-
+.connection.connected .connection-dot{
     background:#35ff78;
 
     box-shadow:
     0 0 10px #35ff78;
-
 }
 
-
 .footer-text{
-
     font-size:8px;
-
     letter-spacing:4px;
 
     opacity:.25;
-
 }
 
+/* =====================================================
+   LANGUAGE CONFIRMATION OVERLAY
+===================================================== */
+
+.confirm-overlay{
+    position:absolute;
+    inset:0;
+
+    z-index:50;
+
+    display:none;
+
+    flex-direction:column;
+
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(12,54,78,.98),
+        rgba(2,9,15,.99)
+    );
+}
+
+.confirm-overlay.show{
+    display:flex;
+}
+
+.confirm-icon{
+    width:95px;
+    height:95px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    border:2px solid #57e4ff;
+
+    color:#57e4ff;
+
+    font-size:44px;
+
+    box-shadow:
+    0 0 30px rgba(57,216,255,.7);
+}
+
+.confirm-title{
+    margin-top:25px;
+
+    font-size:27px;
+    font-weight:900;
+
+    letter-spacing:3px;
+
+    text-shadow:
+    0 0 15px rgba(57,216,255,.6);
+}
+
+.confirm-small{
+    margin-top:10px;
+
+    font-size:13px;
+    letter-spacing:3px;
+
+    color:#72eaff;
+}
 
 /* =====================================================
-   SCREEN 5 - TRAVELLING
+   TRAVEL SCREEN
 ===================================================== */
 
 .travel-content{
-
     flex:1;
 
     width:100%;
 
     display:flex;
-
     flex-direction:column;
 
     justify-content:center;
-
     align-items:center;
 
     text-align:center;
 
     gap:17px;
-
 }
 
-
 .travel-status{
-
     font-size:14px;
-
     letter-spacing:4px;
 
     color:#6de8ff;
-
 }
 
-
 .travel-marker{
-
     width:105px;
-
     height:105px;
 
     border-radius:50%;
@@ -1087,75 +795,50 @@ button{
     display:flex;
 
     justify-content:center;
-
     align-items:center;
 
     font-size:42px;
-
     font-weight:900;
 
-    background:
-    rgba(3,20,30,.90);
-
+    background:rgba(3,20,30,.90);
 }
-
 
 .travel-station{
-
     font-size:18px;
-
     font-weight:900;
-
     letter-spacing:4px;
-
 }
 
-
 .travel-destination{
-
     max-width:90%;
 
     font-size:29px;
-
     font-weight:900;
 
     line-height:1.15;
 
     text-shadow:
-    0 0 18px
-    rgba(90,225,255,.45);
-
+    0 0 18px rgba(90,225,255,.45);
 }
 
-
 .travel-message{
-
     font-size:20px;
-
     font-weight:800;
-
     letter-spacing:3px;
 
     color:#e7fcff;
-
 }
 
-
 .travel-animation{
-
     display:flex;
 
     gap:12px;
 
     margin-top:4px;
-
 }
 
-
 .travel-animation span{
-
     width:13px;
-
     height:13px;
 
     border-radius:50%;
@@ -1167,271 +850,141 @@ button{
 
     animation:
     travelling 1.3s infinite;
-
 }
 
-
 .travel-animation span:nth-child(2){
-
     animation-delay:.2s;
-
 }
 
 .travel-animation span:nth-child(3){
-
     animation-delay:.4s;
-
 }
 
-
 @keyframes travelling{
-
     0%,100%{
-
         opacity:.25;
-
-        transform:
-        scale(.7);
-
+        transform:scale(.7);
     }
 
     50%{
-
         opacity:1;
-
-        transform:
-        scale(1.2);
-
+        transform:scale(1.2);
     }
-
 }
-
-
-/* =====================================================
-   TRAVEL MARKER COLOURS
-===================================================== */
 
 .travel-red{
-
-    border:
-    3px solid
-    #ff4058;
-
+    border:3px solid #ff4058;
     color:#ff4058;
-
-    box-shadow:
-    0 0 28px
-    rgba(255,64,88,.70);
-
+    box-shadow:0 0 28px rgba(255,64,88,.70);
 }
-
 
 .travel-blue{
-
-    border:
-    3px solid
-    #33a8ff;
-
+    border:3px solid #33a8ff;
     color:#33a8ff;
-
-    box-shadow:
-    0 0 28px
-    rgba(51,168,255,.70);
-
+    box-shadow:0 0 28px rgba(51,168,255,.70);
 }
-
 
 .travel-green{
-
-    border:
-    3px solid
-    #35ff78;
-
+    border:3px solid #35ff78;
     color:#35ff78;
-
-    box-shadow:
-    0 0 28px
-    rgba(53,255,120,.65);
-
+    box-shadow:0 0 28px rgba(53,255,120,.65);
 }
-
 
 .travel-yellow{
-
-    border:
-    3px solid
-    #ffd93f;
-
+    border:3px solid #ffd93f;
     color:#ffd93f;
-
-    box-shadow:
-    0 0 28px
-    rgba(255,217,63,.65);
-
+    box-shadow:0 0 28px rgba(255,217,63,.65);
 }
-
 
 .travel-purple{
-
-    border:
-    3px solid
-    #c05cff;
-
+    border:3px solid #c05cff;
     color:#c05cff;
-
-    box-shadow:
-    0 0 28px
-    rgba(192,92,255,.70);
-
+    box-shadow:0 0 28px rgba(192,92,255,.70);
 }
-
-
-/* =====================================================
-   SMALL IPAD
-===================================================== */
 
 @media(max-height:950px){
 
     .screen{
-
         padding-top:7px;
-
         padding-bottom:4px;
-
     }
-
 
     .novus{
-
-        font-size:42px;
-
+        font-size:43px;
     }
-
 
     .by{
-
-        font-size:10px;
-
+        font-size:11px;
     }
-
 
     .tagline{
-
         margin-top:4px;
-
         font-size:13px;
-
     }
-
 
     .video-frame{
-
-        height:36vh;
-
+        height:37vh;
     }
-
 
     .language-button{
-
-        min-height:50px;
-
+        min-height:52px;
     }
-
 
     .language-main{
-
         font-size:14px;
-
     }
-
 
     .language-native{
-
         font-size:17px;
-
     }
-
 
     .station-button{
-
-        min-height:49px;
-
+        min-height:51px;
     }
-
 
     .station-name{
-
         font-size:12px;
-
     }
-
 
     .nav-button{
-
-        min-height:39px;
-
-        font-size:20px;
-
+        min-height:40px;
+        font-size:21px;
     }
-
 
     .connection{
-
         min-width:295px;
-
         font-size:8px;
-
     }
-
 
     .travel-marker{
-
         width:82px;
-
         height:82px;
-
         font-size:34px;
-
     }
-
 
     .travel-destination{
-
         font-size:23px;
-
     }
-
 
     .travel-message{
-
         font-size:16px;
-
     }
-
 }
 
 </style>
-
 </head>
-
 
 <body>
 
-
 <!-- =====================================================
-     PAPARAN 1
+     SCREEN 1
 ===================================================== -->
 
-<section
-id="screen1"
-class="screen active">
-
+<section id="screen1" class="screen active">
 
 <header class="header">
 
-<div class="novus">
-NOVUS
-</div>
+<div class="novus">NOVUS</div>
 
 <div class="by">
 BY KRUSS MAKERS
@@ -1447,7 +1000,6 @@ YOUR AI MUSEUM GUIDE
 <div class="video-area">
 
 <div class="video-frame">
-
 
 <video
 id="sleepVideo"
@@ -1472,7 +1024,6 @@ NOVUS IS IN SLEEP MODE
 
 </div>
 
-
 </div>
 
 </div>
@@ -1488,11 +1039,8 @@ class="start-button neon">
 
 </button>
 
-
 <div class="tap-text">
-
 TAP TO WAKE NOVUS
-
 </div>
 
 </div>
@@ -1500,50 +1048,33 @@ TAP TO WAKE NOVUS
 
 <div class="footer">
 
-<div
-class="
-connection
-disconnected
-connectionStatus">
+<div class="connection disconnected connectionStatus">
 
 <span class="connection-dot"></span>
 
 <span class="connection-label">
-
 iPAD ↔ SPIKE PRIME : DISCONNECTED
-
 </span>
 
 </div>
 
-
 <div class="footer-text">
-
 SMART • INTERACTIVE • AUTONOMOUS
-
 </div>
 
 </div>
-
 
 </section>
 
-
-
 <!-- =====================================================
-     PAPARAN 2
+     SCREEN 2
 ===================================================== -->
 
-<section
-id="screen2"
-class="screen">
-
+<section id="screen2" class="screen">
 
 <header class="header">
 
-<div class="novus">
-NOVUS
-</div>
+<div class="novus">NOVUS</div>
 
 <div class="by">
 BY KRUSS MAKERS
@@ -1560,7 +1091,6 @@ YOUR AI MUSEUM GUIDE
 
 <div class="video-frame">
 
-
 <video
 id="welcomeVideo"
 playsinline
@@ -1572,7 +1102,6 @@ type="video/mp4">
 
 </video>
 
-
 </div>
 
 </div>
@@ -1581,23 +1110,17 @@ type="video/mp4">
 <div class="welcome-info">
 
 <div class="welcome-title">
-
 WELCOME TO NOVUS
-
 </div>
 
 <div class="welcome-small">
-
 PLEASE ENJOY THE WELCOME MESSAGE
-
 </div>
 
 
 <button
 id="exit2"
-class="
-exit-tour-button
-neon">
+class="exit-tour-button neon">
 
 ✕ EXIT TOUR
 
@@ -1608,50 +1131,33 @@ neon">
 
 <div class="footer">
 
-<div
-class="
-connection
-disconnected
-connectionStatus">
+<div class="connection disconnected connectionStatus">
 
 <span class="connection-dot"></span>
 
 <span class="connection-label">
-
 iPAD ↔ SPIKE PRIME : DISCONNECTED
-
 </span>
 
 </div>
 
-
 <div class="footer-text">
-
 SMART • INTERACTIVE • AUTONOMOUS
-
 </div>
 
 </div>
-
 
 </section>
 
-
-
 <!-- =====================================================
-     PAPARAN 3 = HOME
+     SCREEN 3 = LANGUAGE HOME
 ===================================================== -->
 
-<section
-id="screen3"
-class="screen">
-
+<section id="screen3" class="screen">
 
 <header class="header">
 
-<div class="novus">
-NOVUS
-</div>
+<div class="novus">NOVUS</div>
 
 <div class="by">
 BY KRUSS MAKERS
@@ -1665,7 +1171,6 @@ YOUR AI MUSEUM GUIDE
 
 
 <div class="content">
-
 
 <div class="page-heading">
 
@@ -1681,9 +1186,7 @@ SILA PILIH BAHASA
 
 
 <button
-class="
-language-button
-neon"
+class="language-button neon"
 data-language="BM">
 
 <span class="language-main">
@@ -1698,9 +1201,7 @@ Bahasa Melayu
 
 
 <button
-class="
-language-button
-neon"
+class="language-button neon"
 data-language="EN">
 
 <span class="language-main">
@@ -1715,9 +1216,7 @@ English
 
 
 <button
-class="
-language-button
-neon"
+class="language-button neon"
 data-language="ZH">
 
 <span class="language-main">
@@ -1732,9 +1231,7 @@ CHINESE
 
 
 <button
-class="
-language-button
-neon"
+class="language-button neon"
 data-language="TA">
 
 <span class="language-main">
@@ -1747,24 +1244,14 @@ BAHASA TAMIL
 
 </button>
 
-
 </div>
 
 
-<!-- SCREEN 3
-     BACK + EXIT
-     LANGUAGE BUTTON AUTO NEXT
--->
-
 <div class="nav3">
-
 
 <button
 id="back3"
-class="
-nav-button
-neon"
-aria-label="Back">
+class="nav-button neon">
 
 ‹
 
@@ -1773,66 +1260,44 @@ aria-label="Back">
 
 <button
 id="exit3"
-class="
-nav-button
-exit-button
-neon"
-aria-label="Exit">
+class="nav-button exit-button neon">
 
 ✕
 
 </button>
-
 
 </div>
 
 
 <div class="footer">
 
-<div
-class="
-connection
-disconnected
-connectionStatus">
+<div class="connection disconnected connectionStatus">
 
 <span class="connection-dot"></span>
 
 <span class="connection-label">
-
 iPAD ↔ SPIKE PRIME : DISCONNECTED
-
 </span>
 
 </div>
 
-
 <div class="footer-text">
-
 SMART • INTERACTIVE • AUTONOMOUS
-
 </div>
 
 </div>
-
 
 </section>
 
-
-
 <!-- =====================================================
-     PAPARAN 4 - DESTINATION
+     SCREEN 4 - DESTINATION
 ===================================================== -->
 
-<section
-id="screen4"
-class="screen">
-
+<section id="screen4" class="screen">
 
 <header class="header">
 
-<div class="novus">
-NOVUS
-</div>
+<div class="novus">NOVUS</div>
 
 <div class="by">
 BY KRUSS MAKERS
@@ -1847,31 +1312,21 @@ YOUR AI MUSEUM GUIDE
 
 <div class="content">
 
-
 <div class="page-heading">
 
-<h2
-id="destinationHeading">
-
+<h2 id="destinationHeading">
 SELECT YOUR DESTINATION
-
 </h2>
 
-<p
-id="destinationSubheading">
-
+<p id="destinationSubheading">
 PILIH DESTINASI ANDA
-
 </p>
 
 </div>
 
 
 <button
-class="
-station-button
-red
-neon"
+class="station-button red neon"
 data-station="1">
 
 <span class="dot"></span>
@@ -1882,12 +1337,8 @@ data-station="1">
 STATION 1
 </span>
 
-<span
-id="station1Name"
-class="station-name">
-
+<span id="station1Name" class="station-name">
 Pengenalan Muzium Melaka
-
 </span>
 
 </span>
@@ -1896,10 +1347,7 @@ Pengenalan Muzium Melaka
 
 
 <button
-class="
-station-button
-blue
-neon"
+class="station-button blue neon"
 data-station="2">
 
 <span class="dot"></span>
@@ -1910,12 +1358,8 @@ data-station="2">
 STATION 2
 </span>
 
-<span
-id="station2Name"
-class="station-name">
-
+<span id="station2Name" class="station-name">
 Sejarah Melaka
-
 </span>
 
 </span>
@@ -1924,10 +1368,7 @@ Sejarah Melaka
 
 
 <button
-class="
-station-button
-green
-neon"
+class="station-button green neon"
 data-station="3">
 
 <span class="dot"></span>
@@ -1938,12 +1379,8 @@ data-station="3">
 STATION 3
 </span>
 
-<span
-id="station3Name"
-class="station-name">
-
+<span id="station3Name" class="station-name">
 Sultan Melaka
-
 </span>
 
 </span>
@@ -1952,10 +1389,7 @@ Sultan Melaka
 
 
 <button
-class="
-station-button
-yellow
-neon"
+class="station-button yellow neon"
 data-station="4">
 
 <span class="dot"></span>
@@ -1966,12 +1400,8 @@ data-station="4">
 STATION 4
 </span>
 
-<span
-id="station4Name"
-class="station-name">
-
+<span id="station4Name" class="station-name">
 Penaklukan Melaka
-
 </span>
 
 </span>
@@ -1980,10 +1410,7 @@ Penaklukan Melaka
 
 
 <button
-class="
-station-button
-purple
-neon"
+class="station-button purple neon"
 data-station="5">
 
 <span class="dot"></span>
@@ -1994,31 +1421,22 @@ data-station="5">
 STATION 5
 </span>
 
-<span
-id="station5Name"
-class="station-name">
-
+<span id="station5Name" class="station-name">
 Serangan Portugis ke atas Melaka
-
 </span>
 
 </span>
 
 </button>
 
-
 </div>
 
 
 <div class="nav4">
 
-
 <button
 id="back4"
-class="
-nav-button
-neon"
-aria-label="Back">
+class="nav-button neon">
 
 ‹
 
@@ -2027,10 +1445,7 @@ aria-label="Back">
 
 <button
 id="home4"
-class="
-nav-button
-neon"
-aria-label="Home">
+class="nav-button neon">
 
 ⌂
 
@@ -2039,10 +1454,7 @@ aria-label="Home">
 
 <button
 id="next4"
-class="
-nav-button
-neon"
-aria-label="Next"
+class="nav-button neon"
 disabled>
 
 ›
@@ -2052,66 +1464,44 @@ disabled>
 
 <button
 id="exit4"
-class="
-nav-button
-exit-button
-neon"
-aria-label="Exit">
+class="nav-button exit-button neon">
 
 ✕
 
 </button>
-
 
 </div>
 
 
 <div class="footer">
 
-<div
-class="
-connection
-disconnected
-connectionStatus">
+<div class="connection disconnected connectionStatus">
 
 <span class="connection-dot"></span>
 
 <span class="connection-label">
-
 iPAD ↔ SPIKE PRIME : DISCONNECTED
-
 </span>
 
 </div>
 
-
 <div class="footer-text">
-
 SMART • INTERACTIVE • AUTONOMOUS
-
 </div>
 
 </div>
-
 
 </section>
 
-
-
 <!-- =====================================================
-     PAPARAN 5 - TRAVELLING
+     SCREEN 5 - TRAVEL
 ===================================================== -->
 
-<section
-id="screen5"
-class="screen">
-
+<section id="screen5" class="screen">
 
 <header class="header">
 
-<div class="novus">
-NOVUS
-</div>
+<div class="novus">NOVUS</div>
 
 <div class="by">
 BY KRUSS MAKERS
@@ -2126,7 +1516,6 @@ YOUR AI MUSEUM GUIDE
 
 <div class="travel-content">
 
-
 <div
 id="travelStatus"
 class="travel-status">
@@ -2138,9 +1527,7 @@ NAVIGATING TO YOUR DESTINATION
 
 <div
 id="travelMarker"
-class="
-travel-marker
-travel-red">
+class="travel-marker travel-red">
 
 1
 
@@ -2182,24 +1569,14 @@ SILA IKUT NOVUS
 
 </div>
 
-
 </div>
 
 
-<!--
-NEXT DISABLED UNTIL
-SPIKE REPORTS ARRIVED
--->
-
 <div class="nav5">
-
 
 <button
 id="back5"
-class="
-nav-button
-neon"
-aria-label="Back">
+class="nav-button neon">
 
 ‹
 
@@ -2208,10 +1585,7 @@ aria-label="Back">
 
 <button
 id="home5"
-class="
-nav-button
-neon"
-aria-label="Home">
+class="nav-button neon">
 
 ⌂
 
@@ -2220,10 +1594,7 @@ aria-label="Home">
 
 <button
 id="next5"
-class="
-nav-button
-neon"
-aria-label="Next"
+class="nav-button neon"
 disabled>
 
 ›
@@ -2233,287 +1604,204 @@ disabled>
 
 <button
 id="exit5"
-class="
-nav-button
-exit-button
-neon"
-aria-label="Exit">
+class="nav-button exit-button neon">
 
 ✕
 
 </button>
-
 
 </div>
 
 
 <div class="footer">
 
-<div
-class="
-connection
-disconnected
-connectionStatus">
+<div class="connection disconnected connectionStatus">
 
 <span class="connection-dot"></span>
 
 <span class="connection-label">
-
 iPAD ↔ SPIKE PRIME : DISCONNECTED
-
 </span>
 
 </div>
 
-
 <div class="footer-text">
-
 SMART • INTERACTIVE • AUTONOMOUS
-
 </div>
 
 </div>
-
 
 </section>
 
+<!-- =====================================================
+     LANGUAGE AUDIO CONFIRMATION
+===================================================== -->
+
+<div
+id="confirmOverlay"
+class="confirm-overlay">
+
+<div class="confirm-icon">
+✓
+</div>
+
+<div
+id="confirmTitle"
+class="confirm-title">
+
+LANGUAGE SELECTED
+
+</div>
+
+<div
+id="confirmSmall"
+class="confirm-small">
+
+PREPARING YOUR TOUR
+
+</div>
+
+</div>
 
 
 <script>
 
 /* =====================================================
-   SCREEN ELEMENTS
+   SCREENS
 ===================================================== */
 
 const screens = {
 
-1:
-document.getElementById(
-"screen1"
-),
-
-2:
-document.getElementById(
-"screen2"
-),
-
-3:
-document.getElementById(
-"screen3"
-),
-
-4:
-document.getElementById(
-"screen4"
-),
-
-5:
-document.getElementById(
-"screen5"
-)
+1:document.getElementById("screen1"),
+2:document.getElementById("screen2"),
+3:document.getElementById("screen3"),
+4:document.getElementById("screen4"),
+5:document.getElementById("screen5")
 
 };
 
 
-/* =====================================================
-   VIDEO
-===================================================== */
-
 const sleepVideo =
-document.getElementById(
-"sleepVideo"
-);
+document.getElementById("sleepVideo");
 
 const welcomeVideo =
-document.getElementById(
-"welcomeVideo"
-);
-
-
-/* =====================================================
-   BUTTONS
-===================================================== */
+document.getElementById("welcomeVideo");
 
 const startButton =
-document.getElementById(
-"startButton"
-);
+document.getElementById("startButton");
+
 
 const exit2 =
-document.getElementById(
-"exit2"
-);
+document.getElementById("exit2");
 
 const back3 =
-document.getElementById(
-"back3"
-);
+document.getElementById("back3");
 
 const exit3 =
-document.getElementById(
-"exit3"
-);
+document.getElementById("exit3");
 
 const back4 =
-document.getElementById(
-"back4"
-);
+document.getElementById("back4");
 
 const home4 =
-document.getElementById(
-"home4"
-);
+document.getElementById("home4");
 
 const next4 =
-document.getElementById(
-"next4"
-);
+document.getElementById("next4");
 
 const exit4 =
-document.getElementById(
-"exit4"
-);
+document.getElementById("exit4");
 
 const back5 =
-document.getElementById(
-"back5"
-);
+document.getElementById("back5");
 
 const home5 =
-document.getElementById(
-"home5"
-);
+document.getElementById("home5");
 
 const next5 =
-document.getElementById(
-"next5"
-);
+document.getElementById("next5");
 
 const exit5 =
-document.getElementById(
-"exit5"
-);
+document.getElementById("exit5");
 
-
-/* =====================================================
-   SCREEN 4 TEXT
-===================================================== */
 
 const destinationHeading =
-document.getElementById(
-"destinationHeading"
-);
+document.getElementById("destinationHeading");
 
 const destinationSubheading =
-document.getElementById(
-"destinationSubheading"
-);
+document.getElementById("destinationSubheading");
 
 const station1Name =
-document.getElementById(
-"station1Name"
-);
+document.getElementById("station1Name");
 
 const station2Name =
-document.getElementById(
-"station2Name"
-);
+document.getElementById("station2Name");
 
 const station3Name =
-document.getElementById(
-"station3Name"
-);
+document.getElementById("station3Name");
 
 const station4Name =
-document.getElementById(
-"station4Name"
-);
+document.getElementById("station4Name");
 
 const station5Name =
-document.getElementById(
-"station5Name"
-);
+document.getElementById("station5Name");
 
-
-/* =====================================================
-   SCREEN 5 TEXT
-===================================================== */
 
 const travelStatus =
-document.getElementById(
-"travelStatus"
-);
+document.getElementById("travelStatus");
 
 const travelMarker =
-document.getElementById(
-"travelMarker"
-);
+document.getElementById("travelMarker");
 
 const travelStation =
-document.getElementById(
-"travelStation"
-);
+document.getElementById("travelStation");
 
 const travelDestination =
-document.getElementById(
-"travelDestination"
-);
+document.getElementById("travelDestination");
 
 const travelMessage =
-document.getElementById(
-"travelMessage"
-);
+document.getElementById("travelMessage");
 
 
-/* =====================================================
-   STATE
-===================================================== */
+const confirmOverlay =
+document.getElementById("confirmOverlay");
 
-let currentScreen =
-1;
+const confirmTitle =
+document.getElementById("confirmTitle");
 
-let selectedLanguage =
-null;
+const confirmSmall =
+document.getElementById("confirmSmall");
 
-let selectedStation =
-null;
 
-let connectionState =
-"disconnected";
+let currentScreen = 1;
 
-let arrived =
-false;
+let selectedLanguage = null;
+
+let selectedStation = null;
+
+let arrived = false;
+
+let languageTransitionBusy = false;
 
 
 /* =====================================================
    SCREEN MANAGER
 ===================================================== */
 
-function showScreen(
-number
-){
+function showScreen(number){
 
-Object.values(
-screens
-)
-.forEach(
-function(screen){
+Object.values(screens)
+.forEach(function(screen){
 
-screen.classList.remove(
-"active"
-);
+screen.classList.remove("active");
 
 });
 
 
-if(
-screens[number]
-){
+if(screens[number]){
 
 screens[number]
-.classList.add(
-"active"
-);
+.classList.add("active");
 
 currentScreen =
 number;
@@ -2524,17 +1812,14 @@ number;
 
 
 /* =====================================================
-   SLEEP VIDEO
+   VIDEO
 ===================================================== */
 
 function playSleep(){
 
-sleepVideo.muted =
-true;
-
+sleepVideo.muted = true;
 
 sleepVideo.play()
-
 .catch(function(error){
 
 console.log(
@@ -2547,10 +1832,6 @@ error
 }
 
 
-/* =====================================================
-   WELCOME VIDEO
-===================================================== */
-
 function stopWelcome(){
 
 welcomeVideo.pause();
@@ -2560,36 +1841,22 @@ welcomeVideo.pause();
 
 function playWelcome(){
 
-stopWelcome();
-
+welcomeVideo.pause();
 
 try{
-
-welcomeVideo.currentTime =
-0;
-
+welcomeVideo.currentTime = 0;
 }
 catch(error){}
 
-
-welcomeVideo.muted =
-false;
-
-welcomeVideo.volume =
-1;
-
+welcomeVideo.muted = false;
+welcomeVideo.volume = 1;
 
 welcomeVideo.play()
-
 .catch(function(){
 
-
-welcomeVideo.muted =
-true;
-
+welcomeVideo.muted = true;
 
 welcomeVideo.play()
-
 .catch(function(error){
 
 console.log(
@@ -2605,7 +1872,7 @@ error
 
 
 /* =====================================================
-   INITIAL LOAD
+   LOAD
 ===================================================== */
 
 window.addEventListener(
@@ -2624,7 +1891,7 @@ setConnection(
 
 
 /* =====================================================
-   SCREEN 1 -> SCREEN 2
+   SCREEN 1
 ===================================================== */
 
 startButton.addEventListener(
@@ -2648,9 +1915,10 @@ function openLanguage(){
 
 stopWelcome();
 
-showScreen(3);
+languageTransitionBusy =
+false;
 
-enableLanguageButtons();
+showScreen(3);
 
 }
 
@@ -2666,14 +1934,10 @@ welcomeVideo.addEventListener(
 function(){
 
 if(
-
 welcomeVideo.duration > 0
-
 &&
-
 welcomeVideo.currentTime >=
 welcomeVideo.duration - .15
-
 ){
 
 openLanguage();
@@ -2683,10 +1947,6 @@ openLanguage();
 });
 
 
-/* =====================================================
-   SCREEN 2 EXIT
-===================================================== */
-
 exit2.addEventListener(
 "click",
 exitTour
@@ -2694,32 +1954,230 @@ exitTour
 
 
 /* =====================================================
-   LANGUAGE BUTTON ENABLE
+   LANGUAGE CONFIRMATION
 ===================================================== */
 
-function enableLanguageButtons(){
+function getLanguageConfirmation(language){
 
-document
-.querySelectorAll(
-".language-button"
-)
-.forEach(
-function(button){
+if(language === "BM"){
 
-button.disabled =
-false;
+return{
+voice:"ms-MY",
+title:"BAHASA MELAYU",
+small:"Bahasa Melayu dipilih",
+speech:"Anda memilih Bahasa Melayu."
+};
 
-button.style.pointerEvents =
-"auto";
+}
 
-});
+
+if(language === "EN"){
+
+return{
+voice:"en-US",
+title:"ENGLISH",
+small:"English selected",
+speech:"You selected English."
+};
+
+}
+
+
+if(language === "ZH"){
+
+return{
+voice:"zh-CN",
+title:"中文",
+small:"已选择中文",
+speech:"您选择了中文。"
+};
+
+}
+
+
+return{
+voice:"ta-IN",
+title:"தமிழ்",
+small:"தமிழ் தேர்ந்தெடுக்கப்பட்டது",
+speech:"நீங்கள் தமிழ் மொழியைத் தேர்ந்தெடுத்துள்ளீர்கள்."
+};
 
 }
 
 
 /* =====================================================
-   LANGUAGE SELECTION
-   AUTO -> SCREEN 4
+   SPEAK + AUTO SCREEN 4
+===================================================== */
+
+function confirmLanguage(language){
+
+if(languageTransitionBusy){
+return;
+}
+
+languageTransitionBusy =
+true;
+
+selectedLanguage =
+language;
+
+
+const data =
+getLanguageConfirmation(
+language
+);
+
+
+confirmTitle.textContent =
+data.title;
+
+confirmSmall.textContent =
+data.small;
+
+
+confirmOverlay.classList.add(
+"show"
+);
+
+
+/*
+Prepare Screen 4 now.
+*/
+
+clearStation();
+
+updateDestinationLanguage();
+
+
+/*
+Cancel any previous TTS.
+*/
+
+if(
+"speechSynthesis"
+in window
+){
+
+window.speechSynthesis.cancel();
+
+}
+
+
+let moved =
+false;
+
+
+function moveToDestination(){
+
+if(moved){
+return;
+}
+
+moved =
+true;
+
+
+confirmOverlay.classList.remove(
+"show"
+);
+
+
+languageTransitionBusy =
+false;
+
+
+showScreen(4);
+
+}
+
+
+/*
+Use iPad voice if available.
+*/
+
+if(
+"speechSynthesis"
+in window
+){
+
+const utterance =
+new SpeechSynthesisUtterance(
+data.speech
+);
+
+
+utterance.lang =
+data.voice;
+
+
+utterance.rate =
+0.9;
+
+
+utterance.pitch =
+1;
+
+
+utterance.volume =
+1;
+
+
+utterance.onend =
+function(){
+
+moveToDestination();
+
+};
+
+
+utterance.onerror =
+function(){
+
+moveToDestination();
+
+};
+
+
+window.speechSynthesis.speak(
+utterance
+);
+
+
+/*
+Safety fallback.
+If Safari fails to fire onend,
+still continue.
+*/
+
+setTimeout(
+function(){
+
+moveToDestination();
+
+},
+4500
+);
+
+}
+
+else{
+
+setTimeout(
+function(){
+
+moveToDestination();
+
+},
+1200
+);
+
+}
+
+}
+
+
+/* =====================================================
+   LANGUAGE BUTTONS
 ===================================================== */
 
 document
@@ -2733,30 +2191,9 @@ button.addEventListener(
 "click",
 function(){
 
-
-selectedLanguage =
-button.dataset.language;
-
-
-/*
-Clear old station.
-*/
-
-clearStation();
-
-
-/*
-Translate Screen 4.
-*/
-
-updateDestinationLanguage();
-
-
-/*
-AUTO OPEN DESTINATION.
-*/
-
-showScreen(4);
+confirmLanguage(
+button.dataset.language
+);
 
 });
 
@@ -2770,6 +2207,21 @@ showScreen(4);
 back3.addEventListener(
 "click",
 function(){
+
+if(languageTransitionBusy){
+
+window.speechSynthesis
+?.cancel();
+
+languageTransitionBusy =
+false;
+
+confirmOverlay.classList.remove(
+"show"
+);
+
+}
+
 
 showScreen(2);
 
@@ -2789,16 +2241,12 @@ exitTour
 
 
 /* =====================================================
-   DESTINATION LANGUAGE
+   SCREEN 4 TRANSLATION
 ===================================================== */
 
 function updateDestinationLanguage(){
 
-
-if(
-selectedLanguage ===
-"BM"
-){
+if(selectedLanguage === "BM"){
 
 destinationHeading.textContent =
 "PILIH DESTINASI";
@@ -2824,10 +2272,7 @@ station5Name.textContent =
 }
 
 
-else if(
-selectedLanguage ===
-"EN"
-){
+else if(selectedLanguage === "EN"){
 
 destinationHeading.textContent =
 "SELECT YOUR DESTINATION";
@@ -2853,10 +2298,7 @@ station5Name.textContent =
 }
 
 
-else if(
-selectedLanguage ===
-"ZH"
-){
+else if(selectedLanguage === "ZH"){
 
 destinationHeading.textContent =
 "选择您的目的地";
@@ -2882,10 +2324,7 @@ station5Name.textContent =
 }
 
 
-else if(
-selectedLanguage ===
-"TA"
-){
+else if(selectedLanguage === "TA"){
 
 destinationHeading.textContent =
 "உங்கள் இடத்தைத் தேர்ந்தெடுக்கவும்";
@@ -2914,7 +2353,7 @@ station5Name.textContent =
 
 
 /* =====================================================
-   STATION SELECTION
+   STATION
 ===================================================== */
 
 document
@@ -2928,15 +2367,12 @@ button.addEventListener(
 "click",
 function(){
 
-
 selectedStation =
 Number(
 button.dataset.station
 );
 
-
 syncStation();
-
 
 next4.disabled =
 false;
@@ -2997,8 +2433,6 @@ clearStation();
 
 showScreen(3);
 
-enableLanguageButtons();
-
 });
 
 
@@ -3010,59 +2444,35 @@ home4.addEventListener(
 "click",
 function(){
 
-clearStation();
-
 selectedLanguage =
 null;
 
-showScreen(3);
+clearStation();
 
-enableLanguageButtons();
+showScreen(3);
 
 });
 
 
 /* =====================================================
-   SCREEN 4 NEXT -> SCREEN 5
+   SCREEN 4 NEXT
 ===================================================== */
 
 next4.addEventListener(
 "click",
 function(){
 
-if(
-selectedStation ===
-null
-){
-
+if(selectedStation === null){
 return;
-
 }
 
 
 prepareTravelScreen();
 
-
 showScreen(5);
-
-
-/*
-Later:
-send destination to SPIKE here.
-*/
-
-
-console.log(
-"GO TO STATION:",
-selectedStation
-);
 
 });
 
-
-/* =====================================================
-   SCREEN 4 EXIT
-===================================================== */
 
 exit4.addEventListener(
 "click",
@@ -3071,7 +2481,7 @@ exitTour
 
 
 /* =====================================================
-   SCREEN 5 DATA
+   STATION NAME
 ===================================================== */
 
 function getStationName(){
@@ -3127,14 +2537,13 @@ selectedStation
 
 
 /* =====================================================
-   PREPARE SCREEN 5
+   SCREEN 5
 ===================================================== */
 
 function prepareTravelScreen(){
 
 arrived =
 false;
-
 
 next5.disabled =
 true;
@@ -3144,58 +2553,24 @@ travelMarker.className =
 "travel-marker";
 
 
-if(
-selectedStation === 1
-){
-
-travelMarker.classList.add(
-"travel-red"
-);
-
+if(selectedStation === 1){
+travelMarker.classList.add("travel-red");
 }
 
-
-else if(
-selectedStation === 2
-){
-
-travelMarker.classList.add(
-"travel-blue"
-);
-
+if(selectedStation === 2){
+travelMarker.classList.add("travel-blue");
 }
 
-
-else if(
-selectedStation === 3
-){
-
-travelMarker.classList.add(
-"travel-green"
-);
-
+if(selectedStation === 3){
+travelMarker.classList.add("travel-green");
 }
 
-
-else if(
-selectedStation === 4
-){
-
-travelMarker.classList.add(
-"travel-yellow"
-);
-
+if(selectedStation === 4){
+travelMarker.classList.add("travel-yellow");
 }
 
-
-else if(
-selectedStation === 5
-){
-
-travelMarker.classList.add(
-"travel-purple"
-);
-
+if(selectedStation === 5){
+travelMarker.classList.add("travel-purple");
 }
 
 
@@ -3213,10 +2588,7 @@ travelDestination.textContent =
 getStationName();
 
 
-if(
-selectedLanguage ===
-"BM"
-){
+if(selectedLanguage === "BM"){
 
 travelStatus.textContent =
 "NOVUS SEDANG MENUJU KE DESTINASI";
@@ -3227,10 +2599,7 @@ travelMessage.textContent =
 }
 
 
-else if(
-selectedLanguage ===
-"EN"
-){
+else if(selectedLanguage === "EN"){
 
 travelStatus.textContent =
 "NOVUS IS TAKING YOU TO YOUR DESTINATION";
@@ -3241,10 +2610,7 @@ travelMessage.textContent =
 }
 
 
-else if(
-selectedLanguage ===
-"ZH"
-){
+else if(selectedLanguage === "ZH"){
 
 travelStatus.textContent =
 "NOVUS 正在带您前往目的地";
@@ -3255,10 +2621,7 @@ travelMessage.textContent =
 }
 
 
-else if(
-selectedLanguage ===
-"TA"
-){
+else{
 
 travelStatus.textContent =
 "NOVUS உங்களை இலக்கிற்கு அழைத்துச் செல்கிறது";
@@ -3271,10 +2634,6 @@ travelMessage.textContent =
 }
 
 
-/* =====================================================
-   SCREEN 5 BACK
-===================================================== */
-
 back5.addEventListener(
 "click",
 function(){
@@ -3283,10 +2642,6 @@ showScreen(4);
 
 });
 
-
-/* =====================================================
-   SCREEN 5 HOME
-===================================================== */
 
 home5.addEventListener(
 "click",
@@ -3299,39 +2654,23 @@ clearStation();
 
 showScreen(3);
 
-enableLanguageButtons();
-
 });
 
-
-/* =====================================================
-   SCREEN 5 NEXT
-===================================================== */
 
 next5.addEventListener(
 "click",
 function(){
 
-if(
-!arrived
-){
-
+if(!arrived){
 return;
-
 }
 
-
 /*
-PAPARAN 6
-WILL BE ADDED LATER.
+SCREEN 6 LATER
 */
 
 });
 
-
-/* =====================================================
-   SCREEN 5 EXIT
-===================================================== */
 
 exit5.addEventListener(
 "click",
@@ -3340,7 +2679,7 @@ exitTour
 
 
 /* =====================================================
-   FUTURE ARRIVAL FROM SPIKE
+   ROBOT ARRIVED
 ===================================================== */
 
 function robotArrived(){
@@ -3348,15 +2687,11 @@ function robotArrived(){
 arrived =
 true;
 
-
 next5.disabled =
 false;
 
 
-if(
-selectedLanguage ===
-"BM"
-){
+if(selectedLanguage === "BM"){
 
 travelStatus.textContent =
 "DESTINASI TELAH TIBA";
@@ -3367,10 +2702,7 @@ travelMessage.textContent =
 }
 
 
-else if(
-selectedLanguage ===
-"EN"
-){
+else if(selectedLanguage === "EN"){
 
 travelStatus.textContent =
 "DESTINATION REACHED";
@@ -3381,10 +2713,7 @@ travelMessage.textContent =
 }
 
 
-else if(
-selectedLanguage ===
-"ZH"
-){
+else if(selectedLanguage === "ZH"){
 
 travelStatus.textContent =
 "已到达目的地";
@@ -3395,10 +2724,7 @@ travelMessage.textContent =
 }
 
 
-else if(
-selectedLanguage ===
-"TA"
-){
+else{
 
 travelStatus.textContent =
 "இலக்கு வந்தடைந்தது";
@@ -3412,10 +2738,29 @@ travelMessage.textContent =
 
 
 /* =====================================================
-   EXIT TOUR
+   EXIT
 ===================================================== */
 
 function exitTour(){
+
+if(
+"speechSynthesis"
+in window
+){
+
+window.speechSynthesis.cancel();
+
+}
+
+
+languageTransitionBusy =
+false;
+
+
+confirmOverlay.classList.remove(
+"show"
+);
+
 
 stopWelcome();
 
@@ -3434,19 +2779,13 @@ clearStation();
 
 
 try{
-
-welcomeVideo.currentTime =
-0;
-
+welcomeVideo.currentTime = 0;
 }
 catch(error){}
 
 
 try{
-
-sleepVideo.currentTime =
-0;
-
+sleepVideo.currentTime = 0;
 }
 catch(error){}
 
@@ -3459,16 +2798,10 @@ playSleep();
 
 
 /* =====================================================
-   CONNECTION STATUS
+   CONNECTION
 ===================================================== */
 
-function setConnection(
-state
-){
-
-connectionState =
-state;
-
+function setConnection(state){
 
 document
 .querySelectorAll(
@@ -3476,7 +2809,6 @@ document
 )
 .forEach(
 function(box){
-
 
 box.classList.remove(
 "connected",
@@ -3491,10 +2823,7 @@ box.querySelector(
 );
 
 
-if(
-state ===
-"connected"
-){
+if(state === "connected"){
 
 box.classList.add(
 "connected"
@@ -3506,10 +2835,7 @@ label.textContent =
 }
 
 
-else if(
-state ===
-"connecting"
-){
+else if(state === "connecting"){
 
 box.classList.add(
 "connecting"
@@ -3536,42 +2862,7 @@ label.textContent =
 
 }
 
-
-/* =====================================================
-   FUTURE BLE
-===================================================== */
-
-/*
-
-Searching:
-
-setConnection(
-"connecting"
-);
-
-
-Connected:
-
-setConnection(
-"connected"
-);
-
-
-Disconnected:
-
-setConnection(
-"disconnected"
-);
-
-
-SPIKE arrives at station:
-
-robotArrived();
-
-*/
-
 </script>
 
 </body>
-
 </html>
