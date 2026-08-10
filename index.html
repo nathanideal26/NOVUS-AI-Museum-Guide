@@ -14,10 +14,6 @@ viewport-fit=cover">
 
 <style>
 
-/* =========================================================
-   GLOBAL
-========================================================= */
-
 *{
     margin:0;
     padding:0;
@@ -33,7 +29,7 @@ html,body{
 
 body{
     font-family:Arial,Helvetica,sans-serif;
-    color:#fff;
+    color:white;
 
     background:
     radial-gradient(
@@ -46,29 +42,30 @@ body{
 
 button{
     font-family:inherit;
+    touch-action:manipulation;
 }
 
 
-/* =========================================================
+/* =====================================================
    SCREEN
-========================================================= */
+===================================================== */
 
 .screen{
     position:absolute;
     inset:0;
 
+    display:none;
+
     width:100%;
     height:100%;
-
-    display:none;
 
     flex-direction:column;
     align-items:center;
 
     padding:
-    max(12px,env(safe-area-inset-top))
-    20px
-    max(7px,env(safe-area-inset-bottom));
+    max(10px,env(safe-area-inset-top))
+    18px
+    max(6px,env(safe-area-inset-bottom));
 }
 
 .screen.active{
@@ -76,20 +73,18 @@ button{
 }
 
 
-/* =========================================================
+/* =====================================================
    HEADER
-========================================================= */
+===================================================== */
 
 .header{
-    flex:0 0 auto;
-
     width:100%;
-
     text-align:center;
+    flex:0 0 auto;
 }
 
 .novus{
-    font-size:55px;
+    font-size:54px;
     font-weight:900;
 
     letter-spacing:11px;
@@ -100,10 +95,10 @@ button{
 }
 
 .by{
-    margin-top:3px;
+    margin-top:2px;
 
-    font-size:12px;
-    font-weight:700;
+    font-size:11px;
+    font-weight:800;
 
     letter-spacing:4px;
 
@@ -111,9 +106,9 @@ button{
 }
 
 .tagline{
-    margin-top:7px;
+    margin-top:6px;
 
-    font-size:15px;
+    font-size:14px;
 
     letter-spacing:4px;
 
@@ -121,9 +116,9 @@ button{
 }
 
 
-/* =========================================================
+/* =====================================================
    VIDEO
-========================================================= */
+===================================================== */
 
 .video-area{
     flex:1;
@@ -148,28 +143,25 @@ button{
 
     background:#000;
 
-    border:
-    2px solid
-    rgba(69,224,255,.55);
+    border:2px solid rgba(69,224,255,.55);
 
     box-shadow:
-    0 0 30px
-    rgba(57,216,255,.18);
+    0 0 30px rgba(57,216,255,.20);
 }
 
 .video-frame video{
+    display:block;
+
     width:100%;
     height:100%;
 
     object-fit:cover;
-
-    display:block;
 }
 
 
-/* =========================================================
-   SLEEP BADGE
-========================================================= */
+/* =====================================================
+   SLEEP
+===================================================== */
 
 .sleep-badge{
     position:absolute;
@@ -183,13 +175,12 @@ button{
 
     border-radius:30px;
 
-    background:
-    rgba(0,8,15,.84);
+    background:rgba(0,8,15,.88);
 
     white-space:nowrap;
 
     font-size:10px;
-    font-weight:800;
+    font-weight:900;
 
     letter-spacing:2px;
 }
@@ -206,16 +197,15 @@ button{
 
     background:#45ddff;
 
-    box-shadow:
-    0 0 10px #45ddff;
+    box-shadow:0 0 10px #45ddff;
 
-    animation:pulse 1.5s infinite;
+    animation:pulse 1.4s infinite;
 }
 
 @keyframes pulse{
 
     0%,100%{
-        opacity:.3;
+        opacity:.35;
     }
 
     50%{
@@ -224,44 +214,41 @@ button{
 }
 
 
-/* =========================================================
+/* =====================================================
    NEON
-========================================================= */
+===================================================== */
 
 .neon{
     cursor:pointer;
 
     transition:
-    transform .12s ease,
-    opacity .15s ease;
+    transform .1s ease,
+    filter .15s ease;
 }
 
 .neon:active{
     transform:scale(.96);
+    filter:brightness(1.25);
 }
 
 @keyframes cyanGlow{
 
     0%,100%{
         box-shadow:
-        0 0 12px
-        rgba(57,216,255,.35);
+        0 0 12px rgba(57,216,255,.35);
     }
 
     50%{
         box-shadow:
-        0 0 28px
-        rgba(57,216,255,.85),
-
-        0 0 50px
-        rgba(57,216,255,.20);
+        0 0 30px rgba(57,216,255,.85),
+        0 0 55px rgba(57,216,255,.18);
     }
 }
 
 
-/* =========================================================
-   START
-========================================================= */
+/* =====================================================
+   START BUTTON
+===================================================== */
 
 .start-area{
     width:100%;
@@ -273,33 +260,29 @@ button{
 
 .start-button{
     width:min(88vw,640px);
-
     min-height:64px;
 
-    border:
-    1px solid #63e8ff;
-
+    border:1px solid #63e8ff;
     border-radius:50px;
+
+    color:#00151d;
 
     font-size:17px;
     font-weight:900;
 
     letter-spacing:2px;
 
-    color:#00151d;
-
     background:
     linear-gradient(
         90deg,
         #35d8ff,
         #e0fbff,
-        #fff,
+        white,
         #e0fbff,
         #35d8ff
     );
 
-    animation:
-    cyanGlow 2s infinite;
+    animation:cyanGlow 2s infinite;
 }
 
 .tap-text{
@@ -313,13 +296,12 @@ button{
 }
 
 
-/* =========================================================
-   CONTENT
-========================================================= */
+/* =====================================================
+   GENERAL CONTENT
+===================================================== */
 
 .content{
     flex:1;
-
     min-height:0;
 
     width:100%;
@@ -331,18 +313,13 @@ button{
     align-items:center;
     justify-content:center;
 
-    gap:8px;
+    gap:9px;
 }
-
-
-/* =========================================================
-   PAGE HEADING
-========================================================= */
 
 .page-heading{
     text-align:center;
 
-    margin-bottom:5px;
+    margin-bottom:6px;
 }
 
 .page-heading h2{
@@ -353,35 +330,32 @@ button{
     letter-spacing:3px;
 
     text-shadow:
-    0 0 15px
-    rgba(65,220,255,.7);
+    0 0 15px rgba(65,220,255,.7);
 }
 
 .page-heading p{
     margin-top:6px;
 
+    color:#6fe8ff;
+
     font-size:11px;
 
     letter-spacing:2px;
-
-    color:#6fe8ff;
 }
 
 
-/* =========================================================
+/* =====================================================
    LANGUAGE
-========================================================= */
+===================================================== */
 
 .language-button{
     width:min(86vw,610px);
+    min-height:65px;
 
-    min-height:66px;
-
-    border:
-    1px solid
-    rgba(77,225,255,.75);
-
+    border:1px solid rgba(77,225,255,.75);
     border-radius:20px;
+
+    color:white;
 
     background:
     linear-gradient(
@@ -390,16 +364,8 @@ button{
         rgba(8,59,81,.97)
     );
 
-    color:#fff;
-
     box-shadow:
-    0 0 15px
-    rgba(57,216,255,.35);
-}
-
-.language-button:hover{
-    animation:
-    cyanGlow 1.4s infinite;
+    0 0 16px rgba(57,216,255,.35);
 }
 
 .language-main{
@@ -417,31 +383,29 @@ button{
 
     margin-top:4px;
 
+    color:#72eaff;
+
     font-size:19px;
 
     font-weight:700;
-
-    color:#72eaff;
 }
 
 
-/* =========================================================
+/* =====================================================
    STATIONS
-========================================================= */
+===================================================== */
 
 .station-button{
     width:min(88vw,640px);
-
     min-height:62px;
 
     padding:8px 15px;
 
     border-radius:18px;
 
-    background:
-    rgba(3,20,30,.92);
+    background:rgba(3,20,30,.94);
 
-    color:#fff;
+    color:white;
 
     display:flex;
 
@@ -452,10 +416,8 @@ button{
     text-align:left;
 }
 
-.station-button.selected{
-    border-width:3px;
-
-    transform:scale(1.015);
+.station-button:active{
+    transform:scale(.97);
 }
 
 .dot{
@@ -490,89 +452,62 @@ button{
 }
 
 
-/* =========================================================
-   STATION COLORS
-========================================================= */
+/* COLORS */
 
 .red{
     border:1px solid #ff4058;
-
-    box-shadow:
-    0 0 14px
-    rgba(255,64,88,.35);
+    box-shadow:0 0 15px rgba(255,64,88,.35);
 }
 
 .red .dot{
     background:#ff3048;
-
-    box-shadow:
-    0 0 11px #ff3048;
+    box-shadow:0 0 12px #ff3048;
 }
 
 .blue{
     border:1px solid #33a8ff;
-
-    box-shadow:
-    0 0 14px
-    rgba(51,168,255,.35);
+    box-shadow:0 0 15px rgba(51,168,255,.35);
 }
 
 .blue .dot{
     background:#279cff;
-
-    box-shadow:
-    0 0 11px #279cff;
+    box-shadow:0 0 12px #279cff;
 }
 
 .green{
     border:1px solid #35ff78;
-
-    box-shadow:
-    0 0 14px
-    rgba(53,255,120,.35);
+    box-shadow:0 0 15px rgba(53,255,120,.35);
 }
 
 .green .dot{
     background:#35ff78;
-
-    box-shadow:
-    0 0 11px #35ff78;
+    box-shadow:0 0 12px #35ff78;
 }
 
 .yellow{
     border:1px solid #ffd93f;
-
-    box-shadow:
-    0 0 14px
-    rgba(255,217,63,.35);
+    box-shadow:0 0 15px rgba(255,217,63,.35);
 }
 
 .yellow .dot{
     background:#ffd93f;
-
-    box-shadow:
-    0 0 11px #ffd93f;
+    box-shadow:0 0 12px #ffd93f;
 }
 
 .purple{
     border:1px solid #c05cff;
-
-    box-shadow:
-    0 0 14px
-    rgba(192,92,255,.35);
+    box-shadow:0 0 15px rgba(192,92,255,.35);
 }
 
 .purple .dot{
     background:#bf52ff;
-
-    box-shadow:
-    0 0 11px #bf52ff;
+    box-shadow:0 0 12px #bf52ff;
 }
 
 
-/* =========================================================
+/* =====================================================
    NAVIGATION
-========================================================= */
+===================================================== */
 
 .nav3{
     width:min(88vw,640px);
@@ -580,9 +515,9 @@ button{
     display:grid;
 
     grid-template-columns:
-    1fr 1fr;
+    1fr 1fr 1fr;
 
-    gap:10px;
+    gap:9px;
 }
 
 .nav4{
@@ -597,13 +532,10 @@ button{
 }
 
 .nav-button{
-    min-height:48px;
+    min-height:47px;
 
+    border:1px solid rgba(69,224,255,.7);
     border-radius:16px;
-
-    border:
-    1px solid
-    rgba(69,224,255,.7);
 
     background:
     linear-gradient(
@@ -614,20 +546,15 @@ button{
 
     color:#e7fcff;
 
-    font-size:25px;
-
+    font-size:24px;
     font-weight:900;
 
     box-shadow:
-    0 0 14px
-    rgba(57,216,255,.4);
+    0 0 14px rgba(57,216,255,.4);
 }
 
 .nav-button:disabled{
     opacity:.22;
-
-    cursor:default;
-
     box-shadow:none;
 }
 
@@ -644,25 +571,22 @@ button{
     );
 
     box-shadow:
-    0 0 16px
-    rgba(255,48,69,.45);
+    0 0 16px rgba(255,48,69,.45);
 }
 
 
-/* =========================================================
+/* =====================================================
    WELCOME
-========================================================= */
+===================================================== */
 
 .welcome-info{
     text-align:center;
-
-    padding-top:5px;
 }
 
 .welcome-title{
     font-size:15px;
 
-    font-weight:800;
+    font-weight:900;
 
     letter-spacing:4px;
 }
@@ -678,15 +602,12 @@ button{
 }
 
 .exit-tour-button{
-    margin-top:7px;
+    margin-top:8px;
 
     min-width:210px;
-
     min-height:42px;
 
-    border:
-    1px solid #ff5366;
-
+    border:1px solid #ff5366;
     border-radius:35px;
 
     background:#580914;
@@ -700,14 +621,13 @@ button{
     letter-spacing:2px;
 
     box-shadow:
-    0 0 17px
-    rgba(255,48,69,.4);
+    0 0 17px rgba(255,48,69,.4);
 }
 
 
-/* =========================================================
+/* =====================================================
    FOOTER
-========================================================= */
+===================================================== */
 
 .footer{
     width:100%;
@@ -728,8 +648,8 @@ button{
 
     display:flex;
 
-    align-items:center;
     justify-content:center;
+    align-items:center;
 
     gap:8px;
 
@@ -737,16 +657,15 @@ button{
 
     border-radius:30px;
 
-    background:
-    rgba(0,0,0,.32);
+    background:rgba(0,0,0,.32);
 
     color:#ffe985;
 
     font-size:9px;
 
-    font-weight:800;
+    font-weight:900;
 
-    letter-spacing:1.3px;
+    letter-spacing:1.2px;
 }
 
 .connection-dot{
@@ -757,11 +676,9 @@ button{
 
     background:#ffd83d;
 
-    box-shadow:
-    0 0 10px #ffd83d;
+    box-shadow:0 0 10px #ffd83d;
 
-    animation:
-    pulse 1.5s infinite;
+    animation:pulse 1.5s infinite;
 }
 
 .footer-text{
@@ -773,12 +690,13 @@ button{
 }
 
 
-/* =========================================================
-   TRAVEL SCREEN
-========================================================= */
+/* =====================================================
+   TRAVEL
+===================================================== */
 
 .travel-content{
     flex:1;
+    min-height:0;
 
     width:100%;
 
@@ -791,22 +709,22 @@ button{
 
     text-align:center;
 
-    gap:13px;
+    gap:12px;
 }
 
 .travel-status{
+    color:#6de8ff;
+
     font-size:13px;
 
-    font-weight:800;
+    font-weight:900;
 
     letter-spacing:3px;
-
-    color:#6de8ff;
 }
 
 .travel-marker{
-    width:100px;
-    height:100px;
+    width:95px;
+    height:95px;
 
     border-radius:50%;
 
@@ -815,16 +733,15 @@ button{
     justify-content:center;
     align-items:center;
 
-    font-size:40px;
+    background:rgba(3,20,30,.90);
+
+    font-size:38px;
 
     font-weight:900;
-
-    background:
-    rgba(3,20,30,.90);
 }
 
 .travel-station{
-    font-size:17px;
+    font-size:16px;
 
     font-weight:900;
 
@@ -834,81 +751,79 @@ button{
 .travel-destination{
     max-width:90%;
 
-    font-size:27px;
+    font-size:25px;
 
     font-weight:900;
 
     line-height:1.15;
 
     text-shadow:
-    0 0 18px
-    rgba(90,225,255,.45);
+    0 0 18px rgba(90,225,255,.45);
 }
 
 .travel-message{
-    font-size:18px;
+    max-width:90%;
+
+    color:#e7fcff;
+
+    font-size:17px;
 
     font-weight:800;
 
     letter-spacing:2px;
 
-    color:#e7fcff;
+    line-height:1.35;
 }
 
 
-/* =========================================================
+/* =====================================================
    MUSIC STATUS
-========================================================= */
+===================================================== */
 
 .music-status{
     display:flex;
 
     align-items:center;
 
-    gap:8px;
+    gap:9px;
 
-    padding:7px 14px;
+    padding:8px 15px;
+
+    border:1px solid rgba(83,224,255,.45);
 
     border-radius:30px;
 
-    border:
-    1px solid
-    rgba(83,224,255,.35);
-
-    background:
-    rgba(0,15,25,.55);
+    background:rgba(0,15,25,.65);
 
     color:#71e8ff;
 
     font-size:9px;
 
-    font-weight:800;
+    font-weight:900;
 
     letter-spacing:2px;
 }
 
 .music-bars{
+    height:15px;
+
     display:flex;
 
     align-items:center;
 
-    gap:2px;
-
-    height:14px;
+    gap:3px;
 }
 
 .music-bars span{
     width:3px;
 
-    border-radius:5px;
+    border-radius:4px;
 
     background:#52e1ff;
 
-    box-shadow:
-    0 0 6px #52e1ff;
+    box-shadow:0 0 6px #52e1ff;
 
-    animation:
-    musicBar .65s infinite alternate;
+    animation:musicBar .55s infinite alternate;
 }
 
 .music-bars span:nth-child(1){
@@ -917,26 +832,23 @@ button{
 
 .music-bars span:nth-child(2){
     height:12px;
-
-    animation-delay:.15s;
+    animation-delay:.1s;
 }
 
 .music-bars span:nth-child(3){
     height:8px;
-
-    animation-delay:.3s;
+    animation-delay:.25s;
 }
 
 .music-bars span:nth-child(4){
     height:14px;
-
-    animation-delay:.1s;
+    animation-delay:.15s;
 }
 
 @keyframes musicBar{
 
     from{
-        transform:scaleY(.4);
+        transform:scaleY(.35);
     }
 
     to{
@@ -945,92 +857,27 @@ button{
 }
 
 
-/* =========================================================
-   PROGRESS
-========================================================= */
-
-.progress-box{
-    width:min(78vw,560px);
-
-    margin-top:8px;
-}
-
-.progress-track{
-    width:100%;
-
-    height:16px;
-
-    overflow:hidden;
-
-    border-radius:20px;
-
-    border:
-    1px solid
-    rgba(73,221,255,.55);
-
-    background:
-    rgba(0,0,0,.45);
-}
-
-.progress-fill{
-    width:0%;
-
-    height:100%;
-
-    border-radius:20px;
-
-    background:
-    linear-gradient(
-        90deg,
-        #19cfff,
-        #ffffff
-    );
-
-    box-shadow:
-    0 0 14px #36dcff;
-
-    transition:
-    width .1s linear;
-}
-
-.progress-text{
-    margin-top:7px;
-
-    font-size:11px;
-
-    font-weight:900;
-
-    letter-spacing:2px;
-
-    color:#70e8ff;
-}
-
-
-/* =========================================================
+/* =====================================================
    TRAVEL DOTS
-========================================================= */
+===================================================== */
 
 .travel-animation{
     display:flex;
 
-    gap:12px;
-
-    margin-top:3px;
+    gap:11px;
 }
 
 .travel-animation span{
-    width:12px;
-    height:12px;
+    width:11px;
+    height:11px;
 
     border-radius:50%;
 
     background:#48ddff;
 
-    box-shadow:
-    0 0 12px #48ddff;
+    box-shadow:0 0 12px #48ddff;
 
-    animation:
-    travelling 1.3s infinite;
+    animation:travelling 1.2s infinite;
 }
 
 .travel-animation span:nth-child(2){
@@ -1055,77 +902,107 @@ button{
 }
 
 
-/* =========================================================
-   TRAVEL COLORS
-========================================================= */
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+.progress-box{
+    width:min(78vw,560px);
+}
+
+.progress-track{
+    width:100%;
+    height:16px;
+
+    overflow:hidden;
+
+    border:1px solid rgba(73,221,255,.55);
+
+    border-radius:20px;
+
+    background:rgba(0,0,0,.45);
+}
+
+.progress-fill{
+    width:0%;
+    height:100%;
+
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #19cfff,
+        white
+    );
+
+    box-shadow:0 0 14px #36dcff;
+
+    transition:width .1s linear;
+}
+
+.progress-text{
+    margin-top:6px;
+
+    color:#70e8ff;
+
+    font-size:11px;
+
+    font-weight:900;
+
+    letter-spacing:2px;
+}
+
+
+/* =====================================================
+   MARKER COLORS
+===================================================== */
 
 .travel-red{
     border:3px solid #ff4058;
-
     color:#ff4058;
-
-    box-shadow:
-    0 0 28px
-    rgba(255,64,88,.7);
+    box-shadow:0 0 28px rgba(255,64,88,.7);
 }
 
 .travel-blue{
     border:3px solid #33a8ff;
-
     color:#33a8ff;
-
-    box-shadow:
-    0 0 28px
-    rgba(51,168,255,.7);
+    box-shadow:0 0 28px rgba(51,168,255,.7);
 }
 
 .travel-green{
     border:3px solid #35ff78;
-
     color:#35ff78;
-
-    box-shadow:
-    0 0 28px
-    rgba(53,255,120,.65);
+    box-shadow:0 0 28px rgba(53,255,120,.65);
 }
 
 .travel-yellow{
     border:3px solid #ffd93f;
-
     color:#ffd93f;
-
-    box-shadow:
-    0 0 28px
-    rgba(255,217,63,.65);
+    box-shadow:0 0 28px rgba(255,217,63,.65);
 }
 
 .travel-purple{
     border:3px solid #c05cff;
-
     color:#c05cff;
-
-    box-shadow:
-    0 0 28px
-    rgba(192,92,255,.7);
+    box-shadow:0 0 28px rgba(192,92,255,.7);
 }
 
 
-/* =========================================================
+/* =====================================================
    ARRIVED
-========================================================= */
+===================================================== */
 
 .arrived-badge{
     display:none;
 
     padding:10px 20px;
 
+    border:1px solid #35ff78;
+
     border-radius:30px;
 
-    border:
-    1px solid #35ff78;
-
-    background:
-    rgba(5,60,30,.4);
+    background:rgba(5,60,30,.4);
 
     color:#8dffb5;
 
@@ -1136,8 +1013,7 @@ button{
     letter-spacing:2px;
 
     box-shadow:
-    0 0 20px
-    rgba(53,255,120,.4);
+    0 0 20px rgba(53,255,120,.4);
 }
 
 .arrived-badge.show{
@@ -1145,9 +1021,9 @@ button{
 }
 
 
-/* =========================================================
-   SCREEN 6 INFO
-========================================================= */
+/* =====================================================
+   INFO
+===================================================== */
 
 .info-card{
     width:min(88vw,640px);
@@ -1158,11 +1034,9 @@ button{
 
     padding:24px;
 
-    border-radius:25px;
+    border:1px solid rgba(67,221,255,.55);
 
-    border:
-    1px solid
-    rgba(67,221,255,.55);
+    border-radius:25px;
 
     background:
     linear-gradient(
@@ -1172,18 +1046,17 @@ button{
     );
 
     box-shadow:
-    0 0 25px
-    rgba(57,216,255,.18);
+    0 0 25px rgba(57,216,255,.18);
 }
 
 .info-station{
+    color:#64e6ff;
+
     font-size:12px;
 
     font-weight:900;
 
     letter-spacing:3px;
-
-    color:#64e6ff;
 }
 
 .info-title{
@@ -1198,7 +1071,6 @@ button{
 
 .info-line{
     width:65px;
-
     height:4px;
 
     margin:15px 0;
@@ -1207,22 +1079,21 @@ button{
 
     background:#48ddff;
 
-    box-shadow:
-    0 0 12px #48ddff;
+    box-shadow:0 0 12px #48ddff;
 }
 
 .info-description{
+    color:#e7faff;
+
     font-size:16px;
 
     line-height:1.55;
-
-    color:#e7faff;
 }
 
 
-/* =========================================================
-   IPAD PORTRAIT
-========================================================= */
+/* =====================================================
+   IPAD MINI PORTRAIT
+===================================================== */
 
 @media(max-height:950px){
 
@@ -1261,7 +1132,7 @@ button{
     }
 
     .station-button{
-        min-height:47px;
+        min-height:48px;
     }
 
     .station-name{
@@ -1279,23 +1150,22 @@ button{
     }
 
     .travel-marker{
-        width:78px;
-        height:78px;
+        width:76px;
+        height:76px;
 
-        font-size:31px;
+        font-size:30px;
     }
 
     .travel-destination{
-        font-size:21px;
+        font-size:20px;
     }
 
     .travel-message{
-        font-size:15px;
+        font-size:14px;
     }
 
     .info-card{
         padding:18px;
-
         max-height:51vh;
     }
 
@@ -1315,9 +1185,10 @@ button{
 <body>
 
 
-<!-- =========================================================
-     TRAVEL MUSIC
-========================================================= -->
+<!-- =====================================================
+     AUDIO
+     Primary location = media/travel_music.mp3
+===================================================== -->
 
 <audio
 id="travelMusic"
@@ -1325,19 +1196,17 @@ preload="auto"
 loop>
 
 <source
-src="media/Bluewave - Moving Forward (freetouse.com).mp3"
+src="media/travel_music.mp3"
 type="audio/mpeg">
 
 </audio>
 
 
-<!-- =========================================================
+<!-- =====================================================
      SCREEN 1
-========================================================= -->
+===================================================== -->
 
-<section
-id="screen1"
-class="screen active">
+<section id="screen1" class="screen active">
 
 <header class="header">
 
@@ -1399,7 +1268,9 @@ class="start-button neon">
 </button>
 
 <div class="tap-text">
+
 TAP TO WAKE NOVUS
+
 </div>
 
 </div>
@@ -1426,13 +1297,11 @@ SMART • INTERACTIVE • AUTONOMOUS
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      SCREEN 2
-========================================================= -->
+===================================================== -->
 
-<section
-id="screen2"
-class="screen">
+<section id="screen2" class="screen">
 
 <header class="header">
 
@@ -1518,13 +1387,11 @@ SMART • INTERACTIVE • AUTONOMOUS
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      SCREEN 3
-========================================================= -->
+===================================================== -->
 
-<section
-id="screen3"
-class="screen">
+<section id="screen3" class="screen">
 
 <header class="header">
 
@@ -1625,18 +1492,20 @@ BAHASA TAMIL
 <button
 id="back3"
 class="nav-button neon">
-
 ‹
-
 </button>
 
+<button
+id="home3"
+class="nav-button neon"
+disabled>
+⌂
+</button>
 
 <button
 id="exit3"
 class="nav-button exit-button neon">
-
 ✕
-
 </button>
 
 </div>
@@ -1663,13 +1532,11 @@ SMART • INTERACTIVE • AUTONOMOUS
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      SCREEN 4
-========================================================= -->
+===================================================== -->
 
-<section
-id="screen4"
-class="screen">
+<section id="screen4" class="screen">
 
 <header class="header">
 
@@ -1815,7 +1682,9 @@ class="station-name">
 </div>
 
 
-<div class="nav4">
+<!-- SCREEN 4: NO NEXT -->
+
+<div class="nav3">
 
 <button
 id="back4"
@@ -1827,13 +1696,6 @@ class="nav-button neon">
 id="home4"
 class="nav-button neon">
 ⌂
-</button>
-
-<button
-id="next4"
-class="nav-button neon"
-disabled>
-›
 </button>
 
 <button
@@ -1866,13 +1728,11 @@ SMART • INTERACTIVE • AUTONOMOUS
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      SCREEN 5
-========================================================= -->
+===================================================== -->
 
-<section
-id="screen5"
-class="screen">
+<section id="screen5" class="screen">
 
 <header class="header">
 
@@ -1911,9 +1771,6 @@ class="travel-marker">
 <div
 id="travelStation"
 class="travel-station">
-
-STATION 1
-
 </div>
 
 
@@ -1942,7 +1799,9 @@ class="music-status">
 
 </div>
 
+<span id="musicStatusText">
 TOUR MUSIC PLAYING
+</span>
 
 </div>
 
@@ -2039,13 +1898,11 @@ SMART • INTERACTIVE • AUTONOMOUS
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      SCREEN 6
-========================================================= -->
+===================================================== -->
 
-<section
-id="screen6"
-class="screen">
+<section id="screen6" class="screen">
 
 <header class="header">
 
@@ -2145,21 +2002,18 @@ SMART • INTERACTIVE • AUTONOMOUS
 
 <script>
 
-/* =========================================================
+/* =====================================================
    ELEMENTS
-========================================================= */
+===================================================== */
 
 const screens = {
-
     1:document.getElementById("screen1"),
     2:document.getElementById("screen2"),
     3:document.getElementById("screen3"),
     4:document.getElementById("screen4"),
     5:document.getElementById("screen5"),
     6:document.getElementById("screen6")
-
 };
-
 
 const sleepVideo =
 document.getElementById("sleepVideo");
@@ -2171,16 +2025,14 @@ const travelMusic =
 document.getElementById("travelMusic");
 
 
-/* =========================================================
+/* =====================================================
    STATE
-========================================================= */
+===================================================== */
 
 let selectedLanguage = null;
-
 let selectedStation = null;
 
 let simulationTimer = null;
-
 let simulationProgress = 0;
 
 let musicFadeTimer = null;
@@ -2188,14 +2040,12 @@ let musicFadeTimer = null;
 let travelArrived = false;
 
 
-/* =========================================================
-   TEXT DATABASE
-========================================================= */
+/* =====================================================
+   LANGUAGE DATA
+===================================================== */
 
 const TEXT = {
 
-
-/* ================= MALAY ================= */
 
 BM:{
 
@@ -2206,19 +2056,12 @@ destinationSub:
 "Ke manakah anda ingin pergi?",
 
 stations:[
-
 "",
-
 "Pengenalan Muzium Melaka",
-
 "Sejarah Melaka",
-
 "Sultan Melaka",
-
 "Penaklukan Melaka",
-
 "Serangan Portugis ke atas Melaka"
-
 ],
 
 travelling:
@@ -2255,8 +2098,6 @@ descriptions:[
 },
 
 
-/* ================= ENGLISH ================= */
-
 EN:{
 
 destinationTitle:
@@ -2266,19 +2107,12 @@ destinationSub:
 "Where would you like to go?",
 
 stations:[
-
 "",
-
 "Introduction to Melaka Museum",
-
 "History of Melaka",
-
 "Sultan of Melaka",
-
 "Conquest of Melaka",
-
 "Portuguese Attack on Melaka"
-
 ],
 
 travelling:
@@ -2315,8 +2149,6 @@ descriptions:[
 },
 
 
-/* ================= CHINESE ================= */
-
 ZH:{
 
 destinationTitle:
@@ -2326,19 +2158,12 @@ destinationSub:
 "您想去哪里？",
 
 stations:[
-
 "",
-
 "马六甲博物馆简介",
-
 "马六甲历史",
-
 "马六甲苏丹",
-
 "马六甲的征服",
-
 "葡萄牙进攻马六甲"
-
 ],
 
 travelling:
@@ -2375,8 +2200,6 @@ descriptions:[
 },
 
 
-/* ================= TAMIL ================= */
-
 TA:{
 
 destinationTitle:
@@ -2386,19 +2209,12 @@ destinationSub:
 "நீங்கள் எங்கு செல்ல விரும்புகிறீர்கள்?",
 
 stations:[
-
 "",
-
 "மலாக்கா அருங்காட்சியக அறிமுகம்",
-
 "மலாக்காவின் வரலாறு",
-
 "மலாக்கா சுல்தான்",
-
 "மலாக்காவின் கைப்பற்றல்",
-
 "மலாக்கா மீதான போர்த்துகீசிய தாக்குதல்"
-
 ],
 
 travelling:
@@ -2437,37 +2253,27 @@ descriptions:[
 };
 
 
-/* =========================================================
+/* =====================================================
    SCREEN MANAGER
-========================================================= */
+===================================================== */
 
 function showScreen(number){
 
     Object.values(screens)
     .forEach(function(screen){
 
-        screen.classList.remove(
-            "active"
-        );
+        screen.classList.remove("active");
 
     });
 
-
-    if(screens[number]){
-
-        screens[number]
-        .classList.add(
-            "active"
-        );
-
-    }
+    screens[number].classList.add("active");
 
 }
 
 
-/* =========================================================
-   VIDEO
-========================================================= */
+/* =====================================================
+   SLEEP VIDEO
+===================================================== */
 
 function playSleep(){
 
@@ -2479,6 +2285,10 @@ function playSleep(){
 }
 
 
+/* =====================================================
+   WELCOME VIDEO
+===================================================== */
+
 function playWelcome(){
 
     stopTravelMusic(true);
@@ -2486,29 +2296,15 @@ function playWelcome(){
     welcomeVideo.pause();
 
     try{
-
         welcomeVideo.currentTime = 0;
-
     }
     catch(e){}
 
-
-    /*
-      iPad allows playback because
-      the user previously tapped BEGIN TOUR.
-    */
-
     welcomeVideo.muted = false;
-
     welcomeVideo.volume = 1;
-
 
     welcomeVideo.play()
     .catch(function(){
-
-        /*
-          Fallback if Safari blocks sound.
-        */
 
         welcomeVideo.muted = true;
 
@@ -2527,21 +2323,22 @@ function stopWelcome(){
 }
 
 
-/* =========================================================
+/* =====================================================
    TRAVEL MUSIC
-========================================================= */
+===================================================== */
 
 function startTravelMusic(){
 
     /*
-      Cancel previous fade.
+      This function is called DIRECTLY
+      from station touch/click.
+
+      This is important for iPad/Safari.
     */
 
     if(musicFadeTimer){
 
-        clearInterval(
-            musicFadeTimer
-        );
+        clearInterval(musicFadeTimer);
 
         musicFadeTimer = null;
 
@@ -2552,44 +2349,112 @@ function startTravelMusic(){
 
 
     try{
-
         travelMusic.currentTime = 0;
-
     }
     catch(e){}
 
 
+    travelMusic.muted = false;
+
     /*
-      Travel music deliberately soft.
+      Increase from previous 25%.
+      Easier to hear during testing.
     */
 
-    travelMusic.volume = 0.25;
+    travelMusic.volume = 0.45;
+
+
+    const playPromise =
+    travelMusic.play();
+
+
+    if(playPromise !== undefined){
+
+        playPromise
+        .then(function(){
+
+            document
+            .getElementById("musicStatusText")
+            .textContent =
+            "TOUR MUSIC PLAYING";
+
+        })
+        .catch(function(error){
+
+            console.log(
+                "Music blocked or file not found:",
+                error
+            );
+
+
+            /*
+              Fallback:
+              screenshot currently shows
+              travel_music.mp3 at repository root.
+            */
+
+            tryRootMusic();
+
+        });
+
+    }
+
+}
+
+
+/* =====================================================
+   ROOT FALLBACK
+===================================================== */
+
+function tryRootMusic(){
+
+    travelMusic.pause();
+
+    travelMusic.src =
+    "travel_music.mp3";
+
+    travelMusic.load();
+
+    travelMusic.volume = 0.45;
+    travelMusic.muted = false;
 
 
     travelMusic.play()
+    .then(function(){
+
+        document
+        .getElementById("musicStatusText")
+        .textContent =
+        "TOUR MUSIC PLAYING";
+
+    })
     .catch(function(error){
 
         console.log(
-            "Travel music playback:",
+            "Root music also failed:",
             error
         );
+
+
+        document
+        .getElementById("musicStatusText")
+        .textContent =
+        "MUSIC NOT AVAILABLE";
 
     });
 
 }
 
 
-/* =========================================================
+/* =====================================================
    STOP MUSIC
-========================================================= */
+===================================================== */
 
 function stopTravelMusic(reset){
 
     if(musicFadeTimer){
 
-        clearInterval(
-            musicFadeTimer
-        );
+        clearInterval(musicFadeTimer);
 
         musicFadeTimer = null;
 
@@ -2602,67 +2467,59 @@ function stopTravelMusic(reset){
     if(reset){
 
         try{
-
             travelMusic.currentTime = 0;
-
         }
         catch(e){}
 
     }
 
-
-    travelMusic.volume = 0.25;
-
 }
 
 
-/* =========================================================
-   FADE MUSIC
-========================================================= */
+/* =====================================================
+   FADE OUT
+===================================================== */
 
 function fadeOutTravelMusic(){
 
     if(musicFadeTimer){
 
-        clearInterval(
-            musicFadeTimer
-        );
+        clearInterval(musicFadeTimer);
 
     }
 
 
-    let volume =
+    let currentVolume =
     travelMusic.volume;
 
 
     musicFadeTimer =
     setInterval(function(){
 
-        volume -= 0.025;
+        currentVolume -= 0.04;
 
 
-        if(volume <= 0){
+        if(currentVolume <= 0){
 
             clearInterval(
                 musicFadeTimer
             );
 
-            musicFadeTimer = null;
+            musicFadeTimer =
+            null;
 
 
             travelMusic.pause();
 
 
             try{
-
                 travelMusic.currentTime = 0;
-
             }
             catch(e){}
 
 
             travelMusic.volume =
-            0.25;
+            0.45;
 
 
             return;
@@ -2671,16 +2528,16 @@ function fadeOutTravelMusic(){
 
 
         travelMusic.volume =
-        volume;
+        currentVolume;
 
     },100);
 
 }
 
 
-/* =========================================================
+/* =====================================================
    SCREEN 1
-========================================================= */
+===================================================== */
 
 document
 .getElementById("startButton")
@@ -2697,17 +2554,38 @@ function(){
 });
 
 
-/* =========================================================
+/* =====================================================
    SCREEN 2
-========================================================= */
+===================================================== */
+
+let welcomeTransitionDone =
+false;
+
 
 function openLanguage(){
+
+    if(welcomeTransitionDone){
+        return;
+    }
+
+    welcomeTransitionDone =
+    true;
 
     stopWelcome();
 
     showScreen(3);
 
 }
+
+
+welcomeVideo.addEventListener(
+"play",
+function(){
+
+    welcomeTransitionDone =
+    false;
+
+});
 
 
 welcomeVideo.addEventListener(
@@ -2727,7 +2605,7 @@ function(){
         welcomeVideo.duration > 0
         &&
         welcomeVideo.currentTime >=
-        welcomeVideo.duration - 0.15
+        welcomeVideo.duration - 0.12
     ){
 
         openLanguage();
@@ -2741,22 +2619,16 @@ document
 .getElementById("exit2")
 .addEventListener(
 "click",
-function(){
-
-    exitTour();
-
-});
+exitTour
+);
 
 
-/* =========================================================
-   SCREEN 3
-   LANGUAGE AUTO TO SCREEN 4
-========================================================= */
+/* =====================================================
+   SCREEN 3 LANGUAGE
+===================================================== */
 
 document
-.querySelectorAll(
-    ".language-button"
-)
+.querySelectorAll(".language-button")
 .forEach(function(button){
 
     button.addEventListener(
@@ -2774,14 +2646,8 @@ document
         updateDestination();
 
 
-        clearStationSelection();
-
-
         /*
-          IMPORTANT:
-          No NEXT on Screen 3.
-          Language selection immediately
-          opens Screen 4.
+          LANGUAGE AUTO ADVANCE
         */
 
         showScreen(4);
@@ -2791,9 +2657,7 @@ document
 });
 
 
-/* =========================================================
-   SCREEN 3 BACK
-========================================================= */
+/* SCREEN 3 BACK */
 
 document
 .getElementById("back3")
@@ -2808,24 +2672,19 @@ function(){
 });
 
 
-/* =========================================================
-   SCREEN 3 EXIT
-========================================================= */
+/* SCREEN 3 EXIT */
 
 document
 .getElementById("exit3")
 .addEventListener(
 "click",
-function(){
-
-    exitTour();
-
-});
+exitTour
+);
 
 
-/* =========================================================
-   UPDATE SCREEN 4 LANGUAGE
-========================================================= */
+/* =====================================================
+   UPDATE DESTINATION
+===================================================== */
 
 function updateDestination(){
 
@@ -2839,32 +2698,22 @@ function updateDestination(){
 
 
     document
-    .getElementById(
-        "destinationHeading"
-    )
+    .getElementById("destinationHeading")
     .textContent =
     t.destinationTitle;
 
 
     document
-    .getElementById(
-        "destinationSubheading"
-    )
+    .getElementById("destinationSubheading")
     .textContent =
     t.destinationSub;
 
 
-    for(
-        let i = 1;
-        i <= 5;
-        i++
-    ){
+    for(let i=1;i<=5;i++){
 
         document
         .getElementById(
-            "station" +
-            i +
-            "Name"
+            "station" + i + "Name"
         )
         .textContent =
         t.stations[i];
@@ -2874,19 +2723,24 @@ function updateDestination(){
 }
 
 
-/* =========================================================
-   STATION SELECTION
-========================================================= */
+/* =====================================================
+   SCREEN 4 STATION
+   IMPORTANT:
+   TOUCH DESTINATION = START TOUR
+===================================================== */
 
 document
-.querySelectorAll(
-    ".station-button"
-)
+.querySelectorAll(".station-button")
 .forEach(function(button){
 
     button.addEventListener(
     "click",
     function(){
+
+        if(!selectedLanguage){
+            return;
+        }
+
 
         selectedStation =
         Number(
@@ -2894,64 +2748,46 @@ document
         );
 
 
-        document
-        .querySelectorAll(
-            ".station-button"
-        )
-        .forEach(function(item){
+        /*
+          VERY IMPORTANT:
 
-            item.classList.remove(
-                "selected"
-            );
+          Start audio FIRST while this code
+          is still inside the user's tap event.
 
-        });
+          Better compatibility with
+          Safari / iPadOS.
+        */
 
-
-        button.classList.add(
-            "selected"
-        );
+        startTravelMusic();
 
 
-        document
-        .getElementById(
-            "next4"
-        )
-        .disabled =
-        false;
+        /*
+          Prepare Screen 5.
+        */
+
+        prepareTravelScreen();
+
+
+        /*
+          Immediately show Screen 5.
+          NO NEXT BUTTON REQUIRED.
+        */
+
+        showScreen(5);
+
+
+        /*
+          Start robot simulation.
+        */
+
+        startSimulation();
 
     });
 
 });
 
 
-function clearStationSelection(){
-
-    document
-    .querySelectorAll(
-        ".station-button"
-    )
-    .forEach(function(button){
-
-        button.classList.remove(
-            "selected"
-        );
-
-    });
-
-
-    document
-    .getElementById(
-        "next4"
-    )
-    .disabled =
-    true;
-
-}
-
-
-/* =========================================================
-   SCREEN 4 BACK
-========================================================= */
+/* SCREEN 4 BACK */
 
 document
 .getElementById("back4")
@@ -2962,16 +2798,14 @@ function(){
     selectedStation =
     null;
 
-    clearStationSelection();
+    stopTravelMusic(true);
 
     showScreen(3);
 
 });
 
 
-/* =========================================================
-   SCREEN 4 HOME
-========================================================= */
+/* SCREEN 4 HOME */
 
 document
 .getElementById("home4")
@@ -2985,67 +2819,26 @@ function(){
     selectedStation =
     null;
 
-    clearStationSelection();
+    stopTravelMusic(true);
 
     showScreen(3);
 
 });
 
 
-/* =========================================================
-   SCREEN 4 EXIT
-========================================================= */
+/* SCREEN 4 EXIT */
 
 document
 .getElementById("exit4")
 .addEventListener(
 "click",
-function(){
-
-    exitTour();
-
-});
+exitTour
+);
 
 
-/* =========================================================
-   SCREEN 4 NEXT
-========================================================= */
-
-document
-.getElementById("next4")
-.addEventListener(
-"click",
-function(){
-
-    if(
-        selectedStation === null
-    ){
-        return;
-    }
-
-
-    prepareTravelScreen();
-
-
-    showScreen(5);
-
-
-    /*
-      MUSIC STARTS AT THE SAME MOMENT
-      THE SIMULATED ROBOT STARTS.
-    */
-
-    startTravelMusic();
-
-
-    startSimulation();
-
-});
-
-
-/* =========================================================
+/* =====================================================
    PREPARE SCREEN 5
-========================================================= */
+===================================================== */
 
 function prepareTravelScreen(){
 
@@ -3058,17 +2851,13 @@ function prepareTravelScreen(){
 
 
     document
-    .getElementById(
-        "travelStatus"
-    )
+    .getElementById("travelStatus")
     .textContent =
     t.travelling;
 
 
     document
-    .getElementById(
-        "travelStation"
-    )
+    .getElementById("travelStation")
     .textContent =
     "STATION "
     +
@@ -3076,19 +2865,13 @@ function prepareTravelScreen(){
 
 
     document
-    .getElementById(
-        "travelDestination"
-    )
+    .getElementById("travelDestination")
     .textContent =
-    t.stations[
-        selectedStation
-    ];
+    t.stations[selectedStation];
 
 
     document
-    .getElementById(
-        "travelMessage"
-    )
+    .getElementById("travelMessage")
     .textContent =
     t.follow;
 
@@ -3119,9 +2902,7 @@ function prepareTravelScreen(){
 
 
     marker.classList.add(
-        colors[
-            selectedStation
-        ]
+        colors[selectedStation]
     );
 
 
@@ -3130,34 +2911,30 @@ function prepareTravelScreen(){
 
 
     document
-    .getElementById(
-        "arrivedBadge"
-    )
-    .classList.remove(
-        "show"
-    );
+    .getElementById("arrivedBadge")
+    .classList.remove("show");
 
 
     document
-    .getElementById(
-        "travelAnimation"
-    )
+    .getElementById("travelAnimation")
     .style.display =
     "flex";
 
 
     document
-    .getElementById(
-        "musicStatus"
-    )
+    .getElementById("musicStatus")
     .style.display =
     "flex";
 
 
     document
-    .getElementById(
-        "next5"
-    )
+    .getElementById("musicStatusText")
+    .textContent =
+    "TOUR MUSIC PLAYING";
+
+
+    document
+    .getElementById("next5")
     .disabled =
     true;
 
@@ -3171,9 +2948,9 @@ function prepareTravelScreen(){
 }
 
 
-/* =========================================================
+/* =====================================================
    SIMULATION
-========================================================= */
+===================================================== */
 
 function startSimulation(){
 
@@ -3185,11 +2962,11 @@ function startSimulation(){
 
 
     /*
-      SIMULATION TIME = 6 SECONDS
+      Current demonstration:
+      6 seconds.
 
-      60 steps
-      100 ms each
-      = 6000 ms
+      Later this will be replaced
+      by real SPIKE Prime arrival.
     */
 
     simulationTimer =
@@ -3209,9 +2986,7 @@ function startSimulation(){
             100;
 
 
-            updateProgress(
-                100
-            );
+            updateProgress(100);
 
 
             stopSimulation();
@@ -3236,9 +3011,9 @@ function startSimulation(){
 }
 
 
-/* =========================================================
+/* =====================================================
    STOP SIMULATION
-========================================================= */
+===================================================== */
 
 function stopSimulation(){
 
@@ -3248,7 +3023,6 @@ function stopSimulation(){
             simulationTimer
         );
 
-
         simulationTimer =
         null;
 
@@ -3257,24 +3031,20 @@ function stopSimulation(){
 }
 
 
-/* =========================================================
+/* =====================================================
    PROGRESS
-========================================================= */
+===================================================== */
 
 function updateProgress(value){
 
     document
-    .getElementById(
-        "progressFill"
-    )
+    .getElementById("progressFill")
     .style.width =
     value + "%";
 
 
     document
-    .getElementById(
-        "progressText"
-    )
+    .getElementById("progressText")
     .textContent =
     Math.round(value)
     +
@@ -3283,9 +3053,9 @@ function updateProgress(value){
 }
 
 
-/* =========================================================
-   ROBOT ARRIVED
-========================================================= */
+/* =====================================================
+   ARRIVAL
+===================================================== */
 
 function robotArrived(){
 
@@ -3298,42 +3068,38 @@ function robotArrived(){
 
 
     /*
-      MUSIC FADES OUT WHEN
-      DESTINATION IS REACHED.
+      Fade travel music.
     */
 
     fadeOutTravelMusic();
 
 
     document
-    .getElementById(
-        "musicStatus"
-    )
+    .getElementById("musicStatus")
     .style.display =
     "none";
 
 
     document
-    .getElementById(
-        "travelStatus"
-    )
+    .getElementById("travelStatus")
     .textContent =
     t.arrived;
 
 
+    document
+    .getElementById("travelAnimation")
+    .style.display =
+    "none";
+
+
     /*
-      Full arrival message follows
-      the selected language.
+      Arrival message by language.
     */
 
-    if(
-        selectedLanguage === "ZH"
-    ){
+    if(selectedLanguage === "ZH"){
 
         document
-        .getElementById(
-            "travelMessage"
-        )
+        .getElementById("travelMessage")
         .innerHTML =
 
         t.welcomeStation
@@ -3348,15 +3114,10 @@ function robotArrived(){
 
     }
 
-
-    else if(
-        selectedLanguage === "TA"
-    ){
+    else if(selectedLanguage === "TA"){
 
         document
-        .getElementById(
-            "travelMessage"
-        )
+        .getElementById("travelMessage")
         .innerHTML =
 
         selectedStation
@@ -3370,14 +3131,11 @@ function robotArrived(){
         t.continueText;
 
     }
-
 
     else{
 
         document
-        .getElementById(
-            "travelMessage"
-        )
+        .getElementById("travelMessage")
         .innerHTML =
 
         t.welcomeStation
@@ -3391,14 +3149,6 @@ function robotArrived(){
         t.continueText;
 
     }
-
-
-    document
-    .getElementById(
-        "travelAnimation"
-    )
-    .style.display =
-    "none";
 
 
     const badge =
@@ -3419,23 +3169,21 @@ function robotArrived(){
 
 
     /*
-      NEXT ONLY BECOMES AVAILABLE
-      AFTER ARRIVAL.
+      NEXT becomes available
+      only after arrival.
     */
 
     document
-    .getElementById(
-        "next5"
-    )
+    .getElementById("next5")
     .disabled =
     false;
 
 }
 
 
-/* =========================================================
+/* =====================================================
    SCREEN 5 BACK
-========================================================= */
+===================================================== */
 
 document
 .getElementById("back5")
@@ -3447,20 +3195,17 @@ function(){
 
     stopTravelMusic(true);
 
-
-    /*
-      Back returns to selected
-      destination page.
-    */
+    travelArrived =
+    false;
 
     showScreen(4);
 
 });
 
 
-/* =========================================================
+/* =====================================================
    SCREEN 5 HOME
-========================================================= */
+===================================================== */
 
 document
 .getElementById("home5")
@@ -3479,37 +3224,30 @@ function(){
     selectedStation =
     null;
 
+    travelArrived =
+    false;
 
-    clearStationSelection();
-
-
-    /*
-      HOME = SCREEN 3
-    */
 
     showScreen(3);
 
 });
 
 
-/* =========================================================
+/* =====================================================
    SCREEN 5 EXIT
-========================================================= */
+===================================================== */
 
 document
 .getElementById("exit5")
 .addEventListener(
 "click",
-function(){
-
-    exitTour();
-
-});
+exitTour
+);
 
 
-/* =========================================================
+/* =====================================================
    SCREEN 5 NEXT
-========================================================= */
+===================================================== */
 
 document
 .getElementById("next5")
@@ -3533,9 +3271,9 @@ function(){
 });
 
 
-/* =========================================================
-   SCREEN 6 INFORMATION
-========================================================= */
+/* =====================================================
+   SCREEN 6
+===================================================== */
 
 function prepareInformation(){
 
@@ -3544,9 +3282,7 @@ function prepareInformation(){
 
 
     document
-    .getElementById(
-        "infoStation"
-    )
+    .getElementById("infoStation")
     .textContent =
     "STATION "
     +
@@ -3554,30 +3290,22 @@ function prepareInformation(){
 
 
     document
-    .getElementById(
-        "infoTitle"
-    )
+    .getElementById("infoTitle")
     .textContent =
-    t.stations[
-        selectedStation
-    ];
+    t.stations[selectedStation];
 
 
     document
-    .getElementById(
-        "infoDescription"
-    )
+    .getElementById("infoDescription")
     .textContent =
-    t.descriptions[
-        selectedStation
-    ];
+    t.descriptions[selectedStation];
 
 }
 
 
-/* =========================================================
+/* =====================================================
    SCREEN 6 BACK
-========================================================= */
+===================================================== */
 
 document
 .getElementById("back6")
@@ -3587,13 +3315,9 @@ function(){
 
     stopTravelMusic(true);
 
-
     /*
-      Return to Screen 5
-      in ARRIVED state.
-
-      Simulation does NOT restart.
-      Music does NOT restart.
+      Return to ARRIVED screen.
+      Do NOT restart simulation.
     */
 
     showScreen(5);
@@ -3601,9 +3325,9 @@ function(){
 });
 
 
-/* =========================================================
+/* =====================================================
    SCREEN 6 HOME
-========================================================= */
+===================================================== */
 
 document
 .getElementById("home6")
@@ -3620,8 +3344,8 @@ function(){
     selectedStation =
     null;
 
-
-    clearStationSelection();
+    travelArrived =
+    false;
 
 
     showScreen(3);
@@ -3629,9 +3353,9 @@ function(){
 });
 
 
-/* =========================================================
+/* =====================================================
    SCREEN 6 NEXT
-========================================================= */
+===================================================== */
 
 document
 .getElementById("next6")
@@ -3645,15 +3369,15 @@ function(){
     /*
       Station finished.
 
-      Keep selected language.
-      Return to destination menu.
+      Keep the current language
+      and choose another station.
     */
 
     selectedStation =
     null;
 
-
-    clearStationSelection();
+    travelArrived =
+    false;
 
 
     updateDestination();
@@ -3664,36 +3388,27 @@ function(){
 });
 
 
-/* =========================================================
+/* =====================================================
    SCREEN 6 EXIT
-========================================================= */
+===================================================== */
 
 document
 .getElementById("exit6")
 .addEventListener(
 "click",
-function(){
-
-    exitTour();
-
-});
+exitTour
+);
 
 
-/* =========================================================
+/* =====================================================
    EXIT TOUR
-========================================================= */
+===================================================== */
 
 function exitTour(){
 
-    /*
-      Stop absolutely everything.
-    */
-
     stopSimulation();
 
-
     stopTravelMusic(true);
-
 
     stopWelcome();
 
@@ -3701,39 +3416,28 @@ function exitTour(){
     selectedLanguage =
     null;
 
-
     selectedStation =
     null;
-
 
     travelArrived =
     false;
 
 
-    clearStationSelection();
-
-
     try{
-
-        welcomeVideo.currentTime =
-        0;
-
+        welcomeVideo.currentTime = 0;
     }
     catch(e){}
 
 
     try{
-
-        sleepVideo.currentTime =
-        0;
-
+        sleepVideo.currentTime = 0;
     }
     catch(e){}
 
 
     /*
-      EXIT ALWAYS RETURNS TO
-      SLEEP MODE.
+      EXIT ALWAYS GOES TO
+      SCREEN 1 / SLEEP MODE.
     */
 
     showScreen(1);
@@ -3744,16 +3448,15 @@ function exitTour(){
 }
 
 
-/* =========================================================
-   PAGE LOAD
-========================================================= */
+/* =====================================================
+   LOAD
+===================================================== */
 
 window.addEventListener(
 "load",
 function(){
 
     showScreen(1);
-
 
     playSleep();
 
