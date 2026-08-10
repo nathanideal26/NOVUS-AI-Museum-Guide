@@ -14,9 +14,9 @@ viewport-fit=cover">
 
 <style>
 
-/* =========================================================
+/* =====================================================
    GLOBAL
-========================================================= */
+===================================================== */
 
 *{
     margin:0;
@@ -33,12 +33,15 @@ html,body{
 
 body{
     font-family:Arial,Helvetica,sans-serif;
-    color:#fff;
+    color:white;
+
     background:
-    radial-gradient(circle at 50% 18%,
-    #123b5b 0%,
-    #061a29 45%,
-    #02080e 100%);
+    radial-gradient(
+        circle at 50% 18%,
+        #123b5b 0%,
+        #061a29 45%,
+        #02080e 100%
+    );
 }
 
 button{
@@ -47,9 +50,9 @@ button{
 }
 
 
-/* =========================================================
+/* =====================================================
    SCREEN
-========================================================= */
+===================================================== */
 
 .screen{
     position:absolute;
@@ -65,7 +68,7 @@ button{
 
     padding:
     max(8px,env(safe-area-inset-top))
-    18px
+    16px
     max(5px,env(safe-area-inset-bottom));
 }
 
@@ -74,20 +77,21 @@ button{
 }
 
 
-/* =========================================================
+/* =====================================================
    HEADER
-========================================================= */
+===================================================== */
 
 .header{
     width:100%;
-    flex:0 0 auto;
     text-align:center;
+    flex:0 0 auto;
 }
 
 .novus{
-    font-size:52px;
+    font-size:48px;
     font-weight:900;
-    letter-spacing:11px;
+
+    letter-spacing:10px;
 
     text-shadow:
     0 0 10px #34ddff,
@@ -97,26 +101,28 @@ button{
 .by{
     margin-top:2px;
 
-    font-size:11px;
+    font-size:10px;
     font-weight:800;
+
     letter-spacing:4px;
 
     color:#62e6ff;
 }
 
 .tagline{
-    margin-top:5px;
+    margin-top:4px;
 
-    font-size:14px;
+    font-size:12px;
+
     letter-spacing:4px;
 
     color:#e7fbff;
 }
 
 
-/* =========================================================
+/* =====================================================
    VIDEO
-========================================================= */
+===================================================== */
 
 .video-area{
     flex:1;
@@ -132,34 +138,34 @@ button{
 .video-frame{
     position:relative;
 
-    width:min(88vw,680px);
-    height:min(40vh,500px);
+    width:min(90vw,680px);
+    height:min(39vh,500px);
 
     overflow:hidden;
 
-    border-radius:26px;
+    border-radius:25px;
 
     background:#000;
 
     border:2px solid rgba(69,224,255,.55);
 
     box-shadow:
-    0 0 30px rgba(57,216,255,.20);
+    0 0 30px rgba(57,216,255,.22);
 }
 
 .video-frame video{
-    display:block;
-
     width:100%;
     height:100%;
+
+    display:block;
 
     object-fit:cover;
 }
 
 
-/* =========================================================
-   SLEEP BADGE
-========================================================= */
+/* =====================================================
+   SLEEP
+===================================================== */
 
 .sleep-badge{
     position:absolute;
@@ -179,14 +185,15 @@ button{
 
     font-size:10px;
     font-weight:900;
+
     letter-spacing:2px;
 }
 
 .sleep-dot{
     display:inline-block;
 
-    width:9px;
-    height:9px;
+    width:10px;
+    height:10px;
 
     margin-right:8px;
 
@@ -194,15 +201,15 @@ button{
 
     background:#45ddff;
 
-    box-shadow:0 0 10px #45ddff;
+    box-shadow:0 0 12px #45ddff;
 
     animation:pulse 1.4s infinite;
 }
 
 
-/* =========================================================
+/* =====================================================
    ANIMATIONS
-========================================================= */
+===================================================== */
 
 @keyframes pulse{
 
@@ -224,45 +231,45 @@ button{
 
     50%{
         box-shadow:
-        0 0 28px rgba(57,216,255,.85),
-        0 0 48px rgba(57,216,255,.20);
+        0 0 30px rgba(57,216,255,.85),
+        0 0 55px rgba(57,216,255,.18);
     }
 }
 
-@keyframes redPulse{
+@keyframes redGlow{
 
     0%,100%{
         box-shadow:
-        0 0 8px #ff334d,
-        0 0 16px rgba(255,51,77,.45);
+        0 0 8px #ff314b,
+        0 0 20px rgba(255,49,75,.45);
     }
 
     50%{
         box-shadow:
-        0 0 15px #ff334d,
-        0 0 32px rgba(255,51,77,.9);
+        0 0 20px #ff314b,
+        0 0 42px rgba(255,49,75,.9);
     }
 }
 
-@keyframes greenPulse{
+@keyframes greenGlow{
 
     0%,100%{
         box-shadow:
-        0 0 8px #31ff83,
-        0 0 16px rgba(49,255,131,.45);
+        0 0 8px #2dff81,
+        0 0 20px rgba(45,255,129,.45);
     }
 
     50%{
         box-shadow:
-        0 0 15px #31ff83,
-        0 0 32px rgba(49,255,131,.9);
+        0 0 20px #2dff81,
+        0 0 42px rgba(45,255,129,.9);
     }
 }
 
 
-/* =========================================================
-   NEON BUTTON
-========================================================= */
+/* =====================================================
+   BUTTON EFFECT
+===================================================== */
 
 .neon{
     cursor:pointer;
@@ -274,42 +281,42 @@ button{
 
 .neon:active{
     transform:scale(.96);
-    filter:brightness(1.25);
+    filter:brightness(1.3);
 }
 
 
-/* =========================================================
+/* =====================================================
    START
-========================================================= */
+===================================================== */
 
 .start-area{
     width:100%;
     text-align:center;
-
-    padding-top:7px;
 }
 
 .start-button{
-    width:min(88vw,640px);
-    min-height:62px;
+    width:min(90vw,640px);
+    min-height:58px;
 
     border:1px solid #63e8ff;
     border-radius:50px;
 
     color:#00151d;
 
-    font-size:17px;
+    font-size:16px;
     font-weight:900;
+
     letter-spacing:2px;
 
     background:
     linear-gradient(
-    90deg,
-    #35d8ff,
-    #e0fbff,
-    #fff,
-    #e0fbff,
-    #35d8ff);
+        90deg,
+        #35d8ff,
+        #e0fbff,
+        white,
+        #e0fbff,
+        #35d8ff
+    );
 
     animation:cyanGlow 2s infinite;
 }
@@ -318,15 +325,16 @@ button{
     margin-top:5px;
 
     font-size:9px;
+
     letter-spacing:3px;
 
     opacity:.45;
 }
 
 
-/* =========================================================
-   GENERAL CONTENT
-========================================================= */
+/* =====================================================
+   CONTENT
+===================================================== */
 
 .content{
     flex:1;
@@ -335,6 +343,7 @@ button{
     width:100%;
 
     display:flex;
+
     flex-direction:column;
 
     align-items:center;
@@ -350,8 +359,10 @@ button{
 }
 
 .page-heading h2{
-    font-size:22px;
+    font-size:21px;
+
     font-weight:900;
+
     letter-spacing:3px;
 
     text-shadow:
@@ -364,28 +375,30 @@ button{
     color:#6fe8ff;
 
     font-size:11px;
+
     letter-spacing:2px;
 }
 
 
-/* =========================================================
+/* =====================================================
    LANGUAGE
-========================================================= */
+===================================================== */
 
 .language-button{
-    width:min(86vw,610px);
-    min-height:62px;
+    width:min(88vw,610px);
+    min-height:58px;
 
     border:1px solid rgba(77,225,255,.75);
     border-radius:20px;
 
-    color:#fff;
+    color:white;
 
     background:
     linear-gradient(
-    135deg,
-    rgba(5,29,45,.97),
-    rgba(8,59,81,.97));
+        135deg,
+        rgba(5,29,45,.97),
+        rgba(8,59,81,.97)
+    );
 
     box-shadow:
     0 0 16px rgba(57,216,255,.35);
@@ -394,40 +407,44 @@ button{
 .language-main{
     display:block;
 
-    font-size:16px;
+    font-size:15px;
+
     font-weight:900;
+
     letter-spacing:2px;
 }
 
 .language-native{
     display:block;
 
-    margin-top:4px;
+    margin-top:3px;
 
     color:#72eaff;
 
-    font-size:19px;
+    font-size:18px;
+
     font-weight:700;
 }
 
 
-/* =========================================================
-   DESTINATION
-========================================================= */
+/* =====================================================
+   STATIONS
+===================================================== */
 
 .station-button{
-    width:min(88vw,640px);
-    min-height:59px;
+    width:min(90vw,640px);
+    min-height:56px;
 
-    padding:8px 15px;
+    padding:7px 15px;
 
     border-radius:18px;
 
     background:rgba(3,20,30,.94);
 
-    color:#fff;
+    color:white;
 
     display:flex;
+
     align-items:center;
 
     gap:13px;
@@ -435,13 +452,9 @@ button{
     text-align:left;
 }
 
-.station-button:active{
-    transform:scale(.97);
-}
-
 .dot{
-    width:19px;
-    height:19px;
+    width:20px;
+    height:20px;
 
     border-radius:50%;
 
@@ -452,7 +465,9 @@ button{
     display:block;
 
     font-size:10px;
+
     font-weight:900;
+
     letter-spacing:2px;
 
     opacity:.7;
@@ -463,12 +478,11 @@ button{
 
     margin-top:3px;
 
-    font-size:14px;
+    font-size:13px;
+
     font-weight:800;
 }
 
-
-/* DESTINATION COLORS */
 
 .red{
     border:1px solid #ff4058;
@@ -477,8 +491,9 @@ button{
 
 .red .dot{
     background:#ff3048;
-    box-shadow:0 0 12px #ff3048;
+    box-shadow:0 0 13px #ff3048;
 }
+
 
 .blue{
     border:1px solid #33a8ff;
@@ -487,8 +502,9 @@ button{
 
 .blue .dot{
     background:#279cff;
-    box-shadow:0 0 12px #279cff;
+    box-shadow:0 0 13px #279cff;
 }
+
 
 .green{
     border:1px solid #35ff78;
@@ -497,8 +513,9 @@ button{
 
 .green .dot{
     background:#35ff78;
-    box-shadow:0 0 12px #35ff78;
+    box-shadow:0 0 13px #35ff78;
 }
+
 
 .yellow{
     border:1px solid #ffd93f;
@@ -507,8 +524,9 @@ button{
 
 .yellow .dot{
     background:#ffd93f;
-    box-shadow:0 0 12px #ffd93f;
+    box-shadow:0 0 13px #ffd93f;
 }
+
 
 .purple{
     border:1px solid #c05cff;
@@ -517,27 +535,27 @@ button{
 
 .purple .dot{
     background:#bf52ff;
-    box-shadow:0 0 12px #bf52ff;
+    box-shadow:0 0 13px #bf52ff;
 }
 
 
-/* =========================================================
+/* =====================================================
    NAVIGATION
-========================================================= */
+===================================================== */
 
 .nav3{
-    width:min(88vw,640px);
+    width:min(90vw,640px);
 
     display:grid;
 
     grid-template-columns:
     1fr 1fr 1fr;
 
-    gap:9px;
+    gap:8px;
 }
 
 .nav4{
-    width:min(88vw,640px);
+    width:min(90vw,640px);
 
     display:grid;
 
@@ -548,20 +566,22 @@ button{
 }
 
 .nav-button{
-    min-height:45px;
+    min-height:43px;
 
     border:1px solid rgba(69,224,255,.7);
     border-radius:16px;
 
     background:
     linear-gradient(
-    135deg,
-    rgba(3,31,47,.97),
-    rgba(6,64,84,.97));
+        135deg,
+        rgba(3,31,47,.97),
+        rgba(6,64,84,.97)
+    );
 
     color:#e7fcff;
 
-    font-size:24px;
+    font-size:23px;
+
     font-weight:900;
 
     box-shadow:
@@ -580,18 +600,19 @@ button{
 
     background:
     linear-gradient(
-    135deg,
-    #3a050c,
-    #650b18);
+        135deg,
+        #3a050c,
+        #650b18
+    );
 
     box-shadow:
     0 0 16px rgba(255,48,69,.45);
 }
 
 
-/* =========================================================
+/* =====================================================
    WELCOME
-========================================================= */
+===================================================== */
 
 .welcome-info{
     text-align:center;
@@ -599,24 +620,27 @@ button{
 
 .welcome-title{
     font-size:15px;
+
     font-weight:900;
+
     letter-spacing:4px;
 }
 
 .welcome-small{
-    margin-top:4px;
+    margin-top:3px;
 
     font-size:9px;
+
     letter-spacing:3px;
 
     opacity:.45;
 }
 
 .exit-tour-button{
-    margin-top:7px;
+    margin-top:6px;
 
     min-width:210px;
-    min-height:40px;
+    min-height:39px;
 
     border:1px solid #ff5366;
     border-radius:35px;
@@ -626,7 +650,9 @@ button{
     color:#ffb4bd;
 
     font-size:12px;
+
     font-weight:900;
+
     letter-spacing:2px;
 
     box-shadow:
@@ -634,126 +660,171 @@ button{
 }
 
 
-/* =========================================================
-   NEW LARGE CONNECTION PANEL
-========================================================= */
+/* =====================================================
+   LARGE SPIKE CONNECTION PANEL
+===================================================== */
 
 .footer{
     width:100%;
 
     display:flex;
+
     flex-direction:column;
 
     align-items:center;
 
-    gap:4px;
+    gap:3px;
 
     padding-top:5px;
 }
 
+
 .connection-panel{
-    width:min(85vw,620px);
-    min-height:61px;
+    width:min(92vw,650px);
+    min-height:76px;
 
     display:flex;
 
     align-items:center;
     justify-content:center;
 
-    gap:14px;
+    gap:18px;
 
-    padding:8px 18px;
+    padding:10px 18px;
 
-    border-radius:22px;
+    border-radius:25px;
+
+    border:2px solid #ff4058;
 
     background:
     linear-gradient(
-    135deg,
-    rgba(12,4,9,.96),
-    rgba(39,6,13,.94));
-
-    border:1px solid rgba(255,62,86,.72);
+        135deg,
+        rgba(34,3,9,.97),
+        rgba(67,5,16,.92)
+    );
 
     box-shadow:
-    0 0 12px rgba(255,48,70,.25),
-    inset 0 0 18px rgba(255,48,70,.05);
+    0 0 22px rgba(255,48,70,.35),
+    inset 0 0 22px rgba(255,48,70,.07);
 }
 
+
 .connection-light{
-    width:19px;
-    height:19px;
+    width:31px;
+    height:31px;
 
     flex-shrink:0;
 
     border-radius:50%;
 
-    background:#ff334d;
+    background:#ff314b;
 
-    animation:redPulse 1.5s infinite;
+    animation:redGlow 1.4s infinite;
 }
+
 
 .connection-info{
     display:flex;
+
     flex-direction:column;
 
     align-items:flex-start;
-    justify-content:center;
 
     gap:3px;
 }
 
+
 .connection-device{
-    font-size:14px;
+    font-size:19px;
+
     font-weight:900;
 
     letter-spacing:2px;
 
-    color:#fff;
+    color:white;
+
+    text-shadow:
+    0 0 10px rgba(255,255,255,.3);
 }
+
 
 .connection-state{
-    font-size:11px;
+    font-size:14px;
+
     font-weight:900;
 
     letter-spacing:2px;
 
-    color:#ff7586;
+    color:#ff8190;
 }
 
+
+.connection-mode{
+    font-size:9px;
+
+    font-weight:800;
+
+    letter-spacing:3px;
+
+    color:#ff9da8;
+
+    opacity:.65;
+}
+
+
+/* CONNECTED */
+
 .connection-panel.connected{
-    border-color:rgba(49,255,131,.8);
+
+    border-color:#31ff83;
 
     background:
     linear-gradient(
-    135deg,
-    rgba(3,22,14,.96),
-    rgba(5,48,28,.94));
+        135deg,
+        rgba(3,28,17,.97),
+        rgba(4,67,37,.92)
+    );
 
     box-shadow:
-    0 0 16px rgba(49,255,131,.25);
+    0 0 25px rgba(49,255,131,.35);
 }
 
-.connection-panel.connected .connection-light{
+
+.connection-panel.connected
+.connection-light{
+
     background:#31ff83;
 
-    animation:greenPulse 1.5s infinite;
+    animation:greenGlow 1.4s infinite;
 }
 
-.connection-panel.connected .connection-state{
-    color:#77ffa8;
+
+.connection-panel.connected
+.connection-state{
+
+    color:#7dffad;
 }
+
+
+.connection-panel.connected
+.connection-mode{
+
+    display:none;
+}
+
 
 .footer-text{
     font-size:7px;
+
     letter-spacing:4px;
 
-    opacity:.28;
+    opacity:.25;
 }
 
 
-/* =========================================================
+/* =====================================================
    TRAVEL
-========================================================= */
+===================================================== */
 
 .travel-content{
     flex:1;
@@ -762,6 +833,7 @@ button{
     width:100%;
 
     display:flex;
+
     flex-direction:column;
 
     justify-content:center;
@@ -769,20 +841,24 @@ button{
 
     text-align:center;
 
-    gap:10px;
+    gap:9px;
 }
+
 
 .travel-status{
     color:#6de8ff;
 
-    font-size:13px;
+    font-size:12px;
+
     font-weight:900;
+
     letter-spacing:3px;
 }
 
+
 .travel-marker{
-    width:90px;
-    height:90px;
+    width:82px;
+    height:82px;
 
     border-radius:50%;
 
@@ -791,22 +867,28 @@ button{
     justify-content:center;
     align-items:center;
 
-    background:rgba(3,20,30,.90);
+    background:rgba(3,20,30,.9);
 
-    font-size:36px;
+    font-size:32px;
+
     font-weight:900;
 }
+
 
 .travel-station{
-    font-size:15px;
+    font-size:14px;
+
     font-weight:900;
+
     letter-spacing:4px;
 }
+
 
 .travel-destination{
     max-width:90%;
 
-    font-size:24px;
+    font-size:21px;
+
     font-weight:900;
 
     line-height:1.15;
@@ -815,22 +897,25 @@ button{
     0 0 18px rgba(90,225,255,.45);
 }
 
+
 .travel-message{
     max-width:90%;
 
     color:#e7fcff;
 
-    font-size:16px;
+    font-size:14px;
+
     font-weight:800;
+
     letter-spacing:2px;
 
     line-height:1.35;
 }
 
 
-/* =========================================================
+/* =====================================================
    MUSIC
-========================================================= */
+===================================================== */
 
 .music-status{
     display:flex;
@@ -842,6 +927,7 @@ button{
     padding:7px 15px;
 
     border:1px solid rgba(83,224,255,.45);
+
     border-radius:30px;
 
     background:rgba(0,15,25,.65);
@@ -849,18 +935,23 @@ button{
     color:#71e8ff;
 
     font-size:9px;
+
     font-weight:900;
+
     letter-spacing:2px;
 }
+
 
 .music-bars{
     height:15px;
 
     display:flex;
+
     align-items:center;
 
     gap:3px;
 }
+
 
 .music-bars span{
     width:3px;
@@ -874,24 +965,23 @@ button{
     animation:musicBar .55s infinite alternate;
 }
 
+
 .music-bars span:nth-child(1){
     height:5px;
 }
 
 .music-bars span:nth-child(2){
     height:12px;
-    animation-delay:.1s;
 }
 
 .music-bars span:nth-child(3){
     height:8px;
-    animation-delay:.25s;
 }
 
 .music-bars span:nth-child(4){
     height:14px;
-    animation-delay:.15s;
 }
+
 
 @keyframes musicBar{
 
@@ -905,19 +995,20 @@ button{
 }
 
 
-/* =========================================================
-   MOVING DOTS
-========================================================= */
+/* =====================================================
+   TRAVEL ANIMATION
+===================================================== */
 
 .travel-animation{
     display:flex;
 
-    gap:11px;
+    gap:10px;
 }
 
+
 .travel-animation span{
-    width:11px;
-    height:11px;
+    width:10px;
+    height:10px;
 
     border-radius:50%;
 
@@ -928,6 +1019,7 @@ button{
     animation:travelling 1.2s infinite;
 }
 
+
 .travel-animation span:nth-child(2){
     animation-delay:.2s;
 }
@@ -935,6 +1027,7 @@ button{
 .travel-animation span:nth-child(3){
     animation-delay:.4s;
 }
+
 
 @keyframes travelling{
 
@@ -950,25 +1043,28 @@ button{
 }
 
 
-/* =========================================================
+/* =====================================================
    PROGRESS
-========================================================= */
+===================================================== */
 
 .progress-box{
     width:min(78vw,560px);
 }
 
+
 .progress-track{
     width:100%;
-    height:16px;
+    height:15px;
 
     overflow:hidden;
 
     border:1px solid rgba(73,221,255,.55);
+
     border-radius:20px;
 
     background:rgba(0,0,0,.45);
 }
+
 
 .progress-fill{
     width:0%;
@@ -978,30 +1074,32 @@ button{
 
     background:
     linear-gradient(
-    90deg,
-    #19cfff,
-    #fff);
+        90deg,
+        #19cfff,
+        white
+    );
 
     box-shadow:
     0 0 14px #36dcff;
-
-    transition:width .1s linear;
 }
 
+
 .progress-text{
-    margin-top:6px;
+    margin-top:5px;
 
     color:#70e8ff;
 
-    font-size:11px;
+    font-size:10px;
+
     font-weight:900;
+
     letter-spacing:2px;
 }
 
 
-/* =========================================================
-   TRAVEL COLORS
-========================================================= */
+/* =====================================================
+   MARKER COLORS
+===================================================== */
 
 .travel-red{
     border:3px solid #ff4058;
@@ -1034,9 +1132,9 @@ button{
 }
 
 
-/* =========================================================
+/* =====================================================
    ARRIVED
-========================================================= */
+===================================================== */
 
 .arrived-badge{
     display:none;
@@ -1044,228 +1142,259 @@ button{
     padding:9px 18px;
 
     border:1px solid #35ff78;
+
     border-radius:30px;
 
     background:rgba(5,60,30,.4);
 
     color:#8dffb5;
 
-    font-size:12px;
+    font-size:11px;
+
     font-weight:900;
+
     letter-spacing:2px;
 
     box-shadow:
     0 0 20px rgba(53,255,120,.4);
 }
 
+
 .arrived-badge.show{
     display:block;
 }
 
 
-/* =========================================================
-   INFORMATION
-========================================================= */
+/* =====================================================
+   SCREEN 6 YOUTUBE
+===================================================== */
 
-.info-card{
-    width:min(88vw,640px);
+.youtube-content{
+    flex:1;
+    min-height:0;
 
-    max-height:52vh;
+    width:100%;
 
-    overflow:auto;
+    display:flex;
 
-    padding:24px;
+    flex-direction:column;
 
-    border:1px solid rgba(67,221,255,.55);
-    border-radius:25px;
+    align-items:center;
+    justify-content:center;
 
-    background:
-    linear-gradient(
-    145deg,
-    rgba(6,27,42,.96),
-    rgba(8,55,73,.88));
-
-    box-shadow:
-    0 0 25px rgba(57,216,255,.18);
+    gap:8px;
 }
 
-.info-station{
-    color:#64e6ff;
 
-    font-size:12px;
+.youtube-heading{
+    width:min(90vw,650px);
+
+    text-align:left;
+}
+
+
+.youtube-station{
+    color:#61e5ff;
+
+    font-size:10px;
+
     font-weight:900;
+
     letter-spacing:3px;
 }
 
-.info-title{
-    margin-top:10px;
 
-    font-size:25px;
+.youtube-title{
+    margin-top:4px;
+
+    font-size:19px;
+
     font-weight:900;
 
     line-height:1.15;
 }
 
-.info-line{
-    width:65px;
-    height:4px;
 
-    margin:15px 0;
+.youtube-frame{
+    width:min(90vw,650px);
 
-    border-radius:10px;
+    aspect-ratio:16/9;
 
-    background:#48ddff;
+    overflow:hidden;
 
-    box-shadow:0 0 12px #48ddff;
-}
+    border-radius:20px;
 
-.info-description{
-    color:#e7faff;
+    background:#000;
 
-    font-size:16px;
+    border:2px solid rgba(65,224,255,.7);
 
-    line-height:1.55;
+    box-shadow:
+    0 0 26px rgba(55,217,255,.28);
 }
 
 
-/* =========================================================
-   IPAD MINI 6 PORTRAIT
-========================================================= */
+.youtube-frame iframe{
+    width:100%;
+    height:100%;
+
+    border:0;
+}
+
+
+.video-caption{
+    width:min(90vw,650px);
+
+    padding:8px 13px;
+
+    border-radius:13px;
+
+    background:rgba(0,20,31,.7);
+
+    color:#a9efff;
+
+    text-align:center;
+
+    font-size:10px;
+
+    line-height:1.35;
+
+    letter-spacing:1px;
+}
+
+
+/* =====================================================
+   IPAD MINI PORTRAIT
+===================================================== */
 
 @media(max-height:950px){
 
     .screen{
-        padding-top:5px;
-        padding-bottom:3px;
+        padding-top:4px;
+        padding-bottom:2px;
     }
 
     .novus{
-        font-size:40px;
+        font-size:37px;
     }
 
     .by{
-        font-size:9px;
+        font-size:8px;
     }
 
     .tagline{
-        margin-top:2px;
-        font-size:11px;
+        font-size:10px;
     }
 
     .video-frame{
-        height:32vh;
+        height:30vh;
     }
 
     .start-button{
-        min-height:52px;
-        font-size:14px;
+        min-height:48px;
+        font-size:13px;
     }
 
     .language-button{
-        min-height:47px;
+        min-height:44px;
     }
 
     .language-main{
-        font-size:13px;
+        font-size:12px;
     }
 
     .language-native{
-        font-size:15px;
+        font-size:14px;
     }
 
     .station-button{
-        min-height:45px;
+        min-height:43px;
     }
 
     .station-name{
-        font-size:11px;
+        font-size:10px;
     }
 
     .nav-button{
-        min-height:36px;
-        font-size:19px;
+        min-height:34px;
+        font-size:18px;
     }
 
     .connection-panel{
-        width:min(88vw,620px);
-        min-height:54px;
+        min-height:67px;
 
-        padding:7px 15px;
+        width:92vw;
+
+        gap:14px;
     }
 
     .connection-light{
-        width:18px;
-        height:18px;
+        width:28px;
+        height:28px;
     }
 
     .connection-device{
-        font-size:13px;
+        font-size:17px;
     }
 
     .connection-state{
-        font-size:9px;
+        font-size:12px;
+    }
+
+    .connection-mode{
+        font-size:8px;
     }
 
     .travel-marker{
-        width:72px;
-        height:72px;
+        width:66px;
+        height:66px;
 
-        font-size:28px;
+        font-size:25px;
     }
 
     .travel-destination{
-        font-size:19px;
+        font-size:17px;
     }
 
     .travel-message{
-        font-size:13px;
+        font-size:12px;
     }
 
-    .info-card{
-        padding:18px;
-        max-height:47vh;
+    .youtube-title{
+        font-size:16px;
     }
 
-    .info-title{
-        font-size:20px;
-    }
-
-    .info-description{
-        font-size:13px;
-    }
 }
 
 </style>
 </head>
 
+
 <body>
 
 
-<!-- =========================================================
+<!-- =====================================================
      MUSIC
-========================================================= -->
+===================================================== -->
 
-<audio id="travelMusic" preload="auto" loop>
-    <source src="travel_music.mp3" type="audio/mpeg">
+<audio
+id="travelMusic"
+src="travel_music.mp3"
+preload="auto"
+loop>
 </audio>
 
 
-<!-- =========================================================
-     REUSABLE CONNECTION TEMPLATE NOTE:
-     RED = NOT CONNECTED
-     GREEN = CONNECTED
-========================================================= -->
-
-
-<!-- =========================================================
-     SCREEN 1 - SLEEP
-========================================================= -->
+<!-- =====================================================
+     SCREEN 1
+===================================================== -->
 
 <section id="screen1" class="screen active">
 
 <header class="header">
 
-<div class="novus">NOVUS</div>
+<div class="novus">
+NOVUS
+</div>
 
 <div class="by">
 BY KRUSS MAKERS
@@ -1287,8 +1416,7 @@ id="sleepVideo"
 autoplay
 muted
 loop
-playsinline
-preload="auto">
+playsinline>
 
 <source
 src="media/sleepmode.mp4"
@@ -1321,9 +1449,7 @@ class="start-button neon">
 </button>
 
 <div class="tap-text">
-
 TAP TO WAKE NOVUS
-
 </div>
 
 </div>
@@ -1338,26 +1464,23 @@ TAP TO WAKE NOVUS
 <div class="connection-info">
 
 <div class="connection-device">
-
-iPAD ↔ SPIKE PRIME
-
+iPAD ⇄ SPIKE PRIME
 </div>
 
 <div class="connection-state">
+NOT CONNECTED
+</div>
 
-NOT CONNECTED · SIMULATION MODE
-
+<div class="connection-mode">
+SIMULATION MODE
 </div>
 
 </div>
 
 </div>
-
 
 <div class="footer-text">
-
 SMART • INTERACTIVE • AUTONOMOUS
-
 </div>
 
 </div>
@@ -1365,9 +1488,9 @@ SMART • INTERACTIVE • AUTONOMOUS
 </section>
 
 
-<!-- =========================================================
-     SCREEN 2 - WELCOME VIDEO
-========================================================= -->
+<!-- =====================================================
+     SCREEN 2
+===================================================== -->
 
 <section id="screen2" class="screen">
 
@@ -1409,15 +1532,11 @@ type="video/mp4">
 <div class="welcome-info">
 
 <div class="welcome-title">
-
 WELCOME TO NOVUS
-
 </div>
 
 <div class="welcome-small">
-
 PLEASE ENJOY THE WELCOME MESSAGE
-
 </div>
 
 
@@ -1441,25 +1560,18 @@ class="exit-tour-button neon">
 <div class="connection-info">
 
 <div class="connection-device">
-
-iPAD ↔ SPIKE PRIME
-
+iPAD ⇄ SPIKE PRIME
 </div>
 
 <div class="connection-state">
+NOT CONNECTED
+</div>
 
-NOT CONNECTED · SIMULATION MODE
-
+<div class="connection-mode">
+SIMULATION MODE
 </div>
 
 </div>
-
-</div>
-
-
-<div class="footer-text">
-
-SMART • INTERACTIVE • AUTONOMOUS
 
 </div>
 
@@ -1468,9 +1580,9 @@ SMART • INTERACTIVE • AUTONOMOUS
 </section>
 
 
-<!-- =========================================================
-     SCREEN 3 - LANGUAGE
-========================================================= -->
+<!-- =====================================================
+     SCREEN 3
+===================================================== -->
 
 <section id="screen3" class="screen">
 
@@ -1598,25 +1710,18 @@ class="nav-button exit-button neon">
 <div class="connection-info">
 
 <div class="connection-device">
-
-iPAD ↔ SPIKE PRIME
-
+iPAD ⇄ SPIKE PRIME
 </div>
 
 <div class="connection-state">
+NOT CONNECTED
+</div>
 
-NOT CONNECTED · SIMULATION MODE
-
+<div class="connection-mode">
+SIMULATION MODE
 </div>
 
 </div>
-
-</div>
-
-
-<div class="footer-text">
-
-SMART • INTERACTIVE • AUTONOMOUS
 
 </div>
 
@@ -1625,9 +1730,9 @@ SMART • INTERACTIVE • AUTONOMOUS
 </section>
 
 
-<!-- =========================================================
-     SCREEN 4 - DESTINATION
-========================================================= -->
+<!-- =====================================================
+     SCREEN 4
+===================================================== -->
 
 <section id="screen4" class="screen">
 
@@ -1773,8 +1878,6 @@ class="station-name">
 </div>
 
 
-<!-- NO NEXT BUTTON HERE -->
-
 <div class="nav3">
 
 <button
@@ -1807,25 +1910,18 @@ class="nav-button exit-button neon">
 <div class="connection-info">
 
 <div class="connection-device">
-
-iPAD ↔ SPIKE PRIME
-
+iPAD ⇄ SPIKE PRIME
 </div>
 
 <div class="connection-state">
+NOT CONNECTED
+</div>
 
-NOT CONNECTED · SIMULATION MODE
-
+<div class="connection-mode">
+SIMULATION MODE
 </div>
 
 </div>
-
-</div>
-
-
-<div class="footer-text">
-
-SMART • INTERACTIVE • AUTONOMOUS
 
 </div>
 
@@ -1834,9 +1930,9 @@ SMART • INTERACTIVE • AUTONOMOUS
 </section>
 
 
-<!-- =========================================================
-     SCREEN 5 - TRAVEL
-========================================================= -->
+<!-- =====================================================
+     SCREEN 5
+===================================================== -->
 
 <section id="screen5" class="screen">
 
@@ -1902,9 +1998,7 @@ class="music-status">
 </div>
 
 <span id="musicStatusText">
-
 TOUR MUSIC PLAYING
-
 </span>
 
 </div>
@@ -1935,9 +2029,7 @@ class="progress-fill">
 <div
 id="progressText"
 class="progress-text">
-
 0%
-
 </div>
 
 </div>
@@ -1990,25 +2082,18 @@ class="nav-button exit-button neon">
 <div class="connection-info">
 
 <div class="connection-device">
-
-iPAD ↔ SPIKE PRIME
-
+iPAD ⇄ SPIKE PRIME
 </div>
 
 <div class="connection-state">
+NOT CONNECTED
+</div>
 
-NOT CONNECTED · SIMULATION MODE
-
+<div class="connection-mode">
+SIMULATION MODE
 </div>
 
 </div>
-
-</div>
-
-
-<div class="footer-text">
-
-SMART • INTERACTIVE • AUTONOMOUS
 
 </div>
 
@@ -2017,9 +2102,9 @@ SMART • INTERACTIVE • AUTONOMOUS
 </section>
 
 
-<!-- =========================================================
-     SCREEN 6 - INFORMATION
-========================================================= -->
+<!-- =====================================================
+     SCREEN 6 - YOUTUBE
+===================================================== -->
 
 <section id="screen6" class="screen">
 
@@ -2038,26 +2123,43 @@ YOUR AI MUSEUM GUIDE
 </header>
 
 
-<div class="content">
+<div class="youtube-content">
 
-<div class="info-card">
+<div class="youtube-heading">
 
 <div
-id="infoStation"
-class="info-station">
+id="youtubeStation"
+class="youtube-station">
+STATION
 </div>
 
 <div
-id="infoTitle"
-class="info-title">
+id="youtubeTitle"
+class="youtube-title">
+DESTINATION VIDEO
 </div>
 
-<div class="info-line"></div>
+</div>
+
+
+<div class="youtube-frame">
+
+<iframe
+id="youtubePlayer"
+src=""
+title="NOVUS Museum Video"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+allowfullscreen>
+</iframe>
+
+</div>
+
 
 <div
-id="infoDescription"
-class="info-description">
-</div>
+id="videoCaption"
+class="video-caption">
+
+Discover the history of Melaka with NOVUS.
 
 </div>
 
@@ -2102,25 +2204,18 @@ class="nav-button exit-button neon">
 <div class="connection-info">
 
 <div class="connection-device">
-
-iPAD ↔ SPIKE PRIME
-
+iPAD ⇄ SPIKE PRIME
 </div>
 
 <div class="connection-state">
+NOT CONNECTED
+</div>
 
-NOT CONNECTED · SIMULATION MODE
-
+<div class="connection-mode">
+SIMULATION MODE
 </div>
 
 </div>
-
-</div>
-
-
-<div class="footer-text">
-
-SMART • INTERACTIVE • AUTONOMOUS
 
 </div>
 
@@ -2131,20 +2226,24 @@ SMART • INTERACTIVE • AUTONOMOUS
 
 <script>
 
-/* =========================================================
+/* =====================================================
+   STATE
+===================================================== */
+
+let selectedLanguage = null;
+let selectedStation = null;
+
+let simulationTimer = null;
+let simulationProgress = 0;
+
+let travelArrived = false;
+
+let welcomeTransitionDone = false;
+
+
+/* =====================================================
    ELEMENTS
-========================================================= */
-
-const screens = {
-
-    1:document.getElementById("screen1"),
-    2:document.getElementById("screen2"),
-    3:document.getElementById("screen3"),
-    4:document.getElementById("screen4"),
-    5:document.getElementById("screen5"),
-    6:document.getElementById("screen6")
-
-};
+===================================================== */
 
 const sleepVideo =
 document.getElementById("sleepVideo");
@@ -2155,27 +2254,43 @@ document.getElementById("welcomeVideo");
 const travelMusic =
 document.getElementById("travelMusic");
 
-
-/* =========================================================
-   STATE
-========================================================= */
-
-let selectedLanguage = null;
-let selectedStation = null;
-
-let simulationTimer = null;
-let simulationProgress = 0;
-
-let musicFadeTimer = null;
-
-let travelArrived = false;
-
-let welcomeTransitionDone = false;
+const youtubePlayer =
+document.getElementById("youtubePlayer");
 
 
-/* =========================================================
-   LANGUAGE DATABASE
-========================================================= */
+/* =====================================================
+   VIDEO DATABASE
+===================================================== */
+
+/*
+Station 1-4:
+Kesultanan Melayu Melaka
+Cerita Sejarah
+YouTube ID: ktit-ZfvLZw
+
+Station 5:
+Kejatuhan Kesultanan Melayu Melaka 1511
+YouTube ID: gtKXBtoN5Gk
+*/
+
+const YOUTUBE = {
+
+    1:"ktit-ZfvLZw",
+
+    2:"ktit-ZfvLZw",
+
+    3:"ktit-ZfvLZw",
+
+    4:"gtKXBtoN5Gk",
+
+    5:"gtKXBtoN5Gk"
+
+};
+
+
+/* =====================================================
+   TEXT DATABASE
+===================================================== */
 
 const TEXT = {
 
@@ -2192,7 +2307,7 @@ stations:[
 "",
 "Pengenalan Muzium Melaka",
 "Sejarah Melaka",
-"Sultan Melaka",
+"Kesultanan Melayu Melaka",
 "Penaklukan Melaka",
 "Serangan Portugis ke atas Melaka"
 ],
@@ -2206,27 +2321,11 @@ follow:
 arrived:
 "DESTINASI TELAH TIBA",
 
-welcomeStation:
-"SELAMAT DATANG KE STATION",
-
 continueText:
-"TEKAN NEXT UNTUK MENERUSKAN",
+"TEKAN NEXT UNTUK MENONTON VIDEO",
 
-descriptions:[
-
-"",
-
-"Selamat datang ke Muzium Melaka. Melaka merupakan sebuah negeri bersejarah yang memainkan peranan penting dalam perkembangan sejarah, perdagangan dan kebudayaan Malaysia.",
-
-"Melaka berkembang sebagai sebuah pusat perdagangan yang penting kerana kedudukannya yang strategik di Selat Melaka. Pedagang dari pelbagai bahagian dunia datang ke Melaka untuk menjalankan perdagangan.",
-
-"Kesultanan Melayu Melaka merupakan antara kerajaan Melayu yang paling penting di rantau ini. Pemerintahan sultan membantu menjadikan Melaka sebuah pusat pentadbiran, perdagangan dan penyebaran Islam.",
-
-"Kedudukan Melaka yang strategik menarik perhatian kuasa-kuasa asing. Persaingan untuk menguasai perdagangan di Selat Melaka akhirnya membawa kepada perubahan besar dalam sejarah Melaka.",
-
-"Pada tahun 1511, Portugis menyerang Melaka untuk menguasai pusat perdagangan yang penting ini. Kejatuhan Melaka kepada Portugis menjadi salah satu peristiwa penting dalam sejarah Kesultanan Melayu Melaka."
-
-]
+videoCaption:
+"Tonton video sejarah berkaitan destinasi ini bersama NOVUS."
 
 },
 
@@ -2243,7 +2342,7 @@ stations:[
 "",
 "Introduction to Melaka Museum",
 "History of Melaka",
-"Sultan of Melaka",
+"Melaka Sultanate",
 "Conquest of Melaka",
 "Portuguese Attack on Melaka"
 ],
@@ -2257,27 +2356,11 @@ follow:
 arrived:
 "DESTINATION REACHED",
 
-welcomeStation:
-"WELCOME TO STATION",
-
 continueText:
-"TAP NEXT TO CONTINUE",
+"TAP NEXT TO WATCH THE VIDEO",
 
-descriptions:[
-
-"",
-
-"Welcome to the Melaka Museum. Melaka is a historic state that played an important role in the development of Malaysian history, trade and culture.",
-
-"Melaka developed into an important trading centre because of its strategic location along the Strait of Melaka. Traders from many parts of the world travelled here to conduct trade.",
-
-"The Melaka Sultanate was one of the most important Malay kingdoms in the region. The rule of the sultans helped establish Melaka as a centre of administration, trade and the spread of Islam.",
-
-"Melaka's strategic location attracted foreign powers. Competition to control trade in the Strait of Melaka eventually brought major changes to the history of Melaka.",
-
-"In 1511, the Portuguese attacked Melaka to gain control of this important trading centre. The fall of Melaka to the Portuguese became a major event in the history of the Melaka Sultanate."
-
-]
+videoCaption:
+"Discover the history of this destination with NOVUS."
 
 },
 
@@ -2294,7 +2377,7 @@ stations:[
 "",
 "马六甲博物馆简介",
 "马六甲历史",
-"马六甲苏丹",
+"马六甲苏丹王朝",
 "马六甲的征服",
 "葡萄牙进攻马六甲"
 ],
@@ -2308,27 +2391,11 @@ follow:
 arrived:
 "已到达目的地",
 
-welcomeStation:
-"欢迎来到第",
-
 continueText:
-"点击下一步继续",
+"点击下一步观看视频",
 
-descriptions:[
-
-"",
-
-"欢迎来到马六甲博物馆。马六甲是一个具有丰富历史的地方，在马来西亚历史、贸易和文化的发展中扮演了重要角色。",
-
-"由于位于马六甲海峡的战略位置，马六甲发展成为重要的贸易中心。来自世界不同地区的商人来到这里进行贸易。",
-
-"马六甲苏丹王朝是本区域最重要的马来王国之一。苏丹的统治使马六甲成为行政、贸易以及伊斯兰传播的重要中心。",
-
-"马六甲的战略位置吸引了外国势力。各方争夺马六甲海峡贸易控制权，使马六甲的历史发生重大变化。",
-
-"1511年，葡萄牙为了控制这个重要贸易中心而进攻马六甲。马六甲落入葡萄牙手中成为马六甲苏丹王朝历史上的重大事件。"
-
-]
+videoCaption:
+"与 NOVUS 一起通过视频探索马六甲的历史。"
 
 },
 
@@ -2345,7 +2412,7 @@ stations:[
 "",
 "மலாக்கா அருங்காட்சியக அறிமுகம்",
 "மலாக்காவின் வரலாறு",
-"மலாக்கா சுல்தான்",
+"மலாக்கா சுல்தானகம்",
 "மலாக்காவின் கைப்பற்றல்",
 "மலாக்கா மீதான போர்த்துகீசிய தாக்குதல்"
 ],
@@ -2359,56 +2426,42 @@ follow:
 arrived:
 "இலக்கு வந்தடைந்தது",
 
-welcomeStation:
-"நிலையத்திற்கு வரவேற்கிறோம்",
-
 continueText:
-"தொடர அடுத்த பொத்தானை அழுத்தவும்",
+"வீடியோவைப் பார்க்க NEXT அழுத்தவும்",
 
-descriptions:[
-
-"",
-
-"மலாக்கா அருங்காட்சியகத்திற்கு வரவேற்கிறோம். மலாக்கா மலேசியாவின் வரலாறு, வர்த்தகம் மற்றும் கலாச்சார வளர்ச்சியில் முக்கிய பங்கு வகித்த வரலாற்றுச் சிறப்புமிக்க இடமாகும்.",
-
-"மலாக்கா நீரிணையில் அமைந்துள்ள அதன் முக்கியமான இடத்தின் காரணமாக மலாக்கா ஒரு முக்கிய வர்த்தக மையமாக வளர்ந்தது. உலகின் பல பகுதிகளிலிருந்தும் வணிகர்கள் இங்கு வந்தனர்.",
-
-"மலாக்கா சுல்தானகம் இப்பகுதியின் முக்கியமான மலாய் அரசுகளில் ஒன்றாக இருந்தது. சுல்தான்களின் ஆட்சி மலாக்காவை நிர்வாகம், வர்த்தகம் மற்றும் இஸ்லாமிய பரவலின் முக்கிய மையமாக மாற்றியது.",
-
-"மலாக்காவின் முக்கியமான புவியியல் அமைவு வெளிநாட்டு சக்திகளின் கவனத்தை ஈர்த்தது. மலாக்கா நீரிணையின் வர்த்தகத்தை கட்டுப்படுத்துவதற்கான போட்டி மலாக்காவின் வரலாற்றில் பெரிய மாற்றங்களை ஏற்படுத்தியது.",
-
-"1511 ஆம் ஆண்டு போர்த்துகீசியர்கள் முக்கியமான வர்த்தக மையமான மலாக்காவை கைப்பற்ற தாக்குதல் நடத்தினர். போர்த்துகீசியர்களிடம் மலாக்கா வீழ்ந்தது மலாக்கா சுல்தானகத்தின் வரலாற்றில் முக்கிய நிகழ்வாக அமைந்தது."
-
-]
+videoCaption:
+"NOVUS உடன் இந்த இடத்தின் வரலாற்றை வீடியோ மூலம் அறிந்து கொள்ளுங்கள்."
 
 }
 
 };
 
 
-/* =========================================================
-   SCREEN MANAGER
-========================================================= */
+/* =====================================================
+   SCREEN
+===================================================== */
 
 function showScreen(number){
 
-    Object.values(screens)
+    document
+    .querySelectorAll(".screen")
     .forEach(function(screen){
 
         screen.classList.remove("active");
 
     });
 
-    screens[number]
+
+    document
+    .getElementById("screen" + number)
     .classList.add("active");
 
 }
 
 
-/* =========================================================
-   CONNECTION STATUS
-   READY FOR REAL SPIKE PRIME LATER
-========================================================= */
+/* =====================================================
+   SPIKE CONNECTION
+===================================================== */
 
 function setSpikeConnection(connected){
 
@@ -2418,6 +2471,7 @@ function setSpikeConnection(connected){
 
         const state =
         panel.querySelector(".connection-state");
+
 
         if(connected){
 
@@ -2433,7 +2487,7 @@ function setSpikeConnection(connected){
             panel.classList.remove("connected");
 
             state.textContent =
-            "NOT CONNECTED · SIMULATION MODE";
+            "NOT CONNECTED";
 
         }
 
@@ -2442,218 +2496,9 @@ function setSpikeConnection(connected){
 }
 
 
-/* =========================================================
-   SLEEP VIDEO
-========================================================= */
-
-function playSleep(){
-
-    sleepVideo.muted = true;
-
-    sleepVideo.play()
-    .catch(function(){});
-
-}
-
-
-/* =========================================================
-   WELCOME VIDEO
-========================================================= */
-
-function playWelcome(){
-
-    stopTravelMusic(true);
-
-    welcomeTransitionDone = false;
-
-    welcomeVideo.pause();
-
-    try{
-
-        welcomeVideo.currentTime = 0;
-
-    }
-    catch(e){}
-
-
-    welcomeVideo.muted = false;
-    welcomeVideo.volume = 1;
-
-
-    welcomeVideo.play()
-    .catch(function(){
-
-        welcomeVideo.muted = true;
-
-        welcomeVideo.play()
-        .catch(function(){});
-
-    });
-
-}
-
-
-function stopWelcome(){
-
-    welcomeVideo.pause();
-
-}
-
-
-/* =========================================================
-   MUSIC
-========================================================= */
-
-function startTravelMusic(){
-
-    if(musicFadeTimer){
-
-        clearInterval(musicFadeTimer);
-
-        musicFadeTimer = null;
-
-    }
-
-
-    travelMusic.pause();
-
-
-    try{
-
-        travelMusic.currentTime = 0;
-
-    }
-    catch(e){}
-
-
-    travelMusic.muted = false;
-
-    /*
-      65% volume for testing.
-    */
-
-    travelMusic.volume = 0.65;
-
-
-    const playPromise =
-    travelMusic.play();
-
-
-    if(playPromise !== undefined){
-
-        playPromise
-        .then(function(){
-
-            document
-            .getElementById("musicStatusText")
-            .textContent =
-            "TOUR MUSIC PLAYING";
-
-        })
-
-        .catch(function(error){
-
-            console.log(
-                "Music error:",
-                error
-            );
-
-            document
-            .getElementById("musicStatusText")
-            .textContent =
-            "MUSIC NOT AVAILABLE";
-
-        });
-
-    }
-
-}
-
-
-function stopTravelMusic(reset){
-
-    if(musicFadeTimer){
-
-        clearInterval(musicFadeTimer);
-
-        musicFadeTimer = null;
-
-    }
-
-
-    travelMusic.pause();
-
-
-    if(reset){
-
-        try{
-
-            travelMusic.currentTime = 0;
-
-        }
-        catch(e){}
-
-    }
-
-}
-
-
-function fadeOutTravelMusic(){
-
-    if(musicFadeTimer){
-
-        clearInterval(musicFadeTimer);
-
-    }
-
-
-    let volume =
-    travelMusic.volume;
-
-
-    musicFadeTimer =
-    setInterval(function(){
-
-        volume -= 0.05;
-
-
-        if(volume <= 0){
-
-            clearInterval(
-                musicFadeTimer
-            );
-
-            musicFadeTimer = null;
-
-
-            travelMusic.pause();
-
-
-            try{
-
-                travelMusic.currentTime = 0;
-
-            }
-            catch(e){}
-
-
-            travelMusic.volume = 0.65;
-
-            return;
-
-        }
-
-
-        travelMusic.volume = volume;
-
-    },100);
-
-}
-
-
-/* =========================================================
-   SCREEN 1
-========================================================= */
+/* =====================================================
+   START
+===================================================== */
 
 document
 .getElementById("startButton")
@@ -2670,9 +2515,44 @@ function(){
 });
 
 
-/* =========================================================
-   SCREEN 2
-========================================================= */
+/* =====================================================
+   WELCOME
+===================================================== */
+
+function playWelcome(){
+
+    stopYouTube();
+
+    welcomeTransitionDone = false;
+
+    welcomeVideo.pause();
+
+
+    try{
+
+        welcomeVideo.currentTime = 0;
+
+    }
+    catch(e){}
+
+
+    welcomeVideo.muted = false;
+
+    welcomeVideo.volume = 1;
+
+
+    welcomeVideo.play()
+    .catch(function(){
+
+        welcomeVideo.muted = true;
+
+        welcomeVideo.play()
+        .catch(function(){});
+
+    });
+
+}
+
 
 function openLanguage(){
 
@@ -2683,7 +2563,7 @@ function openLanguage(){
 
     welcomeTransitionDone = true;
 
-    stopWelcome();
+    welcomeVideo.pause();
 
     showScreen(3);
 
@@ -2706,7 +2586,7 @@ function(){
         welcomeVideo.duration > 0
         &&
         welcomeVideo.currentTime >=
-        welcomeVideo.duration - 0.12
+        welcomeVideo.duration - .1
     ){
 
         openLanguage();
@@ -2716,18 +2596,9 @@ function(){
 });
 
 
-document
-.getElementById("exit2")
-.addEventListener(
-"click",
-exitTour
-);
-
-
-/* =========================================================
-   SCREEN 3 LANGUAGE
-   AUTO TO SCREEN 4
-========================================================= */
+/* =====================================================
+   LANGUAGE
+===================================================== */
 
 document
 .querySelectorAll(".language-button")
@@ -2747,6 +2618,10 @@ document
         updateDestination();
 
 
+        /*
+        AUTO TO DESTINATION
+        */
+
         showScreen(4);
 
     });
@@ -2754,30 +2629,9 @@ document
 });
 
 
-document
-.getElementById("back3")
-.addEventListener(
-"click",
-function(){
-
-    showScreen(2);
-
-    playWelcome();
-
-});
-
-
-document
-.getElementById("exit3")
-.addEventListener(
-"click",
-exitTour
-);
-
-
-/* =========================================================
-   UPDATE DESTINATION LANGUAGE
-========================================================= */
+/* =====================================================
+   UPDATE DESTINATION
+===================================================== */
 
 function updateDestination(){
 
@@ -2816,10 +2670,9 @@ function updateDestination(){
 }
 
 
-/* =========================================================
-   SCREEN 4 DESTINATION
-   AUTO TO SCREEN 5
-========================================================= */
+/* =====================================================
+   STATION SELECT
+===================================================== */
 
 document
 .querySelectorAll(".station-button")
@@ -2829,11 +2682,6 @@ document
     "click",
     function(){
 
-        if(!selectedLanguage){
-            return;
-        }
-
-
         selectedStation =
         Number(
             button.dataset.station
@@ -2841,16 +2689,20 @@ document
 
 
         /*
-          IMPORTANT FOR IPAD:
-          Music play is called directly
-          from user touch.
+        MUSIC START DIRECTLY
+        FROM USER TOUCH
         */
 
         startTravelMusic();
 
 
-        prepareTravelScreen();
+        prepareTravel();
 
+
+        /*
+        AUTO TO TRAVEL
+        NO NEXT REQUIRED
+        */
 
         showScreen(5);
 
@@ -2862,51 +2714,76 @@ document
 });
 
 
-document
-.getElementById("back4")
-.addEventListener(
-"click",
-function(){
+/* =====================================================
+   MUSIC
+===================================================== */
 
-    selectedStation = null;
+function startTravelMusic(){
 
-    stopTravelMusic(true);
-
-    showScreen(3);
-
-});
+    travelMusic.pause();
 
 
-document
-.getElementById("home4")
-.addEventListener(
-"click",
-function(){
+    try{
 
-    selectedLanguage = null;
+        travelMusic.currentTime = 0;
 
-    selectedStation = null;
-
-    stopTravelMusic(true);
-
-    showScreen(3);
-
-});
+    }
+    catch(e){}
 
 
-document
-.getElementById("exit4")
-.addEventListener(
-"click",
-exitTour
-);
+    travelMusic.volume = .65;
+
+    travelMusic.muted = false;
 
 
-/* =========================================================
+    travelMusic.play()
+    .then(function(){
+
+        document
+        .getElementById("musicStatusText")
+        .textContent =
+        "TOUR MUSIC PLAYING";
+
+    })
+
+    .catch(function(error){
+
+        console.log(
+            "Travel music:",
+            error
+        );
+
+
+        document
+        .getElementById("musicStatusText")
+        .textContent =
+        "MUSIC UNAVAILABLE";
+
+    });
+
+}
+
+
+function stopTravelMusic(){
+
+    travelMusic.pause();
+
+
+    try{
+
+        travelMusic.currentTime = 0;
+
+    }
+    catch(e){}
+
+}
+
+
+/* =====================================================
    PREPARE TRAVEL
-========================================================= */
+===================================================== */
 
-function prepareTravelScreen(){
+function prepareTravel(){
 
     const t =
     TEXT[selectedLanguage];
@@ -2949,35 +2826,28 @@ function prepareTravelScreen(){
     "travel-marker";
 
 
-    const colors = {
+    const color = {
 
         1:"travel-red",
+
         2:"travel-blue",
+
         3:"travel-green",
+
         4:"travel-yellow",
+
         5:"travel-purple"
 
     };
 
 
     marker.classList.add(
-        colors[selectedStation]
+        color[selectedStation]
     );
 
 
     marker.textContent =
     selectedStation;
-
-
-    document
-    .getElementById("arrivedBadge")
-    .classList.remove("show");
-
-
-    document
-    .getElementById("travelAnimation")
-    .style.display =
-    "flex";
 
 
     document
@@ -2987,9 +2857,14 @@ function prepareTravelScreen(){
 
 
     document
-    .getElementById("musicStatusText")
-    .textContent =
-    "TOUR MUSIC PLAYING";
+    .getElementById("travelAnimation")
+    .style.display =
+    "flex";
+
+
+    document
+    .getElementById("arrivedBadge")
+    .classList.remove("show");
 
 
     document
@@ -2998,16 +2873,14 @@ function prepareTravelScreen(){
     true;
 
 
-    simulationProgress = 0;
-
     updateProgress(0);
 
 }
 
 
-/* =========================================================
+/* =====================================================
    SIMULATION
-========================================================= */
+===================================================== */
 
 function startSimulation(){
 
@@ -3017,17 +2890,12 @@ function startSimulation(){
     simulationProgress = 0;
 
 
-    /*
-      DEMO = 6 seconds.
-      Real robot will replace this later.
-    */
-
     simulationTimer =
     setInterval(
     function(){
 
         simulationProgress +=
-        100 / 60;
+        100 / 70;
 
 
         if(simulationProgress >= 100){
@@ -3089,24 +2957,30 @@ function updateProgress(value){
 }
 
 
-/* =========================================================
-   ARRIVED
-========================================================= */
+/* =====================================================
+   ARRIVAL
+===================================================== */
 
 function robotArrived(){
 
     travelArrived = true;
 
 
+    stopTravelMusic();
+
+
     const t =
     TEXT[selectedLanguage];
 
 
-    fadeOutTravelMusic();
+    document
+    .getElementById("musicStatus")
+    .style.display =
+    "none";
 
 
     document
-    .getElementById("musicStatus")
+    .getElementById("travelAnimation")
     .style.display =
     "none";
 
@@ -3118,64 +2992,16 @@ function robotArrived(){
 
 
     document
-    .getElementById("travelAnimation")
-    .style.display =
-    "none";
+    .getElementById("travelMessage")
+    .innerHTML =
 
-
-    if(selectedLanguage === "ZH"){
-
-        document
-        .getElementById("travelMessage")
-        .innerHTML =
-
-        t.welcomeStation
-        +
-        selectedStation
-        +
-        "站"
-        +
-        "<br><br>"
-        +
-        t.continueText;
-
-    }
-
-    else if(selectedLanguage === "TA"){
-
-        document
-        .getElementById("travelMessage")
-        .innerHTML =
-
-        selectedStation
-        +
-        " "
-        +
-        t.welcomeStation
-        +
-        "<br><br>"
-        +
-        t.continueText;
-
-    }
-
-    else{
-
-        document
-        .getElementById("travelMessage")
-        .innerHTML =
-
-        t.welcomeStation
-        +
-        " "
-        +
-        selectedStation
-        +
-        "<br><br>"
-        +
-        t.continueText;
-
-    }
+    "✓ "
+    +
+    t.arrived
+    +
+    "<br><br>"
+    +
+    t.continueText;
 
 
     const badge =
@@ -3199,9 +3025,151 @@ function robotArrived(){
 }
 
 
-/* =========================================================
-   SCREEN 5 BACK
-========================================================= */
+/* =====================================================
+   YOUTUBE SCREEN
+===================================================== */
+
+function openDestinationVideo(){
+
+    stopTravelMusic();
+
+
+    const t =
+    TEXT[selectedLanguage];
+
+
+    document
+    .getElementById("youtubeStation")
+    .textContent =
+    "STATION "
+    +
+    selectedStation;
+
+
+    document
+    .getElementById("youtubeTitle")
+    .textContent =
+    t.stations[selectedStation];
+
+
+    document
+    .getElementById("videoCaption")
+    .textContent =
+    t.videoCaption;
+
+
+    const videoID =
+    YOUTUBE[selectedStation];
+
+
+    /*
+    Privacy enhanced YouTube embed.
+    playsinline helps iPad.
+    */
+
+    youtubePlayer.src =
+
+    "https://www.youtube-nocookie.com/embed/"
+    +
+    videoID
+    +
+    "?playsinline=1&rel=0";
+
+
+    showScreen(6);
+
+}
+
+
+/* =====================================================
+   STOP YOUTUBE
+===================================================== */
+
+function stopYouTube(){
+
+    /*
+    Removing iframe URL stops audio/video
+    immediately when leaving Screen 6.
+    */
+
+    youtubePlayer.src = "";
+
+}
+
+
+/* =====================================================
+   SCREEN 2 EXIT
+===================================================== */
+
+document
+.getElementById("exit2")
+.addEventListener(
+"click",
+exitTour
+);
+
+
+/* =====================================================
+   SCREEN 3
+===================================================== */
+
+document
+.getElementById("back3")
+.addEventListener(
+"click",
+function(){
+
+    showScreen(2);
+
+    playWelcome();
+
+});
+
+
+document
+.getElementById("exit3")
+.addEventListener(
+"click",
+exitTour
+);
+
+
+/* =====================================================
+   SCREEN 4
+===================================================== */
+
+document
+.getElementById("back4")
+.addEventListener(
+"click",
+function(){
+
+    stopYouTube();
+
+    showScreen(3);
+
+});
+
+
+document
+.getElementById("home4")
+.addEventListener(
+"click",
+goHome
+);
+
+
+document
+.getElementById("exit4")
+.addEventListener(
+"click",
+exitTour
+);
+
+
+/* =====================================================
+   SCREEN 5
+===================================================== */
 
 document
 .getElementById("back5")
@@ -3211,45 +3179,20 @@ function(){
 
     stopSimulation();
 
-    stopTravelMusic(true);
-
-    travelArrived = false;
+    stopTravelMusic();
 
     showScreen(4);
 
 });
 
 
-/* =========================================================
-   SCREEN 5 HOME
-========================================================= */
-
 document
 .getElementById("home5")
 .addEventListener(
 "click",
-function(){
+goHome
+);
 
-    stopSimulation();
-
-    stopTravelMusic(true);
-
-
-    selectedLanguage = null;
-
-    selectedStation = null;
-
-    travelArrived = false;
-
-
-    showScreen(3);
-
-});
-
-
-/* =========================================================
-   SCREEN 5 EXIT
-========================================================= */
 
 document
 .getElementById("exit5")
@@ -3258,10 +3201,6 @@ document
 exitTour
 );
 
-
-/* =========================================================
-   SCREEN 5 NEXT
-========================================================= */
 
 document
 .getElementById("next5")
@@ -3274,52 +3213,19 @@ function(){
     }
 
 
-    stopTravelMusic(true);
+    /*
+    ARRIVED
+    THEN OPEN VIDEO
+    */
 
-
-    prepareInformation();
-
-
-    showScreen(6);
+    openDestinationVideo();
 
 });
 
 
-/* =========================================================
-   SCREEN 6 INFORMATION
-========================================================= */
-
-function prepareInformation(){
-
-    const t =
-    TEXT[selectedLanguage];
-
-
-    document
-    .getElementById("infoStation")
-    .textContent =
-    "STATION "
-    +
-    selectedStation;
-
-
-    document
-    .getElementById("infoTitle")
-    .textContent =
-    t.stations[selectedStation];
-
-
-    document
-    .getElementById("infoDescription")
-    .textContent =
-    t.descriptions[selectedStation];
-
-}
-
-
-/* =========================================================
-   SCREEN 6 BACK
-========================================================= */
+/* =====================================================
+   SCREEN 6
+===================================================== */
 
 document
 .getElementById("back6")
@@ -3327,11 +3233,11 @@ document
 "click",
 function(){
 
-    stopTravelMusic(true);
+    stopYouTube();
 
     /*
-      Return to arrived screen.
-      Does NOT restart movement.
+    Return to ARRIVED screen.
+    Robot does NOT move again.
     */
 
     showScreen(5);
@@ -3339,35 +3245,18 @@ function(){
 });
 
 
-/* =========================================================
-   SCREEN 6 HOME
-========================================================= */
-
 document
 .getElementById("home6")
 .addEventListener(
 "click",
 function(){
 
-    stopTravelMusic(true);
+    stopYouTube();
 
-
-    selectedLanguage = null;
-
-    selectedStation = null;
-
-    travelArrived = false;
-
-
-    showScreen(3);
+    goHome();
 
 });
 
-
-/* =========================================================
-   SCREEN 6 NEXT
-   SELECT ANOTHER DESTINATION
-========================================================= */
 
 document
 .getElementById("next6")
@@ -3375,25 +3264,24 @@ document
 "click",
 function(){
 
-    stopTravelMusic(true);
+    stopYouTube();
 
+
+    /*
+    TOUR AT THIS STATION FINISHED.
+
+    Keep selected language.
+    Return to destination selection.
+    */
 
     selectedStation = null;
 
-    travelArrived = false;
-
-
     updateDestination();
-
 
     showScreen(4);
 
 });
 
-
-/* =========================================================
-   SCREEN 6 EXIT
-========================================================= */
 
 document
 .getElementById("exit6")
@@ -3403,17 +3291,52 @@ exitTour
 );
 
 
-/* =========================================================
+/* =====================================================
+   HOME
+===================================================== */
+
+function goHome(){
+
+    stopSimulation();
+
+    stopTravelMusic();
+
+    stopYouTube();
+
+
+    welcomeVideo.pause();
+
+
+    selectedLanguage = null;
+
+    selectedStation = null;
+
+    travelArrived = false;
+
+
+    /*
+    HOME = SCREEN 3
+    */
+
+    showScreen(3);
+
+}
+
+
+/* =====================================================
    EXIT
-========================================================= */
+===================================================== */
 
 function exitTour(){
 
     stopSimulation();
 
-    stopTravelMusic(true);
+    stopTravelMusic();
 
-    stopWelcome();
+    stopYouTube();
+
+
+    welcomeVideo.pause();
 
 
     selectedLanguage = null;
@@ -3439,25 +3362,32 @@ function exitTour(){
     catch(e){}
 
 
+    /*
+    EXIT ONLY = SLEEP MODE
+    */
+
     showScreen(1);
 
 
-    playSleep();
+    sleepVideo.muted = true;
+
+    sleepVideo.play()
+    .catch(function(){});
 
 }
 
 
-/* =========================================================
-   INITIAL LOAD
-========================================================= */
+/* =====================================================
+   INITIAL
+===================================================== */
 
 window.addEventListener(
 "load",
 function(){
 
     /*
-      Robot not available yet.
-      Therefore RED connection panel.
+    FOR NOW:
+    NO PHYSICAL SPIKE PRIME.
     */
 
     setSpikeConnection(false);
@@ -3466,7 +3396,10 @@ function(){
     showScreen(1);
 
 
-    playSleep();
+    sleepVideo.muted = true;
+
+    sleepVideo.play()
+    .catch(function(){});
 
 });
 
