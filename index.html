@@ -14,6 +14,10 @@ viewport-fit=cover">
 
 <style>
 
+/* =========================================================
+   GLOBAL
+========================================================= */
+
 *{
     margin:0;
     padding:0;
@@ -29,15 +33,12 @@ html,body{
 
 body{
     font-family:Arial,Helvetica,sans-serif;
-    color:white;
-
+    color:#fff;
     background:
-    radial-gradient(
-        circle at 50% 20%,
-        #123b5b 0%,
-        #061a29 45%,
-        #02080e 100%
-    );
+    radial-gradient(circle at 50% 18%,
+    #123b5b 0%,
+    #061a29 45%,
+    #02080e 100%);
 }
 
 button{
@@ -46,26 +47,26 @@ button{
 }
 
 
-/* =====================================================
+/* =========================================================
    SCREEN
-===================================================== */
+========================================================= */
 
 .screen{
     position:absolute;
     inset:0;
 
-    display:none;
-
     width:100%;
     height:100%;
+
+    display:none;
 
     flex-direction:column;
     align-items:center;
 
     padding:
-    max(10px,env(safe-area-inset-top))
+    max(8px,env(safe-area-inset-top))
     18px
-    max(6px,env(safe-area-inset-bottom));
+    max(5px,env(safe-area-inset-bottom));
 }
 
 .screen.active{
@@ -73,20 +74,19 @@ button{
 }
 
 
-/* =====================================================
+/* =========================================================
    HEADER
-===================================================== */
+========================================================= */
 
 .header{
     width:100%;
-    text-align:center;
     flex:0 0 auto;
+    text-align:center;
 }
 
 .novus{
-    font-size:54px;
+    font-size:52px;
     font-weight:900;
-
     letter-spacing:11px;
 
     text-shadow:
@@ -99,26 +99,24 @@ button{
 
     font-size:11px;
     font-weight:800;
-
     letter-spacing:4px;
 
     color:#62e6ff;
 }
 
 .tagline{
-    margin-top:6px;
+    margin-top:5px;
 
     font-size:14px;
-
     letter-spacing:4px;
 
     color:#e7fbff;
 }
 
 
-/* =====================================================
+/* =========================================================
    VIDEO
-===================================================== */
+========================================================= */
 
 .video-area{
     flex:1;
@@ -135,7 +133,7 @@ button{
     position:relative;
 
     width:min(88vw,680px);
-    height:min(43vh,520px);
+    height:min(40vh,500px);
 
     overflow:hidden;
 
@@ -159,9 +157,9 @@ button{
 }
 
 
-/* =====================================================
-   SLEEP
-===================================================== */
+/* =========================================================
+   SLEEP BADGE
+========================================================= */
 
 .sleep-badge{
     position:absolute;
@@ -181,7 +179,6 @@ button{
 
     font-size:10px;
     font-weight:900;
-
     letter-spacing:2px;
 }
 
@@ -202,6 +199,11 @@ button{
     animation:pulse 1.4s infinite;
 }
 
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
 @keyframes pulse{
 
     0%,100%{
@@ -213,10 +215,54 @@ button{
     }
 }
 
+@keyframes cyanGlow{
 
-/* =====================================================
-   NEON
-===================================================== */
+    0%,100%{
+        box-shadow:
+        0 0 12px rgba(57,216,255,.35);
+    }
+
+    50%{
+        box-shadow:
+        0 0 28px rgba(57,216,255,.85),
+        0 0 48px rgba(57,216,255,.20);
+    }
+}
+
+@keyframes redPulse{
+
+    0%,100%{
+        box-shadow:
+        0 0 8px #ff334d,
+        0 0 16px rgba(255,51,77,.45);
+    }
+
+    50%{
+        box-shadow:
+        0 0 15px #ff334d,
+        0 0 32px rgba(255,51,77,.9);
+    }
+}
+
+@keyframes greenPulse{
+
+    0%,100%{
+        box-shadow:
+        0 0 8px #31ff83,
+        0 0 16px rgba(49,255,131,.45);
+    }
+
+    50%{
+        box-shadow:
+        0 0 15px #31ff83,
+        0 0 32px rgba(49,255,131,.9);
+    }
+}
+
+
+/* =========================================================
+   NEON BUTTON
+========================================================= */
 
 .neon{
     cursor:pointer;
@@ -231,36 +277,21 @@ button{
     filter:brightness(1.25);
 }
 
-@keyframes cyanGlow{
 
-    0%,100%{
-        box-shadow:
-        0 0 12px rgba(57,216,255,.35);
-    }
-
-    50%{
-        box-shadow:
-        0 0 30px rgba(57,216,255,.85),
-        0 0 55px rgba(57,216,255,.18);
-    }
-}
-
-
-/* =====================================================
-   START BUTTON
-===================================================== */
+/* =========================================================
+   START
+========================================================= */
 
 .start-area{
     width:100%;
-
     text-align:center;
 
-    padding-top:8px;
+    padding-top:7px;
 }
 
 .start-button{
     width:min(88vw,640px);
-    min-height:64px;
+    min-height:62px;
 
     border:1px solid #63e8ff;
     border-radius:50px;
@@ -269,36 +300,33 @@ button{
 
     font-size:17px;
     font-weight:900;
-
     letter-spacing:2px;
 
     background:
     linear-gradient(
-        90deg,
-        #35d8ff,
-        #e0fbff,
-        white,
-        #e0fbff,
-        #35d8ff
-    );
+    90deg,
+    #35d8ff,
+    #e0fbff,
+    #fff,
+    #e0fbff,
+    #35d8ff);
 
     animation:cyanGlow 2s infinite;
 }
 
 .tap-text{
-    margin-top:6px;
+    margin-top:5px;
 
     font-size:9px;
-
     letter-spacing:3px;
 
     opacity:.45;
 }
 
 
-/* =====================================================
+/* =========================================================
    GENERAL CONTENT
-===================================================== */
+========================================================= */
 
 .content{
     flex:1;
@@ -307,26 +335,23 @@ button{
     width:100%;
 
     display:flex;
-
     flex-direction:column;
 
     align-items:center;
     justify-content:center;
 
-    gap:9px;
+    gap:8px;
 }
 
 .page-heading{
     text-align:center;
 
-    margin-bottom:6px;
+    margin-bottom:5px;
 }
 
 .page-heading h2{
     font-size:22px;
-
     font-weight:900;
-
     letter-spacing:3px;
 
     text-shadow:
@@ -334,35 +359,33 @@ button{
 }
 
 .page-heading p{
-    margin-top:6px;
+    margin-top:5px;
 
     color:#6fe8ff;
 
     font-size:11px;
-
     letter-spacing:2px;
 }
 
 
-/* =====================================================
+/* =========================================================
    LANGUAGE
-===================================================== */
+========================================================= */
 
 .language-button{
     width:min(86vw,610px);
-    min-height:65px;
+    min-height:62px;
 
     border:1px solid rgba(77,225,255,.75);
     border-radius:20px;
 
-    color:white;
+    color:#fff;
 
     background:
     linear-gradient(
-        135deg,
-        rgba(5,29,45,.97),
-        rgba(8,59,81,.97)
-    );
+    135deg,
+    rgba(5,29,45,.97),
+    rgba(8,59,81,.97));
 
     box-shadow:
     0 0 16px rgba(57,216,255,.35);
@@ -372,9 +395,7 @@ button{
     display:block;
 
     font-size:16px;
-
     font-weight:900;
-
     letter-spacing:2px;
 }
 
@@ -386,18 +407,17 @@ button{
     color:#72eaff;
 
     font-size:19px;
-
     font-weight:700;
 }
 
 
-/* =====================================================
-   STATIONS
-===================================================== */
+/* =========================================================
+   DESTINATION
+========================================================= */
 
 .station-button{
     width:min(88vw,640px);
-    min-height:62px;
+    min-height:59px;
 
     padding:8px 15px;
 
@@ -405,10 +425,9 @@ button{
 
     background:rgba(3,20,30,.94);
 
-    color:white;
+    color:#fff;
 
     display:flex;
-
     align-items:center;
 
     gap:13px;
@@ -433,9 +452,7 @@ button{
     display:block;
 
     font-size:10px;
-
     font-weight:900;
-
     letter-spacing:2px;
 
     opacity:.7;
@@ -447,12 +464,11 @@ button{
     margin-top:3px;
 
     font-size:14px;
-
     font-weight:800;
 }
 
 
-/* COLORS */
+/* DESTINATION COLORS */
 
 .red{
     border:1px solid #ff4058;
@@ -505,9 +521,9 @@ button{
 }
 
 
-/* =====================================================
+/* =========================================================
    NAVIGATION
-===================================================== */
+========================================================= */
 
 .nav3{
     width:min(88vw,640px);
@@ -532,17 +548,16 @@ button{
 }
 
 .nav-button{
-    min-height:47px;
+    min-height:45px;
 
     border:1px solid rgba(69,224,255,.7);
     border-radius:16px;
 
     background:
     linear-gradient(
-        135deg,
-        rgba(3,31,47,.97),
-        rgba(6,64,84,.97)
-    );
+    135deg,
+    rgba(3,31,47,.97),
+    rgba(6,64,84,.97));
 
     color:#e7fcff;
 
@@ -565,19 +580,18 @@ button{
 
     background:
     linear-gradient(
-        135deg,
-        #3a050c,
-        #650b18
-    );
+    135deg,
+    #3a050c,
+    #650b18);
 
     box-shadow:
     0 0 16px rgba(255,48,69,.45);
 }
 
 
-/* =====================================================
+/* =========================================================
    WELCOME
-===================================================== */
+========================================================= */
 
 .welcome-info{
     text-align:center;
@@ -585,9 +599,7 @@ button{
 
 .welcome-title{
     font-size:15px;
-
     font-weight:900;
-
     letter-spacing:4px;
 }
 
@@ -595,17 +607,16 @@ button{
     margin-top:4px;
 
     font-size:9px;
-
     letter-spacing:3px;
 
     opacity:.45;
 }
 
 .exit-tour-button{
-    margin-top:8px;
+    margin-top:7px;
 
     min-width:210px;
-    min-height:42px;
+    min-height:40px;
 
     border:1px solid #ff5366;
     border-radius:35px;
@@ -615,9 +626,7 @@ button{
     color:#ffb4bd;
 
     font-size:12px;
-
     font-weight:900;
-
     letter-spacing:2px;
 
     box-shadow:
@@ -625,74 +634,126 @@ button{
 }
 
 
-/* =====================================================
-   FOOTER
-===================================================== */
+/* =========================================================
+   NEW LARGE CONNECTION PANEL
+========================================================= */
 
 .footer{
     width:100%;
 
     display:flex;
-
     flex-direction:column;
 
     align-items:center;
 
     gap:4px;
 
-    padding-top:6px;
+    padding-top:5px;
 }
 
-.connection{
-    min-width:345px;
+.connection-panel{
+    width:min(85vw,620px);
+    min-height:61px;
 
     display:flex;
 
-    justify-content:center;
     align-items:center;
+    justify-content:center;
 
-    gap:8px;
+    gap:14px;
 
-    padding:8px 13px;
+    padding:8px 18px;
 
-    border-radius:30px;
+    border-radius:22px;
 
-    background:rgba(0,0,0,.32);
+    background:
+    linear-gradient(
+    135deg,
+    rgba(12,4,9,.96),
+    rgba(39,6,13,.94));
 
-    color:#ffe985;
+    border:1px solid rgba(255,62,86,.72);
 
-    font-size:9px;
-
-    font-weight:900;
-
-    letter-spacing:1.2px;
+    box-shadow:
+    0 0 12px rgba(255,48,70,.25),
+    inset 0 0 18px rgba(255,48,70,.05);
 }
 
-.connection-dot{
-    width:11px;
-    height:11px;
+.connection-light{
+    width:19px;
+    height:19px;
+
+    flex-shrink:0;
 
     border-radius:50%;
 
-    background:#ffd83d;
+    background:#ff334d;
 
-    box-shadow:0 0 10px #ffd83d;
+    animation:redPulse 1.5s infinite;
+}
 
-    animation:pulse 1.5s infinite;
+.connection-info{
+    display:flex;
+    flex-direction:column;
+
+    align-items:flex-start;
+    justify-content:center;
+
+    gap:3px;
+}
+
+.connection-device{
+    font-size:14px;
+    font-weight:900;
+
+    letter-spacing:2px;
+
+    color:#fff;
+}
+
+.connection-state{
+    font-size:11px;
+    font-weight:900;
+
+    letter-spacing:2px;
+
+    color:#ff7586;
+}
+
+.connection-panel.connected{
+    border-color:rgba(49,255,131,.8);
+
+    background:
+    linear-gradient(
+    135deg,
+    rgba(3,22,14,.96),
+    rgba(5,48,28,.94));
+
+    box-shadow:
+    0 0 16px rgba(49,255,131,.25);
+}
+
+.connection-panel.connected .connection-light{
+    background:#31ff83;
+
+    animation:greenPulse 1.5s infinite;
+}
+
+.connection-panel.connected .connection-state{
+    color:#77ffa8;
 }
 
 .footer-text{
-    font-size:8px;
-
+    font-size:7px;
     letter-spacing:4px;
 
-    opacity:.25;
+    opacity:.28;
 }
 
 
-/* =====================================================
+/* =========================================================
    TRAVEL
-===================================================== */
+========================================================= */
 
 .travel-content{
     flex:1;
@@ -701,7 +762,6 @@ button{
     width:100%;
 
     display:flex;
-
     flex-direction:column;
 
     justify-content:center;
@@ -709,22 +769,20 @@ button{
 
     text-align:center;
 
-    gap:12px;
+    gap:10px;
 }
 
 .travel-status{
     color:#6de8ff;
 
     font-size:13px;
-
     font-weight:900;
-
     letter-spacing:3px;
 }
 
 .travel-marker{
-    width:95px;
-    height:95px;
+    width:90px;
+    height:90px;
 
     border-radius:50%;
 
@@ -735,24 +793,20 @@ button{
 
     background:rgba(3,20,30,.90);
 
-    font-size:38px;
-
+    font-size:36px;
     font-weight:900;
 }
 
 .travel-station{
-    font-size:16px;
-
+    font-size:15px;
     font-weight:900;
-
     letter-spacing:4px;
 }
 
 .travel-destination{
     max-width:90%;
 
-    font-size:25px;
-
+    font-size:24px;
     font-weight:900;
 
     line-height:1.15;
@@ -766,19 +820,17 @@ button{
 
     color:#e7fcff;
 
-    font-size:17px;
-
+    font-size:16px;
     font-weight:800;
-
     letter-spacing:2px;
 
     line-height:1.35;
 }
 
 
-/* =====================================================
-   MUSIC STATUS
-===================================================== */
+/* =========================================================
+   MUSIC
+========================================================= */
 
 .music-status{
     display:flex;
@@ -787,10 +839,9 @@ button{
 
     gap:9px;
 
-    padding:8px 15px;
+    padding:7px 15px;
 
     border:1px solid rgba(83,224,255,.45);
-
     border-radius:30px;
 
     background:rgba(0,15,25,.65);
@@ -798,9 +849,7 @@ button{
     color:#71e8ff;
 
     font-size:9px;
-
     font-weight:900;
-
     letter-spacing:2px;
 }
 
@@ -808,7 +857,6 @@ button{
     height:15px;
 
     display:flex;
-
     align-items:center;
 
     gap:3px;
@@ -857,9 +905,9 @@ button{
 }
 
 
-/* =====================================================
-   TRAVEL DOTS
-===================================================== */
+/* =========================================================
+   MOVING DOTS
+========================================================= */
 
 .travel-animation{
     display:flex;
@@ -902,9 +950,9 @@ button{
 }
 
 
-/* =====================================================
+/* =========================================================
    PROGRESS
-===================================================== */
+========================================================= */
 
 .progress-box{
     width:min(78vw,560px);
@@ -917,7 +965,6 @@ button{
     overflow:hidden;
 
     border:1px solid rgba(73,221,255,.55);
-
     border-radius:20px;
 
     background:rgba(0,0,0,.45);
@@ -931,12 +978,12 @@ button{
 
     background:
     linear-gradient(
-        90deg,
-        #19cfff,
-        white
-    );
+    90deg,
+    #19cfff,
+    #fff);
 
-    box-shadow:0 0 14px #36dcff;
+    box-shadow:
+    0 0 14px #36dcff;
 
     transition:width .1s linear;
 }
@@ -947,16 +994,14 @@ button{
     color:#70e8ff;
 
     font-size:11px;
-
     font-weight:900;
-
     letter-spacing:2px;
 }
 
 
-/* =====================================================
-   MARKER COLORS
-===================================================== */
+/* =========================================================
+   TRAVEL COLORS
+========================================================= */
 
 .travel-red{
     border:3px solid #ff4058;
@@ -989,17 +1034,16 @@ button{
 }
 
 
-/* =====================================================
+/* =========================================================
    ARRIVED
-===================================================== */
+========================================================= */
 
 .arrived-badge{
     display:none;
 
-    padding:10px 20px;
+    padding:9px 18px;
 
     border:1px solid #35ff78;
-
     border-radius:30px;
 
     background:rgba(5,60,30,.4);
@@ -1007,9 +1051,7 @@ button{
     color:#8dffb5;
 
     font-size:12px;
-
     font-weight:900;
-
     letter-spacing:2px;
 
     box-shadow:
@@ -1021,29 +1063,27 @@ button{
 }
 
 
-/* =====================================================
-   INFO
-===================================================== */
+/* =========================================================
+   INFORMATION
+========================================================= */
 
 .info-card{
     width:min(88vw,640px);
 
-    max-height:55vh;
+    max-height:52vh;
 
     overflow:auto;
 
     padding:24px;
 
     border:1px solid rgba(67,221,255,.55);
-
     border-radius:25px;
 
     background:
     linear-gradient(
-        145deg,
-        rgba(6,27,42,.96),
-        rgba(8,55,73,.88)
-    );
+    145deg,
+    rgba(6,27,42,.96),
+    rgba(8,55,73,.88));
 
     box-shadow:
     0 0 25px rgba(57,216,255,.18);
@@ -1053,9 +1093,7 @@ button{
     color:#64e6ff;
 
     font-size:12px;
-
     font-weight:900;
-
     letter-spacing:3px;
 }
 
@@ -1063,7 +1101,6 @@ button{
     margin-top:10px;
 
     font-size:25px;
-
     font-weight:900;
 
     line-height:1.15;
@@ -1091,19 +1128,19 @@ button{
 }
 
 
-/* =====================================================
-   IPAD MINI PORTRAIT
-===================================================== */
+/* =========================================================
+   IPAD MINI 6 PORTRAIT
+========================================================= */
 
 @media(max-height:950px){
 
     .screen{
-        padding-top:6px;
+        padding-top:5px;
         padding-bottom:3px;
     }
 
     .novus{
-        font-size:41px;
+        font-size:40px;
     }
 
     .by{
@@ -1111,16 +1148,21 @@ button{
     }
 
     .tagline{
-        margin-top:3px;
-        font-size:12px;
+        margin-top:2px;
+        font-size:11px;
     }
 
     .video-frame{
-        height:35vh;
+        height:32vh;
+    }
+
+    .start-button{
+        min-height:52px;
+        font-size:14px;
     }
 
     .language-button{
-        min-height:49px;
+        min-height:47px;
     }
 
     .language-main{
@@ -1128,11 +1170,11 @@ button{
     }
 
     .language-native{
-        font-size:16px;
+        font-size:15px;
     }
 
     .station-button{
-        min-height:48px;
+        min-height:45px;
     }
 
     .station-name{
@@ -1140,79 +1182,90 @@ button{
     }
 
     .nav-button{
-        min-height:38px;
-        font-size:20px;
+        min-height:36px;
+        font-size:19px;
     }
 
-    .connection{
-        min-width:295px;
-        font-size:7px;
+    .connection-panel{
+        width:min(88vw,620px);
+        min-height:54px;
+
+        padding:7px 15px;
+    }
+
+    .connection-light{
+        width:18px;
+        height:18px;
+    }
+
+    .connection-device{
+        font-size:13px;
+    }
+
+    .connection-state{
+        font-size:9px;
     }
 
     .travel-marker{
-        width:76px;
-        height:76px;
+        width:72px;
+        height:72px;
 
-        font-size:30px;
+        font-size:28px;
     }
 
     .travel-destination{
-        font-size:20px;
+        font-size:19px;
     }
 
     .travel-message{
-        font-size:14px;
+        font-size:13px;
     }
 
     .info-card{
         padding:18px;
-        max-height:51vh;
+        max-height:47vh;
     }
 
     .info-title{
-        font-size:21px;
+        font-size:20px;
     }
 
     .info-description{
-        font-size:14px;
+        font-size:13px;
     }
 }
 
 </style>
 </head>
 
-
 <body>
 
 
-<!-- =====================================================
-     AUDIO
-     Primary location = media/travel_music.mp3
-===================================================== -->
+<!-- =========================================================
+     MUSIC
+========================================================= -->
 
-<audio
-id="travelMusic"
-preload="auto"
-loop>
-
-<source
-src="media/travel_music.mp3"
-type="audio/mpeg">
-
+<audio id="travelMusic" preload="auto" loop>
+    <source src="travel_music.mp3" type="audio/mpeg">
 </audio>
 
 
-<!-- =====================================================
-     SCREEN 1
-===================================================== -->
+<!-- =========================================================
+     REUSABLE CONNECTION TEMPLATE NOTE:
+     RED = NOT CONNECTED
+     GREEN = CONNECTED
+========================================================= -->
+
+
+<!-- =========================================================
+     SCREEN 1 - SLEEP
+========================================================= -->
 
 <section id="screen1" class="screen active">
 
 <header class="header">
 
-<div class="novus">
-NOVUS
-</div>
+<div class="novus">NOVUS</div>
 
 <div class="by">
 BY KRUSS MAKERS
@@ -1278,13 +1331,28 @@ TAP TO WAKE NOVUS
 
 <div class="footer">
 
-<div class="connection">
+<div class="connection-panel">
 
-<span class="connection-dot"></span>
+<div class="connection-light"></div>
 
-SIMULATION MODE • SPIKE PRIME NOT CONNECTED
+<div class="connection-info">
+
+<div class="connection-device">
+
+iPAD ↔ SPIKE PRIME
 
 </div>
+
+<div class="connection-state">
+
+NOT CONNECTED · SIMULATION MODE
+
+</div>
+
+</div>
+
+</div>
+
 
 <div class="footer-text">
 
@@ -1297,17 +1365,15 @@ SMART • INTERACTIVE • AUTONOMOUS
 </section>
 
 
-<!-- =====================================================
-     SCREEN 2
-===================================================== -->
+<!-- =========================================================
+     SCREEN 2 - WELCOME VIDEO
+========================================================= -->
 
 <section id="screen2" class="screen">
 
 <header class="header">
 
-<div class="novus">
-NOVUS
-</div>
+<div class="novus">NOVUS</div>
 
 <div class="by">
 BY KRUSS MAKERS
@@ -1368,13 +1434,28 @@ class="exit-tour-button neon">
 
 <div class="footer">
 
-<div class="connection">
+<div class="connection-panel">
 
-<span class="connection-dot"></span>
+<div class="connection-light"></div>
 
-SIMULATION MODE • SPIKE PRIME NOT CONNECTED
+<div class="connection-info">
+
+<div class="connection-device">
+
+iPAD ↔ SPIKE PRIME
 
 </div>
+
+<div class="connection-state">
+
+NOT CONNECTED · SIMULATION MODE
+
+</div>
+
+</div>
+
+</div>
+
 
 <div class="footer-text">
 
@@ -1387,17 +1468,15 @@ SMART • INTERACTIVE • AUTONOMOUS
 </section>
 
 
-<!-- =====================================================
-     SCREEN 3
-===================================================== -->
+<!-- =========================================================
+     SCREEN 3 - LANGUAGE
+========================================================= -->
 
 <section id="screen3" class="screen">
 
 <header class="header">
 
-<div class="novus">
-NOVUS
-</div>
+<div class="novus">NOVUS</div>
 
 <div class="by">
 BY KRUSS MAKERS
@@ -1496,8 +1575,7 @@ class="nav-button neon">
 </button>
 
 <button
-id="home3"
-class="nav-button neon"
+class="nav-button"
 disabled>
 ⌂
 </button>
@@ -1513,13 +1591,28 @@ class="nav-button exit-button neon">
 
 <div class="footer">
 
-<div class="connection">
+<div class="connection-panel">
 
-<span class="connection-dot"></span>
+<div class="connection-light"></div>
 
-SIMULATION MODE • SPIKE PRIME NOT CONNECTED
+<div class="connection-info">
+
+<div class="connection-device">
+
+iPAD ↔ SPIKE PRIME
 
 </div>
+
+<div class="connection-state">
+
+NOT CONNECTED · SIMULATION MODE
+
+</div>
+
+</div>
+
+</div>
+
 
 <div class="footer-text">
 
@@ -1532,17 +1625,15 @@ SMART • INTERACTIVE • AUTONOMOUS
 </section>
 
 
-<!-- =====================================================
-     SCREEN 4
-===================================================== -->
+<!-- =========================================================
+     SCREEN 4 - DESTINATION
+========================================================= -->
 
 <section id="screen4" class="screen">
 
 <header class="header">
 
-<div class="novus">
-NOVUS
-</div>
+<div class="novus">NOVUS</div>
 
 <div class="by">
 BY KRUSS MAKERS
@@ -1682,7 +1773,7 @@ class="station-name">
 </div>
 
 
-<!-- SCREEN 4: NO NEXT -->
+<!-- NO NEXT BUTTON HERE -->
 
 <div class="nav3">
 
@@ -1709,13 +1800,28 @@ class="nav-button exit-button neon">
 
 <div class="footer">
 
-<div class="connection">
+<div class="connection-panel">
 
-<span class="connection-dot"></span>
+<div class="connection-light"></div>
 
-SIMULATION MODE • SPIKE PRIME NOT CONNECTED
+<div class="connection-info">
+
+<div class="connection-device">
+
+iPAD ↔ SPIKE PRIME
 
 </div>
+
+<div class="connection-state">
+
+NOT CONNECTED · SIMULATION MODE
+
+</div>
+
+</div>
+
+</div>
+
 
 <div class="footer-text">
 
@@ -1728,17 +1834,15 @@ SMART • INTERACTIVE • AUTONOMOUS
 </section>
 
 
-<!-- =====================================================
-     SCREEN 5
-===================================================== -->
+<!-- =========================================================
+     SCREEN 5 - TRAVEL
+========================================================= -->
 
 <section id="screen5" class="screen">
 
 <header class="header">
 
-<div class="novus">
-NOVUS
-</div>
+<div class="novus">NOVUS</div>
 
 <div class="by">
 BY KRUSS MAKERS
@@ -1762,9 +1866,7 @@ class="travel-status">
 <div
 id="travelMarker"
 class="travel-marker">
-
 1
-
 </div>
 
 
@@ -1800,7 +1902,9 @@ class="music-status">
 </div>
 
 <span id="musicStatusText">
+
 TOUR MUSIC PLAYING
+
 </span>
 
 </div>
@@ -1879,13 +1983,28 @@ class="nav-button exit-button neon">
 
 <div class="footer">
 
-<div class="connection">
+<div class="connection-panel">
 
-<span class="connection-dot"></span>
+<div class="connection-light"></div>
 
-SIMULATION MODE • SPIKE PRIME NOT CONNECTED
+<div class="connection-info">
+
+<div class="connection-device">
+
+iPAD ↔ SPIKE PRIME
 
 </div>
+
+<div class="connection-state">
+
+NOT CONNECTED · SIMULATION MODE
+
+</div>
+
+</div>
+
+</div>
+
 
 <div class="footer-text">
 
@@ -1898,17 +2017,15 @@ SMART • INTERACTIVE • AUTONOMOUS
 </section>
 
 
-<!-- =====================================================
-     SCREEN 6
-===================================================== -->
+<!-- =========================================================
+     SCREEN 6 - INFORMATION
+========================================================= -->
 
 <section id="screen6" class="screen">
 
 <header class="header">
 
-<div class="novus">
-NOVUS
-</div>
+<div class="novus">NOVUS</div>
 
 <div class="by">
 BY KRUSS MAKERS
@@ -1930,15 +2047,12 @@ id="infoStation"
 class="info-station">
 </div>
 
-
 <div
 id="infoTitle"
 class="info-title">
 </div>
 
-
 <div class="info-line"></div>
-
 
 <div
 id="infoDescription"
@@ -1981,13 +2095,28 @@ class="nav-button exit-button neon">
 
 <div class="footer">
 
-<div class="connection">
+<div class="connection-panel">
 
-<span class="connection-dot"></span>
+<div class="connection-light"></div>
 
-SIMULATION MODE • SPIKE PRIME NOT CONNECTED
+<div class="connection-info">
+
+<div class="connection-device">
+
+iPAD ↔ SPIKE PRIME
 
 </div>
+
+<div class="connection-state">
+
+NOT CONNECTED · SIMULATION MODE
+
+</div>
+
+</div>
+
+</div>
+
 
 <div class="footer-text">
 
@@ -2002,17 +2131,19 @@ SMART • INTERACTIVE • AUTONOMOUS
 
 <script>
 
-/* =====================================================
+/* =========================================================
    ELEMENTS
-===================================================== */
+========================================================= */
 
 const screens = {
+
     1:document.getElementById("screen1"),
     2:document.getElementById("screen2"),
     3:document.getElementById("screen3"),
     4:document.getElementById("screen4"),
     5:document.getElementById("screen5"),
     6:document.getElementById("screen6")
+
 };
 
 const sleepVideo =
@@ -2025,9 +2156,9 @@ const travelMusic =
 document.getElementById("travelMusic");
 
 
-/* =====================================================
+/* =========================================================
    STATE
-===================================================== */
+========================================================= */
 
 let selectedLanguage = null;
 let selectedStation = null;
@@ -2039,10 +2170,12 @@ let musicFadeTimer = null;
 
 let travelArrived = false;
 
+let welcomeTransitionDone = false;
 
-/* =====================================================
-   LANGUAGE DATA
-===================================================== */
+
+/* =========================================================
+   LANGUAGE DATABASE
+========================================================= */
 
 const TEXT = {
 
@@ -2253,9 +2386,9 @@ descriptions:[
 };
 
 
-/* =====================================================
+/* =========================================================
    SCREEN MANAGER
-===================================================== */
+========================================================= */
 
 function showScreen(number){
 
@@ -2266,14 +2399,52 @@ function showScreen(number){
 
     });
 
-    screens[number].classList.add("active");
+    screens[number]
+    .classList.add("active");
 
 }
 
 
-/* =====================================================
+/* =========================================================
+   CONNECTION STATUS
+   READY FOR REAL SPIKE PRIME LATER
+========================================================= */
+
+function setSpikeConnection(connected){
+
+    document
+    .querySelectorAll(".connection-panel")
+    .forEach(function(panel){
+
+        const state =
+        panel.querySelector(".connection-state");
+
+        if(connected){
+
+            panel.classList.add("connected");
+
+            state.textContent =
+            "CONNECTED";
+
+        }
+
+        else{
+
+            panel.classList.remove("connected");
+
+            state.textContent =
+            "NOT CONNECTED · SIMULATION MODE";
+
+        }
+
+    });
+
+}
+
+
+/* =========================================================
    SLEEP VIDEO
-===================================================== */
+========================================================= */
 
 function playSleep(){
 
@@ -2285,23 +2456,29 @@ function playSleep(){
 }
 
 
-/* =====================================================
+/* =========================================================
    WELCOME VIDEO
-===================================================== */
+========================================================= */
 
 function playWelcome(){
 
     stopTravelMusic(true);
 
+    welcomeTransitionDone = false;
+
     welcomeVideo.pause();
 
     try{
+
         welcomeVideo.currentTime = 0;
+
     }
     catch(e){}
 
+
     welcomeVideo.muted = false;
     welcomeVideo.volume = 1;
+
 
     welcomeVideo.play()
     .catch(function(){
@@ -2323,18 +2500,11 @@ function stopWelcome(){
 }
 
 
-/* =====================================================
-   TRAVEL MUSIC
-===================================================== */
+/* =========================================================
+   MUSIC
+========================================================= */
 
 function startTravelMusic(){
-
-    /*
-      This function is called DIRECTLY
-      from station touch/click.
-
-      This is important for iPad/Safari.
-    */
 
     if(musicFadeTimer){
 
@@ -2349,7 +2519,9 @@ function startTravelMusic(){
 
 
     try{
+
         travelMusic.currentTime = 0;
+
     }
     catch(e){}
 
@@ -2357,11 +2529,10 @@ function startTravelMusic(){
     travelMusic.muted = false;
 
     /*
-      Increase from previous 25%.
-      Easier to hear during testing.
+      65% volume for testing.
     */
 
-    travelMusic.volume = 0.45;
+    travelMusic.volume = 0.65;
 
 
     const playPromise =
@@ -2379,21 +2550,18 @@ function startTravelMusic(){
             "TOUR MUSIC PLAYING";
 
         })
+
         .catch(function(error){
 
             console.log(
-                "Music blocked or file not found:",
+                "Music error:",
                 error
             );
 
-
-            /*
-              Fallback:
-              screenshot currently shows
-              travel_music.mp3 at repository root.
-            */
-
-            tryRootMusic();
+            document
+            .getElementById("musicStatusText")
+            .textContent =
+            "MUSIC NOT AVAILABLE";
 
         });
 
@@ -2401,54 +2569,6 @@ function startTravelMusic(){
 
 }
 
-
-/* =====================================================
-   ROOT FALLBACK
-===================================================== */
-
-function tryRootMusic(){
-
-    travelMusic.pause();
-
-    travelMusic.src =
-    "travel_music.mp3";
-
-    travelMusic.load();
-
-    travelMusic.volume = 0.45;
-    travelMusic.muted = false;
-
-
-    travelMusic.play()
-    .then(function(){
-
-        document
-        .getElementById("musicStatusText")
-        .textContent =
-        "TOUR MUSIC PLAYING";
-
-    })
-    .catch(function(error){
-
-        console.log(
-            "Root music also failed:",
-            error
-        );
-
-
-        document
-        .getElementById("musicStatusText")
-        .textContent =
-        "MUSIC NOT AVAILABLE";
-
-    });
-
-}
-
-
-/* =====================================================
-   STOP MUSIC
-===================================================== */
 
 function stopTravelMusic(reset){
 
@@ -2467,7 +2587,9 @@ function stopTravelMusic(reset){
     if(reset){
 
         try{
+
             travelMusic.currentTime = 0;
+
         }
         catch(e){}
 
@@ -2475,10 +2597,6 @@ function stopTravelMusic(reset){
 
 }
 
-
-/* =====================================================
-   FADE OUT
-===================================================== */
 
 function fadeOutTravelMusic(){
 
@@ -2489,55 +2607,53 @@ function fadeOutTravelMusic(){
     }
 
 
-    let currentVolume =
+    let volume =
     travelMusic.volume;
 
 
     musicFadeTimer =
     setInterval(function(){
 
-        currentVolume -= 0.04;
+        volume -= 0.05;
 
 
-        if(currentVolume <= 0){
+        if(volume <= 0){
 
             clearInterval(
                 musicFadeTimer
             );
 
-            musicFadeTimer =
-            null;
+            musicFadeTimer = null;
 
 
             travelMusic.pause();
 
 
             try{
+
                 travelMusic.currentTime = 0;
+
             }
             catch(e){}
 
 
-            travelMusic.volume =
-            0.45;
-
+            travelMusic.volume = 0.65;
 
             return;
 
         }
 
 
-        travelMusic.volume =
-        currentVolume;
+        travelMusic.volume = volume;
 
     },100);
 
 }
 
 
-/* =====================================================
+/* =========================================================
    SCREEN 1
-===================================================== */
+========================================================= */
 
 document
 .getElementById("startButton")
@@ -2554,13 +2670,9 @@ function(){
 });
 
 
-/* =====================================================
+/* =========================================================
    SCREEN 2
-===================================================== */
-
-let welcomeTransitionDone =
-false;
-
+========================================================= */
 
 function openLanguage(){
 
@@ -2568,8 +2680,8 @@ function openLanguage(){
         return;
     }
 
-    welcomeTransitionDone =
-    true;
+
+    welcomeTransitionDone = true;
 
     stopWelcome();
 
@@ -2578,26 +2690,15 @@ function openLanguage(){
 }
 
 
-welcomeVideo.addEventListener(
-"play",
-function(){
-
-    welcomeTransitionDone =
-    false;
-
-});
-
-
-welcomeVideo.addEventListener(
+welcomeVideo
+.addEventListener(
 "ended",
-function(){
-
-    openLanguage();
-
-});
+openLanguage
+);
 
 
-welcomeVideo.addEventListener(
+welcomeVideo
+.addEventListener(
 "timeupdate",
 function(){
 
@@ -2623,9 +2724,10 @@ exitTour
 );
 
 
-/* =====================================================
+/* =========================================================
    SCREEN 3 LANGUAGE
-===================================================== */
+   AUTO TO SCREEN 4
+========================================================= */
 
 document
 .querySelectorAll(".language-button")
@@ -2639,16 +2741,11 @@ document
         button.dataset.language;
 
 
-        selectedStation =
-        null;
+        selectedStation = null;
 
 
         updateDestination();
 
-
-        /*
-          LANGUAGE AUTO ADVANCE
-        */
 
         showScreen(4);
 
@@ -2656,8 +2753,6 @@ document
 
 });
 
-
-/* SCREEN 3 BACK */
 
 document
 .getElementById("back3")
@@ -2672,8 +2767,6 @@ function(){
 });
 
 
-/* SCREEN 3 EXIT */
-
 document
 .getElementById("exit3")
 .addEventListener(
@@ -2682,9 +2775,9 @@ exitTour
 );
 
 
-/* =====================================================
-   UPDATE DESTINATION
-===================================================== */
+/* =========================================================
+   UPDATE DESTINATION LANGUAGE
+========================================================= */
 
 function updateDestination(){
 
@@ -2723,11 +2816,10 @@ function updateDestination(){
 }
 
 
-/* =====================================================
-   SCREEN 4 STATION
-   IMPORTANT:
-   TOUCH DESTINATION = START TOUR
-===================================================== */
+/* =========================================================
+   SCREEN 4 DESTINATION
+   AUTO TO SCREEN 5
+========================================================= */
 
 document
 .querySelectorAll(".station-button")
@@ -2749,36 +2841,19 @@ document
 
 
         /*
-          VERY IMPORTANT:
-
-          Start audio FIRST while this code
-          is still inside the user's tap event.
-
-          Better compatibility with
-          Safari / iPadOS.
+          IMPORTANT FOR IPAD:
+          Music play is called directly
+          from user touch.
         */
 
         startTravelMusic();
 
 
-        /*
-          Prepare Screen 5.
-        */
-
         prepareTravelScreen();
 
 
-        /*
-          Immediately show Screen 5.
-          NO NEXT BUTTON REQUIRED.
-        */
-
         showScreen(5);
 
-
-        /*
-          Start robot simulation.
-        */
 
         startSimulation();
 
@@ -2787,16 +2862,13 @@ document
 });
 
 
-/* SCREEN 4 BACK */
-
 document
 .getElementById("back4")
 .addEventListener(
 "click",
 function(){
 
-    selectedStation =
-    null;
+    selectedStation = null;
 
     stopTravelMusic(true);
 
@@ -2804,8 +2876,6 @@ function(){
 
 });
 
-
-/* SCREEN 4 HOME */
 
 document
 .getElementById("home4")
@@ -2813,11 +2883,9 @@ document
 "click",
 function(){
 
-    selectedLanguage =
-    null;
+    selectedLanguage = null;
 
-    selectedStation =
-    null;
+    selectedStation = null;
 
     stopTravelMusic(true);
 
@@ -2825,8 +2893,6 @@ function(){
 
 });
 
-
-/* SCREEN 4 EXIT */
 
 document
 .getElementById("exit4")
@@ -2836,9 +2902,9 @@ exitTour
 );
 
 
-/* =====================================================
-   PREPARE SCREEN 5
-===================================================== */
+/* =========================================================
+   PREPARE TRAVEL
+========================================================= */
 
 function prepareTravelScreen(){
 
@@ -2846,8 +2912,7 @@ function prepareTravelScreen(){
     TEXT[selectedLanguage];
 
 
-    travelArrived =
-    false;
+    travelArrived = false;
 
 
     document
@@ -2877,9 +2942,7 @@ function prepareTravelScreen(){
 
 
     const marker =
-    document.getElementById(
-        "travelMarker"
-    );
+    document.getElementById("travelMarker");
 
 
     marker.className =
@@ -2889,13 +2952,9 @@ function prepareTravelScreen(){
     const colors = {
 
         1:"travel-red",
-
         2:"travel-blue",
-
         3:"travel-green",
-
         4:"travel-yellow",
-
         5:"travel-purple"
 
     };
@@ -2939,34 +2998,28 @@ function prepareTravelScreen(){
     true;
 
 
-    simulationProgress =
-    0;
-
+    simulationProgress = 0;
 
     updateProgress(0);
 
 }
 
 
-/* =====================================================
+/* =========================================================
    SIMULATION
-===================================================== */
+========================================================= */
 
 function startSimulation(){
 
     stopSimulation();
 
 
-    simulationProgress =
-    0;
+    simulationProgress = 0;
 
 
     /*
-      Current demonstration:
-      6 seconds.
-
-      Later this will be replaced
-      by real SPIKE Prime arrival.
+      DEMO = 6 seconds.
+      Real robot will replace this later.
     */
 
     simulationTimer =
@@ -2977,23 +3030,15 @@ function startSimulation(){
         100 / 60;
 
 
-        if(
-            simulationProgress >=
-            100
-        ){
+        if(simulationProgress >= 100){
 
-            simulationProgress =
-            100;
-
+            simulationProgress = 100;
 
             updateProgress(100);
 
-
             stopSimulation();
 
-
             robotArrived();
-
 
             return;
 
@@ -3011,10 +3056,6 @@ function startSimulation(){
 }
 
 
-/* =====================================================
-   STOP SIMULATION
-===================================================== */
-
 function stopSimulation(){
 
     if(simulationTimer){
@@ -3023,17 +3064,12 @@ function stopSimulation(){
             simulationTimer
         );
 
-        simulationTimer =
-        null;
+        simulationTimer = null;
 
     }
 
 }
 
-
-/* =====================================================
-   PROGRESS
-===================================================== */
 
 function updateProgress(value){
 
@@ -3053,23 +3089,18 @@ function updateProgress(value){
 }
 
 
-/* =====================================================
-   ARRIVAL
-===================================================== */
+/* =========================================================
+   ARRIVED
+========================================================= */
 
 function robotArrived(){
 
-    travelArrived =
-    true;
+    travelArrived = true;
 
 
     const t =
     TEXT[selectedLanguage];
 
-
-    /*
-      Fade travel music.
-    */
 
     fadeOutTravelMusic();
 
@@ -3091,10 +3122,6 @@ function robotArrived(){
     .style.display =
     "none";
 
-
-    /*
-      Arrival message by language.
-    */
 
     if(selectedLanguage === "ZH"){
 
@@ -3152,9 +3179,7 @@ function robotArrived(){
 
 
     const badge =
-    document.getElementById(
-        "arrivedBadge"
-    );
+    document.getElementById("arrivedBadge");
 
 
     badge.textContent =
@@ -3163,15 +3188,8 @@ function robotArrived(){
     t.arrived;
 
 
-    badge.classList.add(
-        "show"
-    );
+    badge.classList.add("show");
 
-
-    /*
-      NEXT becomes available
-      only after arrival.
-    */
 
     document
     .getElementById("next5")
@@ -3181,9 +3199,9 @@ function robotArrived(){
 }
 
 
-/* =====================================================
+/* =========================================================
    SCREEN 5 BACK
-===================================================== */
+========================================================= */
 
 document
 .getElementById("back5")
@@ -3195,17 +3213,16 @@ function(){
 
     stopTravelMusic(true);
 
-    travelArrived =
-    false;
+    travelArrived = false;
 
     showScreen(4);
 
 });
 
 
-/* =====================================================
+/* =========================================================
    SCREEN 5 HOME
-===================================================== */
+========================================================= */
 
 document
 .getElementById("home5")
@@ -3218,14 +3235,11 @@ function(){
     stopTravelMusic(true);
 
 
-    selectedLanguage =
-    null;
+    selectedLanguage = null;
 
-    selectedStation =
-    null;
+    selectedStation = null;
 
-    travelArrived =
-    false;
+    travelArrived = false;
 
 
     showScreen(3);
@@ -3233,9 +3247,9 @@ function(){
 });
 
 
-/* =====================================================
+/* =========================================================
    SCREEN 5 EXIT
-===================================================== */
+========================================================= */
 
 document
 .getElementById("exit5")
@@ -3245,9 +3259,9 @@ exitTour
 );
 
 
-/* =====================================================
+/* =========================================================
    SCREEN 5 NEXT
-===================================================== */
+========================================================= */
 
 document
 .getElementById("next5")
@@ -3271,9 +3285,9 @@ function(){
 });
 
 
-/* =====================================================
-   SCREEN 6
-===================================================== */
+/* =========================================================
+   SCREEN 6 INFORMATION
+========================================================= */
 
 function prepareInformation(){
 
@@ -3303,9 +3317,9 @@ function prepareInformation(){
 }
 
 
-/* =====================================================
+/* =========================================================
    SCREEN 6 BACK
-===================================================== */
+========================================================= */
 
 document
 .getElementById("back6")
@@ -3316,8 +3330,8 @@ function(){
     stopTravelMusic(true);
 
     /*
-      Return to ARRIVED screen.
-      Do NOT restart simulation.
+      Return to arrived screen.
+      Does NOT restart movement.
     */
 
     showScreen(5);
@@ -3325,9 +3339,9 @@ function(){
 });
 
 
-/* =====================================================
+/* =========================================================
    SCREEN 6 HOME
-===================================================== */
+========================================================= */
 
 document
 .getElementById("home6")
@@ -3338,14 +3352,11 @@ function(){
     stopTravelMusic(true);
 
 
-    selectedLanguage =
-    null;
+    selectedLanguage = null;
 
-    selectedStation =
-    null;
+    selectedStation = null;
 
-    travelArrived =
-    false;
+    travelArrived = false;
 
 
     showScreen(3);
@@ -3353,9 +3364,10 @@ function(){
 });
 
 
-/* =====================================================
+/* =========================================================
    SCREEN 6 NEXT
-===================================================== */
+   SELECT ANOTHER DESTINATION
+========================================================= */
 
 document
 .getElementById("next6")
@@ -3366,18 +3378,9 @@ function(){
     stopTravelMusic(true);
 
 
-    /*
-      Station finished.
+    selectedStation = null;
 
-      Keep the current language
-      and choose another station.
-    */
-
-    selectedStation =
-    null;
-
-    travelArrived =
-    false;
+    travelArrived = false;
 
 
     updateDestination();
@@ -3388,9 +3391,9 @@ function(){
 });
 
 
-/* =====================================================
+/* =========================================================
    SCREEN 6 EXIT
-===================================================== */
+========================================================= */
 
 document
 .getElementById("exit6")
@@ -3400,9 +3403,9 @@ exitTour
 );
 
 
-/* =====================================================
-   EXIT TOUR
-===================================================== */
+/* =========================================================
+   EXIT
+========================================================= */
 
 function exitTour(){
 
@@ -3413,32 +3416,28 @@ function exitTour(){
     stopWelcome();
 
 
-    selectedLanguage =
-    null;
+    selectedLanguage = null;
 
-    selectedStation =
-    null;
+    selectedStation = null;
 
-    travelArrived =
-    false;
+    travelArrived = false;
 
 
     try{
+
         welcomeVideo.currentTime = 0;
+
     }
     catch(e){}
 
 
     try{
+
         sleepVideo.currentTime = 0;
+
     }
     catch(e){}
 
-
-    /*
-      EXIT ALWAYS GOES TO
-      SCREEN 1 / SLEEP MODE.
-    */
 
     showScreen(1);
 
@@ -3448,15 +3447,24 @@ function exitTour(){
 }
 
 
-/* =====================================================
-   LOAD
-===================================================== */
+/* =========================================================
+   INITIAL LOAD
+========================================================= */
 
 window.addEventListener(
 "load",
 function(){
 
+    /*
+      Robot not available yet.
+      Therefore RED connection panel.
+    */
+
+    setSpikeConnection(false);
+
+
     showScreen(1);
+
 
     playSleep();
 
