@@ -1,34 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 
-<meta
-name="viewport"
-content="width=device-width,
-initial-scale=1,
-maximum-scale=1,
-user-scalable=no,
-viewport-fit=cover">
+<meta name="viewport"
+content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 
 <title>NOVUS | KRUSS Makers</title>
 
 <style>
-
-/* =========================================================
-   ROOT
-========================================================= */
-
 :root{
   --cyan:#49e2ff;
-  --cyan2:#14c9ef;
   --red:#ff3855;
   --green:#38ff8d;
   --yellow:#ffd844;
   --purple:#c65cff;
-  --navy:#03131e;
-  --panel:#061e2c;
 }
 
 *{
@@ -45,21 +31,14 @@ html,body{
 }
 
 body{
-  font-family:
-  Arial,
-  "Noto Sans",
-  sans-serif;
-
+  font-family:Arial,"Noto Sans",sans-serif;
   color:#fff;
-
   background:
-  radial-gradient(
-    circle at 50% 15%,
-    #123f59 0%,
-    #08293c 35%,
-    #03141f 70%,
-    #02090e 100%
-  );
+  radial-gradient(circle at 50% 15%,
+  #123f59 0%,
+  #08293c 35%,
+  #03141f 70%,
+  #02090e 100%);
 }
 
 button{
@@ -70,84 +49,59 @@ button{
 .screen{
   position:absolute;
   inset:0;
-
   display:none;
-
   width:100%;
   height:100%;
-
   flex-direction:column;
   align-items:center;
-
   padding:
-  max(8px,env(safe-area-inset-top))
-  14px
-  max(7px,env(safe-area-inset-bottom));
+    max(8px,env(safe-area-inset-top))
+    14px
+    max(7px,env(safe-area-inset-bottom));
 }
 
 .screen.active{
   display:flex;
 }
 
-
-/* =========================================================
-   HEADER
-========================================================= */
+/* HEADER */
 
 .header{
   width:100%;
   flex:0 0 auto;
-
   text-align:center;
-
   padding:2px 0 7px;
 }
 
 .novus{
   font-size:36px;
   line-height:1;
-
   font-weight:900;
-
   letter-spacing:10px;
-
   text-shadow:
-  0 0 8px white,
-  0 0 18px #39dcff,
-  0 0 32px rgba(57,220,255,.55);
+    0 0 8px white,
+    0 0 18px #39dcff,
+    0 0 32px rgba(57,220,255,.55);
 }
 
 .by{
   margin-top:6px;
-
   color:#65eaff;
-
   font-size:8px;
   font-weight:900;
-
   letter-spacing:4px;
 }
 
 .tagline{
   margin-top:4px;
-
   font-size:9px;
   font-weight:800;
-
   letter-spacing:4px;
 }
 
-
-/* =========================================================
-   GENERAL
-========================================================= */
-
 .neon{
   cursor:pointer;
-
-  transition:
-  transform .1s,
-  filter .1s;
+  transition:transform .1s,filter .1s;
 }
 
 .neon:active{
@@ -158,15 +112,11 @@ button{
 .content{
   flex:1;
   min-height:0;
-
   width:100%;
-
   display:flex;
   flex-direction:column;
-
   justify-content:center;
   align-items:center;
-
   gap:9px;
 }
 
@@ -177,186 +127,121 @@ button{
 .page-heading h2{
   font-size:22px;
   font-weight:900;
-
   letter-spacing:3px;
-
-  text-shadow:
-  0 0 15px var(--cyan);
+  text-shadow:0 0 15px var(--cyan);
 }
 
 .page-heading p{
   margin-top:5px;
-
   color:#77eaff;
-
   font-size:10px;
-
   letter-spacing:2px;
 }
 
-
-/* =========================================================
-   VIDEO
-
-   IMPORTANT:
-   NO STRETCHING / NO SQUEEZING
-========================================================= */
+/* VIDEOS */
 
 .video-area{
   flex:1;
   min-height:0;
-
   width:100%;
-
   display:flex;
-
   align-items:center;
   justify-content:center;
 }
 
 .video-frame{
   width:min(92vw,720px);
-
   aspect-ratio:16/9;
-
   display:flex;
-
   justify-content:center;
   align-items:center;
-
   overflow:hidden;
-
   border:2px solid rgba(73,226,255,.7);
   border-radius:25px;
-
   background:#000;
-
-  box-shadow:
-  0 0 28px rgba(57,216,255,.23);
+  box-shadow:0 0 28px rgba(57,216,255,.23);
 }
 
 .video-frame video{
-  display:block;
-
   width:100%;
   height:100%;
-
   object-fit:contain;
-
   background:#000;
 }
 
-
-/* =========================================================
-   SCREEN 1
-========================================================= */
+/* SLEEP */
 
 .sleep-main{
   flex:1;
   min-height:0;
-
   width:100%;
-
   display:flex;
   flex-direction:column;
-
   align-items:center;
   justify-content:center;
-
   gap:14px;
 }
 
 .sleep-video-frame{
   position:relative;
-
   width:min(92vw,720px);
-
   aspect-ratio:16/9;
-
   display:flex;
-
   justify-content:center;
   align-items:center;
-
   overflow:hidden;
-
   border:2px solid rgba(73,226,255,.75);
   border-radius:26px;
-
   background:#000;
-
   box-shadow:
-  0 0 12px rgba(47,218,255,.4),
-  0 0 35px rgba(47,218,255,.15);
+    0 0 12px rgba(47,218,255,.4),
+    0 0 35px rgba(47,218,255,.15);
 }
 
 .sleep-video-frame video{
   width:100%;
   height:100%;
-
-  display:block;
-
   object-fit:contain;
-
   background:#000;
 }
 
 .sleep-badge{
   position:absolute;
-
   left:50%;
   bottom:14px;
-
   transform:translateX(-50%);
-
   display:flex;
   align-items:center;
-
   gap:8px;
-
   padding:8px 14px;
-
   border-radius:30px;
-
   background:rgba(0,10,17,.90);
-
   white-space:nowrap;
-
   font-size:9px;
   font-weight:900;
-
   letter-spacing:2px;
 }
 
 .sleep-dot{
   width:10px;
   height:10px;
-
   border-radius:50%;
-
   background:#3ce4ff;
-
-  box-shadow:
-  0 0 12px #3ce4ff;
-
+  box-shadow:0 0 12px #3ce4ff;
   animation:pulse 1.4s infinite;
 }
 
 .start-area{
   width:min(88vw,650px);
-
   text-align:center;
 }
 
 .start-button{
   width:100%;
   min-height:54px;
-
   border:1px solid #5be5ff;
   border-radius:40px;
-
-  background:
-  linear-gradient(
+  background:linear-gradient(
     90deg,
     #39d7f5,
     #ddfaff,
@@ -364,273 +249,161 @@ button{
     #ddfaff,
     #39d7f5
   );
-
   color:#00131b;
-
   font-size:14px;
   font-weight:900;
-
   letter-spacing:2px;
-
-  box-shadow:
-  0 0 22px rgba(54,220,255,.42);
+  box-shadow:0 0 22px rgba(54,220,255,.42);
 }
 
 .tap-text{
   margin-top:6px;
-
   color:#a9dce5;
-
   font-size:8px;
   font-weight:900;
-
   letter-spacing:3px;
-
   opacity:.7;
 }
 
-
-/* =========================================================
-   WELCOME
-========================================================= */
+/* WELCOME */
 
 .welcome-info{
   flex:0 0 auto;
-
   text-align:center;
-
   padding:2px 0;
 }
 
 .welcome-title{
   font-size:14px;
   font-weight:900;
-
   letter-spacing:4px;
 }
 
 .welcome-small{
   margin-top:3px;
-
   color:#83dcea;
-
   font-size:8px;
-
   letter-spacing:3px;
 }
 
 .exit-tour-button{
   margin-top:7px;
-
   min-width:210px;
   min-height:37px;
-
   border:1px solid #ff5366;
   border-radius:30px;
-
   background:#510a14;
-
   color:#ffb1ba;
-
   font-size:10px;
   font-weight:900;
-
   letter-spacing:2px;
 }
 
-
-/* =========================================================
-   LANGUAGE
-========================================================= */
+/* LANGUAGE */
 
 .language-button{
   width:min(88vw,620px);
-
   min-height:53px;
-
   border:1px solid #4de1ff;
   border-radius:18px;
-
-  background:
-  linear-gradient(
-    135deg,
-    #051d2d,
-    #083b51
-  );
-
+  background:linear-gradient(135deg,#051d2d,#083b51);
   color:#fff;
-
-  box-shadow:
-  0 0 15px rgba(57,216,255,.25);
+  box-shadow:0 0 15px rgba(57,216,255,.25);
 }
 
 .language-main{
   display:block;
-
   font-size:13px;
   font-weight:900;
-
   letter-spacing:2px;
 }
 
 .language-native{
   display:block;
-
   margin-top:3px;
-
   color:#72eaff;
-
   font-size:15px;
   font-weight:700;
 }
 
-
-/* =========================================================
-   STATIONS
-========================================================= */
+/* STATIONS */
 
 .station-button{
   width:min(90vw,650px);
-
   min-height:54px;
-
   padding:7px 14px;
-
   border-radius:17px;
-
   background:#03141e;
-
   color:white;
-
   display:flex;
-
   align-items:center;
-
   gap:13px;
-
   text-align:left;
 }
 
 .dot{
   width:21px;
   height:21px;
-
   border-radius:50%;
-
   flex-shrink:0;
 }
 
 .station-number{
   display:block;
-
   font-size:8px;
   font-weight:900;
-
   letter-spacing:2px;
-
   opacity:.65;
 }
 
 .station-name{
   display:block;
-
   margin-top:3px;
-
   font-size:12px;
   font-weight:800;
 }
 
-.red{
-  border:1px solid #ff4058;
-}
+.red{border:1px solid #ff4058}
+.red .dot{background:#ff3048;box-shadow:0 0 12px #ff3048}
 
-.red .dot{
-  background:#ff3048;
-  box-shadow:0 0 12px #ff3048;
-}
+.blue{border:1px solid #33a8ff}
+.blue .dot{background:#279cff;box-shadow:0 0 12px #279cff}
 
-.blue{
-  border:1px solid #33a8ff;
-}
+.green{border:1px solid #35ff78}
+.green .dot{background:#35ff78;box-shadow:0 0 12px #35ff78}
 
-.blue .dot{
-  background:#279cff;
-  box-shadow:0 0 12px #279cff;
-}
+.yellow{border:1px solid #ffd93f}
+.yellow .dot{background:#ffd93f;box-shadow:0 0 12px #ffd93f}
 
-.green{
-  border:1px solid #35ff78;
-}
+.purple{border:1px solid #c05cff}
+.purple .dot{background:#bf52ff;box-shadow:0 0 12px #bf52ff}
 
-.green .dot{
-  background:#35ff78;
-  box-shadow:0 0 12px #35ff78;
-}
+/* NAV */
 
-.yellow{
-  border:1px solid #ffd93f;
-}
-
-.yellow .dot{
-  background:#ffd93f;
-  box-shadow:0 0 12px #ffd93f;
-}
-
-.purple{
-  border:1px solid #c05cff;
-}
-
-.purple .dot{
-  background:#bf52ff;
-  box-shadow:0 0 12px #bf52ff;
-}
-
-
-/* =========================================================
-   NAV
-========================================================= */
-
-.nav3,
-.nav4{
+.nav3,.nav4{
   width:min(92vw,680px);
-
   flex:0 0 auto;
-
   display:grid;
-
   gap:8px;
 }
 
 .nav3{
-  grid-template-columns:
-  1fr 1fr 1fr;
+  grid-template-columns:1fr 1fr 1fr;
 }
 
 .nav4{
-  grid-template-columns:
-  1fr 1fr 1fr 1fr;
+  grid-template-columns:1fr 1fr 1fr 1fr;
 }
 
 .nav-button{
   min-height:39px;
-
   border:1px solid #45e0ff;
   border-radius:14px;
-
-  background:
-  linear-gradient(
-    135deg,
-    #031f2f,
-    #064054
-  );
-
+  background:linear-gradient(135deg,#031f2f,#064054);
   color:#e7fcff;
-
   font-size:20px;
   font-weight:900;
-
-  box-shadow:
-  0 0 11px rgba(57,216,255,.25);
+  box-shadow:0 0 11px rgba(57,216,255,.25);
 }
 
 .nav-button:disabled{
@@ -640,284 +413,174 @@ button{
 
 .exit-button{
   border-color:#ff5366;
-
-  background:
-  linear-gradient(
-    135deg,
-    #3a050c,
-    #650b18
-  );
-
+  background:linear-gradient(135deg,#3a050c,#650b18);
   color:#ffabb4;
 }
 
-
-/* =========================================================
-   CONNECTION
-
-   SAME WIDTH AS NAVIGATION
-========================================================= */
+/* CONNECTION */
 
 .footer{
   width:100%;
-
   flex:0 0 auto;
-
   display:flex;
-
   justify-content:center;
-
   padding-top:7px;
 }
 
 .connection-panel{
   width:min(92vw,680px);
-
   min-height:62px;
-
   display:flex;
-
   align-items:center;
   justify-content:center;
-
   gap:15px;
-
   padding:7px 18px;
-
   border:2px solid var(--red);
   border-radius:21px;
-
-  background:
-  linear-gradient(
+  background:linear-gradient(
     135deg,
     rgba(62,0,12,.94),
     rgba(34,0,7,.96)
   );
-
-  box-shadow:
-  0 0 18px rgba(255,48,78,.22);
+  box-shadow:0 0 18px rgba(255,48,78,.22);
 }
 
 .connection-light{
   width:30px;
   height:30px;
-
   flex-shrink:0;
-
   border-radius:50%;
-
   background:var(--red);
-
   animation:redGlow 1.4s infinite;
 }
 
 .connection-info{
   display:flex;
   flex-direction:column;
-
   gap:2px;
 }
 
 .connection-device{
   font-size:16px;
   font-weight:900;
-
   letter-spacing:1.6px;
 }
 
 .connection-state{
   color:#ff8292;
-
   font-size:11px;
   font-weight:900;
-
   letter-spacing:2px;
 }
 
 .connection-mode{
   color:#ff8796;
-
   font-size:7px;
   font-weight:900;
-
   letter-spacing:2.4px;
 }
 
 .connection-panel.connected{
   border-color:var(--green);
-
-  background:
-  linear-gradient(
-    135deg,
-    #032819,
-    #06472a
-  );
+  background:linear-gradient(135deg,#032819,#06472a);
 }
 
-.connection-panel.connected
-.connection-light{
+.connection-panel.connected .connection-light{
   background:var(--green);
-
-  animation:
-  greenGlow 1.4s infinite;
+  animation:greenGlow 1.4s infinite;
 }
 
-.connection-panel.connected
-.connection-state{
+.connection-panel.connected .connection-state{
   color:#8affb8;
 }
 
-.connection-panel.connected
-.connection-mode{
+.connection-panel.connected .connection-mode{
   display:none;
 }
 
-
-/* =========================================================
-   TRAVEL
-========================================================= */
+/* TRAVEL */
 
 .travel-content{
   flex:1;
   min-height:0;
-
   width:100%;
-
   display:flex;
   flex-direction:column;
-
   justify-content:center;
   align-items:center;
-
   text-align:center;
-
   gap:8px;
 }
 
 .travel-status{
   color:#6de8ff;
-
   font-size:11px;
   font-weight:900;
-
   letter-spacing:3px;
 }
 
 .travel-marker{
   width:70px;
   height:70px;
-
   border-radius:50%;
-
   display:flex;
-
   justify-content:center;
   align-items:center;
-
   background:#03141e;
-
   font-size:27px;
   font-weight:900;
 }
 
-.travel-red{
-  border:3px solid #ff4058;
-  color:#ff4058;
-  box-shadow:0 0 24px #ff4058;
-}
-
-.travel-blue{
-  border:3px solid #33a8ff;
-  color:#33a8ff;
-  box-shadow:0 0 24px #33a8ff;
-}
-
-.travel-green{
-  border:3px solid #35ff78;
-  color:#35ff78;
-  box-shadow:0 0 24px #35ff78;
-}
-
-.travel-yellow{
-  border:3px solid #ffd93f;
-  color:#ffd93f;
-  box-shadow:0 0 24px #ffd93f;
-}
-
-.travel-purple{
-  border:3px solid #c05cff;
-  color:#c05cff;
-  box-shadow:0 0 24px #c05cff;
-}
+.travel-red{border:3px solid #ff4058;color:#ff4058;box-shadow:0 0 24px #ff4058}
+.travel-blue{border:3px solid #33a8ff;color:#33a8ff;box-shadow:0 0 24px #33a8ff}
+.travel-green{border:3px solid #35ff78;color:#35ff78;box-shadow:0 0 24px #35ff78}
+.travel-yellow{border:3px solid #ffd93f;color:#ffd93f;box-shadow:0 0 24px #ffd93f}
+.travel-purple{border:3px solid #c05cff;color:#c05cff;box-shadow:0 0 24px #c05cff}
 
 .travel-station{
   font-size:11px;
   font-weight:900;
-
   letter-spacing:4px;
 }
 
 .travel-destination{
   max-width:90%;
-
   font-size:18px;
   font-weight:900;
-
-  text-shadow:
-  0 0 16px #36dcff;
+  text-shadow:0 0 16px #36dcff;
 }
 
 .travel-message{
   font-size:11px;
   font-weight:800;
-
   letter-spacing:2px;
 }
 
-
-/* =========================================================
-   MUSIC
-========================================================= */
-
 .music-status{
   display:flex;
-
   align-items:center;
-
   gap:8px;
-
   padding:6px 14px;
-
   border:1px solid #53e0ff;
   border-radius:30px;
-
   background:#000f19;
-
   color:#71e8ff;
-
   font-size:8px;
   font-weight:900;
-
   letter-spacing:2px;
 }
 
 .music-bars{
   height:14px;
-
   display:flex;
-
   align-items:center;
-
   gap:3px;
 }
 
 .music-bars span{
   width:3px;
-
   background:#52e1ff;
-
-  animation:
-  musicBar .55s infinite alternate;
+  animation:musicBar .55s infinite alternate;
 }
 
 .music-bars span:nth-child(1){height:5px}
@@ -925,44 +588,22 @@ button{
 .music-bars span:nth-child(3){height:8px}
 .music-bars span:nth-child(4){height:14px}
 
-
-/* =========================================================
-   MOVEMENT
-========================================================= */
-
 .travel-animation{
   display:flex;
-
   gap:9px;
 }
 
 .travel-animation span{
   width:9px;
   height:9px;
-
   border-radius:50%;
-
   background:#48ddff;
-
-  box-shadow:
-  0 0 11px #48ddff;
-
-  animation:
-  moveDots 1.2s infinite;
+  box-shadow:0 0 11px #48ddff;
+  animation:moveDots 1.2s infinite;
 }
 
-.travel-animation span:nth-child(2){
-  animation-delay:.2s;
-}
-
-.travel-animation span:nth-child(3){
-  animation-delay:.4s;
-}
-
-
-/* =========================================================
-   PROGRESS
-========================================================= */
+.travel-animation span:nth-child(2){animation-delay:.2s}
+.travel-animation span:nth-child(3){animation-delay:.4s}
 
 .progress-box{
   width:min(76vw,540px);
@@ -971,56 +612,36 @@ button{
 .progress-track{
   width:100%;
   height:14px;
-
   overflow:hidden;
-
   border:1px solid #49ddff;
   border-radius:20px;
-
   background:#000;
 }
 
 .progress-fill{
   width:0;
   height:100%;
-
   border-radius:20px;
-
-  background:
-  linear-gradient(
-    90deg,
-    #19cfff,
-    white
-  );
-
-  box-shadow:
-  0 0 14px #36dcff;
+  background:linear-gradient(90deg,#19cfff,#fff);
+  box-shadow:0 0 14px #36dcff;
 }
 
 .progress-text{
   margin-top:4px;
-
   color:#70e8ff;
-
   font-size:9px;
   font-weight:900;
 }
 
 .arrived-badge{
   display:none;
-
   padding:8px 17px;
-
   border:1px solid #35ff78;
   border-radius:30px;
-
   background:#053c1e;
-
   color:#8dffb5;
-
   font-size:10px;
   font-weight:900;
-
   letter-spacing:2px;
 }
 
@@ -1028,209 +649,130 @@ button{
   display:block;
 }
 
-
-/* =========================================================
-   SCREEN 6 — POSTER GUIDE
-========================================================= */
+/* POSTER SCREEN */
 
 .poster-content{
   flex:1;
   min-height:0;
-
   width:100%;
-
   display:flex;
   flex-direction:column;
-
   align-items:center;
   justify-content:center;
-
   gap:7px;
 }
 
 .poster-heading{
   width:min(92vw,760px);
-
   display:flex;
-
   align-items:flex-end;
   justify-content:space-between;
-
   gap:10px;
 }
 
 .poster-station{
   color:#5be6ff;
-
   font-size:9px;
   font-weight:900;
-
   letter-spacing:3px;
 }
 
 .poster-title{
   margin-top:2px;
-
   max-width:650px;
-
   font-size:15px;
   font-weight:900;
-
   line-height:1.1;
 }
 
 .poster-language{
   color:#6be8ff;
-
   font-size:8px;
   font-weight:900;
-
   letter-spacing:2px;
-
   white-space:nowrap;
 }
 
-
-/* POSTER IMAGE */
-
 .poster-frame{
   width:min(92vw,760px);
-
   height:min(45vh,430px);
-
   display:flex;
-
   align-items:center;
   justify-content:center;
-
   overflow:hidden;
-
   border:2px solid #3edfff;
   border-radius:17px;
-
   background:#02090d;
-
-  box-shadow:
-  0 0 20px rgba(54,218,255,.28);
+  box-shadow:0 0 20px rgba(54,218,255,.28);
 }
 
 .destination-poster{
-  display:block;
-
   width:100%;
   height:100%;
-
   object-fit:contain;
-
   object-position:center;
-
   background:#02090d;
 }
 
-
-/* TEXT */
-
 .guide-text-card{
   width:min(92vw,760px);
-
   max-height:105px;
-
   overflow-y:auto;
-
   padding:9px 12px;
-
   border:1px solid rgba(73,226,255,.42);
   border-radius:13px;
-
-  background:
-  rgba(2,22,33,.88);
-
+  background:rgba(2,22,33,.88);
   color:#eafcff;
 }
 
 .guide-text{
   font-size:10px;
-
   line-height:1.45;
-
   text-align:justify;
 }
 
 .guide-source{
   margin-top:6px;
-
   padding-top:5px;
-
-  border-top:
-  1px solid rgba(73,226,255,.18);
-
+  border-top:1px solid rgba(73,226,255,.18);
   color:#68dff4;
-
   font-size:7px;
-
   line-height:1.35;
-
-  letter-spacing:.5px;
 }
-
-
-/* AUDIO */
 
 .audio-controls{
   width:min(92vw,760px);
-
   display:grid;
-
-  grid-template-columns:
-  2fr 1fr;
-
+  grid-template-columns:2fr 1fr;
   gap:7px;
 }
 
 .play-audio{
   min-height:40px;
-
   border:1px solid #35ff78;
   border-radius:14px;
-
-  background:
-  linear-gradient(
-    135deg,
-    #06351e,
-    #08713b
-  );
-
+  background:linear-gradient(135deg,#06351e,#08713b);
   color:white;
-
   font-size:10px;
   font-weight:900;
-
   letter-spacing:1.5px;
 }
 
 .play-audio.speaking{
-  animation:
-  audioPulse 1s infinite;
+  animation:audioPulse 1s infinite;
 }
 
 .stop-audio{
   min-height:40px;
-
   border:1px solid #ff5366;
   border-radius:14px;
-
   background:#510914;
-
   color:#ffb3bd;
-
   font-size:10px;
   font-weight:900;
 }
 
-
-/* =========================================================
-   ANIMATIONS
-========================================================= */
+/* ANIMATIONS */
 
 @keyframes pulse{
   0%,100%{opacity:.35}
@@ -1238,129 +780,57 @@ button{
 }
 
 @keyframes redGlow{
-  0%,100%{
-    box-shadow:0 0 9px #ff314b;
-  }
-
-  50%{
-    box-shadow:0 0 23px #ff314b;
-  }
+  0%,100%{box-shadow:0 0 9px #ff314b}
+  50%{box-shadow:0 0 23px #ff314b}
 }
 
 @keyframes greenGlow{
-  0%,100%{
-    box-shadow:0 0 9px #31ff83;
-  }
-
-  50%{
-    box-shadow:0 0 23px #31ff83;
-  }
+  0%,100%{box-shadow:0 0 9px #31ff83}
+  50%{box-shadow:0 0 23px #31ff83}
 }
 
 @keyframes moveDots{
-  0%,100%{
-    opacity:.25;
-    transform:scale(.7);
-  }
-
-  50%{
-    opacity:1;
-    transform:scale(1.25);
-  }
+  0%,100%{opacity:.25;transform:scale(.7)}
+  50%{opacity:1;transform:scale(1.25)}
 }
 
 @keyframes musicBar{
-  from{
-    transform:scaleY(.3);
-  }
-
-  to{
-    transform:scaleY(1);
-  }
+  from{transform:scaleY(.3)}
+  to{transform:scaleY(1)}
 }
 
 @keyframes audioPulse{
-  0%,100%{
-    box-shadow:
-    0 0 8px rgba(49,255,131,.3);
-  }
-
-  50%{
-    box-shadow:
-    0 0 22px rgba(49,255,131,.85);
-  }
+  0%,100%{box-shadow:0 0 8px rgba(49,255,131,.3)}
+  50%{box-shadow:0 0 22px rgba(49,255,131,.85)}
 }
 
-
-/* =========================================================
-   IPAD MINI / SMALL HEIGHT
-========================================================= */
+/* SMALLER IPAD HEIGHT */
 
 @media(max-height:850px){
 
-  .novus{
-    font-size:29px;
-  }
+  .novus{font-size:29px}
+  .by{margin-top:4px;font-size:7px}
+  .tagline{margin-top:2px;font-size:7px}
+  .header{padding-bottom:4px}
 
-  .by{
-    margin-top:4px;
-    font-size:7px;
-  }
-
-  .tagline{
-    margin-top:2px;
-    font-size:7px;
-  }
-
-  .header{
-    padding-bottom:4px;
-  }
-
-  .sleep-main{
-    gap:8px;
-  }
+  .sleep-main{gap:8px}
 
   .start-button{
     min-height:43px;
     font-size:11px;
   }
 
-  .connection-panel{
-    min-height:53px;
-  }
+  .connection-panel{min-height:53px}
+  .connection-light{width:25px;height:25px}
+  .connection-device{font-size:13px}
+  .connection-state{font-size:9px}
 
-  .connection-light{
-    width:25px;
-    height:25px;
-  }
+  .language-button{min-height:41px}
+  .language-main{font-size:11px}
+  .language-native{font-size:13px}
 
-  .connection-device{
-    font-size:13px;
-  }
-
-  .connection-state{
-    font-size:9px;
-  }
-
-  .language-button{
-    min-height:41px;
-  }
-
-  .language-main{
-    font-size:11px;
-  }
-
-  .language-native{
-    font-size:13px;
-  }
-
-  .station-button{
-    min-height:40px;
-  }
-
-  .station-name{
-    font-size:10px;
-  }
+  .station-button{min-height:40px}
+  .station-name{font-size:10px}
 
   .nav-button{
     min-height:31px;
@@ -1370,7 +840,6 @@ button{
   .travel-marker{
     width:56px;
     height:56px;
-
     font-size:21px;
   }
 
@@ -1380,7 +849,6 @@ button{
 
   .guide-text-card{
     max-height:82px;
-
     padding:7px 10px;
   }
 
@@ -1391,22 +859,13 @@ button{
   .play-audio,
   .stop-audio{
     min-height:33px;
-
     font-size:9px;
   }
-
 }
-
 </style>
-
 </head>
 
 <body>
-
-
-<!-- =========================================================
-     AUDIO
-========================================================= -->
 
 <audio
 id="travelMusic"
@@ -1415,891 +874,421 @@ preload="auto"
 loop>
 </audio>
 
-
-<!-- =========================================================
-     SCREEN 1 — SLEEP
-========================================================= -->
+<!-- SCREEN 1 -->
 
 <section id="screen1" class="screen active">
 
 <header class="header">
-
-<div class="novus">
-NOVUS
-</div>
-
-<div class="by">
-BY KRUSS MAKERS
-</div>
-
-<div class="tagline">
-YOUR AI MUSEUM GUIDE
-</div>
-
+  <div class="novus">NOVUS</div>
+  <div class="by">BY KRUSS MAKERS</div>
+  <div class="tagline">YOUR AI MUSEUM GUIDE</div>
 </header>
-
 
 <div class="sleep-main">
 
-<div class="sleep-video-frame">
+  <div class="sleep-video-frame">
 
-<video
-id="sleepVideo"
-autoplay
-muted
-loop
-playsinline>
+    <video id="sleepVideo" autoplay muted loop playsinline>
+      <source src="media/sleepmode.mp4" type="video/mp4">
+    </video>
 
-<source
-src="media/sleepmode.mp4"
-type="video/mp4">
+    <div class="sleep-badge">
+      <span class="sleep-dot"></span>
+      NOVUS IS IN SLEEP MODE
+    </div>
 
-</video>
+  </div>
 
+  <div class="start-area">
 
-<div class="sleep-badge">
+    <button id="startButton" class="start-button neon">
+      ✦ TOUCH HERE TO BEGIN TOUR
+    </button>
 
-<span class="sleep-dot"></span>
+    <div class="tap-text">
+      TAP TO WAKE NOVUS
+    </div>
 
-NOVUS IS IN SLEEP MODE
-
-</div>
-
-</div>
-
-
-<div class="start-area">
-
-<button
-id="startButton"
-class="start-button neon">
-
-✦ TOUCH HERE TO BEGIN TOUR
-
-</button>
-
-<div class="tap-text">
-
-TAP TO WAKE NOVUS
+  </div>
 
 </div>
-
-</div>
-
-</div>
-
 
 <div class="footer">
+  <div class="connection-panel">
+    <div class="connection-light"></div>
 
-<div class="connection-panel">
-
-<div class="connection-light"></div>
-
-<div class="connection-info">
-
-<div class="connection-device">
-iPAD ⇄ SPIKE PRIME
-</div>
-
-<div class="connection-state">
-NOT CONNECTED
-</div>
-
-<div class="connection-mode">
-SIMULATION MODE
-</div>
-
-</div>
-
-</div>
-
+    <div class="connection-info">
+      <div class="connection-device">iPAD ⇄ SPIKE PRIME</div>
+      <div class="connection-state">NOT CONNECTED</div>
+      <div class="connection-mode">SIMULATION MODE</div>
+    </div>
+  </div>
 </div>
 
 </section>
 
-
-<!-- =========================================================
-     SCREEN 2 — WELCOME
-========================================================= -->
+<!-- SCREEN 2 -->
 
 <section id="screen2" class="screen">
 
 <header class="header">
-
-<div class="novus">
-NOVUS
-</div>
-
-<div class="by">
-BY KRUSS MAKERS
-</div>
-
-<div class="tagline">
-YOUR AI MUSEUM GUIDE
-</div>
-
+  <div class="novus">NOVUS</div>
+  <div class="by">BY KRUSS MAKERS</div>
+  <div class="tagline">YOUR AI MUSEUM GUIDE</div>
 </header>
-
 
 <div class="video-area">
 
-<div class="video-frame">
+  <div class="video-frame">
 
-<video
-id="welcomeVideo"
-playsinline
-preload="auto">
+    <video id="welcomeVideo" playsinline preload="auto">
+      <source src="media/WELCOME_VIDEO.mp4" type="video/mp4">
+    </video>
 
-<source
-src="media/WELCOME_VIDEO.mp4"
-type="video/mp4">
-
-</video>
+  </div>
 
 </div>
-
-</div>
-
 
 <div class="welcome-info">
 
-<div class="welcome-title">
-WELCOME TO NOVUS
-</div>
+  <div class="welcome-title">WELCOME TO NOVUS</div>
 
-<div class="welcome-small">
-YOUR INTERACTIVE MUSEUM GUIDE
-</div>
+  <div class="welcome-small">
+    YOUR INTERACTIVE MUSEUM GUIDE
+  </div>
 
-<button
-id="exit2"
-class="exit-tour-button neon">
-
-✕ EXIT TOUR
-
-</button>
+  <button id="exit2" class="exit-tour-button neon">
+    ✕ EXIT TOUR
+  </button>
 
 </div>
-
 
 <div class="footer">
 
-<div class="connection-panel">
+  <div class="connection-panel">
 
-<div class="connection-light"></div>
+    <div class="connection-light"></div>
 
-<div class="connection-info">
+    <div class="connection-info">
+      <div class="connection-device">iPAD ⇄ SPIKE PRIME</div>
+      <div class="connection-state">NOT CONNECTED</div>
+      <div class="connection-mode">SIMULATION MODE</div>
+    </div>
 
-<div class="connection-device">
-iPAD ⇄ SPIKE PRIME
-</div>
-
-<div class="connection-state">
-NOT CONNECTED
-</div>
-
-<div class="connection-mode">
-SIMULATION MODE
-</div>
-
-</div>
-
-</div>
+  </div>
 
 </div>
 
 </section>
 
-
-<!-- =========================================================
-     SCREEN 3 — LANGUAGE
-========================================================= -->
+<!-- SCREEN 3 -->
 
 <section id="screen3" class="screen">
 
 <header class="header">
-
-<div class="novus">
-NOVUS
-</div>
-
-<div class="by">
-BY KRUSS MAKERS
-</div>
-
-<div class="tagline">
-YOUR AI MUSEUM GUIDE
-</div>
-
+  <div class="novus">NOVUS</div>
+  <div class="by">BY KRUSS MAKERS</div>
+  <div class="tagline">YOUR AI MUSEUM GUIDE</div>
 </header>
-
 
 <div class="content">
 
-<div class="page-heading">
+  <div class="page-heading">
+    <h2>SELECT YOUR LANGUAGE</h2>
+    <p>SILA PILIH BAHASA</p>
+  </div>
 
-<h2>
-SELECT YOUR LANGUAGE
-</h2>
+  <button class="language-button neon" data-language="ms">
+    <span class="language-main">BAHASA MELAYU</span>
+    <span class="language-native">Bahasa Melayu</span>
+  </button>
 
-<p>
-SILA PILIH BAHASA
-</p>
+  <button class="language-button neon" data-language="en">
+    <span class="language-main">ENGLISH</span>
+    <span class="language-native">English</span>
+  </button>
 
-</div>
+  <button class="language-button neon" data-language="zh">
+    <span class="language-main">CHINESE</span>
+    <span class="language-native">中文</span>
+  </button>
 
-
-<button
-class="language-button neon"
-data-language="ms">
-
-<span class="language-main">
-BAHASA MELAYU
-</span>
-
-<span class="language-native">
-Bahasa Melayu
-</span>
-
-</button>
-
-
-<button
-class="language-button neon"
-data-language="en">
-
-<span class="language-main">
-ENGLISH
-</span>
-
-<span class="language-native">
-English
-</span>
-
-</button>
-
-
-<button
-class="language-button neon"
-data-language="zh">
-
-<span class="language-main">
-CHINESE
-</span>
-
-<span class="language-native">
-中文
-</span>
-
-</button>
-
-
-<button
-class="language-button neon"
-data-language="ta">
-
-<span class="language-main">
-BAHASA TAMIL
-</span>
-
-<span class="language-native">
-தமிழ்
-</span>
-
-</button>
+  <button class="language-button neon" data-language="ta">
+    <span class="language-main">BAHASA TAMIL</span>
+    <span class="language-native">தமிழ்</span>
+  </button>
 
 </div>
-
 
 <div class="nav3">
-
-<button
-id="back3"
-class="nav-button neon">
-‹
-</button>
-
-<button
-class="nav-button"
-disabled>
-⌂
-</button>
-
-<button
-id="exit3"
-class="nav-button exit-button neon">
-✕
-</button>
-
+  <button id="back3" class="nav-button neon">‹</button>
+  <button class="nav-button" disabled>⌂</button>
+  <button id="exit3" class="nav-button exit-button neon">✕</button>
 </div>
-
 
 <div class="footer">
 
-<div class="connection-panel">
+  <div class="connection-panel">
 
-<div class="connection-light"></div>
+    <div class="connection-light"></div>
 
-<div class="connection-info">
+    <div class="connection-info">
+      <div class="connection-device">iPAD ⇄ SPIKE PRIME</div>
+      <div class="connection-state">NOT CONNECTED</div>
+      <div class="connection-mode">SIMULATION MODE</div>
+    </div>
 
-<div class="connection-device">
-iPAD ⇄ SPIKE PRIME
-</div>
-
-<div class="connection-state">
-NOT CONNECTED
-</div>
-
-<div class="connection-mode">
-SIMULATION MODE
-</div>
-
-</div>
-
-</div>
+  </div>
 
 </div>
 
 </section>
 
-
-<!-- =========================================================
-     SCREEN 4 — DESTINATION
-========================================================= -->
+<!-- SCREEN 4 -->
 
 <section id="screen4" class="screen">
 
 <header class="header">
-
-<div class="novus">
-NOVUS
-</div>
-
-<div class="by">
-BY KRUSS MAKERS
-</div>
-
-<div class="tagline">
-YOUR AI MUSEUM GUIDE
-</div>
-
+  <div class="novus">NOVUS</div>
+  <div class="by">BY KRUSS MAKERS</div>
+  <div class="tagline">YOUR AI MUSEUM GUIDE</div>
 </header>
-
 
 <div class="content">
 
-<div class="page-heading">
+  <div class="page-heading">
+    <h2 id="destinationHeading"></h2>
+    <p id="destinationSubheading"></p>
+  </div>
 
-<h2 id="destinationHeading">
-</h2>
+  <button class="station-button red neon" data-station="1">
+    <span class="dot"></span>
+    <span>
+      <span class="station-number">STATION 1</span>
+      <span id="station1Name" class="station-name"></span>
+    </span>
+  </button>
 
-<p id="destinationSubheading">
-</p>
+  <button class="station-button blue neon" data-station="2">
+    <span class="dot"></span>
+    <span>
+      <span class="station-number">STATION 2</span>
+      <span id="station2Name" class="station-name"></span>
+    </span>
+  </button>
 
-</div>
+  <button class="station-button green neon" data-station="3">
+    <span class="dot"></span>
+    <span>
+      <span class="station-number">STATION 3</span>
+      <span id="station3Name" class="station-name"></span>
+    </span>
+  </button>
 
+  <button class="station-button yellow neon" data-station="4">
+    <span class="dot"></span>
+    <span>
+      <span class="station-number">STATION 4</span>
+      <span id="station4Name" class="station-name"></span>
+    </span>
+  </button>
 
-<button
-class="station-button red neon"
-data-station="1">
-
-<span class="dot"></span>
-
-<span>
-
-<span class="station-number">
-STATION 1
-</span>
-
-<span
-id="station1Name"
-class="station-name">
-</span>
-
-</span>
-
-</button>
-
-
-<button
-class="station-button blue neon"
-data-station="2">
-
-<span class="dot"></span>
-
-<span>
-
-<span class="station-number">
-STATION 2
-</span>
-
-<span
-id="station2Name"
-class="station-name">
-</span>
-
-</span>
-
-</button>
-
-
-<button
-class="station-button green neon"
-data-station="3">
-
-<span class="dot"></span>
-
-<span>
-
-<span class="station-number">
-STATION 3
-</span>
-
-<span
-id="station3Name"
-class="station-name">
-</span>
-
-</span>
-
-</button>
-
-
-<button
-class="station-button yellow neon"
-data-station="4">
-
-<span class="dot"></span>
-
-<span>
-
-<span class="station-number">
-STATION 4
-</span>
-
-<span
-id="station4Name"
-class="station-name">
-</span>
-
-</span>
-
-</button>
-
-
-<button
-class="station-button purple neon"
-data-station="5">
-
-<span class="dot"></span>
-
-<span>
-
-<span class="station-number">
-STATION 5
-</span>
-
-<span
-id="station5Name"
-class="station-name">
-</span>
-
-</span>
-
-</button>
+  <button class="station-button purple neon" data-station="5">
+    <span class="dot"></span>
+    <span>
+      <span class="station-number">STATION 5</span>
+      <span id="station5Name" class="station-name"></span>
+    </span>
+  </button>
 
 </div>
-
 
 <div class="nav3">
-
-<button
-id="back4"
-class="nav-button neon">
-‹
-</button>
-
-<button
-id="home4"
-class="nav-button neon">
-⌂
-</button>
-
-<button
-id="exit4"
-class="nav-button exit-button neon">
-✕
-</button>
-
+  <button id="back4" class="nav-button neon">‹</button>
+  <button id="home4" class="nav-button neon">⌂</button>
+  <button id="exit4" class="nav-button exit-button neon">✕</button>
 </div>
-
 
 <div class="footer">
 
-<div class="connection-panel">
+  <div class="connection-panel">
 
-<div class="connection-light"></div>
+    <div class="connection-light"></div>
 
-<div class="connection-info">
+    <div class="connection-info">
+      <div class="connection-device">iPAD ⇄ SPIKE PRIME</div>
+      <div class="connection-state">NOT CONNECTED</div>
+      <div class="connection-mode">SIMULATION MODE</div>
+    </div>
 
-<div class="connection-device">
-iPAD ⇄ SPIKE PRIME
-</div>
-
-<div class="connection-state">
-NOT CONNECTED
-</div>
-
-<div class="connection-mode">
-SIMULATION MODE
-</div>
-
-</div>
-
-</div>
+  </div>
 
 </div>
 
 </section>
 
-
-<!-- =========================================================
-     SCREEN 5 — TRAVEL
-========================================================= -->
+<!-- SCREEN 5 -->
 
 <section id="screen5" class="screen">
 
 <header class="header">
-
-<div class="novus">
-NOVUS
-</div>
-
-<div class="by">
-BY KRUSS MAKERS
-</div>
-
-<div class="tagline">
-YOUR AI MUSEUM GUIDE
-</div>
-
+  <div class="novus">NOVUS</div>
+  <div class="by">BY KRUSS MAKERS</div>
+  <div class="tagline">YOUR AI MUSEUM GUIDE</div>
 </header>
-
 
 <div class="travel-content">
 
-<div
-id="travelStatus"
-class="travel-status">
-</div>
+  <div id="travelStatus" class="travel-status"></div>
 
+  <div id="travelMarker" class="travel-marker">1</div>
 
-<div
-id="travelMarker"
-class="travel-marker">
-1
-</div>
+  <div id="travelStation" class="travel-station"></div>
 
+  <div id="travelDestination" class="travel-destination"></div>
 
-<div
-id="travelStation"
-class="travel-station">
-</div>
+  <div id="travelMessage" class="travel-message"></div>
 
+  <div id="musicStatus" class="music-status">
 
-<div
-id="travelDestination"
-class="travel-destination">
-</div>
+    <div class="music-bars">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
 
+    <span id="musicStatusText">
+      TOUR MUSIC PLAYING
+    </span>
 
-<div
-id="travelMessage"
-class="travel-message">
-</div>
+  </div>
 
+  <div id="travelAnimation" class="travel-animation">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 
-<div
-id="musicStatus"
-class="music-status">
+  <div class="progress-box">
 
-<div class="music-bars">
+    <div class="progress-track">
+      <div id="progressFill" class="progress-fill"></div>
+    </div>
 
-<span></span>
-<span></span>
-<span></span>
-<span></span>
+    <div id="progressText" class="progress-text">
+      0%
+    </div>
 
-</div>
+  </div>
 
-<span id="musicStatusText">
-
-TOUR MUSIC PLAYING
-
-</span>
+  <div id="arrivedBadge" class="arrived-badge"></div>
 
 </div>
-
-
-<div
-id="travelAnimation"
-class="travel-animation">
-
-<span></span>
-<span></span>
-<span></span>
-
-</div>
-
-
-<div class="progress-box">
-
-<div class="progress-track">
-
-<div
-id="progressFill"
-class="progress-fill">
-</div>
-
-</div>
-
-
-<div
-id="progressText"
-class="progress-text">
-
-0%
-
-</div>
-
-</div>
-
-
-<div
-id="arrivedBadge"
-class="arrived-badge">
-</div>
-
-</div>
-
 
 <div class="nav4">
-
-<button
-id="back5"
-class="nav-button neon">
-‹
-</button>
-
-<button
-id="home5"
-class="nav-button neon">
-⌂
-</button>
-
-<button
-id="next5"
-class="nav-button neon"
-disabled>
-›
-</button>
-
-<button
-id="exit5"
-class="nav-button exit-button neon">
-✕
-</button>
-
+  <button id="back5" class="nav-button neon">‹</button>
+  <button id="home5" class="nav-button neon">⌂</button>
+  <button id="next5" class="nav-button neon" disabled>›</button>
+  <button id="exit5" class="nav-button exit-button neon">✕</button>
 </div>
-
 
 <div class="footer">
 
-<div class="connection-panel">
+  <div class="connection-panel">
 
-<div class="connection-light"></div>
+    <div class="connection-light"></div>
 
-<div class="connection-info">
+    <div class="connection-info">
+      <div class="connection-device">iPAD ⇄ SPIKE PRIME</div>
+      <div class="connection-state">NOT CONNECTED</div>
+      <div class="connection-mode">SIMULATION MODE</div>
+    </div>
 
-<div class="connection-device">
-iPAD ⇄ SPIKE PRIME
-</div>
-
-<div class="connection-state">
-NOT CONNECTED
-</div>
-
-<div class="connection-mode">
-SIMULATION MODE
-</div>
-
-</div>
-
-</div>
+  </div>
 
 </div>
 
 </section>
 
-
-<!-- =========================================================
-     SCREEN 6 — POSTER + TEXT + AUDIO
-========================================================= -->
+<!-- SCREEN 6 -->
 
 <section id="screen6" class="screen">
 
 <header class="header">
-
-<div class="novus">
-NOVUS
-</div>
-
-<div class="by">
-BY KRUSS MAKERS
-</div>
-
-<div class="tagline">
-AI HISTORY GUIDE
-</div>
-
+  <div class="novus">NOVUS</div>
+  <div class="by">BY KRUSS MAKERS</div>
+  <div class="tagline">AI HISTORY GUIDE</div>
 </header>
-
 
 <div class="poster-content">
 
+  <div class="poster-heading">
 
-<div class="poster-heading">
+    <div>
+      <div id="posterStation" class="poster-station"></div>
+      <div id="posterTitle" class="poster-title"></div>
+    </div>
 
-<div>
+    <div id="posterLanguage" class="poster-language"></div>
 
-<div
-id="posterStation"
-class="poster-station">
-STATION
-</div>
+  </div>
 
-<div
-id="posterTitle"
-class="poster-title">
-</div>
+  <div class="poster-frame">
 
-</div>
+    <img
+    id="destinationPoster"
+    class="destination-poster"
+    alt="NOVUS Destination Poster">
 
+  </div>
 
-<div
-id="posterLanguage"
-class="poster-language">
-</div>
+  <div class="guide-text-card">
 
-</div>
+    <div id="guideText" class="guide-text"></div>
 
+    <div id="guideSource" class="guide-source"></div>
 
-<div class="poster-frame">
+  </div>
 
-<img
-id="destinationPoster"
-class="destination-poster"
-alt="NOVUS Museum Destination Poster">
+  <div class="audio-controls">
 
-</div>
+    <button id="playAudio" class="play-audio neon">
+      🔊 PLAY AUDIO GUIDE
+    </button>
 
+    <button id="stopAudio" class="stop-audio neon">
+      ■ STOP
+    </button>
 
-<div class="guide-text-card">
-
-<div
-id="guideText"
-class="guide-text">
-</div>
-
-<div
-id="guideSource"
-class="guide-source">
-</div>
+  </div>
 
 </div>
-
-
-<div class="audio-controls">
-
-<button
-id="playAudio"
-class="play-audio neon">
-
-🔊 PLAY AUDIO GUIDE
-
-</button>
-
-
-<button
-id="stopAudio"
-class="stop-audio neon">
-
-■ STOP
-
-</button>
-
-</div>
-
-</div>
-
 
 <div class="nav4">
-
-<button
-id="back6"
-class="nav-button neon">
-‹
-</button>
-
-<button
-id="home6"
-class="nav-button neon">
-⌂
-</button>
-
-<button
-id="next6"
-class="nav-button neon">
-›
-</button>
-
-<button
-id="exit6"
-class="nav-button exit-button neon">
-✕
-</button>
-
+  <button id="back6" class="nav-button neon">‹</button>
+  <button id="home6" class="nav-button neon">⌂</button>
+  <button id="next6" class="nav-button neon">›</button>
+  <button id="exit6" class="nav-button exit-button neon">✕</button>
 </div>
-
 
 <div class="footer">
 
-<div class="connection-panel">
+  <div class="connection-panel">
 
-<div class="connection-light"></div>
+    <div class="connection-light"></div>
 
-<div class="connection-info">
+    <div class="connection-info">
+      <div class="connection-device">iPAD ⇄ SPIKE PRIME</div>
+      <div class="connection-state">NOT CONNECTED</div>
+      <div class="connection-mode">SIMULATION MODE</div>
+    </div>
 
-<div class="connection-device">
-iPAD ⇄ SPIKE PRIME
-</div>
-
-<div class="connection-state">
-NOT CONNECTED
-</div>
-
-<div class="connection-mode">
-SIMULATION MODE
-</div>
-
-</div>
-
-</div>
+  </div>
 
 </div>
 
 </section>
-
 
 <script>
 
@@ -2307,371 +1296,201 @@ SIMULATION MODE
    STATE
 ========================================================= */
 
-let selectedLanguage = null;
-let selectedStation = null;
+let selectedLanguage=null;
+let selectedStation=null;
 
-let simulationTimer = null;
-let arrivalTimer = null;
+let simulationTimer=null;
+let arrivalTimer=null;
 
-let simulationProgress = 0;
+let simulationProgress=0;
+let travelArrived=false;
+let welcomeDone=false;
 
-let travelArrived = false;
-let welcomeDone = false;
-
-let currentUtterance = null;
+let currentUtterance=null;
 
 
 /* =========================================================
    ELEMENTS
 ========================================================= */
 
-const sleepVideo =
+const sleepVideo=
 document.getElementById("sleepVideo");
 
-const welcomeVideo =
+const welcomeVideo=
 document.getElementById("welcomeVideo");
 
-const travelMusic =
+const travelMusic=
 document.getElementById("travelMusic");
 
-const destinationPoster =
+const destinationPoster=
 document.getElementById("destinationPoster");
 
-const playAudioButton =
+const playAudioButton=
 document.getElementById("playAudio");
 
 
 /* =========================================================
-   USER INTERFACE LANGUAGE
+   UI TEXT
 ========================================================= */
 
-const UI = {
+const UI={
 
 ms:{
+  destinationTitle:"PILIH DESTINASI",
+  destinationSub:"Ke manakah anda ingin pergi?",
 
-destinationTitle:
-"PILIH DESTINASI",
+  stations:[
+    "",
+    "Pengenalan Muzium Istana Kesultanan Melaka",
+    "Sejarah Melaka",
+    "Kesultanan Melayu Melaka",
+    "Pemerintahan Berdaulat Kesultanan Melayu Melaka",
+    "Serangan Portugis ke atas Melaka"
+  ],
 
-destinationSub:
-"Ke manakah anda ingin pergi?",
+  moving:"NOVUS SEDANG MENUJU KE DESTINASI",
+  follow:"SILA IKUT NOVUS",
+  arrived:"DESTINASI TELAH TIBA",
+  loading:"MEMUATKAN PANDUAN SEJARAH NOVUS",
 
-stations:[
-"",
-"Pengenalan Muzium Istana Kesultanan Melaka",
-"Sejarah Melaka",
-"Kesultanan Melayu Melaka",
-"Pemerintahan Berdaulat Kesultanan Melayu Melaka",
-"Serangan Portugis ke atas Melaka"
-],
+  play:"🔊 DENGAR PENERANGAN",
+  speaking:"🎙 NOVUS SEDANG BERCERITA...",
+  stop:"■ HENTI AUDIO",
 
-moving:
-"NOVUS SEDANG MENUJU KE DESTINASI",
-
-follow:
-"SILA IKUT NOVUS",
-
-arrived:
-"DESTINASI TELAH TIBA",
-
-loading:
-"MEMUATKAN PANDUAN SEJARAH NOVUS",
-
-play:
-"🔊 DENGAR PENERANGAN",
-
-speaking:
-"🎙 NOVUS SEDANG BERCERITA...",
-
-stop:
-"■ HENTI AUDIO",
-
-languageLabel:
-"BAHASA MELAYU",
-
-speechLang:
-"ms-MY"
-
+  languageLabel:"BAHASA MELAYU",
+  speechLang:"ms-MY"
 },
-
 
 en:{
+  destinationTitle:"SELECT YOUR DESTINATION",
+  destinationSub:"Where would you like to go?",
 
-destinationTitle:
-"SELECT YOUR DESTINATION",
+  stations:[
+    "",
+    "Introduction to the Melaka Sultanate Palace Museum",
+    "History of Melaka",
+    "The Malacca Sultanate",
+    "Governance of the Malacca Sultanate",
+    "The Portuguese Attack on Melaka"
+  ],
 
-destinationSub:
-"Where would you like to go?",
+  moving:"NOVUS IS TAKING YOU TO YOUR DESTINATION",
+  follow:"PLEASE FOLLOW NOVUS",
+  arrived:"DESTINATION REACHED",
+  loading:"LOADING NOVUS HISTORY GUIDE",
 
-stations:[
-"",
-"Introduction to the Melaka Sultanate Palace Museum",
-"History of Melaka",
-"The Malacca Sultanate",
-"Governance of the Malacca Sultanate",
-"The Portuguese Attack on Melaka"
-],
+  play:"🔊 PLAY AUDIO GUIDE",
+  speaking:"🎙 NOVUS IS SPEAKING...",
+  stop:"■ STOP AUDIO",
 
-moving:
-"NOVUS IS TAKING YOU TO YOUR DESTINATION",
-
-follow:
-"PLEASE FOLLOW NOVUS",
-
-arrived:
-"DESTINATION REACHED",
-
-loading:
-"LOADING NOVUS HISTORY GUIDE",
-
-play:
-"🔊 PLAY AUDIO GUIDE",
-
-speaking:
-"🎙 NOVUS IS SPEAKING...",
-
-stop:
-"■ STOP AUDIO",
-
-languageLabel:
-"ENGLISH",
-
-speechLang:
-"en-GB"
-
+  languageLabel:"ENGLISH",
+  speechLang:"en-GB"
 },
-
 
 zh:{
+  destinationTitle:"选择您的目的地",
+  destinationSub:"您想去哪里？",
 
-destinationTitle:
-"选择您的目的地",
+  stations:[
+    "",
+    "马六甲苏丹王宫博物馆简介",
+    "马六甲历史",
+    "马六甲苏丹王朝",
+    "马六甲苏丹王朝的治理",
+    "葡萄牙进攻马六甲"
+  ],
 
-destinationSub:
-"您想去哪里？",
+  moving:"NOVUS 正在带您前往目的地",
+  follow:"请跟随 NOVUS",
+  arrived:"已到达目的地",
+  loading:"正在载入 NOVUS 历史导览",
 
-stations:[
-"",
-"马六甲苏丹王宫博物馆简介",
-"马六甲历史",
-"马六甲苏丹王朝",
-"马六甲苏丹王朝的治理",
-"葡萄牙进攻马六甲"
-],
+  play:"🔊 播放语音导览",
+  speaking:"🎙 NOVUS 正在讲解...",
+  stop:"■ 停止语音",
 
-moving:
-"NOVUS 正在带您前往目的地",
-
-follow:
-"请跟随 NOVUS",
-
-arrived:
-"已到达目的地",
-
-loading:
-"正在载入 NOVUS 历史导览",
-
-play:
-"🔊 播放语音导览",
-
-speaking:
-"🎙 NOVUS 正在讲解...",
-
-stop:
-"■ 停止语音",
-
-languageLabel:
-"中文",
-
-speechLang:
-"zh-CN"
-
+  languageLabel:"中文",
+  speechLang:"zh-CN"
 },
-
 
 ta:{
+  destinationTitle:"உங்கள் இடத்தைத் தேர்ந்தெடுக்கவும்",
+  destinationSub:"நீங்கள் எங்கு செல்ல விரும்புகிறீர்கள்?",
 
-destinationTitle:
-"உங்கள் இடத்தைத் தேர்ந்தெடுக்கவும்",
+  stations:[
+    "",
+    "மலாக்கா சுல்தானக அரண்மனை அருங்காட்சியக அறிமுகம்",
+    "மலாக்காவின் வரலாறு",
+    "மலாக்கா சுல்தானகம்",
+    "மலாக்கா சுல்தானகத்தின் ஆட்சி முறை",
+    "மலாக்கா மீது போர்த்துகீசியர் தாக்குதல்"
+  ],
 
-destinationSub:
-"நீங்கள் எங்கு செல்ல விரும்புகிறீர்கள்?",
+  moving:"NOVUS உங்களை இலக்கிற்கு அழைத்துச் செல்கிறது",
+  follow:"NOVUS-ஐ பின்தொடரவும்",
+  arrived:"இலக்கு வந்தடைந்தது",
+  loading:"NOVUS வரலாற்று வழிகாட்டி ஏற்றப்படுகிறது",
 
-stations:[
-"",
-"மலாக்கா சுல்தானக அரண்மனை அருங்காட்சியக அறிமுகம்",
-"மலாக்காவின் வரலாறு",
-"மலாக்கா சுல்தானகம்",
-"மலாக்கா சுல்தானகத்தின் ஆட்சி முறை",
-"மலாக்கா மீது போர்த்துகீசியர் தாக்குதல்"
-],
+  play:"🔊 ஒலி வழிகாட்டியை கேளுங்கள்",
+  speaking:"🎙 NOVUS விளக்குகிறது...",
+  stop:"■ ஒலியை நிறுத்து",
 
-moving:
-"NOVUS உங்களை இலக்கிற்கு அழைத்துச் செல்கிறது",
-
-follow:
-"NOVUS-ஐ பின்தொடரவும்",
-
-arrived:
-"இலக்கு வந்தடைந்தது",
-
-loading:
-"NOVUS வரலாற்று வழிகாட்டி ஏற்றப்படுகிறது",
-
-play:
-"🔊 ஒலி வழிகாட்டியை கேளுங்கள்",
-
-speaking:
-"🎙 NOVUS விளக்குகிறது...",
-
-stop:
-"■ ஒலியை நிறுத்து",
-
-languageLabel:
-"தமிழ்",
-
-speechLang:
-"ta-IN"
-
+  languageLabel:"தமிழ்",
+  speechLang:"ta-IN"
 }
 
 };
 
 
 /* =========================================================
-   POSTER FILE DATABASE
-
-   These names follow the files uploaded to:
-   media/posters/
+   POSTERS
 ========================================================= */
 
-const POSTERS = {
+const POSTERS={
 
 1:{
-
-ms:[
-"media/posters/ST1_PENGENALAN MUZIUM SULATAN MELAKA(MELAYU).png",
-"media/posters/ST1_PENGENALAN MUZIUM SULTAN MELAKA(MELAYU).png"
-],
-
-en:[
-"media/posters/ST1_PENGENALAN MUZIUM SULATAN MELAKA(ENGLISH).png",
-"media/posters/ST1_PENGENALAN MUZIUM SULTAN MELAKA(ENGLISH).png"
-],
-
-zh:[
-"media/posters/ST1_PENGENALAN MUZIUM SULATAN MELAKA(CINA).png",
-"media/posters/ST1_PENGENALAN MUZIUM SULTAN MELAKA(CINA).png"
-],
-
-ta:[
-"media/posters/ST1_PENGENALAN MUZIUM SULATAN MELAKA(TAMIL).png",
-"media/posters/ST1_PENGENALAN MUZIUM SULTAN MELAKA(TAMIL).png"
-]
-
+  ms:"media/posters/station1_ms.png",
+  en:"media/posters/station1_en.png",
+  zh:"media/posters/station1_zh.png",
+  ta:"media/posters/station1_ta.png"
 },
-
 
 2:{
-
-ms:[
-"media/posters/ST2_SEJARAH MELAKA(MELAYU).png"
-],
-
-en:[
-"media/posters/ST2_SEJARAH MELAKA(ENGLISH).png"
-],
-
-zh:[
-"media/posters/ST2_SEJARAH MELAKA(CINA).png"
-],
-
-ta:[
-"media/posters/ST2_SEJARAH MELAKA(TAMIL).png"
-]
-
+  ms:"media/posters/station2_ms.png",
+  en:"media/posters/station2_en.png",
+  zh:"media/posters/station2_zh.png",
+  ta:"media/posters/station2_ta.png"
 },
-
 
 3:{
-
-ms:[
-"media/posters/ST3_KESULTANAN MELAYU MELAKA (MELAYU).png",
-"media/posters/ST3_KESULTANAN MELAYU MELAKA(MELAYU).png"
-],
-
-en:[
-"media/posters/ST3_KESULTANAN MELAYU MELAKA (ENGLISH).png",
-"media/posters/ST3_KESULTANAN MELAYU MELAKA(ENGLISH).png"
-],
-
-zh:[
-"media/posters/ST3_KESULTANAN MELAYU MELAKA (CINA).png",
-"media/posters/ST3_KESULTANAN MELAYU MELAKA(CINA).png"
-],
-
-ta:[
-"media/posters/ST3_KESULTANAN MELAYU MELAKA (TAMIL).png",
-"media/posters/ST3_KESULTANAN MELAYU MELAKA(TAMIL).png"
-]
-
+  ms:"media/posters/station3_ms.png",
+  en:"media/posters/station3_en.png",
+  zh:"media/posters/station3_zh.png",
+  ta:"media/posters/station3_ta.png"
 },
-
 
 4:{
-
-ms:[
-"media/posters/ST4_PEMERINTAHAN BERDAULAT(MELAYU).png"
-],
-
-en:[
-"media/posters/ST4_PEMERINTAHAN BERDAULAT(ENGLISH).png"
-],
-
-zh:[
-"media/posters/ST4_PEMERINTAHAN BERDAULAT(CINA).png"
-],
-
-ta:[
-"media/posters/ST4_PEMERINTAHAN BERDAULAT(TAMIL).png"
-]
-
+  ms:"media/posters/station4_ms.png",
+  en:"media/posters/station4_en.png",
+  zh:"media/posters/station4_zh.png",
+  ta:"media/posters/station4_ta.png"
 },
 
-
 5:{
-
-ms:[
-"media/posters/ST5_SERANGAN PORTUGIS(MELAYU).png"
-],
-
-en:[
-"media/posters/ST5_SERANGAN PORTUGIS(ENGLISH).png"
-],
-
-zh:[
-"media/posters/ST5_SERANGAN PORTUGIS(CINA).png"
-],
-
-ta:[
-"media/posters/ST5_SERANGAN PORTUGIS(TAMIL) (1).png",
-"media/posters/ST5_SERANGAN PORTUGIS(TAMIL).png"
-]
-
+  ms:"media/posters/station5_ms.png",
+  en:"media/posters/station5_en.png",
+  zh:"media/posters/station5_zh.png",
+  ta:"media/posters/station5_ta.png"
 }
 
 };
 
 
 /* =========================================================
-   HISTORY TEXT DATABASE
+   HISTORY TEXT
 ========================================================= */
 
-const HISTORY = {
-
-
-/* =========================================================
-   STATION 1
-========================================================= */
+const HISTORY={
 
 1:{
 
@@ -2696,23 +1515,18 @@ text:
 "马六甲苏丹王宫博物馆是一座按照马六甲苏丹王朝时期王宫形制重建的博物馆。其设计参考《马来纪年》中关于苏丹曼苏尔沙时期王宫的记载。复制宫殿于1984年10月开始建造，1986年完工，并于1986年7月17日正式开放。馆内展览介绍王宫生活、行政制度、贸易、传统礼仪、服饰、武器以及马六甲苏丹王朝的历史文化遗产。",
 
 source:
-"资料来源：马六甲博物馆机构 PERZIM • 马来西亚国家档案馆 • UNESCO 世界记忆名录《马来纪年》"
+"资料来源：PERZIM • 马来西亚国家档案馆 • UNESCO 世界记忆名录《马来纪年》"
 },
 
 ta:{
 text:
-"மலாக்கா சுல்தானக அரண்மனை அருங்காட்சியகம், மலாக்கா சுல்தானக கால அரச அரண்மனையின் பிரதியுருவாக அமைக்கப்பட்டுள்ளது. அதன் வடிவமைப்பு Sejarah Melayu அல்லது Malay Annals நூலில், குறிப்பாக சுல்தான் மன்சூர் ஷா கால அரண்மனை குறித்து உள்ள விளக்கங்களை அடிப்படையாகக் கொண்டது. கட்டுமானம் 1984 அக்டோபரில் தொடங்கி 1986 ஆம் ஆண்டு நிறைவடைந்தது. அருங்காட்சியகம் 17 ஜூலை 1986 அன்று அதிகாரப்பூர்வமாக திறக்கப்பட்டது.",
+"மலாக்கா சுல்தானக அரண்மனை அருங்காட்சியகம், மலாக்கா சுல்தானக கால அரச அரண்மனையின் பிரதியுருவாக அமைக்கப்பட்டுள்ளது. அதன் வடிவமைப்பு Sejarah Melayu நூலில், குறிப்பாக சுல்தான் மன்சூர் ஷா கால அரண்மனை குறித்து உள்ள விளக்கங்களை அடிப்படையாகக் கொண்டது. கட்டுமானம் 1984 அக்டோபரில் தொடங்கி 1986 ஆம் ஆண்டு நிறைவடைந்தது. அருங்காட்சியகம் 17 ஜூலை 1986 அன்று அதிகாரப்பூர்வமாக திறக்கப்பட்டது.",
 
 source:
 "ஆதாரங்கள்: PERZIM • மலேசிய தேசிய ஆவணகம் • UNESCO Memory of the World – Sejarah Melayu"
 }
 
 },
-
-
-/* =========================================================
-   STATION 2
-========================================================= */
 
 2:{
 
@@ -2750,11 +1564,6 @@ source:
 
 },
 
-
-/* =========================================================
-   STATION 3
-========================================================= */
-
 3:{
 
 ms:{
@@ -2790,11 +1599,6 @@ source:
 }
 
 },
-
-
-/* =========================================================
-   STATION 4
-========================================================= */
 
 4:{
 
@@ -2832,11 +1636,6 @@ source:
 
 },
 
-
-/* =========================================================
-   STATION 5
-========================================================= */
-
 5:{
 
 ms:{
@@ -2844,7 +1643,7 @@ text:
 "Pada tahun 1511, Portugis di bawah pimpinan Afonso de Albuquerque melancarkan serangan terhadap Melaka. Armada Portugis tiba pada Julai 1511 dan pertempuran utama berlaku sepanjang Julai dan Ogos. Portugis mahu menguasai pelabuhan Melaka yang strategik serta rangkaian perdagangan Asia. Kota Melaka akhirnya ditawan pada Ogos 1511. Sultan Mahmud Shah berundur dari kota dan meneruskan usaha menentang Portugis dari kawasan lain. Penawanan ini memulakan pemerintahan Portugis di Melaka yang berlangsung sehingga Belanda, dengan bantuan Johor, menawan Melaka pada 1641.",
 
 source:
-"Sumber: Arkib Negara Malaysia • PERZIM • UNESCO • sumber sejarah Portugis berkaitan Afonso de Albuquerque"
+"Sumber: Arkib Negara Malaysia • PERZIM • UNESCO • Rekod sejarah Portugis berkaitan Afonso de Albuquerque"
 },
 
 en:{
@@ -2877,285 +1676,192 @@ source:
 
 
 /* =========================================================
-   SCREEN MANAGER
+   SCREEN
 ========================================================= */
 
 function showScreen(number){
 
-document
-.querySelectorAll(".screen")
-.forEach(function(screen){
+  document
+  .querySelectorAll(".screen")
+  .forEach(screen=>screen.classList.remove("active"));
 
-screen.classList.remove("active");
-
-});
-
-
-document
-.getElementById("screen"+number)
-.classList.add("active");
-
+  document
+  .getElementById("screen"+number)
+  .classList.add("active");
 }
 
 
 /* =========================================================
-   SPIKE CONNECTION
+   SPIKE
 ========================================================= */
 
 function setSpikeConnection(connected){
 
-document
-.querySelectorAll(".connection-panel")
-.forEach(function(panel){
+  document
+  .querySelectorAll(".connection-panel")
+  .forEach(panel=>{
 
-const state =
-panel.querySelector(".connection-state");
+    const state=
+    panel.querySelector(".connection-state");
 
+    if(connected){
 
-if(connected){
+      panel.classList.add("connected");
+      state.textContent="CONNECTED";
 
-panel.classList.add("connected");
+    }else{
 
-state.textContent =
-"CONNECTED";
+      panel.classList.remove("connected");
+      state.textContent="NOT CONNECTED";
+    }
 
-}
-
-else{
-
-panel.classList.remove("connected");
-
-state.textContent =
-"NOT CONNECTED";
-
-}
-
-});
-
+  });
 }
 
 
 /* =========================================================
-   START TOUR
+   START
 ========================================================= */
 
 document
 .getElementById("startButton")
-.addEventListener(
-"click",
-function(){
+.addEventListener("click",()=>{
 
-stopSpeech();
+  stopSpeech();
 
-sleepVideo.pause();
+  sleepVideo.pause();
 
-showScreen(2);
+  showScreen(2);
 
-playWelcome();
-
+  playWelcome();
 });
 
 
 /* =========================================================
-   WELCOME VIDEO
+   WELCOME
 ========================================================= */
 
 function playWelcome(){
 
-welcomeDone = false;
+  welcomeDone=false;
 
-welcomeVideo.pause();
+  welcomeVideo.pause();
 
+  try{
+    welcomeVideo.currentTime=0;
+  }catch(e){}
 
-try{
+  welcomeVideo.muted=false;
+  welcomeVideo.volume=1;
 
-welcomeVideo.currentTime = 0;
+  welcomeVideo.play()
+  .catch(()=>{
 
-}
-catch(e){}
-
-
-welcomeVideo.muted = false;
-
-welcomeVideo.volume = 1;
-
-
-welcomeVideo.play()
-.catch(function(){
-
-welcomeVideo.muted = true;
-
-welcomeVideo.play()
-.catch(function(){});
-
-});
-
+    welcomeVideo.muted=true;
+    welcomeVideo.play().catch(()=>{});
+  });
 }
 
 
 function finishWelcome(){
 
-if(welcomeDone){
-return;
+  if(welcomeDone)return;
+
+  welcomeDone=true;
+
+  welcomeVideo.pause();
+
+  showScreen(3);
 }
 
 
-welcomeDone = true;
+welcomeVideo.addEventListener("ended",finishWelcome);
 
-welcomeVideo.pause();
+welcomeVideo.addEventListener("timeupdate",()=>{
 
-showScreen(3);
-
-}
-
-
-welcomeVideo
-.addEventListener(
-"ended",
-finishWelcome
-);
-
-
-welcomeVideo
-.addEventListener(
-"timeupdate",
-function(){
-
-if(
-welcomeVideo.duration &&
-welcomeVideo.currentTime >=
-welcomeVideo.duration - .15
-){
-
-finishWelcome();
-
-}
-
+  if(
+    welcomeVideo.duration &&
+    welcomeVideo.currentTime>=welcomeVideo.duration-.15
+  ){
+    finishWelcome();
+  }
 });
 
 
 /* =========================================================
-   LANGUAGE SELECTION
+   LANGUAGE
 ========================================================= */
 
 document
 .querySelectorAll(".language-button")
-.forEach(function(button){
+.forEach(button=>{
 
-button.addEventListener(
-"click",
-function(){
+  button.addEventListener("click",()=>{
 
-stopSpeech();
+    stopSpeech();
 
+    selectedLanguage=
+    button.dataset.language;
 
-selectedLanguage =
-button.dataset.language;
+    selectedStation=null;
 
+    updateDestination();
 
-selectedStation = null;
-
-
-updateDestination();
-
-
-/*
-AUTO TO SCREEN 4
-*/
-
-showScreen(4);
-
+    showScreen(4);
+  });
 });
 
-});
-
-
-/* =========================================================
-   UPDATE DESTINATION
-========================================================= */
 
 function updateDestination(){
 
-if(!selectedLanguage){
-return;
-}
+  if(!selectedLanguage)return;
 
+  const t=UI[selectedLanguage];
 
-const t =
-UI[selectedLanguage];
+  document
+  .getElementById("destinationHeading")
+  .textContent=t.destinationTitle;
 
+  document
+  .getElementById("destinationSubheading")
+  .textContent=t.destinationSub;
 
-document
-.getElementById("destinationHeading")
-.textContent =
-t.destinationTitle;
+  for(let i=1;i<=5;i++){
 
-
-document
-.getElementById("destinationSubheading")
-.textContent =
-t.destinationSub;
-
-
-for(let i=1;i<=5;i++){
-
-document
-.getElementById(
-"station"+i+"Name"
-)
-.textContent =
-t.stations[i];
-
-}
-
+    document
+    .getElementById("station"+i+"Name")
+    .textContent=t.stations[i];
+  }
 }
 
 
 /* =========================================================
-   SELECT STATION
+   STATION
 ========================================================= */
 
 document
 .querySelectorAll(".station-button")
-.forEach(function(button){
+.forEach(button=>{
 
-button.addEventListener(
-"click",
-function(){
+  button.addEventListener("click",()=>{
 
-if(!selectedLanguage){
-return;
-}
+    if(!selectedLanguage)return;
 
+    clearArrivalTimer();
 
-clearArrivalTimer();
+    stopSpeech();
 
-stopSpeech();
+    selectedStation=
+    Number(button.dataset.station);
 
+    prepareTravel();
 
-selectedStation =
-Number(
-button.dataset.station
-);
+    showScreen(5);
 
+    startTravelMusic();
 
-prepareTravel();
-
-
-showScreen(5);
-
-
-/*
-START MUSIC FROM USER TOUCH
-*/
-
-startTravelMusic();
-
-
-startSimulation();
-
-});
-
+    startSimulation();
+  });
 });
 
 
@@ -3165,242 +1871,158 @@ startSimulation();
 
 function startTravelMusic(){
 
-travelMusic.pause();
+  travelMusic.pause();
 
+  try{
+    travelMusic.currentTime=0;
+  }catch(e){}
 
-try{
+  travelMusic.volume=.65;
+  travelMusic.muted=false;
 
-travelMusic.currentTime = 0;
+  travelMusic.play()
+  .then(()=>{
 
-}
-catch(e){}
+    document
+    .getElementById("musicStatusText")
+    .textContent="TOUR MUSIC PLAYING";
 
+  })
+  .catch(()=>{
 
-travelMusic.volume = .65;
-
-travelMusic.muted = false;
-
-
-travelMusic.play()
-.then(function(){
-
-document
-.getElementById("musicStatusText")
-.textContent =
-"TOUR MUSIC PLAYING";
-
-})
-
-.catch(function(){
-
-document
-.getElementById("musicStatusText")
-.textContent =
-"MUSIC UNAVAILABLE";
-
-});
-
+    document
+    .getElementById("musicStatusText")
+    .textContent="MUSIC UNAVAILABLE";
+  });
 }
 
 
 function stopTravelMusic(){
 
-travelMusic.pause();
+  travelMusic.pause();
 
-
-try{
-
-travelMusic.currentTime = 0;
-
-}
-catch(e){}
-
+  try{
+    travelMusic.currentTime=0;
+  }catch(e){}
 }
 
 
 /* =========================================================
-   PREPARE TRAVEL
+   TRAVEL
 ========================================================= */
 
 function prepareTravel(){
 
-travelArrived = false;
+  travelArrived=false;
 
+  const t=UI[selectedLanguage];
 
-const t =
-UI[selectedLanguage];
+  document
+  .getElementById("travelStatus")
+  .textContent=t.moving;
 
+  document
+  .getElementById("travelStation")
+  .textContent="STATION "+selectedStation;
 
-document
-.getElementById("travelStatus")
-.textContent =
-t.moving;
+  document
+  .getElementById("travelDestination")
+  .textContent=t.stations[selectedStation];
 
+  document
+  .getElementById("travelMessage")
+  .textContent=t.follow;
 
-document
-.getElementById("travelStation")
-.textContent =
-"STATION "
-+
-selectedStation;
+  const marker=
+  document.getElementById("travelMarker");
 
+  marker.className="travel-marker";
 
-document
-.getElementById("travelDestination")
-.textContent =
-t.stations[selectedStation];
+  const colors={
+    1:"travel-red",
+    2:"travel-blue",
+    3:"travel-green",
+    4:"travel-yellow",
+    5:"travel-purple"
+  };
 
+  marker.classList.add(colors[selectedStation]);
 
-document
-.getElementById("travelMessage")
-.textContent =
-t.follow;
+  marker.textContent=selectedStation;
 
+  document
+  .getElementById("musicStatus")
+  .style.display="flex";
 
-const marker =
-document.getElementById("travelMarker");
+  document
+  .getElementById("travelAnimation")
+  .style.display="flex";
 
+  document
+  .getElementById("arrivedBadge")
+  .classList.remove("show");
 
-marker.className =
-"travel-marker";
+  document
+  .getElementById("next5")
+  .disabled=true;
 
-
-const colors = {
-
-1:"travel-red",
-
-2:"travel-blue",
-
-3:"travel-green",
-
-4:"travel-yellow",
-
-5:"travel-purple"
-
-};
-
-
-marker.classList.add(
-colors[selectedStation]
-);
-
-
-marker.textContent =
-selectedStation;
-
-
-document
-.getElementById("musicStatus")
-.style.display =
-"flex";
-
-
-document
-.getElementById("travelAnimation")
-.style.display =
-"flex";
-
-
-document
-.getElementById("arrivedBadge")
-.classList.remove("show");
-
-
-document
-.getElementById("next5")
-.disabled =
-true;
-
-
-updateProgress(0);
-
+  updateProgress(0);
 }
 
 
 /* =========================================================
-   MOVEMENT SIMULATION
+   SIMULATION
 ========================================================= */
 
 function startSimulation(){
 
-stopSimulation();
+  stopSimulation();
 
+  simulationProgress=0;
 
-simulationProgress = 0;
+  simulationTimer=setInterval(()=>{
 
+    simulationProgress+=100/70;
 
-/*
-7 SECOND DEMO
-*/
+    if(simulationProgress>=100){
 
-simulationTimer =
-setInterval(
-function(){
+      simulationProgress=100;
 
-simulationProgress +=
-100 / 70;
+      updateProgress(100);
 
+      stopSimulation();
 
-if(simulationProgress >= 100){
+      robotArrived();
 
-simulationProgress = 100;
+      return;
+    }
 
+    updateProgress(simulationProgress);
 
-updateProgress(100);
-
-
-stopSimulation();
-
-
-robotArrived();
-
-
-return;
-
-}
-
-
-updateProgress(
-simulationProgress
-);
-
-},
-100
-);
-
+  },100);
 }
 
 
 function stopSimulation(){
 
-if(simulationTimer){
+  if(simulationTimer){
 
-clearInterval(
-simulationTimer
-);
+    clearInterval(simulationTimer);
 
-simulationTimer = null;
-
-}
-
+    simulationTimer=null;
+  }
 }
 
 
 function updateProgress(value){
 
-document
-.getElementById("progressFill")
-.style.width =
-value+"%";
+  document
+  .getElementById("progressFill")
+  .style.width=value+"%";
 
-
-document
-.getElementById("progressText")
-.textContent =
-Math.round(value)
-+
-"%";
-
+  document
+  .getElementById("progressText")
+  .textContent=Math.round(value)+"%";
 }
 
 
@@ -3410,505 +2032,275 @@ Math.round(value)
 
 function robotArrived(){
 
-travelArrived = true;
+  travelArrived=true;
 
+  stopTravelMusic();
 
-stopTravelMusic();
+  const t=UI[selectedLanguage];
 
+  document
+  .getElementById("musicStatus")
+  .style.display="none";
 
-const t =
-UI[selectedLanguage];
+  document
+  .getElementById("travelAnimation")
+  .style.display="none";
 
+  document
+  .getElementById("travelStatus")
+  .textContent=t.arrived;
 
-document
-.getElementById("musicStatus")
-.style.display =
-"none";
+  document
+  .getElementById("travelMessage")
+  .innerHTML=
+  "✓ "+t.arrived+
+  "<br><br>"+
+  t.loading;
 
+  const badge=
+  document.getElementById("arrivedBadge");
 
-document
-.getElementById("travelAnimation")
-.style.display =
-"none";
+  badge.textContent=
+  "✓ "+t.arrived;
 
+  badge.classList.add("show");
 
-document
-.getElementById("travelStatus")
-.textContent =
-t.arrived;
+  document
+  .getElementById("next5")
+  .disabled=false;
 
+  clearArrivalTimer();
 
-document
-.getElementById("travelMessage")
-.innerHTML =
+  arrivalTimer=setTimeout(()=>{
 
-"✓ "
-+
-t.arrived
-+
-"<br><br>"
-+
-t.loading;
+    if(travelArrived && selectedStation){
+      openPosterGuide();
+    }
 
-
-const badge =
-document
-.getElementById("arrivedBadge");
-
-
-badge.textContent =
-"✓ "
-+
-t.arrived;
-
-
-badge.classList.add("show");
-
-
-document
-.getElementById("next5")
-.disabled =
-false;
-
-
-clearArrivalTimer();
-
-
-/*
-AUTO OPEN POSTER
-*/
-
-arrivalTimer =
-setTimeout(
-function(){
-
-if(
-travelArrived &&
-selectedStation
-){
-
-openPosterGuide();
-
-}
-
-},
-1500
-);
-
+  },1500);
 }
 
 
 /* =========================================================
-   POSTER LOADER WITH FALLBACK
+   POSTER
 ========================================================= */
 
 function loadPoster(){
 
-const files =
-POSTERS[selectedStation][selectedLanguage];
+  const posterPath=
+  POSTERS[selectedStation][selectedLanguage];
 
+  destinationPoster.onerror=()=>{
 
-let index = 0;
+    console.error(
+      "Poster not found:",
+      posterPath
+    );
 
+    destinationPoster.removeAttribute("src");
 
-function tryNext(){
+    destinationPoster.alt=
+    "Poster unavailable";
+  };
 
-if(index >= files.length){
+  destinationPoster.onload=()=>{
 
-destinationPoster.removeAttribute("src");
+    destinationPoster.onerror=null;
+  };
 
-destinationPoster.alt =
-"Poster file not found. Check filename in media/posters.";
-
-return;
-
+  destinationPoster.src=
+  posterPath;
 }
 
-
-const candidate =
-files[index];
-
-
-index++;
-
-
-destinationPoster.onerror =
-function(){
-
-tryNext();
-
-};
-
-
-destinationPoster.onload =
-function(){
-
-destinationPoster.onerror = null;
-
-};
-
-
-destinationPoster.src =
-encodeURI(candidate);
-
-}
-
-
-tryNext();
-
-}
-
-
-/* =========================================================
-   OPEN POSTER GUIDE
-========================================================= */
 
 function openPosterGuide(){
 
-if(
-!selectedLanguage ||
-!selectedStation
-){
-return;
-}
+  if(!selectedLanguage || !selectedStation)return;
 
+  clearArrivalTimer();
+  stopTravelMusic();
+  stopSpeech();
 
-clearArrivalTimer();
+  const ui=
+  UI[selectedLanguage];
 
-stopTravelMusic();
+  const info=
+  HISTORY[selectedStation][selectedLanguage];
 
-stopSpeech();
+  document
+  .getElementById("posterStation")
+  .textContent=
+  "STATION "+selectedStation;
 
+  document
+  .getElementById("posterTitle")
+  .textContent=
+  ui.stations[selectedStation];
 
-const ui =
-UI[selectedLanguage];
+  document
+  .getElementById("posterLanguage")
+  .textContent=
+  ui.languageLabel;
 
+  document
+  .getElementById("guideText")
+  .textContent=
+  info.text;
 
-const info =
-HISTORY[selectedStation][selectedLanguage];
+  document
+  .getElementById("guideSource")
+  .textContent=
+  info.source;
 
+  document
+  .getElementById("playAudio")
+  .textContent=
+  ui.play;
 
-document
-.getElementById("posterStation")
-.textContent =
-"STATION "
-+
-selectedStation;
+  document
+  .getElementById("stopAudio")
+  .textContent=
+  ui.stop;
 
+  loadPoster();
 
-document
-.getElementById("posterTitle")
-.textContent =
-ui.stations[selectedStation];
-
-
-document
-.getElementById("posterLanguage")
-.textContent =
-ui.languageLabel;
-
-
-document
-.getElementById("guideText")
-.textContent =
-info.text;
-
-
-document
-.getElementById("guideSource")
-.textContent =
-info.source;
-
-
-document
-.getElementById("playAudio")
-.textContent =
-ui.play;
-
-
-document
-.getElementById("stopAudio")
-.textContent =
-ui.stop;
-
-
-loadPoster();
-
-
-showScreen(6);
-
+  showScreen(6);
 }
 
 
 /* =========================================================
-   SPEECH SYNTHESIS
-========================================================= */
-
-function getVoices(){
-
-if(
-!("speechSynthesis" in window)
-){
-return [];
-}
-
-
-return window
-.speechSynthesis
-.getVoices();
-
-}
-
-
-/* =========================================================
-   FIND BEST VOICE
+   AUDIO
 ========================================================= */
 
 function findBestVoice(languageCode){
 
-const voices =
-getVoices();
+  const voices=
+  speechSynthesis.getVoices();
 
+  let voice=
+  voices.find(v=>
+    v.lang.toLowerCase()===
+    languageCode.toLowerCase()
+  );
 
-if(!voices.length){
-return null;
+  if(voice)return voice;
+
+  const base=
+  languageCode
+  .split("-")[0]
+  .toLowerCase();
+
+  return voices.find(v=>
+    v.lang.toLowerCase().startsWith(base)
+  ) || null;
 }
 
-
-const exact =
-voices.find(function(voice){
-
-return (
-voice.lang
-.toLowerCase()
-===
-languageCode.toLowerCase()
-);
-
-});
-
-
-if(exact){
-return exact;
-}
-
-
-const base =
-languageCode
-.split("-")[0]
-.toLowerCase();
-
-
-const sameLanguage =
-voices.find(function(voice){
-
-return (
-voice.lang
-.toLowerCase()
-.startsWith(base)
-);
-
-});
-
-
-return sameLanguage || null;
-
-}
-
-
-/* =========================================================
-   PLAY AUDIO
-========================================================= */
 
 function playDestinationAudio(){
 
-if(
-!selectedLanguage ||
-!selectedStation
-){
-return;
+  if(!selectedLanguage || !selectedStation)return;
+
+  if(!("speechSynthesis" in window)){
+
+    alert(
+      "Audio Guide is not supported by this browser."
+    );
+
+    return;
+  }
+
+  stopSpeech();
+
+  const ui=
+  UI[selectedLanguage];
+
+  const info=
+  HISTORY[selectedStation][selectedLanguage];
+
+  const speechText=
+  ui.stations[selectedStation]+
+  ". "+
+  info.text;
+
+  currentUtterance=
+  new SpeechSynthesisUtterance(
+    speechText
+  );
+
+  currentUtterance.lang=
+  ui.speechLang;
+
+  const voice=
+  findBestVoice(ui.speechLang);
+
+  if(voice){
+    currentUtterance.voice=voice;
+  }
+
+  currentUtterance.rate=.88;
+  currentUtterance.pitch=1;
+  currentUtterance.volume=1;
+
+  currentUtterance.onstart=()=>{
+
+    playAudioButton
+    .classList
+    .add("speaking");
+
+    playAudioButton
+    .textContent=
+    ui.speaking;
+  };
+
+  currentUtterance.onend=
+  resetAudioButton;
+
+  currentUtterance.onerror=
+  resetAudioButton;
+
+  speechSynthesis.speak(
+    currentUtterance
+  );
 }
 
-
-if(
-!("speechSynthesis" in window)
-){
-
-alert(
-"Audio Guide is not supported by this browser."
-);
-
-return;
-
-}
-
-
-stopSpeech();
-
-
-const ui =
-UI[selectedLanguage];
-
-
-const info =
-HISTORY[selectedStation][selectedLanguage];
-
-
-const speechText =
-
-ui.stations[selectedStation]
-+
-". "
-+
-info.text;
-
-
-currentUtterance =
-new SpeechSynthesisUtterance(
-speechText
-);
-
-
-currentUtterance.lang =
-ui.speechLang;
-
-
-const voice =
-findBestVoice(
-ui.speechLang
-);
-
-
-if(voice){
-
-currentUtterance.voice =
-voice;
-
-}
-
-
-/*
-MUSEUM GUIDE SPEED
-*/
-
-currentUtterance.rate =
-0.88;
-
-
-currentUtterance.pitch =
-1.0;
-
-
-currentUtterance.volume =
-1.0;
-
-
-currentUtterance.onstart =
-function(){
-
-playAudioButton
-.classList
-.add("speaking");
-
-
-playAudioButton
-.textContent =
-ui.speaking;
-
-};
-
-
-currentUtterance.onend =
-function(){
-
-resetAudioButton();
-
-};
-
-
-currentUtterance.onerror =
-function(){
-
-resetAudioButton();
-
-};
-
-
-window
-.speechSynthesis
-.speak(
-currentUtterance
-);
-
-}
-
-
-/* =========================================================
-   STOP SPEECH
-========================================================= */
 
 function stopSpeech(){
 
-if(
-"speechSynthesis" in window
-){
+  if("speechSynthesis" in window){
+    speechSynthesis.cancel();
+  }
 
-window
-.speechSynthesis
-.cancel();
+  currentUtterance=null;
 
+  resetAudioButton();
 }
 
-
-currentUtterance = null;
-
-
-resetAudioButton();
-
-}
-
-
-/* =========================================================
-   RESET AUDIO BUTTON
-========================================================= */
 
 function resetAudioButton(){
 
-if(!playAudioButton){
-return;
+  if(!playAudioButton)return;
+
+  playAudioButton
+  .classList
+  .remove("speaking");
+
+  if(
+    selectedLanguage &&
+    UI[selectedLanguage]
+  ){
+
+    playAudioButton
+    .textContent=
+    UI[selectedLanguage].play;
+
+  }else{
+
+    playAudioButton
+    .textContent=
+    "🔊 PLAY AUDIO GUIDE";
+  }
 }
 
-
-playAudioButton
-.classList
-.remove("speaking");
-
-
-if(
-selectedLanguage &&
-UI[selectedLanguage]
-){
-
-playAudioButton
-.textContent =
-UI[selectedLanguage].play;
-
-}
-
-else{
-
-playAudioButton
-.textContent =
-"🔊 PLAY AUDIO GUIDE";
-
-}
-
-}
-
-
-/* =========================================================
-   AUDIO BUTTONS
-========================================================= */
 
 document
 .getElementById("playAudio")
@@ -3916,7 +2308,6 @@ document
 "click",
 playDestinationAudio
 );
-
 
 document
 .getElementById("stopAudio")
@@ -3927,321 +2318,205 @@ stopSpeech
 
 
 /* =========================================================
-   ARRIVAL TIMER
+   TIMERS
 ========================================================= */
 
 function clearArrivalTimer(){
 
-if(arrivalTimer){
+  if(arrivalTimer){
 
-clearTimeout(
-arrivalTimer
-);
+    clearTimeout(arrivalTimer);
 
-arrivalTimer = null;
-
-}
-
+    arrivalTimer=null;
+  }
 }
 
 
 /* =========================================================
-   SCREEN 2 EXIT
+   NAVIGATION
 ========================================================= */
 
 document
 .getElementById("exit2")
-.addEventListener(
-"click",
-exitTour
-);
+.onclick=exitTour;
 
-
-/* =========================================================
-   SCREEN 3
-========================================================= */
 
 document
 .getElementById("back3")
-.addEventListener(
-"click",
-function(){
+.onclick=()=>{
 
-stopSpeech();
+  stopSpeech();
 
+  showScreen(2);
 
-showScreen(2);
-
-
-playWelcome();
-
-});
+  playWelcome();
+};
 
 
 document
 .getElementById("exit3")
-.addEventListener(
-"click",
-exitTour
-);
+.onclick=exitTour;
 
-
-/* =========================================================
-   SCREEN 4
-========================================================= */
 
 document
 .getElementById("back4")
-.addEventListener(
-"click",
-function(){
+.onclick=()=>{
 
-stopSpeech();
+  stopSpeech();
 
+  selectedStation=null;
 
-selectedStation = null;
-
-
-showScreen(3);
-
-});
+  showScreen(3);
+};
 
 
 document
 .getElementById("home4")
-.addEventListener(
-"click",
-goHome
-);
+.onclick=goHome;
 
 
 document
 .getElementById("exit4")
-.addEventListener(
-"click",
-exitTour
-);
+.onclick=exitTour;
 
-
-/* =========================================================
-   SCREEN 5
-========================================================= */
 
 document
 .getElementById("back5")
-.addEventListener(
-"click",
-function(){
+.onclick=()=>{
 
-clearArrivalTimer();
+  clearArrivalTimer();
 
-stopSimulation();
+  stopSimulation();
 
-stopTravelMusic();
+  stopTravelMusic();
 
-stopSpeech();
+  stopSpeech();
 
+  travelArrived=false;
 
-travelArrived = false;
-
-
-showScreen(4);
-
-});
+  showScreen(4);
+};
 
 
 document
 .getElementById("home5")
-.addEventListener(
-"click",
-goHome
-);
+.onclick=goHome;
 
 
 document
 .getElementById("exit5")
-.addEventListener(
-"click",
-exitTour
-);
+.onclick=exitTour;
 
 
 document
 .getElementById("next5")
-.addEventListener(
-"click",
-function(){
+.onclick=()=>{
 
-if(travelArrived){
+  if(travelArrived){
+    openPosterGuide();
+  }
+};
 
-openPosterGuide();
-
-}
-
-});
-
-
-/* =========================================================
-   SCREEN 6 BACK
-========================================================= */
 
 document
 .getElementById("back6")
-.addEventListener(
-"click",
-function(){
+.onclick=()=>{
 
-stopSpeech();
+  stopSpeech();
 
+  selectedStation=null;
+  travelArrived=false;
 
-selectedStation = null;
+  updateDestination();
 
-travelArrived = false;
+  showScreen(4);
+};
 
-
-updateDestination();
-
-
-showScreen(4);
-
-});
-
-
-/* =========================================================
-   SCREEN 6 HOME
-========================================================= */
 
 document
 .getElementById("home6")
-.addEventListener(
-"click",
-goHome
-);
+.onclick=goHome;
 
-
-/* =========================================================
-   SCREEN 6 NEXT
-
-   KEEP LANGUAGE
-   RETURN TO DESTINATION LIST
-========================================================= */
 
 document
 .getElementById("next6")
-.addEventListener(
-"click",
-function(){
+.onclick=()=>{
 
-stopSpeech();
+  stopSpeech();
 
+  selectedStation=null;
+  travelArrived=false;
 
-selectedStation = null;
+  updateDestination();
 
-travelArrived = false;
+  showScreen(4);
+};
 
-
-updateDestination();
-
-
-showScreen(4);
-
-});
-
-
-/* =========================================================
-   SCREEN 6 EXIT
-========================================================= */
 
 document
 .getElementById("exit6")
-.addEventListener(
-"click",
-exitTour
-);
+.onclick=exitTour;
 
 
 /* =========================================================
-   HOME = SCREEN 3
+   HOME
 ========================================================= */
 
 function goHome(){
 
-clearArrivalTimer();
+  clearArrivalTimer();
 
-stopSimulation();
+  stopSimulation();
 
-stopTravelMusic();
+  stopTravelMusic();
 
-stopSpeech();
+  stopSpeech();
 
+  welcomeVideo.pause();
 
-welcomeVideo.pause();
+  selectedLanguage=null;
+  selectedStation=null;
+  travelArrived=false;
 
-
-selectedLanguage = null;
-
-selectedStation = null;
-
-travelArrived = false;
-
-
-showScreen(3);
-
+  showScreen(3);
 }
 
 
 /* =========================================================
-   EXIT = SLEEP MODE
+   EXIT
 ========================================================= */
 
 function exitTour(){
 
-clearArrivalTimer();
+  clearArrivalTimer();
 
-stopSimulation();
+  stopSimulation();
 
-stopTravelMusic();
+  stopTravelMusic();
 
-stopSpeech();
+  stopSpeech();
 
+  welcomeVideo.pause();
 
-welcomeVideo.pause();
+  selectedLanguage=null;
+  selectedStation=null;
 
+  travelArrived=false;
+  welcomeDone=false;
 
-selectedLanguage = null;
+  try{
+    welcomeVideo.currentTime=0;
+  }catch(e){}
 
-selectedStation = null;
+  try{
+    sleepVideo.currentTime=0;
+  }catch(e){}
 
-travelArrived = false;
+  showScreen(1);
 
-welcomeDone = false;
+  sleepVideo.muted=true;
 
-
-try{
-
-welcomeVideo.currentTime = 0;
-
-}
-catch(e){}
-
-
-try{
-
-sleepVideo.currentTime = 0;
-
-}
-catch(e){}
-
-
-showScreen(1);
-
-
-sleepVideo.muted = true;
-
-
-sleepVideo.play()
-.catch(function(){});
-
+  sleepVideo.play().catch(()=>{});
 }
 
 
@@ -4251,31 +2526,18 @@ sleepVideo.play()
 
 function preloadPosters(){
 
-Object.keys(POSTERS)
-.forEach(function(station){
+  for(let station=1;station<=5;station++){
 
-Object.keys(POSTERS[station])
-.forEach(function(language){
+    ["ms","en","zh","ta"]
+    .forEach(language=>{
 
-const files =
-POSTERS[station][language];
+      const img=
+      new Image();
 
-
-if(files.length){
-
-const img =
-new Image();
-
-
-img.src =
-encodeURI(files[0]);
-
-}
-
-});
-
-});
-
+      img.src=
+      POSTERS[station][language];
+    });
+  }
 }
 
 
@@ -4283,64 +2545,33 @@ encodeURI(files[0]);
    INITIAL
 ========================================================= */
 
-window
-.addEventListener(
+window.addEventListener(
 "load",
-function(){
+()=>{
 
-/*
-CURRENT:
-NO PHYSICAL SPIKE CONNECTION YET
-*/
+  setSpikeConnection(false);
 
-setSpikeConnection(false);
+  showScreen(1);
 
+  sleepVideo.muted=true;
 
-showScreen(1);
+  sleepVideo.play().catch(()=>{});
 
+  preloadPosters();
 
-sleepVideo.muted = true;
-
-
-sleepVideo.play()
-.catch(function(){});
-
-
-preloadPosters();
-
-
-if(
-"speechSynthesis" in window
-){
-
-window
-.speechSynthesis
-.getVoices();
-
-}
-
+  if("speechSynthesis" in window){
+    speechSynthesis.getVoices();
+  }
 });
 
 
-/* =========================================================
-   IOS / SAFARI VOICES
-========================================================= */
+if("speechSynthesis" in window){
 
-if(
-"speechSynthesis" in window
-){
+  speechSynthesis
+  .onvoiceschanged=()=>{
 
-window
-.speechSynthesis
-.onvoiceschanged =
-function(){
-
-window
-.speechSynthesis
-.getVoices();
-
-};
-
+    speechSynthesis.getVoices();
+  };
 }
 
 </script>
