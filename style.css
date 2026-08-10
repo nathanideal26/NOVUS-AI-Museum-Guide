@@ -1,1 +1,296 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #102a46 0%,
+            #061522 45%,
+            #02070c 100%
+        );
+
+    color: white;
+}
+
+
+/* ===============================
+   MAIN SCREEN
+================================ */
+
+.welcome-screen {
+
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+    align-items: center;
+
+    text-align: center;
+
+    padding:
+        4vh
+        5vw
+        3vh;
+}
+
+
+/* ===============================
+   HEADER
+================================ */
+
+.header h1 {
+
+    font-size: clamp(
+        65px,
+        10vw,
+        125px
+    );
+
+    font-weight: 900;
+
+    letter-spacing: 12px;
+
+    line-height: 0.9;
+
+    text-shadow:
+        0 0 12px #00d9ff,
+        0 0 30px rgba(0,217,255,0.6);
+}
+
+
+.creator {
+
+    margin-top: 15px;
+
+    font-size: clamp(
+        15px,
+        2vw,
+        23px
+    );
+
+    letter-spacing: 7px;
+
+    color: #59e7ff;
+}
+
+
+.header h2 {
+
+    margin-top: 25px;
+
+    font-size: clamp(
+        22px,
+        3vw,
+        38px
+    );
+
+    font-weight: 400;
+
+    letter-spacing: 5px;
+
+    color: #d9f8ff;
+}
+
+
+/* ===============================
+   VIDEO
+================================ */
+
+.robot-area {
+
+    position: relative;
+
+    width: min(
+        72vw,
+        900px
+    );
+
+    height: 48vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    border-radius: 35px;
+
+    border:
+        2px solid
+        rgba(0,217,255,0.35);
+
+    box-shadow:
+        0 0 40px
+        rgba(0,217,255,0.15);
+}
+
+
+.robot-area video {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* ===============================
+   SLEEP STATUS
+================================ */
+
+.sleep-text {
+
+    position: absolute;
+
+    bottom: 25px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    font-size: 16px;
+
+    letter-spacing: 4px;
+
+    color:
+        rgba(255,255,255,0.75);
+
+    animation:
+        sleepPulse
+        2.5s
+        infinite;
+}
+
+
+@keyframes sleepPulse {
+
+    0% {
+        opacity: 0.35;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.35;
+    }
+}
+
+
+/* ===============================
+   START BUTTON
+================================ */
+
+.start-area {
+
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+
+.start-button {
+
+    width:
+        min(
+            75vw,
+            700px
+        );
+
+    padding:
+        25px
+        35px;
+
+    border: none;
+
+    border-radius: 100px;
+
+    font-size:
+        clamp(
+            20px,
+            2.5vw,
+            30px
+        );
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    cursor: pointer;
+
+    color: #001219;
+
+    background:
+        linear-gradient(
+            90deg,
+            #4de5ff,
+            #ffffff,
+            #4de5ff
+        );
+
+    box-shadow:
+        0 0 20px
+        rgba(77,229,255,0.4),
+        0 0 50px
+        rgba(77,229,255,0.25);
+
+    animation:
+        buttonGlow
+        2s
+        infinite;
+}
+
+
+@keyframes buttonGlow {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.03);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+.start-button:active {
+
+    transform: scale(0.96);
+}
+
+
+/* ===============================
+   FOOTER
+================================ */
+
+footer {
+
+    font-size: 13px;
+
+    letter-spacing: 4px;
+
+    opacity: 0.45;
+}
