@@ -17,7 +17,7 @@ viewport-fit=cover">
 
 /* =====================================================
    NOVUS AI MUSEUM GUIDE
-   SCREEN 1 - 4
+   FULL VERSION SCREEN 1 - 4
    IPAD PORTRAIT
 ===================================================== */
 
@@ -67,9 +67,9 @@ body{
     align-items:center;
 
     padding:
-    max(20px, env(safe-area-inset-top))
-    26px
-    max(14px, env(safe-area-inset-bottom));
+    max(18px, env(safe-area-inset-top))
+    24px
+    max(12px, env(safe-area-inset-bottom));
 }
 
 .screen.active{
@@ -88,7 +88,7 @@ body{
 }
 
 .novus{
-    font-size:68px;
+    font-size:66px;
     font-weight:900;
 
     letter-spacing:12px;
@@ -114,14 +114,82 @@ body{
 }
 
 .tagline{
-    margin-top:14px;
+    margin-top:13px;
 
-    font-size:20px;
+    font-size:19px;
     font-weight:400;
 
     letter-spacing:5px;
 
     color:#e4fbff;
+}
+
+
+/* =====================================================
+   NAVIGATION BAR
+===================================================== */
+
+.nav-bar{
+    width:min(92vw,700px);
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:12px;
+}
+
+.nav-button{
+    min-width:120px;
+    min-height:45px;
+
+    padding:9px 15px;
+
+    border-radius:30px;
+
+    border:
+    1px solid
+    rgba(67,223,255,.72);
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(3,31,47,.95),
+        rgba(6,64,84,.95)
+    );
+
+    color:#dffbff;
+
+    font-size:13px;
+    font-weight:900;
+
+    letter-spacing:2px;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 0 12px rgba(57,216,255,.38),
+    0 0 26px rgba(57,216,255,.15);
+
+    animation:navGlow 2s infinite;
+}
+
+@keyframes navGlow{
+    0%,100%{
+        box-shadow:
+        0 0 10px rgba(57,216,255,.30),
+        0 0 20px rgba(57,216,255,.10);
+    }
+
+    50%{
+        box-shadow:
+        0 0 20px rgba(57,216,255,.78),
+        0 0 38px rgba(57,216,255,.22);
+    }
+}
+
+.nav-button:active{
+    transform:scale(.95);
 }
 
 
@@ -139,14 +207,14 @@ body{
     justify-content:center;
     align-items:center;
 
-    padding-top:16px;
+    padding-top:14px;
 }
 
 .video-frame{
     position:relative;
 
-    width:min(88vw, 690px);
-    height:min(47vh, 560px);
+    width:min(88vw,690px);
+    height:min(47vh,560px);
 
     min-height:300px;
 
@@ -198,9 +266,7 @@ body{
 
     gap:10px;
 
-    padding:
-    10px
-    18px;
+    padding:10px 18px;
 
     border-radius:40px;
 
@@ -232,8 +298,7 @@ body{
     box-shadow:
     0 0 10px #4ce1ff;
 
-    animation:
-    sleepPulse 2s infinite;
+    animation:sleepPulse 2s infinite;
 }
 
 @keyframes sleepPulse{
@@ -248,7 +313,7 @@ body{
 
 
 /* =====================================================
-   GENERIC NEON BUTTON
+   GENERIC NEON
 ===================================================== */
 
 .neon-button{
@@ -275,17 +340,15 @@ body{
 
     text-align:center;
 
-    padding-top:15px;
+    padding-top:14px;
 }
 
 .start-button{
-    width:min(88vw, 650px);
+    width:min(88vw,650px);
 
-    min-height:76px;
+    min-height:74px;
 
-    padding:
-    16px
-    25px;
+    padding:15px 25px;
 
     border:
     1px solid
@@ -314,8 +377,7 @@ body{
     0 0 18px rgba(57,216,255,.60),
     0 0 45px rgba(57,216,255,.25);
 
-    animation:
-    cyanGlow 2s infinite;
+    animation:cyanGlow 2s infinite;
 }
 
 @keyframes cyanGlow{
@@ -336,7 +398,6 @@ body{
     margin-top:8px;
 
     font-size:10px;
-
     font-weight:600;
 
     letter-spacing:3px;
@@ -347,7 +408,7 @@ body{
 
 
 /* =====================================================
-   SPIKE STATUS
+   CONNECTION FOOTER
 ===================================================== */
 
 .bottom-area{
@@ -362,27 +423,27 @@ body{
 
     gap:7px;
 
-    padding-top:12px;
+    padding-top:11px;
 }
 
-.spike-status{
+.connection-box{
+    min-width:340px;
+
     display:flex;
 
     align-items:center;
     justify-content:center;
 
-    gap:10px;
-
-    min-width:310px;
+    gap:11px;
 
     padding:
-    9px
+    10px
     18px;
 
     border-radius:35px;
 
     background:
-    rgba(0,0,0,.30);
+    rgba(0,0,0,.32);
 
     border:
     1px solid
@@ -390,10 +451,12 @@ body{
 }
 
 .connection-light{
-    width:12px;
-    height:12px;
+    width:13px;
+    height:13px;
 
     border-radius:50%;
+
+    flex-shrink:0;
 }
 
 .connection-text{
@@ -401,17 +464,17 @@ body{
 
     font-weight:800;
 
-    letter-spacing:2px;
+    letter-spacing:1.8px;
 }
 
 
 /* DISCONNECTED */
 
-.spike-status.disconnected{
+.connection-box.disconnected{
     color:#ff96a1;
 }
 
-.spike-status.disconnected
+.connection-box.disconnected
 .connection-light{
     background:#ff3048;
 
@@ -435,27 +498,39 @@ body{
 
 /* CONNECTING */
 
-.spike-status.connecting{
+.connection-box.connecting{
     color:#ffe58e;
 }
 
-.spike-status.connecting
+.connection-box.connecting
 .connection-light{
     background:#ffd43b;
 
     box-shadow:
     0 0 7px #ffd43b,
     0 0 17px rgba(255,212,59,.85);
+
+    animation:yellowBlink .8s infinite;
+}
+
+@keyframes yellowBlink{
+    0%,100%{
+        opacity:.3;
+    }
+
+    50%{
+        opacity:1;
+    }
 }
 
 
 /* CONNECTED */
 
-.spike-status.connected{
+.connection-box.connected{
     color:#83ffb0;
 }
 
-.spike-status.connected
+.connection-box.connected
 .connection-light{
     background:#35ff78;
 
@@ -463,6 +538,9 @@ body{
     0 0 7px #35ff78,
     0 0 17px rgba(53,255,120,.90);
 }
+
+
+/* SYSTEM FOOTER */
 
 .system-footer{
     font-size:9px;
@@ -475,7 +553,7 @@ body{
 
 
 /* =====================================================
-   WELCOME STATUS
+   SCREEN 2
 ===================================================== */
 
 .welcome-status{
@@ -485,7 +563,7 @@ body{
 
     text-align:center;
 
-    padding-top:12px;
+    padding-top:11px;
 }
 
 .welcome-status-main{
@@ -514,14 +592,13 @@ body{
 
 
 /* =====================================================
-   COMMON CONTENT AREA
+   CONTENT
 ===================================================== */
 
 .content-area{
     width:100%;
 
     flex:1 1 auto;
-
     min-height:0;
 
     display:flex;
@@ -531,24 +608,24 @@ body{
     align-items:center;
     justify-content:center;
 
-    gap:12px;
+    gap:11px;
 
-    padding-top:14px;
+    padding-top:12px;
 }
 
 
 /* =====================================================
-   TITLE
+   PAGE HEADING
 ===================================================== */
 
 .page-heading{
     text-align:center;
 
-    margin-bottom:6px;
+    margin-bottom:5px;
 }
 
 .page-heading h2{
-    font-size:25px;
+    font-size:24px;
 
     font-weight:900;
 
@@ -577,9 +654,9 @@ body{
 ===================================================== */
 
 .language-button{
-    width:min(86vw, 620px);
+    width:min(86vw,620px);
 
-    min-height:80px;
+    min-height:79px;
 
     padding:
     12px
@@ -604,8 +681,7 @@ body{
     0 0 15px rgba(57,216,255,.42),
     0 0 35px rgba(57,216,255,.15);
 
-    animation:
-    cyanGlow 2.2s infinite;
+    animation:cyanGlow 2.2s infinite;
 }
 
 .language-main{
@@ -632,11 +708,11 @@ body{
 
 
 /* =====================================================
-   EXIT BUTTON
+   EXIT
 ===================================================== */
 
 .exit-button{
-    width:min(58vw, 400px);
+    width:min(58vw,400px);
 
     min-height:52px;
 
@@ -671,8 +747,7 @@ body{
     0 0 14px rgba(255,48,69,.45),
     0 0 32px rgba(255,48,69,.18);
 
-    animation:
-    redGlow 2s infinite;
+    animation:redGlow 2s infinite;
 }
 
 @keyframes redGlow{
@@ -691,17 +766,17 @@ body{
 
 
 /* =====================================================
-   STATION BUTTONS
+   STATIONS
 ===================================================== */
 
 .station-button{
-    width:min(88vw, 650px);
+    width:min(88vw,650px);
 
-    min-height:82px;
+    min-height:78px;
 
     padding:
-    11px
-    18px;
+    10px
+    17px;
 
     border-radius:22px;
 
@@ -735,13 +810,13 @@ body{
 .station-number{
     display:block;
 
-    font-size:13px;
+    font-size:12px;
 
     font-weight:900;
 
     letter-spacing:2px;
 
-    opacity:.75;
+    opacity:.72;
 }
 
 .station-name{
@@ -760,14 +835,9 @@ body{
 /* RED */
 
 .station-red{
-    border:
-    1px solid #ff4058;
+    border:1px solid #ff4058;
 
-    box-shadow:
-    0 0 16px rgba(255,64,88,.45);
-
-    animation:
-    redStationGlow 2s infinite;
+    animation:redStationGlow 2s infinite;
 }
 
 .station-red .station-dot{
@@ -793,14 +863,9 @@ body{
 /* BLUE */
 
 .station-blue{
-    border:
-    1px solid #33a8ff;
+    border:1px solid #33a8ff;
 
-    box-shadow:
-    0 0 16px rgba(51,168,255,.45);
-
-    animation:
-    blueStationGlow 2.1s infinite;
+    animation:blueStationGlow 2.1s infinite;
 }
 
 .station-blue .station-dot{
@@ -826,14 +891,9 @@ body{
 /* GREEN */
 
 .station-green{
-    border:
-    1px solid #35ff78;
+    border:1px solid #35ff78;
 
-    box-shadow:
-    0 0 16px rgba(53,255,120,.40);
-
-    animation:
-    greenStationGlow 2.2s infinite;
+    animation:greenStationGlow 2.2s infinite;
 }
 
 .station-green .station-dot{
@@ -859,14 +919,9 @@ body{
 /* YELLOW */
 
 .station-yellow{
-    border:
-    1px solid #ffd93f;
+    border:1px solid #ffd93f;
 
-    box-shadow:
-    0 0 16px rgba(255,217,63,.40);
-
-    animation:
-    yellowStationGlow 2s infinite;
+    animation:yellowStationGlow 2s infinite;
 }
 
 .station-yellow .station-dot{
@@ -892,14 +947,9 @@ body{
 /* PURPLE */
 
 .station-purple{
-    border:
-    1px solid #c05cff;
+    border:1px solid #c05cff;
 
-    box-shadow:
-    0 0 16px rgba(192,92,255,.40);
-
-    animation:
-    purpleStationGlow 2.1s infinite;
+    animation:purpleStationGlow 2.1s infinite;
 }
 
 .station-purple .station-dot{
@@ -923,18 +973,18 @@ body{
 
 
 /* =====================================================
-   SMALLER IPAD
+   SMALL IPAD
 ===================================================== */
 
 @media(max-height:950px){
 
     .screen{
-        padding-top:13px;
-        padding-bottom:8px;
+        padding-top:11px;
+        padding-bottom:7px;
     }
 
     .novus{
-        font-size:50px;
+        font-size:48px;
     }
 
     .by-kruss{
@@ -942,51 +992,70 @@ body{
     }
 
     .tagline{
-        margin-top:7px;
-        font-size:16px;
+        margin-top:6px;
+        font-size:15px;
+    }
+
+    .nav-bar{
+        margin-bottom:6px;
+    }
+
+    .nav-button{
+        min-height:39px;
+        min-width:105px;
+        font-size:11px;
     }
 
     .video-area{
-        padding-top:8px;
+        padding-top:7px;
     }
 
     .video-frame{
-        height:41vh;
-        min-height:250px;
+        height:40vh;
+        min-height:245px;
     }
 
     .start-area{
-        padding-top:8px;
+        padding-top:7px;
     }
 
     .start-button{
-        min-height:60px;
+        min-height:58px;
         font-size:16px;
     }
 
     .content-area{
-        gap:8px;
-        padding-top:7px;
+        gap:7px;
+        padding-top:5px;
     }
 
     .language-button{
-        min-height:64px;
+        min-height:61px;
     }
 
     .station-button{
-        min-height:66px;
+        min-height:62px;
     }
 
     .station-name{
-        font-size:15px;
+        font-size:14px;
     }
 
     .bottom-area{
-        padding-top:6px;
+        padding-top:5px;
+    }
+
+    .connection-box{
+        min-width:305px;
+        padding:7px 14px;
+    }
+
+    .connection-text{
+        font-size:10px;
     }
 
     .exit-button{
-        min-height:45px;
+        min-height:44px;
     }
 }
 
@@ -1079,13 +1148,13 @@ class="screen active">
 <div class="bottom-area">
 
     <div
-    class="spike-status disconnected sharedSpikeStatus">
+    class="connection-box disconnected sharedConnectionStatus">
 
         <span class="connection-light"></span>
 
         <span class="connection-text">
 
-            SPIKE PRIME DISCONNECTED
+            iPAD ↔ SPIKE PRIME : DISCONNECTED
 
         </span>
 
@@ -1170,13 +1239,13 @@ class="screen">
 <div class="bottom-area">
 
     <div
-    class="spike-status disconnected sharedSpikeStatus">
+    class="connection-box disconnected sharedConnectionStatus">
 
         <span class="connection-light"></span>
 
         <span class="connection-text">
 
-            SPIKE PRIME DISCONNECTED
+            iPAD ↔ SPIKE PRIME : DISCONNECTED
 
         </span>
 
@@ -1297,7 +1366,7 @@ class="screen">
 
     <button
     class="exit-button neon-button"
-    onclick="exitTour()">
+    onclick="goHome()">
 
         ✕ EXIT TOUR
 
@@ -1309,17 +1378,18 @@ class="screen">
 <div class="bottom-area">
 
     <div
-    class="spike-status disconnected sharedSpikeStatus">
+    class="connection-box disconnected sharedConnectionStatus">
 
         <span class="connection-light"></span>
 
         <span class="connection-text">
 
-            SPIKE PRIME DISCONNECTED
+            iPAD ↔ SPIKE PRIME : DISCONNECTED
 
         </span>
 
     </div>
+
 
     <div class="system-footer">
 
@@ -1335,12 +1405,34 @@ class="screen">
 
 <!-- =====================================================
      SCREEN 4
-     DESTINATION
 ===================================================== -->
 
 <section
 id="screen4"
 class="screen">
+
+
+<div class="nav-bar">
+
+    <button
+    class="nav-button neon-button"
+    onclick="goBack()">
+
+        ← BACK
+
+    </button>
+
+
+    <button
+    class="nav-button neon-button"
+    onclick="goHome()">
+
+        ⌂ HOME
+
+    </button>
+
+</div>
+
 
 <header class="header">
 
@@ -1364,17 +1456,19 @@ class="screen">
     <div class="page-heading">
 
         <h2 id="destinationHeading">
+
             SELECT YOUR DESTINATION
+
         </h2>
 
         <p id="destinationSubheading">
+
             PILIH DESTINASI ANDA
+
         </p>
 
     </div>
 
-
-    <!-- STATION 1 -->
 
     <button
     class="station-button station-red neon-button"
@@ -1401,8 +1495,6 @@ class="screen">
     </button>
 
 
-    <!-- STATION 2 -->
-
     <button
     class="station-button station-blue neon-button"
     onclick="selectStation(2)">
@@ -1427,8 +1519,6 @@ class="screen">
 
     </button>
 
-
-    <!-- STATION 3 -->
 
     <button
     class="station-button station-green neon-button"
@@ -1455,8 +1545,6 @@ class="screen">
     </button>
 
 
-    <!-- STATION 4 -->
-
     <button
     class="station-button station-yellow neon-button"
     onclick="selectStation(4)">
@@ -1482,8 +1570,6 @@ class="screen">
     </button>
 
 
-    <!-- STATION 5 -->
-
     <button
     class="station-button station-purple neon-button"
     onclick="selectStation(5)">
@@ -1508,28 +1594,19 @@ class="screen">
 
     </button>
 
-
-    <button
-    class="exit-button neon-button"
-    onclick="exitTour()">
-
-        ✕ EXIT TOUR
-
-    </button>
-
 </div>
 
 
 <div class="bottom-area">
 
     <div
-    class="spike-status disconnected sharedSpikeStatus">
+    class="connection-box disconnected sharedConnectionStatus">
 
         <span class="connection-light"></span>
 
         <span class="connection-text">
 
-            SPIKE PRIME DISCONNECTED
+            iPAD ↔ SPIKE PRIME : DISCONNECTED
 
         </span>
 
@@ -1601,7 +1678,7 @@ let selectedLanguage = null;
 
 let selectedStation = null;
 
-let spikeConnected = false;
+let connectionState = "disconnected";
 
 let languageScreenOpened = false;
 
@@ -1623,7 +1700,7 @@ function showScreen(screen){
 
 
 /* =====================================================
-   INITIAL START
+   INITIAL LOAD
 ===================================================== */
 
 window.addEventListener(
@@ -1642,7 +1719,8 @@ function(){
 
     });
 
-    updateSpikeStatus(
+
+    updateConnectionStatus(
         "disconnected"
     );
 
@@ -1659,9 +1737,12 @@ function(){
 
     sleepVideo.pause();
 
+    languageScreenOpened = false;
+
     showScreen(
         screen2
     );
+
 
     welcomeVideo.pause();
 
@@ -1676,11 +1757,13 @@ function(){
     .catch(function(error){
 
         console.log(
-            "Audio playback blocked:",
+            "Welcome audio blocked:",
             error
         );
 
+
         welcomeVideo.muted = true;
+
 
         welcomeVideo.play()
         .catch(function(error2){
@@ -1764,7 +1847,7 @@ function selectLanguage(language){
 
 
 /* =====================================================
-   DESTINATION LANGUAGE
+   LANGUAGE CONTENT
 ===================================================== */
 
 function updateDestinationLanguage(){
@@ -1876,6 +1959,62 @@ function updateDestinationLanguage(){
 
 
 /* =====================================================
+   BACK
+===================================================== */
+
+function goBack(){
+
+    selectedStation = null;
+
+    showScreen(
+        screen3
+    );
+
+}
+
+
+/* =====================================================
+   HOME
+===================================================== */
+
+function goHome(){
+
+    selectedLanguage = null;
+
+    selectedStation = null;
+
+    languageScreenOpened = false;
+
+
+    welcomeVideo.pause();
+
+    welcomeVideo.currentTime = 0;
+
+
+    showScreen(
+        screen1
+    );
+
+
+    sleepVideo.currentTime = 0;
+
+    sleepVideo.muted = true;
+
+
+    sleepVideo.play()
+    .catch(function(error){
+
+        console.log(
+            "Sleep video restart:",
+            error
+        );
+
+    });
+
+}
+
+
+/* =====================================================
    STATION SELECTION
 ===================================================== */
 
@@ -1886,30 +2025,25 @@ function selectStation(station){
 
 
     console.log(
-        "LANGUAGE:",
+        "Selected language:",
         selectedLanguage
     );
 
 
     console.log(
-        "DESTINATION:",
+        "Selected station:",
         selectedStation
     );
 
 
     /*
-    PAPARAN 5 NANTI:
+       PAPARAN 5 NANTI
 
-    TAKING YOU TO STATION X
-
-    Kemudian:
-    iPad -> SPIKE Prime
-
-    Destination 1 = RED
-    Destination 2 = BLUE
-    Destination 3 = GREEN
-    Destination 4 = YELLOW
-    Destination 5 = PURPLE
+       1 RED
+       2 BLUE
+       3 GREEN
+       4 YELLOW
+       5 PURPLE
     */
 
 
@@ -1959,60 +2093,25 @@ function selectStation(station){
 
 
 /* =====================================================
-   EXIT TOUR
+   CONNECTION STATUS
+   ONE FUNCTION CONTROLS ALL SCREENS
 ===================================================== */
 
-function exitTour(){
+function updateConnectionStatus(state){
 
-    selectedLanguage = null;
+    connectionState =
+    state;
 
-    selectedStation = null;
-
-    languageScreenOpened = false;
-
-
-    welcomeVideo.pause();
-
-    welcomeVideo.currentTime = 0;
-
-
-    showScreen(
-        screen1
-    );
-
-
-    sleepVideo.currentTime = 0;
-
-    sleepVideo.muted = true;
-
-
-    sleepVideo.play()
-    .catch(function(error){
-
-        console.log(
-            "Sleep video restart:",
-            error
-        );
-
-    });
-
-}
-
-
-/* =====================================================
-   SPIKE STATUS
-===================================================== */
-
-function updateSpikeStatus(state){
 
     const boxes =
     document.querySelectorAll(
-        ".sharedSpikeStatus"
+        ".sharedConnectionStatus"
     );
 
 
     boxes.forEach(
     function(box){
+
 
         box.classList.remove(
             "connected",
@@ -2034,9 +2133,7 @@ function updateSpikeStatus(state){
             );
 
             text.textContent =
-            "SPIKE PRIME CONNECTED";
-
-            spikeConnected = true;
+            "iPAD ↔ SPIKE PRIME : CONNECTED";
 
         }
 
@@ -2048,9 +2145,7 @@ function updateSpikeStatus(state){
             );
 
             text.textContent =
-            "CONNECTING TO SPIKE PRIME...";
-
-            spikeConnected = false;
+            "iPAD ↔ SPIKE PRIME : CONNECTING...";
 
         }
 
@@ -2062,15 +2157,38 @@ function updateSpikeStatus(state){
             );
 
             text.textContent =
-            "SPIKE PRIME DISCONNECTED";
-
-            spikeConnected = false;
+            "iPAD ↔ SPIKE PRIME : DISCONNECTED";
 
         }
+
 
     });
 
 }
+
+
+/* =====================================================
+   FUTURE BLUETOOTH INTEGRATION
+===================================================== */
+
+/*
+
+Apabila Bluetooth mula mencari:
+
+updateConnectionStatus("connecting");
+
+
+Apabila berjaya connect:
+
+updateConnectionStatus("connected");
+
+
+Apabila connection terputus:
+
+updateConnectionStatus("disconnected");
+
+*/
+
 
 </script>
 
