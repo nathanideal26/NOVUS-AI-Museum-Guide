@@ -15,12 +15,6 @@ viewport-fit=cover">
 
 <style>
 
-/* =====================================================
-   NOVUS AI MUSEUM GUIDE
-   FULL VERSION SCREEN 1 - 4
-   IPAD PORTRAIT
-===================================================== */
-
 *{
     margin:0;
     padding:0;
@@ -37,7 +31,6 @@ body{
 
 body{
     font-family:Arial, Helvetica, sans-serif;
-
     background:
     radial-gradient(
         circle at 50% 28%,
@@ -45,10 +38,8 @@ body{
         #061a29 45%,
         #02080e 100%
     );
-
     color:white;
 }
-
 
 /* =====================================================
    SCREEN
@@ -57,25 +48,21 @@ body{
 .screen{
     position:absolute;
     inset:0;
-
     width:100%;
     height:100%;
-
     display:none;
-
     flex-direction:column;
     align-items:center;
 
     padding:
-    max(18px, env(safe-area-inset-top))
-    24px
-    max(12px, env(safe-area-inset-bottom));
+    max(16px, env(safe-area-inset-top))
+    22px
+    max(10px, env(safe-area-inset-bottom));
 }
 
 .screen.active{
     display:flex;
 }
-
 
 /* =====================================================
    HEADER
@@ -88,13 +75,11 @@ body{
 }
 
 .novus{
-    font-size:66px;
+    font-size:64px;
     font-weight:900;
-
     letter-spacing:12px;
     line-height:.95;
-
-    color:#ffffff;
+    color:#fff;
 
     text-shadow:
     0 0 9px #31ddff,
@@ -104,94 +89,18 @@ body{
 
 .by-kruss{
     margin-top:7px;
-
     font-size:14px;
     font-weight:700;
-
     letter-spacing:4px;
-
     color:#5ce5ff;
 }
 
 .tagline{
-    margin-top:13px;
-
-    font-size:19px;
-    font-weight:400;
-
+    margin-top:12px;
+    font-size:18px;
     letter-spacing:5px;
-
     color:#e4fbff;
 }
-
-
-/* =====================================================
-   NAVIGATION BAR
-===================================================== */
-
-.nav-bar{
-    width:min(92vw,700px);
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    margin-bottom:12px;
-}
-
-.nav-button{
-    min-width:120px;
-    min-height:45px;
-
-    padding:9px 15px;
-
-    border-radius:30px;
-
-    border:
-    1px solid
-    rgba(67,223,255,.72);
-
-    background:
-    linear-gradient(
-        135deg,
-        rgba(3,31,47,.95),
-        rgba(6,64,84,.95)
-    );
-
-    color:#dffbff;
-
-    font-size:13px;
-    font-weight:900;
-
-    letter-spacing:2px;
-
-    cursor:pointer;
-
-    box-shadow:
-    0 0 12px rgba(57,216,255,.38),
-    0 0 26px rgba(57,216,255,.15);
-
-    animation:navGlow 2s infinite;
-}
-
-@keyframes navGlow{
-    0%,100%{
-        box-shadow:
-        0 0 10px rgba(57,216,255,.30),
-        0 0 20px rgba(57,216,255,.10);
-    }
-
-    50%{
-        box-shadow:
-        0 0 20px rgba(57,216,255,.78),
-        0 0 38px rgba(57,216,255,.22);
-    }
-}
-
-.nav-button:active{
-    transform:scale(.95);
-}
-
 
 /* =====================================================
    VIDEO
@@ -199,7 +108,6 @@ body{
 
 .video-area{
     width:100%;
-
     flex:1 1 auto;
     min-height:0;
 
@@ -207,7 +115,7 @@ body{
     justify-content:center;
     align-items:center;
 
-    padding-top:14px;
+    padding-top:12px;
 }
 
 .video-frame{
@@ -216,7 +124,7 @@ body{
     width:min(88vw,690px);
     height:min(47vh,560px);
 
-    min-height:300px;
+    min-height:290px;
 
     overflow:hidden;
 
@@ -224,9 +132,7 @@ body{
 
     background:#000;
 
-    border:
-    2px solid
-    rgba(76,222,255,.55);
+    border:2px solid rgba(76,222,255,.55);
 
     box-shadow:
     0 0 25px rgba(0,210,255,.22),
@@ -236,52 +142,36 @@ body{
 .video-frame video{
     width:100%;
     height:100%;
-
     display:block;
-
     object-fit:cover;
-
     background:#000;
 }
 
-
 /* =====================================================
-   SLEEP BADGE
+   SLEEP
 ===================================================== */
 
 .sleep-badge{
     position:absolute;
-
-    z-index:5;
-
     left:50%;
     bottom:18px;
-
     transform:translateX(-50%);
 
     display:flex;
-
     align-items:center;
-    justify-content:center;
-
     gap:10px;
 
     padding:10px 18px;
 
     border-radius:40px;
-
     white-space:nowrap;
 
-    background:
-    rgba(0,8,15,.82);
+    background:rgba(0,8,15,.82);
 
-    border:
-    1px solid
-    rgba(90,225,255,.30);
+    border:1px solid rgba(90,225,255,.30);
 
     font-size:12px;
     font-weight:700;
-
     letter-spacing:2px;
 
     color:#dffaff;
@@ -290,7 +180,6 @@ body{
 .sleep-light{
     width:10px;
     height:10px;
-
     border-radius:50%;
 
     background:#4ce1ff;
@@ -302,58 +191,42 @@ body{
 }
 
 @keyframes sleepPulse{
-    0%,100%{
-        opacity:.25;
-    }
-
-    50%{
-        opacity:1;
-    }
+    0%,100%{opacity:.25;}
+    50%{opacity:1;}
 }
 
-
 /* =====================================================
-   GENERIC NEON
+   GENERIC BUTTON
 ===================================================== */
 
 .neon-button{
     cursor:pointer;
     outline:none;
-
-    transition:
-    transform .12s ease;
+    transition:transform .12s ease;
 }
 
 .neon-button:active{
     transform:scale(.96);
 }
 
-
 /* =====================================================
-   START BUTTON
+   START
 ===================================================== */
 
 .start-area{
     width:100%;
-
-    flex:0 0 auto;
-
     text-align:center;
-
-    padding-top:14px;
+    flex:0 0 auto;
+    padding-top:12px;
 }
 
 .start-button{
     width:min(88vw,650px);
-
-    min-height:74px;
+    min-height:72px;
 
     padding:15px 25px;
 
-    border:
-    1px solid
-    rgba(127,240,255,.80);
-
+    border:1px solid rgba(127,240,255,.80);
     border-radius:60px;
 
     color:#00151d;
@@ -363,19 +236,14 @@ body{
         90deg,
         #36d8ff,
         #d7faff,
-        #ffffff,
+        #fff,
         #d7faff,
         #36d8ff
     );
 
-    font-size:20px;
+    font-size:19px;
     font-weight:900;
-
     letter-spacing:2px;
-
-    box-shadow:
-    0 0 18px rgba(57,216,255,.60),
-    0 0 45px rgba(57,216,255,.25);
 
     animation:cyanGlow 2s infinite;
 }
@@ -396,86 +264,332 @@ body{
 
 .tap-text{
     margin-top:8px;
-
     font-size:10px;
     font-weight:600;
-
     letter-spacing:3px;
-
-    color:
-    rgba(215,247,255,.48);
+    color:rgba(215,247,255,.48);
 }
 
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.content-area{
+    width:100%;
+    flex:1 1 auto;
+    min-height:0;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    gap:10px;
+    padding-top:10px;
+}
+
+.page-heading{
+    text-align:center;
+    margin-bottom:5px;
+}
+
+.page-heading h2{
+    font-size:24px;
+    font-weight:900;
+    letter-spacing:3px;
+
+    text-shadow:
+    0 0 10px rgba(60,220,255,.70),
+    0 0 22px rgba(60,220,255,.30);
+}
+
+.page-heading p{
+    margin-top:7px;
+    font-size:13px;
+    letter-spacing:2px;
+    color:#67e5ff;
+}
 
 /* =====================================================
-   CONNECTION FOOTER
+   LANGUAGE
+===================================================== */
+
+.language-button{
+    width:min(86vw,620px);
+    min-height:76px;
+
+    padding:11px 20px;
+
+    border:1px solid rgba(75,225,255,.75);
+    border-radius:22px;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(6,30,46,.97),
+        rgba(8,58,81,.97)
+    );
+
+    color:white;
+
+    animation:cyanGlow 2.2s infinite;
+}
+
+.language-button.selected{
+    border:2px solid #fff;
+
+    box-shadow:
+    0 0 25px rgba(57,216,255,.95),
+    0 0 55px rgba(57,216,255,.35);
+}
+
+.language-main{
+    display:block;
+    font-size:18px;
+    font-weight:900;
+    letter-spacing:2px;
+}
+
+.language-native{
+    display:block;
+    margin-top:5px;
+    font-size:21px;
+    font-weight:700;
+    color:#71e9ff;
+}
+
+/* =====================================================
+   STATIONS
+===================================================== */
+
+.station-button{
+    width:min(88vw,650px);
+    min-height:74px;
+
+    padding:10px 17px;
+
+    border-radius:22px;
+
+    background:rgba(3,20,30,.92);
+
+    color:white;
+
+    text-align:left;
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.station-button.selected{
+    border-width:2px;
+
+    transform:scale(1.01);
+}
+
+.station-dot{
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    flex-shrink:0;
+}
+
+.station-text{
+    flex:1;
+}
+
+.station-number{
+    display:block;
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:2px;
+    opacity:.72;
+}
+
+.station-name{
+    display:block;
+    margin-top:4px;
+    font-size:16px;
+    font-weight:800;
+    line-height:1.2;
+}
+
+.station-red{
+    border:1px solid #ff4058;
+    box-shadow:0 0 15px rgba(255,64,88,.35);
+}
+
+.station-red .station-dot{
+    background:#ff3048;
+    box-shadow:0 0 12px #ff3048;
+}
+
+.station-blue{
+    border:1px solid #33a8ff;
+    box-shadow:0 0 15px rgba(51,168,255,.35);
+}
+
+.station-blue .station-dot{
+    background:#279cff;
+    box-shadow:0 0 12px #279cff;
+}
+
+.station-green{
+    border:1px solid #35ff78;
+    box-shadow:0 0 15px rgba(53,255,120,.35);
+}
+
+.station-green .station-dot{
+    background:#35ff78;
+    box-shadow:0 0 12px #35ff78;
+}
+
+.station-yellow{
+    border:1px solid #ffd93f;
+    box-shadow:0 0 15px rgba(255,217,63,.35);
+}
+
+.station-yellow .station-dot{
+    background:#ffd93f;
+    box-shadow:0 0 12px #ffd93f;
+}
+
+.station-purple{
+    border:1px solid #c05cff;
+    box-shadow:0 0 15px rgba(192,92,255,.35);
+}
+
+.station-purple .station-dot{
+    background:#bf52ff;
+    box-shadow:0 0 12px #bf52ff;
+}
+
+/* =====================================================
+   NAVIGATION BAR
+===================================================== */
+
+.bottom-navigation{
+    width:min(88vw,650px);
+
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr 1fr 1fr;
+
+    gap:10px;
+
+    margin-top:10px;
+}
+
+.symbol-button{
+    min-height:54px;
+
+    border-radius:18px;
+
+    border:1px solid rgba(69,224,255,.65);
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(3,31,47,.96),
+        rgba(6,64,84,.96)
+    );
+
+    color:#e4fbff;
+
+    font-size:28px;
+    font-weight:900;
+
+    box-shadow:
+    0 0 13px rgba(57,216,255,.35);
+
+    animation:navGlow 2s infinite;
+}
+
+@keyframes navGlow{
+    0%,100%{
+        box-shadow:0 0 10px rgba(57,216,255,.25);
+    }
+
+    50%{
+        box-shadow:
+        0 0 22px rgba(57,216,255,.78),
+        0 0 38px rgba(57,216,255,.18);
+    }
+}
+
+.symbol-button:disabled{
+    opacity:.25;
+    animation:none;
+    cursor:default;
+}
+
+.exit-symbol{
+    border-color:rgba(255,70,90,.75);
+    color:#ff9da8;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(55,3,10,.95),
+        rgba(85,6,16,.95)
+    );
+
+    box-shadow:
+    0 0 14px rgba(255,48,69,.40);
+}
+
+/* =====================================================
+   CONNECTION
 ===================================================== */
 
 .bottom-area{
     width:100%;
 
-    flex:0 0 auto;
-
     display:flex;
-
     flex-direction:column;
     align-items:center;
 
-    gap:7px;
+    gap:6px;
 
-    padding-top:11px;
+    padding-top:8px;
 }
 
 .connection-box{
     min-width:340px;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
-    gap:11px;
+    gap:10px;
 
-    padding:
-    10px
-    18px;
+    padding:9px 16px;
 
     border-radius:35px;
 
-    background:
-    rgba(0,0,0,.32);
+    background:rgba(0,0,0,.32);
 
-    border:
-    1px solid
-    rgba(255,255,255,.10);
+    border:1px solid rgba(255,255,255,.10);
 }
 
 .connection-light{
     width:13px;
     height:13px;
-
     border-radius:50%;
-
-    flex-shrink:0;
 }
 
 .connection-text{
-    font-size:12px;
-
+    font-size:11px;
     font-weight:800;
-
-    letter-spacing:1.8px;
+    letter-spacing:1.7px;
 }
-
-
-/* DISCONNECTED */
 
 .connection-box.disconnected{
     color:#ff96a1;
 }
 
-.connection-box.disconnected
-.connection-light{
+.connection-box.disconnected .connection-light{
     background:#ff3048;
 
     box-shadow:
@@ -486,52 +600,27 @@ body{
 }
 
 @keyframes redBlink{
-    0%,100%{
-        opacity:.3;
-    }
-
-    50%{
-        opacity:1;
-    }
+    0%,100%{opacity:.3;}
+    50%{opacity:1;}
 }
-
-
-/* CONNECTING */
 
 .connection-box.connecting{
     color:#ffe58e;
 }
 
-.connection-box.connecting
-.connection-light{
+.connection-box.connecting .connection-light{
     background:#ffd43b;
 
     box-shadow:
     0 0 7px #ffd43b,
     0 0 17px rgba(255,212,59,.85);
-
-    animation:yellowBlink .8s infinite;
 }
-
-@keyframes yellowBlink{
-    0%,100%{
-        opacity:.3;
-    }
-
-    50%{
-        opacity:1;
-    }
-}
-
-
-/* CONNECTED */
 
 .connection-box.connected{
     color:#83ffb0;
 }
 
-.connection-box.connected
-.connection-light{
+.connection-box.connected .connection-light{
     background:#35ff78;
 
     box-shadow:
@@ -539,438 +628,34 @@ body{
     0 0 17px rgba(53,255,120,.90);
 }
 
-
-/* SYSTEM FOOTER */
-
 .system-footer{
     font-size:9px;
-
     letter-spacing:4px;
-
-    color:
-    rgba(190,235,245,.25);
+    color:rgba(190,235,245,.25);
 }
 
-
 /* =====================================================
-   SCREEN 2
+   WELCOME STATUS
 ===================================================== */
 
 .welcome-status{
     width:100%;
-
-    flex:0 0 auto;
-
     text-align:center;
-
-    padding-top:11px;
+    padding-top:10px;
 }
 
 .welcome-status-main{
     font-size:17px;
-
     font-weight:700;
-
     letter-spacing:4px;
-
-    color:#e8fcff;
-
-    text-shadow:
-    0 0 10px rgba(70,220,255,.55);
 }
 
 .welcome-status-small{
-    margin-top:7px;
-
-    font-size:10px;
-
-    letter-spacing:3px;
-
-    color:
-    rgba(190,240,250,.45);
-}
-
-
-/* =====================================================
-   CONTENT
-===================================================== */
-
-.content-area{
-    width:100%;
-
-    flex:1 1 auto;
-    min-height:0;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-    justify-content:center;
-
-    gap:11px;
-
-    padding-top:12px;
-}
-
-
-/* =====================================================
-   PAGE HEADING
-===================================================== */
-
-.page-heading{
-    text-align:center;
-
-    margin-bottom:5px;
-}
-
-.page-heading h2{
-    font-size:24px;
-
-    font-weight:900;
-
-    letter-spacing:3px;
-
-    color:#ffffff;
-
-    text-shadow:
-    0 0 10px rgba(60,220,255,.70),
-    0 0 22px rgba(60,220,255,.30);
-}
-
-.page-heading p{
-    margin-top:7px;
-
-    font-size:13px;
-
-    letter-spacing:2px;
-
-    color:#67e5ff;
-}
-
-
-/* =====================================================
-   LANGUAGE BUTTONS
-===================================================== */
-
-.language-button{
-    width:min(86vw,620px);
-
-    min-height:79px;
-
-    padding:
-    12px
-    20px;
-
-    border:
-    1px solid
-    rgba(75,225,255,.75);
-
-    border-radius:22px;
-
-    background:
-    linear-gradient(
-        135deg,
-        rgba(6,30,46,.97),
-        rgba(8,58,81,.97)
-    );
-
-    color:#ffffff;
-
-    box-shadow:
-    0 0 15px rgba(57,216,255,.42),
-    0 0 35px rgba(57,216,255,.15);
-
-    animation:cyanGlow 2.2s infinite;
-}
-
-.language-main{
-    display:block;
-
-    font-size:18px;
-
-    font-weight:900;
-
-    letter-spacing:2px;
-}
-
-.language-native{
-    display:block;
-
     margin-top:6px;
-
-    font-size:22px;
-
-    font-weight:700;
-
-    color:#71e9ff;
-}
-
-
-/* =====================================================
-   EXIT
-===================================================== */
-
-.exit-button{
-    width:min(58vw,400px);
-
-    min-height:52px;
-
-    margin-top:4px;
-
-    padding:
-    10px
-    18px;
-
-    border:
-    1px solid
-    rgba(255,62,80,.80);
-
-    border-radius:40px;
-
-    background:
-    linear-gradient(
-        135deg,
-        rgba(57,4,11,.95),
-        rgba(92,8,18,.95)
-    );
-
-    color:#ffd8dd;
-
-    font-size:14px;
-
-    font-weight:900;
-
+    font-size:10px;
     letter-spacing:3px;
-
-    box-shadow:
-    0 0 14px rgba(255,48,69,.45),
-    0 0 32px rgba(255,48,69,.18);
-
-    animation:redGlow 2s infinite;
+    color:rgba(190,240,250,.45);
 }
-
-@keyframes redGlow{
-    0%,100%{
-        box-shadow:
-        0 0 12px rgba(255,48,69,.35),
-        0 0 25px rgba(255,48,69,.12);
-    }
-
-    50%{
-        box-shadow:
-        0 0 23px rgba(255,48,69,.80),
-        0 0 45px rgba(255,48,69,.28);
-    }
-}
-
-
-/* =====================================================
-   STATIONS
-===================================================== */
-
-.station-button{
-    width:min(88vw,650px);
-
-    min-height:78px;
-
-    padding:
-    10px
-    17px;
-
-    border-radius:22px;
-
-    background:
-    rgba(3,20,30,.92);
-
-    color:white;
-
-    text-align:left;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:15px;
-}
-
-.station-dot{
-    width:20px;
-    height:20px;
-
-    border-radius:50%;
-
-    flex-shrink:0;
-}
-
-.station-text{
-    flex:1;
-}
-
-.station-number{
-    display:block;
-
-    font-size:12px;
-
-    font-weight:900;
-
-    letter-spacing:2px;
-
-    opacity:.72;
-}
-
-.station-name{
-    display:block;
-
-    margin-top:4px;
-
-    font-size:17px;
-
-    font-weight:800;
-
-    line-height:1.2;
-}
-
-
-/* RED */
-
-.station-red{
-    border:1px solid #ff4058;
-
-    animation:redStationGlow 2s infinite;
-}
-
-.station-red .station-dot{
-    background:#ff3048;
-
-    box-shadow:
-    0 0 12px #ff3048;
-}
-
-@keyframes redStationGlow{
-    0%,100%{
-        box-shadow:
-        0 0 12px rgba(255,64,88,.30);
-    }
-
-    50%{
-        box-shadow:
-        0 0 26px rgba(255,64,88,.75);
-    }
-}
-
-
-/* BLUE */
-
-.station-blue{
-    border:1px solid #33a8ff;
-
-    animation:blueStationGlow 2.1s infinite;
-}
-
-.station-blue .station-dot{
-    background:#279cff;
-
-    box-shadow:
-    0 0 12px #279cff;
-}
-
-@keyframes blueStationGlow{
-    0%,100%{
-        box-shadow:
-        0 0 12px rgba(51,168,255,.30);
-    }
-
-    50%{
-        box-shadow:
-        0 0 26px rgba(51,168,255,.75);
-    }
-}
-
-
-/* GREEN */
-
-.station-green{
-    border:1px solid #35ff78;
-
-    animation:greenStationGlow 2.2s infinite;
-}
-
-.station-green .station-dot{
-    background:#35ff78;
-
-    box-shadow:
-    0 0 12px #35ff78;
-}
-
-@keyframes greenStationGlow{
-    0%,100%{
-        box-shadow:
-        0 0 12px rgba(53,255,120,.28);
-    }
-
-    50%{
-        box-shadow:
-        0 0 26px rgba(53,255,120,.68);
-    }
-}
-
-
-/* YELLOW */
-
-.station-yellow{
-    border:1px solid #ffd93f;
-
-    animation:yellowStationGlow 2s infinite;
-}
-
-.station-yellow .station-dot{
-    background:#ffd93f;
-
-    box-shadow:
-    0 0 12px #ffd93f;
-}
-
-@keyframes yellowStationGlow{
-    0%,100%{
-        box-shadow:
-        0 0 12px rgba(255,217,63,.25);
-    }
-
-    50%{
-        box-shadow:
-        0 0 27px rgba(255,217,63,.70);
-    }
-}
-
-
-/* PURPLE */
-
-.station-purple{
-    border:1px solid #c05cff;
-
-    animation:purpleStationGlow 2.1s infinite;
-}
-
-.station-purple .station-dot{
-    background:#bf52ff;
-
-    box-shadow:
-    0 0 12px #bf52ff;
-}
-
-@keyframes purpleStationGlow{
-    0%,100%{
-        box-shadow:
-        0 0 12px rgba(192,92,255,.25);
-    }
-
-    50%{
-        box-shadow:
-        0 0 27px rgba(192,92,255,.72);
-    }
-}
-
 
 /* =====================================================
    SMALL IPAD
@@ -979,12 +664,12 @@ body{
 @media(max-height:950px){
 
     .screen{
-        padding-top:11px;
-        padding-bottom:7px;
+        padding-top:10px;
+        padding-bottom:6px;
     }
 
     .novus{
-        font-size:48px;
+        font-size:47px;
     }
 
     .by-kruss{
@@ -996,73 +681,64 @@ body{
         font-size:15px;
     }
 
-    .nav-bar{
-        margin-bottom:6px;
-    }
-
-    .nav-button{
-        min-height:39px;
-        min-width:105px;
-        font-size:11px;
-    }
-
     .video-area{
-        padding-top:7px;
+        padding-top:6px;
     }
 
     .video-frame{
         height:40vh;
-        min-height:245px;
+        min-height:240px;
     }
 
     .start-area{
-        padding-top:7px;
+        padding-top:6px;
     }
 
     .start-button{
-        min-height:58px;
+        min-height:56px;
         font-size:16px;
     }
 
     .content-area{
-        gap:7px;
-        padding-top:5px;
+        gap:6px;
+        padding-top:4px;
     }
 
     .language-button{
-        min-height:61px;
+        min-height:58px;
     }
 
     .station-button{
-        min-height:62px;
+        min-height:58px;
     }
 
     .station-name{
         font-size:14px;
     }
 
-    .bottom-area{
-        padding-top:5px;
+    .bottom-navigation{
+        margin-top:5px;
+        gap:7px;
+    }
+
+    .symbol-button{
+        min-height:45px;
+        font-size:23px;
     }
 
     .connection-box{
-        min-width:305px;
-        padding:7px 14px;
+        min-width:300px;
+        padding:7px 12px;
     }
 
     .connection-text{
-        font-size:10px;
-    }
-
-    .exit-button{
-        min-height:44px;
+        font-size:9px;
     }
 }
 
 </style>
 
 </head>
-
 
 <body>
 
@@ -1071,9 +747,7 @@ body{
      SCREEN 1
 ===================================================== -->
 
-<section
-id="screen1"
-class="screen active">
+<section id="screen1" class="screen active">
 
 <header class="header">
 
@@ -1090,7 +764,6 @@ class="screen active">
     </div>
 
 </header>
-
 
 <div class="video-area">
 
@@ -1111,7 +784,6 @@ class="screen active">
 
         </video>
 
-
         <div class="sleep-badge">
 
             <span class="sleep-light"></span>
@@ -1124,7 +796,6 @@ class="screen active">
 
 </div>
 
-
 <div class="start-area">
 
     <button
@@ -1135,36 +806,26 @@ class="screen active">
 
     </button>
 
-
     <div class="tap-text">
-
         TAP TO WAKE NOVUS
-
     </div>
 
 </div>
 
-
 <div class="bottom-area">
 
-    <div
-    class="connection-box disconnected sharedConnectionStatus">
+    <div class="connection-box disconnected sharedConnectionStatus">
 
         <span class="connection-light"></span>
 
         <span class="connection-text">
-
             iPAD ↔ SPIKE PRIME : DISCONNECTED
-
         </span>
 
     </div>
 
-
     <div class="system-footer">
-
         SMART • INTERACTIVE • AUTONOMOUS
-
     </div>
 
 </div>
@@ -1172,14 +833,11 @@ class="screen active">
 </section>
 
 
-
 <!-- =====================================================
      SCREEN 2
 ===================================================== -->
 
-<section
-id="screen2"
-class="screen">
+<section id="screen2" class="screen">
 
 <header class="header">
 
@@ -1196,7 +854,6 @@ class="screen">
     </div>
 
 </header>
-
 
 <div class="video-area">
 
@@ -1218,44 +875,32 @@ class="screen">
 
 </div>
 
-
 <div class="welcome-status">
 
     <div class="welcome-status-main">
-
         WELCOME TO NOVUS
-
     </div>
 
     <div class="welcome-status-small">
-
         PLEASE ENJOY THE WELCOME MESSAGE
-
     </div>
 
 </div>
 
-
 <div class="bottom-area">
 
-    <div
-    class="connection-box disconnected sharedConnectionStatus">
+    <div class="connection-box disconnected sharedConnectionStatus">
 
         <span class="connection-light"></span>
 
         <span class="connection-text">
-
             iPAD ↔ SPIKE PRIME : DISCONNECTED
-
         </span>
 
     </div>
 
-
     <div class="system-footer">
-
         SMART • INTERACTIVE • AUTONOMOUS
-
     </div>
 
 </div>
@@ -1263,14 +908,11 @@ class="screen">
 </section>
 
 
-
 <!-- =====================================================
      SCREEN 3
 ===================================================== -->
 
-<section
-id="screen3"
-class="screen">
+<section id="screen3" class="screen">
 
 <header class="header">
 
@@ -1287,7 +929,6 @@ class="screen">
     </div>
 
 </header>
-
 
 <div class="content-area">
 
@@ -1306,7 +947,7 @@ class="screen">
 
     <button
     class="language-button neon-button"
-    onclick="selectLanguage('BM')">
+    data-language="BM">
 
         <span class="language-main">
             BAHASA MELAYU
@@ -1321,7 +962,7 @@ class="screen">
 
     <button
     class="language-button neon-button"
-    onclick="selectLanguage('EN')">
+    data-language="EN">
 
         <span class="language-main">
             ENGLISH
@@ -1336,7 +977,7 @@ class="screen">
 
     <button
     class="language-button neon-button"
-    onclick="selectLanguage('ZH')">
+    data-language="ZH">
 
         <span class="language-main">
             CHINESE
@@ -1351,7 +992,7 @@ class="screen">
 
     <button
     class="language-button neon-button"
-    onclick="selectLanguage('TA')">
+    data-language="TA">
 
         <span class="language-main">
             BAHASA TAMIL
@@ -1363,12 +1004,48 @@ class="screen">
 
     </button>
 
+</div>
+
+
+<div class="bottom-navigation">
 
     <button
-    class="exit-button neon-button"
-    onclick="goHome()">
+    id="back3"
+    class="symbol-button neon-button"
+    aria-label="Back">
 
-        ✕ EXIT TOUR
+        ‹
+
+    </button>
+
+
+    <button
+    id="home3"
+    class="symbol-button neon-button"
+    aria-label="Home">
+
+        ⌂
+
+    </button>
+
+
+    <button
+    id="next3"
+    class="symbol-button neon-button"
+    aria-label="Next"
+    disabled>
+
+        ›
+
+    </button>
+
+
+    <button
+    id="exit3"
+    class="symbol-button exit-symbol neon-button"
+    aria-label="Exit">
+
+        ✕
 
     </button>
 
@@ -1377,24 +1054,18 @@ class="screen">
 
 <div class="bottom-area">
 
-    <div
-    class="connection-box disconnected sharedConnectionStatus">
+    <div class="connection-box disconnected sharedConnectionStatus">
 
         <span class="connection-light"></span>
 
         <span class="connection-text">
-
             iPAD ↔ SPIKE PRIME : DISCONNECTED
-
         </span>
 
     </div>
 
-
     <div class="system-footer">
-
         SMART • INTERACTIVE • AUTONOMOUS
-
     </div>
 
 </div>
@@ -1402,37 +1073,11 @@ class="screen">
 </section>
 
 
-
 <!-- =====================================================
      SCREEN 4
 ===================================================== -->
 
-<section
-id="screen4"
-class="screen">
-
-
-<div class="nav-bar">
-
-    <button
-    class="nav-button neon-button"
-    onclick="goBack()">
-
-        ← BACK
-
-    </button>
-
-
-    <button
-    class="nav-button neon-button"
-    onclick="goHome()">
-
-        ⌂ HOME
-
-    </button>
-
-</div>
-
+<section id="screen4" class="screen">
 
 <header class="header">
 
@@ -1456,15 +1101,11 @@ class="screen">
     <div class="page-heading">
 
         <h2 id="destinationHeading">
-
             SELECT YOUR DESTINATION
-
         </h2>
 
         <p id="destinationSubheading">
-
             PILIH DESTINASI ANDA
-
         </p>
 
     </div>
@@ -1472,7 +1113,7 @@ class="screen">
 
     <button
     class="station-button station-red neon-button"
-    onclick="selectStation(1)">
+    data-station="1">
 
         <span class="station-dot"></span>
 
@@ -1497,7 +1138,7 @@ class="screen">
 
     <button
     class="station-button station-blue neon-button"
-    onclick="selectStation(2)">
+    data-station="2">
 
         <span class="station-dot"></span>
 
@@ -1522,7 +1163,7 @@ class="screen">
 
     <button
     class="station-button station-green neon-button"
-    onclick="selectStation(3)">
+    data-station="3">
 
         <span class="station-dot"></span>
 
@@ -1547,7 +1188,7 @@ class="screen">
 
     <button
     class="station-button station-yellow neon-button"
-    onclick="selectStation(4)">
+    data-station="4">
 
         <span class="station-dot"></span>
 
@@ -1572,7 +1213,7 @@ class="screen">
 
     <button
     class="station-button station-purple neon-button"
-    onclick="selectStation(5)">
+    data-station="5">
 
         <span class="station-dot"></span>
 
@@ -1597,32 +1238,70 @@ class="screen">
 </div>
 
 
+<div class="bottom-navigation">
+
+    <button
+    id="back4"
+    class="symbol-button neon-button"
+    aria-label="Back">
+
+        ‹
+
+    </button>
+
+
+    <button
+    id="home4"
+    class="symbol-button neon-button"
+    aria-label="Home">
+
+        ⌂
+
+    </button>
+
+
+    <button
+    id="next4"
+    class="symbol-button neon-button"
+    aria-label="Next"
+    disabled>
+
+        ›
+
+    </button>
+
+
+    <button
+    id="exit4"
+    class="symbol-button exit-symbol neon-button"
+    aria-label="Exit">
+
+        ✕
+
+    </button>
+
+</div>
+
+
 <div class="bottom-area">
 
-    <div
-    class="connection-box disconnected sharedConnectionStatus">
+    <div class="connection-box disconnected sharedConnectionStatus">
 
         <span class="connection-light"></span>
 
         <span class="connection-text">
-
             iPAD ↔ SPIKE PRIME : DISCONNECTED
-
         </span>
 
     </div>
 
-
     <div class="system-footer">
-
         SMART • INTERACTIVE • AUTONOMOUS
-
     </div>
 
 </div>
 
 </section>
-
 
 
 <script>
@@ -1643,6 +1322,7 @@ document.getElementById("screen3");
 const screen4 =
 document.getElementById("screen4");
 
+
 const sleepVideo =
 document.getElementById("sleepVideo");
 
@@ -1651,6 +1331,7 @@ document.getElementById("welcomeVideo");
 
 const startButton =
 document.getElementById("startButton");
+
 
 const destinationHeading =
 document.getElementById("destinationHeading");
@@ -1674,13 +1355,40 @@ const station5Name =
 document.getElementById("station5Name");
 
 
+const back3 =
+document.getElementById("back3");
+
+const home3 =
+document.getElementById("home3");
+
+const next3 =
+document.getElementById("next3");
+
+const exit3 =
+document.getElementById("exit3");
+
+
+const back4 =
+document.getElementById("back4");
+
+const home4 =
+document.getElementById("home4");
+
+const next4 =
+document.getElementById("next4");
+
+const exit4 =
+document.getElementById("exit4");
+
+
 let selectedLanguage = null;
 
 let selectedStation = null;
 
-let connectionState = "disconnected";
-
 let languageScreenOpened = false;
+
+let connectionState =
+"disconnected";
 
 
 /* =====================================================
@@ -1700,7 +1408,7 @@ function showScreen(screen){
 
 
 /* =====================================================
-   INITIAL LOAD
+   INITIAL
 ===================================================== */
 
 window.addEventListener(
@@ -1737,7 +1445,9 @@ function(){
 
     sleepVideo.pause();
 
-    languageScreenOpened = false;
+    languageScreenOpened =
+    false;
+
 
     showScreen(
         screen2
@@ -1746,11 +1456,14 @@ function(){
 
     welcomeVideo.pause();
 
-    welcomeVideo.currentTime = 0;
+    welcomeVideo.currentTime =
+    0;
 
-    welcomeVideo.muted = false;
+    welcomeVideo.muted =
+    false;
 
-    welcomeVideo.volume = 1;
+    welcomeVideo.volume =
+    1;
 
 
     welcomeVideo.play()
@@ -1762,7 +1475,8 @@ function(){
         );
 
 
-        welcomeVideo.muted = true;
+        welcomeVideo.muted =
+        true;
 
 
         welcomeVideo.play()
@@ -1817,7 +1531,8 @@ function openLanguageScreen(){
         return;
     }
 
-    languageScreenOpened = true;
+    languageScreenOpened =
+    true;
 
     welcomeVideo.pause();
 
@@ -1829,13 +1544,113 @@ function openLanguageScreen(){
 
 
 /* =====================================================
-   SCREEN 3 -> SCREEN 4
+   LANGUAGE SELECTION
 ===================================================== */
 
-function selectLanguage(language){
+document
+.querySelectorAll(
+    ".language-button"
+)
+.forEach(
+function(button){
 
-    selectedLanguage =
-    language;
+    button.addEventListener(
+    "click",
+    function(){
+
+        document
+        .querySelectorAll(
+            ".language-button"
+        )
+        .forEach(function(btn){
+
+            btn.classList.remove(
+                "selected"
+            );
+
+        });
+
+
+        button.classList.add(
+            "selected"
+        );
+
+
+        selectedLanguage =
+        button.dataset.language;
+
+
+        next3.disabled =
+        false;
+
+
+        updateDestinationLanguage();
+
+    });
+
+});
+
+
+/* =====================================================
+   SCREEN 3 NAVIGATION
+===================================================== */
+
+back3.addEventListener(
+"click",
+function(){
+
+    /*
+    BACK FROM SCREEN 3
+    goes to Welcome Video.
+    */
+
+    showScreen(
+        screen2
+    );
+
+
+    welcomeVideo.currentTime =
+    0;
+
+    welcomeVideo.muted =
+    false;
+
+
+    welcomeVideo.play()
+    .catch(function(){
+
+        welcomeVideo.muted =
+        true;
+
+        welcomeVideo.play();
+
+    });
+
+});
+
+
+home3.addEventListener(
+"click",
+function(){
+
+    /*
+    HOME IS SCREEN 3.
+    */
+
+    showScreen(
+        screen3
+    );
+
+});
+
+
+next3.addEventListener(
+"click",
+function(){
+
+    if(!selectedLanguage){
+        return;
+    }
 
     updateDestinationLanguage();
 
@@ -1843,11 +1658,20 @@ function selectLanguage(language){
         screen4
     );
 
-}
+});
+
+
+exit3.addEventListener(
+"click",
+function(){
+
+    exitTour();
+
+});
 
 
 /* =====================================================
-   LANGUAGE CONTENT
+   DESTINATION LANGUAGE
 ===================================================== */
 
 function updateDestinationLanguage(){
@@ -1959,36 +1783,227 @@ function updateDestinationLanguage(){
 
 
 /* =====================================================
-   BACK
+   STATION SELECTION
 ===================================================== */
 
-function goBack(){
+document
+.querySelectorAll(
+    ".station-button"
+)
+.forEach(
+function(button){
 
-    selectedStation = null;
+    button.addEventListener(
+    "click",
+    function(){
+
+        document
+        .querySelectorAll(
+            ".station-button"
+        )
+        .forEach(function(btn){
+
+            btn.classList.remove(
+                "selected"
+            );
+
+        });
+
+
+        button.classList.add(
+            "selected"
+        );
+
+
+        selectedStation =
+        Number(
+            button.dataset.station
+        );
+
+
+        next4.disabled =
+        false;
+
+
+        console.log(
+            "Selected station:",
+            selectedStation
+        );
+
+    });
+
+});
+
+
+/* =====================================================
+   SCREEN 4 NAVIGATION
+===================================================== */
+
+back4.addEventListener(
+"click",
+function(){
+
+    selectedStation =
+    null;
+
+
+    next4.disabled =
+    true;
+
+
+    document
+    .querySelectorAll(
+        ".station-button"
+    )
+    .forEach(function(btn){
+
+        btn.classList.remove(
+            "selected"
+        );
+
+    });
+
 
     showScreen(
         screen3
     );
 
-}
+});
+
+
+home4.addEventListener(
+"click",
+function(){
+
+    /*
+    HOME ALWAYS GOES TO SCREEN 3.
+    */
+
+    selectedStation =
+    null;
+
+
+    next4.disabled =
+    true;
+
+
+    document
+    .querySelectorAll(
+        ".station-button"
+    )
+    .forEach(function(btn){
+
+        btn.classList.remove(
+            "selected"
+        );
+
+    });
+
+
+    showScreen(
+        screen3
+    );
+
+});
+
+
+next4.addEventListener(
+"click",
+function(){
+
+    if(!selectedStation){
+        return;
+    }
+
+
+    /*
+    PAPARAN 5 AKAN DISAMBUNG
+    DI SINI.
+
+    Example later:
+
+    showScreen(screen5);
+
+    sendDestinationToSpike(
+        selectedStation
+    );
+    */
+
+
+    alert(
+        "Station "
+        +
+        selectedStation
+        +
+        " selected"
+    );
+
+});
+
+
+exit4.addEventListener(
+"click",
+function(){
+
+    exitTour();
+
+});
 
 
 /* =====================================================
-   HOME
+   EXIT
+   ONLY EXIT RETURNS TO SLEEP MODE
 ===================================================== */
 
-function goHome(){
+function exitTour(){
 
-    selectedLanguage = null;
+    selectedLanguage =
+    null;
 
-    selectedStation = null;
+    selectedStation =
+    null;
 
-    languageScreenOpened = false;
+    languageScreenOpened =
+    false;
+
+
+    next3.disabled =
+    true;
+
+    next4.disabled =
+    true;
+
+
+    document
+    .querySelectorAll(
+        ".language-button"
+    )
+    .forEach(function(btn){
+
+        btn.classList.remove(
+            "selected"
+        );
+
+    });
+
+
+    document
+    .querySelectorAll(
+        ".station-button"
+    )
+    .forEach(function(btn){
+
+        btn.classList.remove(
+            "selected"
+        );
+
+    });
 
 
     welcomeVideo.pause();
 
-    welcomeVideo.currentTime = 0;
+    welcomeVideo.currentTime =
+    0;
 
 
     showScreen(
@@ -1996,16 +2011,18 @@ function goHome(){
     );
 
 
-    sleepVideo.currentTime = 0;
+    sleepVideo.currentTime =
+    0;
 
-    sleepVideo.muted = true;
+    sleepVideo.muted =
+    true;
 
 
     sleepVideo.play()
     .catch(function(error){
 
         console.log(
-            "Sleep video restart:",
+            "Sleep restart:",
             error
         );
 
@@ -2015,86 +2032,7 @@ function goHome(){
 
 
 /* =====================================================
-   STATION SELECTION
-===================================================== */
-
-function selectStation(station){
-
-    selectedStation =
-    station;
-
-
-    console.log(
-        "Selected language:",
-        selectedLanguage
-    );
-
-
-    console.log(
-        "Selected station:",
-        selectedStation
-    );
-
-
-    /*
-       PAPARAN 5 NANTI
-
-       1 RED
-       2 BLUE
-       3 GREEN
-       4 YELLOW
-       5 PURPLE
-    */
-
-
-    let message = "";
-
-
-    if(selectedLanguage === "BM"){
-
-        message =
-        "Destinasi dipilih: Station "
-        + selectedStation;
-
-    }
-
-    else if(selectedLanguage === "EN"){
-
-        message =
-        "Destination selected: Station "
-        + selectedStation;
-
-    }
-
-    else if(selectedLanguage === "ZH"){
-
-        message =
-        "已选择第 "
-        + selectedStation
-        + " 站";
-
-    }
-
-    else if(selectedLanguage === "TA"){
-
-        message =
-        "நிலையம் "
-        + selectedStation
-        + " தேர்ந்தெடுக்கப்பட்டது";
-
-    }
-
-
-    alert(
-        message
-    );
-
-}
-
-
-/* =====================================================
    CONNECTION STATUS
-   ONE FUNCTION CONTROLS ALL SCREENS
 ===================================================== */
 
 function updateConnectionStatus(state){
@@ -2112,7 +2050,6 @@ function updateConnectionStatus(state){
     boxes.forEach(
     function(box){
 
-
         box.classList.remove(
             "connected",
             "disconnected",
@@ -2126,7 +2063,10 @@ function updateConnectionStatus(state){
         );
 
 
-        if(state === "connected"){
+        if(
+            state ===
+            "connected"
+        ){
 
             box.classList.add(
                 "connected"
@@ -2138,7 +2078,10 @@ function updateConnectionStatus(state){
         }
 
 
-        else if(state === "connecting"){
+        else if(
+            state ===
+            "connecting"
+        ){
 
             box.classList.add(
                 "connecting"
@@ -2161,34 +2104,38 @@ function updateConnectionStatus(state){
 
         }
 
-
     });
 
 }
 
 
 /* =====================================================
-   FUTURE BLUETOOTH INTEGRATION
+   FUTURE BLE
 ===================================================== */
 
 /*
 
-Apabila Bluetooth mula mencari:
+When searching:
 
-updateConnectionStatus("connecting");
-
-
-Apabila berjaya connect:
-
-updateConnectionStatus("connected");
+updateConnectionStatus(
+    "connecting"
+);
 
 
-Apabila connection terputus:
+When connected:
 
-updateConnectionStatus("disconnected");
+updateConnectionStatus(
+    "connected"
+);
+
+
+When disconnected:
+
+updateConnectionStatus(
+    "disconnected"
+);
 
 */
-
 
 </script>
 
