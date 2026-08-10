@@ -2,2223 +2,1042 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-
 <meta name="viewport"
-content="width=device-width,
-initial-scale=1.0,
-maximum-scale=1.0,
-user-scalable=no,
-viewport-fit=cover">
+content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 
 <title>NOVUS | KRUSS Makers</title>
 
 <style>
-
-/* =====================================================
-   GLOBAL
-===================================================== */
-
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    -webkit-tap-highlight-color:transparent;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent
 }
 
 html,body{
-    width:100%;
-    height:100%;
-    overflow:hidden;
+  width:100%;
+  height:100%;
+  overflow:hidden
 }
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
-    color:white;
-
-    background:
-    radial-gradient(
-        circle at 50% 18%,
-        #123b5b 0%,
-        #061a29 45%,
-        #02080e 100%
-    );
+  font-family:Arial,Helvetica,sans-serif;
+  color:white;
+  background:
+    radial-gradient(circle at 50% 15%,#123e5d 0%,#061b2a 45%,#02070c 100%)
 }
 
 button{
-    font-family:inherit;
-    touch-action:manipulation;
+  font-family:inherit;
+  touch-action:manipulation
 }
-
-
-/* =====================================================
-   SCREEN
-===================================================== */
 
 .screen{
-    position:absolute;
-    inset:0;
-
-    width:100%;
-    height:100%;
-
-    display:none;
-
-    flex-direction:column;
-    align-items:center;
-
-    padding:
-    max(8px,env(safe-area-inset-top))
-    16px
-    max(5px,env(safe-area-inset-bottom));
+  position:absolute;
+  inset:0;
+  display:none;
+  flex-direction:column;
+  align-items:center;
+  width:100%;
+  height:100%;
+  padding:
+    max(7px,env(safe-area-inset-top))
+    15px
+    max(4px,env(safe-area-inset-bottom))
 }
 
-.screen.active{
-    display:flex;
-}
+.screen.active{display:flex}
 
-
-/* =====================================================
-   HEADER
-===================================================== */
+/* HEADER */
 
 .header{
-    width:100%;
-    text-align:center;
-    flex:0 0 auto;
+  width:100%;
+  text-align:center;
+  flex:0 0 auto
 }
 
 .novus{
-    font-size:48px;
-    font-weight:900;
-
-    letter-spacing:10px;
-
-    text-shadow:
+  font-size:45px;
+  font-weight:900;
+  letter-spacing:10px;
+  text-shadow:
     0 0 10px #34ddff,
-    0 0 28px rgba(52,221,255,.65);
+    0 0 28px rgba(52,221,255,.7)
 }
 
 .by{
-    margin-top:2px;
-
-    font-size:10px;
-    font-weight:800;
-
-    letter-spacing:4px;
-
-    color:#62e6ff;
+  margin-top:1px;
+  color:#62e6ff;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:4px
 }
 
 .tagline{
-    margin-top:4px;
-
-    font-size:12px;
-
-    letter-spacing:4px;
-
-    color:#e7fbff;
+  margin-top:3px;
+  font-size:11px;
+  letter-spacing:4px
 }
 
+/* COMMON */
 
-/* =====================================================
-   VIDEO
-===================================================== */
-
-.video-area{
-    flex:1;
-    min-height:0;
-
-    width:100%;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
+.content{
+  flex:1;
+  min-height:0;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:8px
 }
-
-.video-frame{
-    position:relative;
-
-    width:min(90vw,680px);
-    height:min(39vh,500px);
-
-    overflow:hidden;
-
-    border-radius:25px;
-
-    background:#000;
-
-    border:2px solid rgba(69,224,255,.55);
-
-    box-shadow:
-    0 0 30px rgba(57,216,255,.22);
-}
-
-.video-frame video{
-    width:100%;
-    height:100%;
-
-    display:block;
-
-    object-fit:cover;
-}
-
-
-/* =====================================================
-   SLEEP
-===================================================== */
-
-.sleep-badge{
-    position:absolute;
-
-    left:50%;
-    bottom:16px;
-
-    transform:translateX(-50%);
-
-    padding:9px 15px;
-
-    border-radius:30px;
-
-    background:rgba(0,8,15,.88);
-
-    white-space:nowrap;
-
-    font-size:10px;
-    font-weight:900;
-
-    letter-spacing:2px;
-}
-
-.sleep-dot{
-    display:inline-block;
-
-    width:10px;
-    height:10px;
-
-    margin-right:8px;
-
-    border-radius:50%;
-
-    background:#45ddff;
-
-    box-shadow:0 0 12px #45ddff;
-
-    animation:pulse 1.4s infinite;
-}
-
-
-/* =====================================================
-   ANIMATIONS
-===================================================== */
-
-@keyframes pulse{
-
-    0%,100%{
-        opacity:.35;
-    }
-
-    50%{
-        opacity:1;
-    }
-}
-
-@keyframes cyanGlow{
-
-    0%,100%{
-        box-shadow:
-        0 0 12px rgba(57,216,255,.35);
-    }
-
-    50%{
-        box-shadow:
-        0 0 30px rgba(57,216,255,.85),
-        0 0 55px rgba(57,216,255,.18);
-    }
-}
-
-@keyframes redGlow{
-
-    0%,100%{
-        box-shadow:
-        0 0 8px #ff314b,
-        0 0 20px rgba(255,49,75,.45);
-    }
-
-    50%{
-        box-shadow:
-        0 0 20px #ff314b,
-        0 0 42px rgba(255,49,75,.9);
-    }
-}
-
-@keyframes greenGlow{
-
-    0%,100%{
-        box-shadow:
-        0 0 8px #2dff81,
-        0 0 20px rgba(45,255,129,.45);
-    }
-
-    50%{
-        box-shadow:
-        0 0 20px #2dff81,
-        0 0 42px rgba(45,255,129,.9);
-    }
-}
-
-
-/* =====================================================
-   BUTTON EFFECT
-===================================================== */
 
 .neon{
-    cursor:pointer;
-
-    transition:
-    transform .1s ease,
-    filter .15s ease;
+  cursor:pointer;
+  transition:.12s
 }
 
 .neon:active{
-    transform:scale(.96);
-    filter:brightness(1.3);
-}
-
-
-/* =====================================================
-   START
-===================================================== */
-
-.start-area{
-    width:100%;
-    text-align:center;
-}
-
-.start-button{
-    width:min(90vw,640px);
-    min-height:58px;
-
-    border:1px solid #63e8ff;
-    border-radius:50px;
-
-    color:#00151d;
-
-    font-size:16px;
-    font-weight:900;
-
-    letter-spacing:2px;
-
-    background:
-    linear-gradient(
-        90deg,
-        #35d8ff,
-        #e0fbff,
-        white,
-        #e0fbff,
-        #35d8ff
-    );
-
-    animation:cyanGlow 2s infinite;
-}
-
-.tap-text{
-    margin-top:5px;
-
-    font-size:9px;
-
-    letter-spacing:3px;
-
-    opacity:.45;
-}
-
-
-/* =====================================================
-   CONTENT
-===================================================== */
-
-.content{
-    flex:1;
-    min-height:0;
-
-    width:100%;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-    justify-content:center;
-
-    gap:8px;
+  transform:scale(.96);
+  filter:brightness(1.35)
 }
 
 .page-heading{
-    text-align:center;
-
-    margin-bottom:5px;
+  text-align:center;
+  margin-bottom:4px
 }
 
 .page-heading h2{
-    font-size:21px;
-
-    font-weight:900;
-
-    letter-spacing:3px;
-
-    text-shadow:
-    0 0 15px rgba(65,220,255,.7);
+  font-size:21px;
+  font-weight:900;
+  letter-spacing:3px;
+  text-shadow:0 0 15px #37dfff
 }
 
 .page-heading p{
-    margin-top:5px;
-
-    color:#6fe8ff;
-
-    font-size:11px;
-
-    letter-spacing:2px;
+  margin-top:5px;
+  color:#6fe8ff;
+  font-size:10px;
+  letter-spacing:2px
 }
 
+/* VIDEOS */
 
-/* =====================================================
-   LANGUAGE
-===================================================== */
-
-.language-button{
-    width:min(88vw,610px);
-    min-height:58px;
-
-    border:1px solid rgba(77,225,255,.75);
-    border-radius:20px;
-
-    color:white;
-
-    background:
-    linear-gradient(
-        135deg,
-        rgba(5,29,45,.97),
-        rgba(8,59,81,.97)
-    );
-
-    box-shadow:
-    0 0 16px rgba(57,216,255,.35);
+.video-area{
+  flex:1;
+  min-height:0;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center
 }
 
-.language-main{
-    display:block;
-
-    font-size:15px;
-
-    font-weight:900;
-
-    letter-spacing:2px;
+.video-frame{
+  position:relative;
+  width:min(90vw,680px);
+  height:min(38vh,500px);
+  overflow:hidden;
+  border:2px solid rgba(69,224,255,.6);
+  border-radius:25px;
+  background:#000;
+  box-shadow:0 0 30px rgba(57,216,255,.25)
 }
 
-.language-native{
-    display:block;
-
-    margin-top:3px;
-
-    color:#72eaff;
-
-    font-size:18px;
-
-    font-weight:700;
+.video-frame video{
+  width:100%;
+  height:100%;
+  object-fit:cover
 }
 
+/* SLEEP */
 
-/* =====================================================
-   STATIONS
-===================================================== */
-
-.station-button{
-    width:min(90vw,640px);
-    min-height:56px;
-
-    padding:7px 15px;
-
-    border-radius:18px;
-
-    background:rgba(3,20,30,.94);
-
-    color:white;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:13px;
-
-    text-align:left;
+.sleep-badge{
+  position:absolute;
+  left:50%;
+  bottom:15px;
+  transform:translateX(-50%);
+  padding:9px 15px;
+  border-radius:30px;
+  background:rgba(0,8,15,.9);
+  white-space:nowrap;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:2px
 }
 
-.dot{
-    width:20px;
-    height:20px;
-
-    border-radius:50%;
-
-    flex-shrink:0;
+.sleep-dot{
+  display:inline-block;
+  width:10px;
+  height:10px;
+  margin-right:8px;
+  border-radius:50%;
+  background:#45ddff;
+  box-shadow:0 0 12px #45ddff;
+  animation:pulse 1.4s infinite
 }
 
-.station-number{
-    display:block;
-
-    font-size:10px;
-
-    font-weight:900;
-
-    letter-spacing:2px;
-
-    opacity:.7;
+@keyframes pulse{
+  0%,100%{opacity:.35}
+  50%{opacity:1}
 }
 
-.station-name{
-    display:block;
-
-    margin-top:3px;
-
-    font-size:13px;
-
-    font-weight:800;
+@keyframes redGlow{
+  0%,100%{box-shadow:0 0 10px #ff314b}
+  50%{box-shadow:0 0 28px #ff314b}
 }
 
-
-.red{
-    border:1px solid #ff4058;
-    box-shadow:0 0 15px rgba(255,64,88,.35);
+@keyframes greenGlow{
+  0%,100%{box-shadow:0 0 10px #31ff83}
+  50%{box-shadow:0 0 28px #31ff83}
 }
 
-.red .dot{
-    background:#ff3048;
-    box-shadow:0 0 13px #ff3048;
+@keyframes moveDots{
+  0%,100%{opacity:.25;transform:scale(.7)}
+  50%{opacity:1;transform:scale(1.25)}
 }
 
-
-.blue{
-    border:1px solid #33a8ff;
-    box-shadow:0 0 15px rgba(51,168,255,.35);
+@keyframes musicBar{
+  from{transform:scaleY(.3)}
+  to{transform:scaleY(1)}
 }
 
-.blue .dot{
-    background:#279cff;
-    box-shadow:0 0 13px #279cff;
+/* START */
+
+.start-area{
+  width:100%;
+  text-align:center
 }
 
-
-.green{
-    border:1px solid #35ff78;
-    box-shadow:0 0 15px rgba(53,255,120,.35);
+.start-button{
+  width:min(90vw,640px);
+  min-height:56px;
+  border:1px solid #63e8ff;
+  border-radius:50px;
+  color:#00151d;
+  font-size:15px;
+  font-weight:900;
+  letter-spacing:2px;
+  background:linear-gradient(90deg,#35d8ff,#e0fbff,#fff,#e0fbff,#35d8ff);
+  box-shadow:0 0 25px rgba(57,216,255,.65)
 }
 
-.green .dot{
-    background:#35ff78;
-    box-shadow:0 0 13px #35ff78;
+.tap-text{
+  margin-top:4px;
+  font-size:8px;
+  letter-spacing:3px;
+  opacity:.45
 }
 
+/* WELCOME */
 
-.yellow{
-    border:1px solid #ffd93f;
-    box-shadow:0 0 15px rgba(255,217,63,.35);
-}
-
-.yellow .dot{
-    background:#ffd93f;
-    box-shadow:0 0 13px #ffd93f;
-}
-
-
-.purple{
-    border:1px solid #c05cff;
-    box-shadow:0 0 15px rgba(192,92,255,.35);
-}
-
-.purple .dot{
-    background:#bf52ff;
-    box-shadow:0 0 13px #bf52ff;
-}
-
-
-/* =====================================================
-   NAVIGATION
-===================================================== */
-
-.nav3{
-    width:min(90vw,640px);
-
-    display:grid;
-
-    grid-template-columns:
-    1fr 1fr 1fr;
-
-    gap:8px;
-}
-
-.nav4{
-    width:min(90vw,640px);
-
-    display:grid;
-
-    grid-template-columns:
-    1fr 1fr 1fr 1fr;
-
-    gap:8px;
-}
-
-.nav-button{
-    min-height:43px;
-
-    border:1px solid rgba(69,224,255,.7);
-    border-radius:16px;
-
-    background:
-    linear-gradient(
-        135deg,
-        rgba(3,31,47,.97),
-        rgba(6,64,84,.97)
-    );
-
-    color:#e7fcff;
-
-    font-size:23px;
-
-    font-weight:900;
-
-    box-shadow:
-    0 0 14px rgba(57,216,255,.4);
-}
-
-.nav-button:disabled{
-    opacity:.22;
-    box-shadow:none;
-}
-
-.exit-button{
-    border-color:#ff5366;
-
-    color:#ffabb4;
-
-    background:
-    linear-gradient(
-        135deg,
-        #3a050c,
-        #650b18
-    );
-
-    box-shadow:
-    0 0 16px rgba(255,48,69,.45);
-}
-
-
-/* =====================================================
-   WELCOME
-===================================================== */
-
-.welcome-info{
-    text-align:center;
-}
+.welcome-info{text-align:center}
 
 .welcome-title{
-    font-size:15px;
-
-    font-weight:900;
-
-    letter-spacing:4px;
+  font-size:14px;
+  font-weight:900;
+  letter-spacing:4px
 }
 
 .welcome-small{
-    margin-top:3px;
-
-    font-size:9px;
-
-    letter-spacing:3px;
-
-    opacity:.45;
+  margin-top:3px;
+  font-size:8px;
+  letter-spacing:3px;
+  opacity:.45
 }
 
 .exit-tour-button{
-    margin-top:6px;
-
-    min-width:210px;
-    min-height:39px;
-
-    border:1px solid #ff5366;
-    border-radius:35px;
-
-    background:#580914;
-
-    color:#ffb4bd;
-
-    font-size:12px;
-
-    font-weight:900;
-
-    letter-spacing:2px;
-
-    box-shadow:
-    0 0 17px rgba(255,48,69,.4);
+  margin-top:7px;
+  min-width:220px;
+  min-height:39px;
+  border:1px solid #ff5366;
+  border-radius:35px;
+  background:#580914;
+  color:#ffb4bd;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:2px;
+  box-shadow:0 0 17px rgba(255,48,69,.45)
 }
 
+/* LANGUAGE */
 
-/* =====================================================
-   LARGE SPIKE CONNECTION PANEL
-===================================================== */
+.language-button{
+  width:min(88vw,610px);
+  min-height:55px;
+  border:1px solid #4de1ff;
+  border-radius:19px;
+  color:#fff;
+  background:linear-gradient(135deg,#051d2d,#083b51);
+  box-shadow:0 0 16px rgba(57,216,255,.35)
+}
+
+.language-main{
+  display:block;
+  font-size:14px;
+  font-weight:900;
+  letter-spacing:2px
+}
+
+.language-native{
+  display:block;
+  margin-top:3px;
+  color:#72eaff;
+  font-size:17px;
+  font-weight:700
+}
+
+/* DESTINATIONS */
+
+.station-button{
+  width:min(90vw,640px);
+  min-height:54px;
+  padding:7px 14px;
+  border-radius:18px;
+  background:#03141e;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  gap:13px;
+  text-align:left
+}
+
+.dot{
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  flex-shrink:0
+}
+
+.station-number{
+  display:block;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:2px;
+  opacity:.7
+}
+
+.station-name{
+  display:block;
+  margin-top:3px;
+  font-size:13px;
+  font-weight:800
+}
+
+.red{border:1px solid #ff4058}
+.red .dot{background:#ff3048;box-shadow:0 0 13px #ff3048}
+
+.blue{border:1px solid #33a8ff}
+.blue .dot{background:#279cff;box-shadow:0 0 13px #279cff}
+
+.green{border:1px solid #35ff78}
+.green .dot{background:#35ff78;box-shadow:0 0 13px #35ff78}
+
+.yellow{border:1px solid #ffd93f}
+.yellow .dot{background:#ffd93f;box-shadow:0 0 13px #ffd93f}
+
+.purple{border:1px solid #c05cff}
+.purple .dot{background:#bf52ff;box-shadow:0 0 13px #bf52ff}
+
+/* NAV */
+
+.nav3,.nav4{
+  width:min(92vw,660px);
+  display:grid;
+  gap:8px
+}
+
+.nav3{grid-template-columns:1fr 1fr 1fr}
+.nav4{grid-template-columns:1fr 1fr 1fr 1fr}
+
+.nav-button{
+  min-height:41px;
+  border:1px solid #45e0ff;
+  border-radius:15px;
+  background:linear-gradient(135deg,#031f2f,#064054);
+  color:#e7fcff;
+  font-size:22px;
+  font-weight:900;
+  box-shadow:0 0 14px rgba(57,216,255,.4)
+}
+
+.nav-button:disabled{
+  opacity:.22;
+  box-shadow:none
+}
+
+.exit-button{
+  border-color:#ff5366;
+  color:#ffabb4;
+  background:linear-gradient(135deg,#3a050c,#650b18);
+  box-shadow:0 0 16px rgba(255,48,69,.45)
+}
+
+/* CONNECTION PANEL - LARGE */
 
 .footer{
-    width:100%;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    gap:3px;
-
-    padding-top:5px;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding-top:4px
 }
-
 
 .connection-panel{
-    width:min(92vw,650px);
-    min-height:76px;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    gap:18px;
-
-    padding:10px 18px;
-
-    border-radius:25px;
-
-    border:2px solid #ff4058;
-
-    background:
-    linear-gradient(
-        135deg,
-        rgba(34,3,9,.97),
-        rgba(67,5,16,.92)
-    );
-
-    box-shadow:
-    0 0 22px rgba(255,48,70,.35),
-    inset 0 0 22px rgba(255,48,70,.07);
+  width:min(96vw,700px);
+  min-height:88px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:21px;
+  padding:10px 22px;
+  border:2px solid #ff4058;
+  border-radius:27px;
+  background:linear-gradient(135deg,#220309,#430510);
+  box-shadow:0 0 27px rgba(255,48,70,.42)
 }
-
 
 .connection-light{
-    width:31px;
-    height:31px;
-
-    flex-shrink:0;
-
-    border-radius:50%;
-
-    background:#ff314b;
-
-    animation:redGlow 1.4s infinite;
+  width:38px;
+  height:38px;
+  flex-shrink:0;
+  border-radius:50%;
+  background:#ff314b;
+  animation:redGlow 1.3s infinite
 }
-
 
 .connection-info{
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:flex-start;
-
-    gap:3px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:3px
 }
-
 
 .connection-device{
-    font-size:19px;
-
-    font-weight:900;
-
-    letter-spacing:2px;
-
-    color:white;
-
-    text-shadow:
-    0 0 10px rgba(255,255,255,.3);
+  font-size:21px;
+  font-weight:900;
+  letter-spacing:2px
 }
-
 
 .connection-state{
-    font-size:14px;
-
-    font-weight:900;
-
-    letter-spacing:2px;
-
-    color:#ff8190;
+  color:#ff8190;
+  font-size:16px;
+  font-weight:900;
+  letter-spacing:2px
 }
-
 
 .connection-mode{
-    font-size:9px;
-
-    font-weight:800;
-
-    letter-spacing:3px;
-
-    color:#ff9da8;
-
-    opacity:.65;
+  color:#ff9da8;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:3px
 }
-
-
-/* CONNECTED */
 
 .connection-panel.connected{
-
-    border-color:#31ff83;
-
-    background:
-    linear-gradient(
-        135deg,
-        rgba(3,28,17,.97),
-        rgba(4,67,37,.92)
-    );
-
-    box-shadow:
-    0 0 25px rgba(49,255,131,.35);
+  border-color:#31ff83;
+  background:linear-gradient(135deg,#031c11,#044525);
+  box-shadow:0 0 28px rgba(49,255,131,.4)
 }
 
-
-.connection-panel.connected
-.connection-light{
-
-    background:#31ff83;
-
-    animation:greenGlow 1.4s infinite;
+.connection-panel.connected .connection-light{
+  background:#31ff83;
+  animation:greenGlow 1.3s infinite
 }
 
+.connection-panel.connected .connection-state{color:#7dffad}
+.connection-panel.connected .connection-mode{display:none}
 
-.connection-panel.connected
-.connection-state{
-
-    color:#7dffad;
-}
-
-
-.connection-panel.connected
-.connection-mode{
-
-    display:none;
-}
-
-
-.footer-text{
-    font-size:7px;
-
-    letter-spacing:4px;
-
-    opacity:.25;
-}
-
-
-/* =====================================================
-   TRAVEL
-===================================================== */
+/* TRAVEL */
 
 .travel-content{
-    flex:1;
-    min-height:0;
-
-    width:100%;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-    align-items:center;
-
-    text-align:center;
-
-    gap:9px;
+  flex:1;
+  min-height:0;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  gap:9px
 }
-
 
 .travel-status{
-    color:#6de8ff;
-
-    font-size:12px;
-
-    font-weight:900;
-
-    letter-spacing:3px;
+  color:#6de8ff;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:3px
 }
-
 
 .travel-marker{
-    width:82px;
-    height:82px;
-
-    border-radius:50%;
-
-    display:flex;
-
-    justify-content:center;
-    align-items:center;
-
-    background:rgba(3,20,30,.9);
-
-    font-size:32px;
-
-    font-weight:900;
+  width:78px;
+  height:78px;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#03141e;
+  font-size:30px;
+  font-weight:900
 }
 
+.travel-red{border:3px solid #ff4058;color:#ff4058;box-shadow:0 0 28px #ff4058}
+.travel-blue{border:3px solid #33a8ff;color:#33a8ff;box-shadow:0 0 28px #33a8ff}
+.travel-green{border:3px solid #35ff78;color:#35ff78;box-shadow:0 0 28px #35ff78}
+.travel-yellow{border:3px solid #ffd93f;color:#ffd93f;box-shadow:0 0 28px #ffd93f}
+.travel-purple{border:3px solid #c05cff;color:#c05cff;box-shadow:0 0 28px #c05cff}
 
 .travel-station{
-    font-size:14px;
-
-    font-weight:900;
-
-    letter-spacing:4px;
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:4px
 }
-
 
 .travel-destination{
-    max-width:90%;
-
-    font-size:21px;
-
-    font-weight:900;
-
-    line-height:1.15;
-
-    text-shadow:
-    0 0 18px rgba(90,225,255,.45);
+  max-width:90%;
+  font-size:20px;
+  font-weight:900;
+  text-shadow:0 0 18px #36dcff
 }
-
 
 .travel-message{
-    max-width:90%;
-
-    color:#e7fcff;
-
-    font-size:14px;
-
-    font-weight:800;
-
-    letter-spacing:2px;
-
-    line-height:1.35;
+  max-width:90%;
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:2px
 }
-
-
-/* =====================================================
-   MUSIC
-===================================================== */
 
 .music-status{
-    display:flex;
-
-    align-items:center;
-
-    gap:9px;
-
-    padding:7px 15px;
-
-    border:1px solid rgba(83,224,255,.45);
-
-    border-radius:30px;
-
-    background:rgba(0,15,25,.65);
-
-    color:#71e8ff;
-
-    font-size:9px;
-
-    font-weight:900;
-
-    letter-spacing:2px;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  padding:7px 15px;
+  border:1px solid #53e0ff;
+  border-radius:30px;
+  background:#000f19;
+  color:#71e8ff;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:2px
 }
-
 
 .music-bars{
-    height:15px;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:3px;
+  height:15px;
+  display:flex;
+  align-items:center;
+  gap:3px
 }
-
 
 .music-bars span{
-    width:3px;
-
-    border-radius:4px;
-
-    background:#52e1ff;
-
-    box-shadow:0 0 6px #52e1ff;
-
-    animation:musicBar .55s infinite alternate;
+  width:3px;
+  background:#52e1ff;
+  box-shadow:0 0 6px #52e1ff;
+  animation:musicBar .55s infinite alternate
 }
 
-
-.music-bars span:nth-child(1){
-    height:5px;
-}
-
-.music-bars span:nth-child(2){
-    height:12px;
-}
-
-.music-bars span:nth-child(3){
-    height:8px;
-}
-
-.music-bars span:nth-child(4){
-    height:14px;
-}
-
-
-@keyframes musicBar{
-
-    from{
-        transform:scaleY(.35);
-    }
-
-    to{
-        transform:scaleY(1);
-    }
-}
-
-
-/* =====================================================
-   TRAVEL ANIMATION
-===================================================== */
+.music-bars span:nth-child(1){height:5px}
+.music-bars span:nth-child(2){height:12px}
+.music-bars span:nth-child(3){height:8px}
+.music-bars span:nth-child(4){height:14px}
 
 .travel-animation{
-    display:flex;
-
-    gap:10px;
+  display:flex;
+  gap:10px
 }
-
 
 .travel-animation span{
-    width:10px;
-    height:10px;
-
-    border-radius:50%;
-
-    background:#48ddff;
-
-    box-shadow:0 0 12px #48ddff;
-
-    animation:travelling 1.2s infinite;
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#48ddff;
+  box-shadow:0 0 12px #48ddff;
+  animation:moveDots 1.2s infinite
 }
 
+.travel-animation span:nth-child(2){animation-delay:.2s}
+.travel-animation span:nth-child(3){animation-delay:.4s}
 
-.travel-animation span:nth-child(2){
-    animation-delay:.2s;
-}
-
-.travel-animation span:nth-child(3){
-    animation-delay:.4s;
-}
-
-
-@keyframes travelling{
-
-    0%,100%{
-        opacity:.25;
-        transform:scale(.7);
-    }
-
-    50%{
-        opacity:1;
-        transform:scale(1.2);
-    }
-}
-
-
-/* =====================================================
-   PROGRESS
-===================================================== */
-
-.progress-box{
-    width:min(78vw,560px);
-}
-
+.progress-box{width:min(78vw,560px)}
 
 .progress-track{
-    width:100%;
-    height:15px;
-
-    overflow:hidden;
-
-    border:1px solid rgba(73,221,255,.55);
-
-    border-radius:20px;
-
-    background:rgba(0,0,0,.45);
+  width:100%;
+  height:15px;
+  overflow:hidden;
+  border:1px solid #49ddff;
+  border-radius:20px;
+  background:#000
 }
-
 
 .progress-fill{
-    width:0%;
-    height:100%;
-
-    border-radius:20px;
-
-    background:
-    linear-gradient(
-        90deg,
-        #19cfff,
-        white
-    );
-
-    box-shadow:
-    0 0 14px #36dcff;
+  width:0;
+  height:100%;
+  border-radius:20px;
+  background:linear-gradient(90deg,#19cfff,#fff);
+  box-shadow:0 0 14px #36dcff
 }
-
 
 .progress-text{
-    margin-top:5px;
-
-    color:#70e8ff;
-
-    font-size:10px;
-
-    font-weight:900;
-
-    letter-spacing:2px;
+  margin-top:5px;
+  color:#70e8ff;
+  font-size:10px;
+  font-weight:900
 }
-
-
-/* =====================================================
-   MARKER COLORS
-===================================================== */
-
-.travel-red{
-    border:3px solid #ff4058;
-    color:#ff4058;
-    box-shadow:0 0 28px rgba(255,64,88,.7);
-}
-
-.travel-blue{
-    border:3px solid #33a8ff;
-    color:#33a8ff;
-    box-shadow:0 0 28px rgba(51,168,255,.7);
-}
-
-.travel-green{
-    border:3px solid #35ff78;
-    color:#35ff78;
-    box-shadow:0 0 28px rgba(53,255,120,.65);
-}
-
-.travel-yellow{
-    border:3px solid #ffd93f;
-    color:#ffd93f;
-    box-shadow:0 0 28px rgba(255,217,63,.65);
-}
-
-.travel-purple{
-    border:3px solid #c05cff;
-    color:#c05cff;
-    box-shadow:0 0 28px rgba(192,92,255,.7);
-}
-
-
-/* =====================================================
-   ARRIVED
-===================================================== */
 
 .arrived-badge{
-    display:none;
-
-    padding:9px 18px;
-
-    border:1px solid #35ff78;
-
-    border-radius:30px;
-
-    background:rgba(5,60,30,.4);
-
-    color:#8dffb5;
-
-    font-size:11px;
-
-    font-weight:900;
-
-    letter-spacing:2px;
-
-    box-shadow:
-    0 0 20px rgba(53,255,120,.4);
+  display:none;
+  padding:9px 18px;
+  border:1px solid #35ff78;
+  border-radius:30px;
+  background:#053c1e;
+  color:#8dffb5;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:2px;
+  box-shadow:0 0 20px #35ff78
 }
 
+.arrived-badge.show{display:block}
 
-.arrived-badge.show{
-    display:block;
+/* DESTINATION MEDIA */
+
+.media-content{
+  flex:1;
+  min-height:0;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:7px
 }
 
-
-/* =====================================================
-   SCREEN 6 YOUTUBE
-===================================================== */
-
-.youtube-content{
-    flex:1;
-    min-height:0;
-
-    width:100%;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-    justify-content:center;
-
-    gap:8px;
+.media-heading{
+  width:min(92vw,660px)
 }
 
-
-.youtube-heading{
-    width:min(90vw,650px);
-
-    text-align:left;
+.media-station{
+  color:#61e5ff;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:3px
 }
 
-
-.youtube-station{
-    color:#61e5ff;
-
-    font-size:10px;
-
-    font-weight:900;
-
-    letter-spacing:3px;
+.media-title{
+  margin-top:4px;
+  font-size:19px;
+  font-weight:900
 }
-
-
-.youtube-title{
-    margin-top:4px;
-
-    font-size:19px;
-
-    font-weight:900;
-
-    line-height:1.15;
-}
-
 
 .youtube-frame{
-    width:min(90vw,650px);
-
-    aspect-ratio:16/9;
-
-    overflow:hidden;
-
-    border-radius:20px;
-
-    background:#000;
-
-    border:2px solid rgba(65,224,255,.7);
-
-    box-shadow:
-    0 0 26px rgba(55,217,255,.28);
+  position:relative;
+  width:min(92vw,660px);
+  aspect-ratio:16/9;
+  overflow:hidden;
+  border:2px solid #43dfff;
+  border-radius:21px;
+  background:#000;
+  box-shadow:0 0 30px rgba(55,217,255,.35)
 }
-
 
 .youtube-frame iframe{
-    width:100%;
-    height:100%;
-
-    border:0;
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0
 }
-
 
 .video-caption{
-    width:min(90vw,650px);
-
-    padding:8px 13px;
-
-    border-radius:13px;
-
-    background:rgba(0,20,31,.7);
-
-    color:#a9efff;
-
-    text-align:center;
-
-    font-size:10px;
-
-    line-height:1.35;
-
-    letter-spacing:1px;
+  width:min(92vw,660px);
+  padding:8px 13px;
+  border-radius:13px;
+  background:#00141f;
+  color:#a9efff;
+  text-align:center;
+  font-size:10px
 }
 
-
-/* =====================================================
-   IPAD MINI PORTRAIT
-===================================================== */
+.external-video{
+  width:min(92vw,660px);
+  min-height:45px;
+  border:1px solid #45e0ff;
+  border-radius:15px;
+  background:#06364a;
+  color:white;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:1px;
+  box-shadow:0 0 16px rgba(57,216,255,.45)
+}
 
 @media(max-height:950px){
+  .novus{font-size:35px}
+  .video-frame{height:28vh}
+  .language-button{min-height:42px}
+  .station-button{min-height:41px}
+  .station-name{font-size:10px}
+  .nav-button{min-height:33px;font-size:18px}
 
-    .screen{
-        padding-top:4px;
-        padding-bottom:2px;
-    }
+  .connection-panel{
+    min-height:76px;
+    width:96vw
+  }
 
-    .novus{
-        font-size:37px;
-    }
+  .connection-light{
+    width:34px;
+    height:34px
+  }
 
-    .by{
-        font-size:8px;
-    }
+  .connection-device{font-size:19px}
+  .connection-state{font-size:14px}
 
-    .tagline{
-        font-size:10px;
-    }
+  .travel-marker{
+    width:62px;
+    height:62px;
+    font-size:23px
+  }
 
-    .video-frame{
-        height:30vh;
-    }
-
-    .start-button{
-        min-height:48px;
-        font-size:13px;
-    }
-
-    .language-button{
-        min-height:44px;
-    }
-
-    .language-main{
-        font-size:12px;
-    }
-
-    .language-native{
-        font-size:14px;
-    }
-
-    .station-button{
-        min-height:43px;
-    }
-
-    .station-name{
-        font-size:10px;
-    }
-
-    .nav-button{
-        min-height:34px;
-        font-size:18px;
-    }
-
-    .connection-panel{
-        min-height:67px;
-
-        width:92vw;
-
-        gap:14px;
-    }
-
-    .connection-light{
-        width:28px;
-        height:28px;
-    }
-
-    .connection-device{
-        font-size:17px;
-    }
-
-    .connection-state{
-        font-size:12px;
-    }
-
-    .connection-mode{
-        font-size:8px;
-    }
-
-    .travel-marker{
-        width:66px;
-        height:66px;
-
-        font-size:25px;
-    }
-
-    .travel-destination{
-        font-size:17px;
-    }
-
-    .travel-message{
-        font-size:12px;
-    }
-
-    .youtube-title{
-        font-size:16px;
-    }
-
+  .travel-destination{font-size:16px}
 }
-
 </style>
 </head>
 
-
 <body>
 
+<audio id="travelMusic" src="travel_music.mp3" preload="auto" loop></audio>
 
-<!-- =====================================================
-     MUSIC
-===================================================== -->
-
-<audio
-id="travelMusic"
-src="travel_music.mp3"
-preload="auto"
-loop>
-</audio>
-
-
-<!-- =====================================================
-     SCREEN 1
-===================================================== -->
-
+<!-- SCREEN 1 -->
 <section id="screen1" class="screen active">
 
 <header class="header">
-
-<div class="novus">
-NOVUS
-</div>
-
-<div class="by">
-BY KRUSS MAKERS
-</div>
-
-<div class="tagline">
-YOUR AI MUSEUM GUIDE
-</div>
-
+<div class="novus">NOVUS</div>
+<div class="by">BY KRUSS MAKERS</div>
+<div class="tagline">YOUR AI MUSEUM GUIDE</div>
 </header>
 
-
 <div class="video-area">
-
 <div class="video-frame">
 
-<video
-id="sleepVideo"
-autoplay
-muted
-loop
-playsinline>
-
-<source
-src="media/sleepmode.mp4"
-type="video/mp4">
-
+<video id="sleepVideo" autoplay muted loop playsinline>
+<source src="media/sleepmode.mp4" type="video/mp4">
 </video>
 
-
 <div class="sleep-badge">
-
 <span class="sleep-dot"></span>
-
 NOVUS IS IN SLEEP MODE
-
 </div>
 
 </div>
-
 </div>
-
 
 <div class="start-area">
-
-<button
-id="startButton"
-class="start-button neon">
-
+<button id="startButton" class="start-button neon">
 ✦ TOUCH HERE TO BEGIN TOUR
-
 </button>
-
-<div class="tap-text">
-TAP TO WAKE NOVUS
+<div class="tap-text">TAP TO WAKE NOVUS</div>
 </div>
-
-</div>
-
 
 <div class="footer">
-
 <div class="connection-panel">
-
 <div class="connection-light"></div>
-
 <div class="connection-info">
-
-<div class="connection-device">
-iPAD ⇄ SPIKE PRIME
+<div class="connection-device">iPAD ⇄ SPIKE PRIME</div>
+<div class="connection-state">NOT CONNECTED</div>
+<div class="connection-mode">SIMULATION MODE</div>
 </div>
-
-<div class="connection-state">
-NOT CONNECTED
 </div>
-
-<div class="connection-mode">
-SIMULATION MODE
-</div>
-
-</div>
-
-</div>
-
-<div class="footer-text">
-SMART • INTERACTIVE • AUTONOMOUS
-</div>
-
 </div>
 
 </section>
 
 
-<!-- =====================================================
-     SCREEN 2
-===================================================== -->
-
+<!-- SCREEN 2 -->
 <section id="screen2" class="screen">
 
 <header class="header">
-
 <div class="novus">NOVUS</div>
-
-<div class="by">
-BY KRUSS MAKERS
-</div>
-
-<div class="tagline">
-YOUR AI MUSEUM GUIDE
-</div>
-
+<div class="by">BY KRUSS MAKERS</div>
+<div class="tagline">YOUR AI MUSEUM GUIDE</div>
 </header>
 
-
 <div class="video-area">
-
 <div class="video-frame">
 
-<video
-id="welcomeVideo"
-playsinline
-preload="auto">
-
-<source
-src="media/WELCOME_VIDEO.mp4"
-type="video/mp4">
-
+<video id="welcomeVideo" playsinline preload="auto">
+<source src="media/WELCOME_VIDEO.mp4" type="video/mp4">
 </video>
 
 </div>
-
 </div>
-
 
 <div class="welcome-info">
+<div class="welcome-title">WELCOME TO NOVUS</div>
+<div class="welcome-small">WELCOME MESSAGE</div>
 
-<div class="welcome-title">
-WELCOME TO NOVUS
-</div>
-
-<div class="welcome-small">
-PLEASE ENJOY THE WELCOME MESSAGE
-</div>
-
-
-<button
-id="exit2"
-class="exit-tour-button neon">
-
+<button id="exit2" class="exit-tour-button neon">
 ✕ EXIT TOUR
-
 </button>
-
 </div>
-
 
 <div class="footer">
-
 <div class="connection-panel">
-
 <div class="connection-light"></div>
-
 <div class="connection-info">
-
-<div class="connection-device">
-iPAD ⇄ SPIKE PRIME
+<div class="connection-device">iPAD ⇄ SPIKE PRIME</div>
+<div class="connection-state">NOT CONNECTED</div>
+<div class="connection-mode">SIMULATION MODE</div>
 </div>
-
-<div class="connection-state">
-NOT CONNECTED
 </div>
-
-<div class="connection-mode">
-SIMULATION MODE
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </section>
 
 
-<!-- =====================================================
-     SCREEN 3
-===================================================== -->
-
+<!-- SCREEN 3 -->
 <section id="screen3" class="screen">
 
 <header class="header">
-
 <div class="novus">NOVUS</div>
-
-<div class="by">
-BY KRUSS MAKERS
-</div>
-
-<div class="tagline">
-YOUR AI MUSEUM GUIDE
-</div>
-
+<div class="by">BY KRUSS MAKERS</div>
+<div class="tagline">YOUR AI MUSEUM GUIDE</div>
 </header>
-
 
 <div class="content">
 
 <div class="page-heading">
-
-<h2>
-SELECT YOUR LANGUAGE
-</h2>
-
-<p>
-SILA PILIH BAHASA
-</p>
-
+<h2>SELECT YOUR LANGUAGE</h2>
+<p>SILA PILIH BAHASA</p>
 </div>
 
-
-<button
-class="language-button neon"
-data-language="BM">
-
-<span class="language-main">
-BAHASA MELAYU
-</span>
-
-<span class="language-native">
-Bahasa Melayu
-</span>
-
+<button class="language-button neon" data-language="BM">
+<span class="language-main">BAHASA MELAYU</span>
+<span class="language-native">Bahasa Melayu</span>
 </button>
 
-
-<button
-class="language-button neon"
-data-language="EN">
-
-<span class="language-main">
-ENGLISH
-</span>
-
-<span class="language-native">
-English
-</span>
-
+<button class="language-button neon" data-language="EN">
+<span class="language-main">ENGLISH</span>
+<span class="language-native">English</span>
 </button>
 
-
-<button
-class="language-button neon"
-data-language="ZH">
-
-<span class="language-main">
-CHINESE
-</span>
-
-<span class="language-native">
-中文
-</span>
-
+<button class="language-button neon" data-language="ZH">
+<span class="language-main">CHINESE</span>
+<span class="language-native">中文</span>
 </button>
 
-
-<button
-class="language-button neon"
-data-language="TA">
-
-<span class="language-main">
-BAHASA TAMIL
-</span>
-
-<span class="language-native">
-தமிழ்
-</span>
-
+<button class="language-button neon" data-language="TA">
+<span class="language-main">BAHASA TAMIL</span>
+<span class="language-native">தமிழ்</span>
 </button>
 
 </div>
-
 
 <div class="nav3">
-
-<button
-id="back3"
-class="nav-button neon">
-‹
-</button>
-
-<button
-class="nav-button"
-disabled>
-⌂
-</button>
-
-<button
-id="exit3"
-class="nav-button exit-button neon">
-✕
-</button>
-
+<button id="back3" class="nav-button neon">‹</button>
+<button class="nav-button" disabled>⌂</button>
+<button id="exit3" class="nav-button exit-button neon">✕</button>
 </div>
-
 
 <div class="footer">
-
 <div class="connection-panel">
-
 <div class="connection-light"></div>
-
 <div class="connection-info">
-
-<div class="connection-device">
-iPAD ⇄ SPIKE PRIME
+<div class="connection-device">iPAD ⇄ SPIKE PRIME</div>
+<div class="connection-state">NOT CONNECTED</div>
+<div class="connection-mode">SIMULATION MODE</div>
 </div>
-
-<div class="connection-state">
-NOT CONNECTED
 </div>
-
-<div class="connection-mode">
-SIMULATION MODE
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </section>
 
 
-<!-- =====================================================
-     SCREEN 4
-===================================================== -->
-
+<!-- SCREEN 4 -->
 <section id="screen4" class="screen">
 
 <header class="header">
-
 <div class="novus">NOVUS</div>
-
-<div class="by">
-BY KRUSS MAKERS
-</div>
-
-<div class="tagline">
-YOUR AI MUSEUM GUIDE
-</div>
-
+<div class="by">BY KRUSS MAKERS</div>
+<div class="tagline">YOUR AI MUSEUM GUIDE</div>
 </header>
-
 
 <div class="content">
 
 <div class="page-heading">
-
-<h2 id="destinationHeading">
-SELECT YOUR DESTINATION
-</h2>
-
-<p id="destinationSubheading">
-Where would you like to go?
-</p>
-
+<h2 id="destinationHeading"></h2>
+<p id="destinationSubheading"></p>
 </div>
 
-
-<button
-class="station-button red neon"
-data-station="1">
-
+<button class="station-button red neon" data-station="1">
 <span class="dot"></span>
-
 <span>
-
-<span class="station-number">
-STATION 1
+<span class="station-number">STATION 1</span>
+<span id="station1Name" class="station-name"></span>
 </span>
-
-<span
-id="station1Name"
-class="station-name">
-</span>
-
-</span>
-
 </button>
 
-
-<button
-class="station-button blue neon"
-data-station="2">
-
+<button class="station-button blue neon" data-station="2">
 <span class="dot"></span>
-
 <span>
-
-<span class="station-number">
-STATION 2
+<span class="station-number">STATION 2</span>
+<span id="station2Name" class="station-name"></span>
 </span>
-
-<span
-id="station2Name"
-class="station-name">
-</span>
-
-</span>
-
 </button>
 
-
-<button
-class="station-button green neon"
-data-station="3">
-
+<button class="station-button green neon" data-station="3">
 <span class="dot"></span>
-
 <span>
-
-<span class="station-number">
-STATION 3
+<span class="station-number">STATION 3</span>
+<span id="station3Name" class="station-name"></span>
 </span>
-
-<span
-id="station3Name"
-class="station-name">
-</span>
-
-</span>
-
 </button>
 
-
-<button
-class="station-button yellow neon"
-data-station="4">
-
+<button class="station-button yellow neon" data-station="4">
 <span class="dot"></span>
-
 <span>
-
-<span class="station-number">
-STATION 4
+<span class="station-number">STATION 4</span>
+<span id="station4Name" class="station-name"></span>
 </span>
-
-<span
-id="station4Name"
-class="station-name">
-</span>
-
-</span>
-
 </button>
 
-
-<button
-class="station-button purple neon"
-data-station="5">
-
+<button class="station-button purple neon" data-station="5">
 <span class="dot"></span>
-
 <span>
-
-<span class="station-number">
-STATION 5
+<span class="station-number">STATION 5</span>
+<span id="station5Name" class="station-name"></span>
 </span>
-
-<span
-id="station5Name"
-class="station-name">
-</span>
-
-</span>
-
 </button>
 
 </div>
-
 
 <div class="nav3">
-
-<button
-id="back4"
-class="nav-button neon">
-‹
-</button>
-
-<button
-id="home4"
-class="nav-button neon">
-⌂
-</button>
-
-<button
-id="exit4"
-class="nav-button exit-button neon">
-✕
-</button>
-
+<button id="back4" class="nav-button neon">‹</button>
+<button id="home4" class="nav-button neon">⌂</button>
+<button id="exit4" class="nav-button exit-button neon">✕</button>
 </div>
-
 
 <div class="footer">
-
 <div class="connection-panel">
-
 <div class="connection-light"></div>
-
 <div class="connection-info">
-
-<div class="connection-device">
-iPAD ⇄ SPIKE PRIME
+<div class="connection-device">iPAD ⇄ SPIKE PRIME</div>
+<div class="connection-state">NOT CONNECTED</div>
+<div class="connection-mode">SIMULATION MODE</div>
 </div>
-
-<div class="connection-state">
-NOT CONNECTED
 </div>
-
-<div class="connection-mode">
-SIMULATION MODE
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </section>
 
 
-<!-- =====================================================
-     SCREEN 5
-===================================================== -->
-
+<!-- SCREEN 5 -->
 <section id="screen5" class="screen">
 
 <header class="header">
-
 <div class="novus">NOVUS</div>
-
-<div class="by">
-BY KRUSS MAKERS
-</div>
-
-<div class="tagline">
-YOUR AI MUSEUM GUIDE
-</div>
-
+<div class="by">BY KRUSS MAKERS</div>
+<div class="tagline">YOUR AI MUSEUM GUIDE</div>
 </header>
-
 
 <div class="travel-content">
 
-<div
-id="travelStatus"
-class="travel-status">
-</div>
+<div id="travelStatus" class="travel-status"></div>
+<div id="travelMarker" class="travel-marker">1</div>
+<div id="travelStation" class="travel-station"></div>
+<div id="travelDestination" class="travel-destination"></div>
+<div id="travelMessage" class="travel-message"></div>
 
-
-<div
-id="travelMarker"
-class="travel-marker">
-1
-</div>
-
-
-<div
-id="travelStation"
-class="travel-station">
-</div>
-
-
-<div
-id="travelDestination"
-class="travel-destination">
-</div>
-
-
-<div
-id="travelMessage"
-class="travel-message">
-</div>
-
-
-<div
-id="musicStatus"
-class="music-status">
-
+<div id="musicStatus" class="music-status">
 <div class="music-bars">
-
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-
+<span></span><span></span><span></span><span></span>
+</div>
+<span id="musicStatusText">TOUR MUSIC PLAYING</span>
 </div>
 
-<span id="musicStatusText">
-TOUR MUSIC PLAYING
-</span>
-
+<div id="travelAnimation" class="travel-animation">
+<span></span><span></span><span></span>
 </div>
-
-
-<div
-id="travelAnimation"
-class="travel-animation">
-
-<span></span>
-<span></span>
-<span></span>
-
-</div>
-
 
 <div class="progress-box">
-
 <div class="progress-track">
-
-<div
-id="progressFill"
-class="progress-fill">
+<div id="progressFill" class="progress-fill"></div>
+</div>
+<div id="progressText" class="progress-text">0%</div>
 </div>
 
-</div>
-
-<div
-id="progressText"
-class="progress-text">
-0%
-</div>
+<div id="arrivedBadge" class="arrived-badge"></div>
 
 </div>
-
-
-<div
-id="arrivedBadge"
-class="arrived-badge">
-</div>
-
-</div>
-
 
 <div class="nav4">
-
-<button
-id="back5"
-class="nav-button neon">
-‹
-</button>
-
-<button
-id="home5"
-class="nav-button neon">
-⌂
-</button>
-
-<button
-id="next5"
-class="nav-button neon"
-disabled>
-›
-</button>
-
-<button
-id="exit5"
-class="nav-button exit-button neon">
-✕
-</button>
-
+<button id="back5" class="nav-button neon">‹</button>
+<button id="home5" class="nav-button neon">⌂</button>
+<button id="next5" class="nav-button neon" disabled>›</button>
+<button id="exit5" class="nav-button exit-button neon">✕</button>
 </div>
-
 
 <div class="footer">
-
 <div class="connection-panel">
-
 <div class="connection-light"></div>
-
 <div class="connection-info">
-
-<div class="connection-device">
-iPAD ⇄ SPIKE PRIME
+<div class="connection-device">iPAD ⇄ SPIKE PRIME</div>
+<div class="connection-state">NOT CONNECTED</div>
+<div class="connection-mode">SIMULATION MODE</div>
 </div>
-
-<div class="connection-state">
-NOT CONNECTED
 </div>
-
-<div class="connection-mode">
-SIMULATION MODE
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </section>
 
 
-<!-- =====================================================
-     SCREEN 6 - YOUTUBE
-===================================================== -->
-
+<!-- SCREEN 6 -->
 <section id="screen6" class="screen">
 
 <header class="header">
-
 <div class="novus">NOVUS</div>
-
-<div class="by">
-BY KRUSS MAKERS
-</div>
-
-<div class="tagline">
-YOUR AI MUSEUM GUIDE
-</div>
-
+<div class="by">BY KRUSS MAKERS</div>
+<div class="tagline">YOUR AI MUSEUM GUIDE</div>
 </header>
 
+<div class="media-content">
 
-<div class="youtube-content">
-
-<div class="youtube-heading">
-
-<div
-id="youtubeStation"
-class="youtube-station">
-STATION
+<div class="media-heading">
+<div id="youtubeStation" class="media-station"></div>
+<div id="youtubeTitle" class="media-title"></div>
 </div>
-
-<div
-id="youtubeTitle"
-class="youtube-title">
-DESTINATION VIDEO
-</div>
-
-</div>
-
 
 <div class="youtube-frame">
-
 <iframe
 id="youtubePlayer"
 src=""
-title="NOVUS Museum Video"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+title="NOVUS Destination Video"
+allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
 allowfullscreen>
 </iframe>
-
 </div>
 
+<div id="videoCaption" class="video-caption"></div>
 
-<div
-id="videoCaption"
-class="video-caption">
-
-Discover the history of Melaka with NOVUS.
-
-</div>
+<button id="externalVideo" class="external-video neon">
+▶ OPEN RELATED VIDEO
+</button>
 
 </div>
-
 
 <div class="nav4">
-
-<button
-id="back6"
-class="nav-button neon">
-‹
-</button>
-
-<button
-id="home6"
-class="nav-button neon">
-⌂
-</button>
-
-<button
-id="next6"
-class="nav-button neon">
-›
-</button>
-
-<button
-id="exit6"
-class="nav-button exit-button neon">
-✕
-</button>
-
+<button id="back6" class="nav-button neon">‹</button>
+<button id="home6" class="nav-button neon">⌂</button>
+<button id="next6" class="nav-button neon">›</button>
+<button id="exit6" class="nav-button exit-button neon">✕</button>
 </div>
-
 
 <div class="footer">
-
 <div class="connection-panel">
-
 <div class="connection-light"></div>
-
 <div class="connection-info">
-
-<div class="connection-device">
-iPAD ⇄ SPIKE PRIME
+<div class="connection-device">iPAD ⇄ SPIKE PRIME</div>
+<div class="connection-state">NOT CONNECTED</div>
+<div class="connection-mode">SIMULATION MODE</div>
 </div>
-
-<div class="connection-state">
-NOT CONNECTED
 </div>
-
-<div class="connection-mode">
-SIMULATION MODE
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </section>
@@ -2226,24 +1045,19 @@ SIMULATION MODE
 
 <script>
 
-/* =====================================================
-   STATE
-===================================================== */
+/* =========================================================
+   NOVUS STATE
+========================================================= */
 
 let selectedLanguage = null;
 let selectedStation = null;
 
 let simulationTimer = null;
+let arrivalTimer = null;
+
 let simulationProgress = 0;
-
 let travelArrived = false;
-
-let welcomeTransitionDone = false;
-
-
-/* =====================================================
-   ELEMENTS
-===================================================== */
+let welcomeDone = false;
 
 const sleepVideo =
 document.getElementById("sleepVideo");
@@ -2258,1148 +1072,972 @@ const youtubePlayer =
 document.getElementById("youtubePlayer");
 
 
-/* =====================================================
-   VIDEO DATABASE
-===================================================== */
+/* =========================================================
+   DESTINATION VIDEO DATABASE
 
-/*
-Station 1-4:
-Kesultanan Melayu Melaka
-Cerita Sejarah
-YouTube ID: ktit-ZfvLZw
+   IMPORTANT:
+   Station 3 has a verified dedicated video.
 
-Station 5:
-Kejatuhan Kesultanan Melayu Melaka 1511
-YouTube ID: gtKXBtoN5Gk
-*/
+   Other stations use topic-specific YouTube search
+   as external fallback rather than displaying
+   an unrelated embedded video.
+========================================================= */
 
-const YOUTUBE = {
+const MEDIA = {
 
-    1:"ktit-ZfvLZw",
+1:{
+  embed:null,
+  search:
+  "Melaka Museum Malaysia history tour"
+},
 
-    2:"ktit-ZfvLZw",
+2:{
+  embed:null,
+  search:
+  "History of Melaka Malaysia documentary"
+},
 
-    3:"ktit-ZfvLZw",
+3:{
+  embed:"ktit-ZfvLZw",
+  search:
+  "Kesultanan Melayu Melaka Cerita Sejarah"
+},
 
-    4:"gtKXBtoN5Gk",
+4:{
+  embed:null,
+  search:
+  "Kejatuhan Melaka 1511 penaklukan Melaka"
+},
 
-    5:"gtKXBtoN5Gk"
+5:{
+  embed:null,
+  search:
+  "Pertempuran Melaka 1511 Portugis Afonso de Albuquerque"
+}
 
 };
 
 
-/* =====================================================
-   TEXT DATABASE
-===================================================== */
+/* =========================================================
+   TRANSLATION
+========================================================= */
 
-const TEXT = {
-
+const TEXT={
 
 BM:{
-
-destinationTitle:
-"PILIH DESTINASI",
-
-destinationSub:
-"Ke manakah anda ingin pergi?",
-
-stations:[
-"",
-"Pengenalan Muzium Melaka",
-"Sejarah Melaka",
-"Kesultanan Melayu Melaka",
-"Penaklukan Melaka",
-"Serangan Portugis ke atas Melaka"
-],
-
-travelling:
-"NOVUS SEDANG MENUJU KE DESTINASI",
-
-follow:
-"SILA IKUT NOVUS",
-
-arrived:
-"DESTINASI TELAH TIBA",
-
-continueText:
-"TEKAN NEXT UNTUK MENONTON VIDEO",
-
-videoCaption:
-"Tonton video sejarah berkaitan destinasi ini bersama NOVUS."
-
+ title:"PILIH DESTINASI",
+ sub:"Ke manakah anda ingin pergi?",
+ stations:[
+ "",
+ "Pengenalan Muzium Melaka",
+ "Sejarah Melaka",
+ "Kesultanan Melayu Melaka",
+ "Penaklukan Melaka",
+ "Serangan Portugis ke atas Melaka"
+ ],
+ moving:"NOVUS SEDANG MENUJU KE DESTINASI",
+ follow:"SILA IKUT NOVUS",
+ arrived:"DESTINASI TELAH TIBA",
+ loading:"SEDIA UNTUK MELIHAT KANDUNGAN DESTINASI",
+ caption:"Kandungan sejarah yang berkaitan dengan destinasi pilihan anda."
 },
-
 
 EN:{
-
-destinationTitle:
-"SELECT YOUR DESTINATION",
-
-destinationSub:
-"Where would you like to go?",
-
-stations:[
-"",
-"Introduction to Melaka Museum",
-"History of Melaka",
-"Melaka Sultanate",
-"Conquest of Melaka",
-"Portuguese Attack on Melaka"
-],
-
-travelling:
-"NOVUS IS TAKING YOU TO YOUR DESTINATION",
-
-follow:
-"PLEASE FOLLOW NOVUS",
-
-arrived:
-"DESTINATION REACHED",
-
-continueText:
-"TAP NEXT TO WATCH THE VIDEO",
-
-videoCaption:
-"Discover the history of this destination with NOVUS."
-
+ title:"SELECT YOUR DESTINATION",
+ sub:"Where would you like to go?",
+ stations:[
+ "",
+ "Introduction to Melaka Museum",
+ "History of Melaka",
+ "Melaka Sultanate",
+ "Conquest of Melaka",
+ "Portuguese Attack on Melaka"
+ ],
+ moving:"NOVUS IS TAKING YOU TO YOUR DESTINATION",
+ follow:"PLEASE FOLLOW NOVUS",
+ arrived:"DESTINATION REACHED",
+ loading:"DESTINATION CONTENT IS READY",
+ caption:"Historical content related to your selected destination."
 },
-
 
 ZH:{
-
-destinationTitle:
-"选择您的目的地",
-
-destinationSub:
-"您想去哪里？",
-
-stations:[
-"",
-"马六甲博物馆简介",
-"马六甲历史",
-"马六甲苏丹王朝",
-"马六甲的征服",
-"葡萄牙进攻马六甲"
-],
-
-travelling:
-"NOVUS 正在带您前往目的地",
-
-follow:
-"请跟随 NOVUS",
-
-arrived:
-"已到达目的地",
-
-continueText:
-"点击下一步观看视频",
-
-videoCaption:
-"与 NOVUS 一起通过视频探索马六甲的历史。"
-
+ title:"选择您的目的地",
+ sub:"您想去哪里？",
+ stations:[
+ "",
+ "马六甲博物馆简介",
+ "马六甲历史",
+ "马六甲苏丹王朝",
+ "马六甲的征服",
+ "葡萄牙进攻马六甲"
+ ],
+ moving:"NOVUS 正在带您前往目的地",
+ follow:"请跟随 NOVUS",
+ arrived:"已到达目的地",
+ loading:"目的地内容已准备好",
+ caption:"与您选择的目的地相关的历史内容。"
 },
 
-
 TA:{
-
-destinationTitle:
-"உங்கள் இடத்தைத் தேர்ந்தெடுக்கவும்",
-
-destinationSub:
-"நீங்கள் எங்கு செல்ல விரும்புகிறீர்கள்?",
-
-stations:[
-"",
-"மலாக்கா அருங்காட்சியக அறிமுகம்",
-"மலாக்காவின் வரலாறு",
-"மலாக்கா சுல்தானகம்",
-"மலாக்காவின் கைப்பற்றல்",
-"மலாக்கா மீதான போர்த்துகீசிய தாக்குதல்"
-],
-
-travelling:
-"NOVUS உங்களை இலக்கிற்கு அழைத்துச் செல்கிறது",
-
-follow:
-"NOVUS-ஐ பின்தொடரவும்",
-
-arrived:
-"இலக்கு வந்தடைந்தது",
-
-continueText:
-"வீடியோவைப் பார்க்க NEXT அழுத்தவும்",
-
-videoCaption:
-"NOVUS உடன் இந்த இடத்தின் வரலாற்றை வீடியோ மூலம் அறிந்து கொள்ளுங்கள்."
-
+ title:"உங்கள் இடத்தைத் தேர்ந்தெடுக்கவும்",
+ sub:"நீங்கள் எங்கு செல்ல விரும்புகிறீர்கள்?",
+ stations:[
+ "",
+ "மலாக்கா அருங்காட்சியக அறிமுகம்",
+ "மலாக்காவின் வரலாறு",
+ "மலாக்கா சுல்தானகம்",
+ "மலாக்காவின் கைப்பற்றல்",
+ "மலாக்கா மீதான போர்த்துகீசிய தாக்குதல்"
+ ],
+ moving:"NOVUS உங்களை இலக்கிற்கு அழைத்துச் செல்கிறது",
+ follow:"NOVUS-ஐ பின்தொடரவும்",
+ arrived:"இலக்கு வந்தடைந்தது",
+ loading:"இலக்கு உள்ளடக்கம் தயாராக உள்ளது",
+ caption:"நீங்கள் தேர்ந்தெடுத்த இடத்துடன் தொடர்புடைய வரலாற்று உள்ளடக்கம்."
 }
 
 };
 
 
-/* =====================================================
+/* =========================================================
    SCREEN
-===================================================== */
+========================================================= */
 
-function showScreen(number){
+function showScreen(n){
 
-    document
-    .querySelectorAll(".screen")
-    .forEach(function(screen){
+ document.querySelectorAll(".screen")
+ .forEach(s=>s.classList.remove("active"));
 
-        screen.classList.remove("active");
-
-    });
-
-
-    document
-    .getElementById("screen" + number)
-    .classList.add("active");
-
+ document.getElementById("screen"+n)
+ .classList.add("active");
 }
 
 
-/* =====================================================
-   SPIKE CONNECTION
-===================================================== */
+/* =========================================================
+   SPIKE STATUS
+========================================================= */
 
 function setSpikeConnection(connected){
 
-    document
-    .querySelectorAll(".connection-panel")
-    .forEach(function(panel){
+ document.querySelectorAll(".connection-panel")
+ .forEach(panel=>{
 
-        const state =
-        panel.querySelector(".connection-state");
+   const state =
+   panel.querySelector(".connection-state");
 
+   if(connected){
 
-        if(connected){
+     panel.classList.add("connected");
+     state.textContent="CONNECTED";
 
-            panel.classList.add("connected");
+   }else{
 
-            state.textContent =
-            "CONNECTED";
+     panel.classList.remove("connected");
+     state.textContent="NOT CONNECTED";
+   }
 
-        }
-
-        else{
-
-            panel.classList.remove("connected");
-
-            state.textContent =
-            "NOT CONNECTED";
-
-        }
-
-    });
-
+ });
 }
 
 
-/* =====================================================
+/* =========================================================
    START
-===================================================== */
+========================================================= */
 
-document
-.getElementById("startButton")
-.addEventListener(
-"click",
-function(){
+document.getElementById("startButton")
+.addEventListener("click",()=>{
 
-    sleepVideo.pause();
+ sleepVideo.pause();
 
-    showScreen(2);
+ showScreen(2);
 
-    playWelcome();
+ playWelcome();
 
 });
 
 
-/* =====================================================
+/* =========================================================
    WELCOME
-===================================================== */
+========================================================= */
 
 function playWelcome(){
 
-    stopYouTube();
+ welcomeDone=false;
 
-    welcomeTransitionDone = false;
+ welcomeVideo.pause();
 
-    welcomeVideo.pause();
+ try{welcomeVideo.currentTime=0}catch(e){}
 
+ welcomeVideo.muted=false;
+ welcomeVideo.volume=1;
 
-    try{
+ welcomeVideo.play()
+ .catch(()=>{
 
-        welcomeVideo.currentTime = 0;
+   welcomeVideo.muted=true;
+   welcomeVideo.play().catch(()=>{});
 
-    }
-    catch(e){}
-
-
-    welcomeVideo.muted = false;
-
-    welcomeVideo.volume = 1;
-
-
-    welcomeVideo.play()
-    .catch(function(){
-
-        welcomeVideo.muted = true;
-
-        welcomeVideo.play()
-        .catch(function(){});
-
-    });
+ });
 
 }
 
 
-function openLanguage(){
+function finishWelcome(){
 
-    if(welcomeTransitionDone){
-        return;
-    }
+ if(welcomeDone)return;
 
+ welcomeDone=true;
 
-    welcomeTransitionDone = true;
+ welcomeVideo.pause();
 
-    welcomeVideo.pause();
-
-    showScreen(3);
+ showScreen(3);
 
 }
 
 
-welcomeVideo
-.addEventListener(
+welcomeVideo.addEventListener(
 "ended",
-openLanguage
+finishWelcome
 );
 
 
-welcomeVideo
-.addEventListener(
+welcomeVideo.addEventListener(
 "timeupdate",
-function(){
+()=>{
 
-    if(
-        welcomeVideo.duration > 0
-        &&
-        welcomeVideo.currentTime >=
-        welcomeVideo.duration - .1
-    ){
+ if(
+ welcomeVideo.duration &&
+ welcomeVideo.currentTime >=
+ welcomeVideo.duration-.15
+ ){
 
-        openLanguage();
+   finishWelcome();
 
-    }
+ }
 
 });
 
 
-/* =====================================================
+/* =========================================================
    LANGUAGE
-===================================================== */
+========================================================= */
 
-document
-.querySelectorAll(".language-button")
-.forEach(function(button){
+document.querySelectorAll(".language-button")
+.forEach(btn=>{
 
-    button.addEventListener(
-    "click",
-    function(){
+ btn.addEventListener("click",()=>{
 
-        selectedLanguage =
-        button.dataset.language;
+   selectedLanguage =
+   btn.dataset.language;
 
+   selectedStation=null;
 
-        selectedStation = null;
+   updateDestination();
 
+   /* AUTO NEXT */
 
-        updateDestination();
+   showScreen(4);
 
-
-        /*
-        AUTO TO DESTINATION
-        */
-
-        showScreen(4);
-
-    });
+ });
 
 });
 
-
-/* =====================================================
-   UPDATE DESTINATION
-===================================================== */
 
 function updateDestination(){
 
-    if(!selectedLanguage){
-        return;
-    }
+ if(!selectedLanguage)return;
 
+ const t=TEXT[selectedLanguage];
 
-    const t =
-    TEXT[selectedLanguage];
+ document.getElementById(
+ "destinationHeading"
+ ).textContent=t.title;
 
+ document.getElementById(
+ "destinationSubheading"
+ ).textContent=t.sub;
 
-    document
-    .getElementById("destinationHeading")
-    .textContent =
-    t.destinationTitle;
+ for(let i=1;i<=5;i++){
 
+   document.getElementById(
+   "station"+i+"Name"
+   ).textContent=t.stations[i];
 
-    document
-    .getElementById("destinationSubheading")
-    .textContent =
-    t.destinationSub;
-
-
-    for(let i=1;i<=5;i++){
-
-        document
-        .getElementById(
-            "station" + i + "Name"
-        )
-        .textContent =
-        t.stations[i];
-
-    }
+ }
 
 }
 
 
-/* =====================================================
-   STATION SELECT
-===================================================== */
+/* =========================================================
+   DESTINATION
+========================================================= */
 
-document
-.querySelectorAll(".station-button")
-.forEach(function(button){
+document.querySelectorAll(".station-button")
+.forEach(btn=>{
 
-    button.addEventListener(
-    "click",
-    function(){
+ btn.addEventListener("click",()=>{
 
-        selectedStation =
-        Number(
-            button.dataset.station
-        );
+   if(!selectedLanguage)return;
 
+   clearArrivalTimer();
 
-        /*
-        MUSIC START DIRECTLY
-        FROM USER TOUCH
-        */
+   selectedStation =
+   Number(btn.dataset.station);
 
-        startTravelMusic();
+   prepareTravel();
 
+   showScreen(5);
 
-        prepareTravel();
+   startTravelMusic();
 
+   startSimulation();
 
-        /*
-        AUTO TO TRAVEL
-        NO NEXT REQUIRED
-        */
-
-        showScreen(5);
-
-
-        startSimulation();
-
-    });
+ });
 
 });
 
 
-/* =====================================================
+/* =========================================================
    MUSIC
-===================================================== */
+========================================================= */
 
 function startTravelMusic(){
 
-    travelMusic.pause();
+ travelMusic.pause();
 
+ try{travelMusic.currentTime=0}catch(e){}
 
-    try{
+ travelMusic.volume=.65;
+ travelMusic.muted=false;
 
-        travelMusic.currentTime = 0;
+ travelMusic.play()
+ .then(()=>{
 
-    }
-    catch(e){}
+   document.getElementById(
+   "musicStatusText"
+   ).textContent=
+   "TOUR MUSIC PLAYING";
 
+ })
+ .catch(()=>{
 
-    travelMusic.volume = .65;
+   document.getElementById(
+   "musicStatusText"
+   ).textContent=
+   "MUSIC UNAVAILABLE";
 
-    travelMusic.muted = false;
-
-
-    travelMusic.play()
-    .then(function(){
-
-        document
-        .getElementById("musicStatusText")
-        .textContent =
-        "TOUR MUSIC PLAYING";
-
-    })
-
-    .catch(function(error){
-
-        console.log(
-            "Travel music:",
-            error
-        );
-
-
-        document
-        .getElementById("musicStatusText")
-        .textContent =
-        "MUSIC UNAVAILABLE";
-
-    });
+ });
 
 }
 
 
 function stopTravelMusic(){
 
-    travelMusic.pause();
+ travelMusic.pause();
 
-
-    try{
-
-        travelMusic.currentTime = 0;
-
-    }
-    catch(e){}
+ try{travelMusic.currentTime=0}catch(e){}
 
 }
 
 
-/* =====================================================
-   PREPARE TRAVEL
-===================================================== */
+/* =========================================================
+   PREPARE MOVEMENT
+========================================================= */
 
 function prepareTravel(){
 
-    const t =
-    TEXT[selectedLanguage];
+ travelArrived=false;
 
+ const t=TEXT[selectedLanguage];
 
-    travelArrived = false;
+ document.getElementById(
+ "travelStatus"
+ ).textContent=t.moving;
 
+ document.getElementById(
+ "travelStation"
+ ).textContent=
+ "STATION "+selectedStation;
 
-    document
-    .getElementById("travelStatus")
-    .textContent =
-    t.travelling;
+ document.getElementById(
+ "travelDestination"
+ ).textContent=
+ t.stations[selectedStation];
 
+ document.getElementById(
+ "travelMessage"
+ ).textContent=t.follow;
 
-    document
-    .getElementById("travelStation")
-    .textContent =
-    "STATION "
-    +
-    selectedStation;
+ const marker =
+ document.getElementById("travelMarker");
 
+ marker.className="travel-marker";
 
-    document
-    .getElementById("travelDestination")
-    .textContent =
-    t.stations[selectedStation];
+ const colors={
+ 1:"travel-red",
+ 2:"travel-blue",
+ 3:"travel-green",
+ 4:"travel-yellow",
+ 5:"travel-purple"
+ };
 
+ marker.classList.add(
+ colors[selectedStation]
+ );
 
-    document
-    .getElementById("travelMessage")
-    .textContent =
-    t.follow;
+ marker.textContent=selectedStation;
 
+ document.getElementById(
+ "musicStatus"
+ ).style.display="flex";
 
-    const marker =
-    document.getElementById("travelMarker");
+ document.getElementById(
+ "travelAnimation"
+ ).style.display="flex";
 
+ document.getElementById(
+ "arrivedBadge"
+ ).classList.remove("show");
 
-    marker.className =
-    "travel-marker";
+ document.getElementById(
+ "next5"
+ ).disabled=true;
 
-
-    const color = {
-
-        1:"travel-red",
-
-        2:"travel-blue",
-
-        3:"travel-green",
-
-        4:"travel-yellow",
-
-        5:"travel-purple"
-
-    };
-
-
-    marker.classList.add(
-        color[selectedStation]
-    );
-
-
-    marker.textContent =
-    selectedStation;
-
-
-    document
-    .getElementById("musicStatus")
-    .style.display =
-    "flex";
-
-
-    document
-    .getElementById("travelAnimation")
-    .style.display =
-    "flex";
-
-
-    document
-    .getElementById("arrivedBadge")
-    .classList.remove("show");
-
-
-    document
-    .getElementById("next5")
-    .disabled =
-    true;
-
-
-    updateProgress(0);
+ updateProgress(0);
 
 }
 
 
-/* =====================================================
+/* =========================================================
    SIMULATION
-===================================================== */
+========================================================= */
 
 function startSimulation(){
 
-    stopSimulation();
+ stopSimulation();
 
+ simulationProgress=0;
 
-    simulationProgress = 0;
+ simulationTimer=setInterval(()=>{
 
+   simulationProgress+=100/70;
 
-    simulationTimer =
-    setInterval(
-    function(){
+   if(simulationProgress>=100){
 
-        simulationProgress +=
-        100 / 70;
+     simulationProgress=100;
 
+     updateProgress(100);
 
-        if(simulationProgress >= 100){
+     stopSimulation();
 
-            simulationProgress = 100;
+     robotArrived();
 
-            updateProgress(100);
+     return;
 
-            stopSimulation();
+   }
 
-            robotArrived();
+   updateProgress(simulationProgress);
 
-            return;
-
-        }
-
-
-        updateProgress(
-            simulationProgress
-        );
-
-    },
-    100
-    );
+ },100);
 
 }
 
 
 function stopSimulation(){
 
-    if(simulationTimer){
+ if(simulationTimer){
 
-        clearInterval(
-            simulationTimer
-        );
+   clearInterval(simulationTimer);
 
-        simulationTimer = null;
+   simulationTimer=null;
 
-    }
+ }
 
 }
 
 
-function updateProgress(value){
+function updateProgress(v){
 
-    document
-    .getElementById("progressFill")
-    .style.width =
-    value + "%";
+ document.getElementById(
+ "progressFill"
+ ).style.width=v+"%";
 
-
-    document
-    .getElementById("progressText")
-    .textContent =
-    Math.round(value)
-    +
-    "%";
+ document.getElementById(
+ "progressText"
+ ).textContent=
+ Math.round(v)+"%";
 
 }
 
 
-/* =====================================================
-   ARRIVAL
-===================================================== */
+/* =========================================================
+   ARRIVED
+========================================================= */
 
 function robotArrived(){
 
-    travelArrived = true;
+ travelArrived=true;
 
+ stopTravelMusic();
 
-    stopTravelMusic();
+ const t=TEXT[selectedLanguage];
 
+ document.getElementById(
+ "musicStatus"
+ ).style.display="none";
 
-    const t =
-    TEXT[selectedLanguage];
+ document.getElementById(
+ "travelAnimation"
+ ).style.display="none";
 
+ document.getElementById(
+ "travelStatus"
+ ).textContent=t.arrived;
 
-    document
-    .getElementById("musicStatus")
-    .style.display =
-    "none";
+ document.getElementById(
+ "travelMessage"
+ ).innerHTML=
+ "✓ "+t.arrived+
+ "<br><br>"+t.loading;
 
+ const badge =
+ document.getElementById(
+ "arrivedBadge"
+ );
 
-    document
-    .getElementById("travelAnimation")
-    .style.display =
-    "none";
+ badge.textContent=
+ "✓ "+t.arrived;
 
+ badge.classList.add("show");
 
-    document
-    .getElementById("travelStatus")
-    .textContent =
-    t.arrived;
+ document.getElementById(
+ "next5"
+ ).disabled=false;
 
+ clearArrivalTimer();
 
-    document
-    .getElementById("travelMessage")
-    .innerHTML =
+ /*
+ AUTOMATICALLY OPEN DESTINATION CONTENT
+ */
 
-    "✓ "
-    +
-    t.arrived
-    +
-    "<br><br>"
-    +
-    t.continueText;
+ arrivalTimer=setTimeout(()=>{
 
+   if(
+   travelArrived &&
+   selectedStation
+   ){
 
-    const badge =
-    document.getElementById("arrivedBadge");
+     openDestinationMedia();
 
+   }
 
-    badge.textContent =
-    "✓ "
-    +
-    t.arrived;
-
-
-    badge.classList.add("show");
-
-
-    document
-    .getElementById("next5")
-    .disabled =
-    false;
+ },1800);
 
 }
 
 
-/* =====================================================
-   YOUTUBE SCREEN
-===================================================== */
+/* =========================================================
+   DESTINATION MEDIA
+========================================================= */
 
-function openDestinationVideo(){
+function openDestinationMedia(){
 
-    stopTravelMusic();
+ if(
+ !selectedLanguage ||
+ !selectedStation
+ )return;
 
+ clearArrivalTimer();
 
-    const t =
-    TEXT[selectedLanguage];
+ stopTravelMusic();
 
+ const t=TEXT[selectedLanguage];
 
-    document
-    .getElementById("youtubeStation")
-    .textContent =
-    "STATION "
-    +
-    selectedStation;
+ const media=MEDIA[selectedStation];
 
+ document.getElementById(
+ "youtubeStation"
+ ).textContent=
+ "STATION "+selectedStation;
 
-    document
-    .getElementById("youtubeTitle")
-    .textContent =
-    t.stations[selectedStation];
+ document.getElementById(
+ "youtubeTitle"
+ ).textContent=
+ t.stations[selectedStation];
 
-
-    document
-    .getElementById("videoCaption")
-    .textContent =
-    t.videoCaption;
-
-
-    const videoID =
-    YOUTUBE[selectedStation];
+ document.getElementById(
+ "videoCaption"
+ ).textContent=
+ t.caption;
 
 
-    /*
-    Privacy enhanced YouTube embed.
-    playsinline helps iPad.
-    */
+ /*
+ VERIFIED EMBED EXISTS
+ */
 
-    youtubePlayer.src =
+ if(media.embed){
 
-    "https://www.youtube-nocookie.com/embed/"
-    +
-    videoID
-    +
-    "?playsinline=1&rel=0";
+   youtubePlayer.src=
+
+   "https://www.youtube.com/embed/"
+   +media.embed+
+   "?autoplay=1"+
+   "&mute=1"+
+   "&playsinline=1"+
+   "&controls=1"+
+   "&rel=0";
+
+ }
 
 
-    showScreen(6);
+ /*
+ NO VERIFIED EMBED YET
+
+ We deliberately DO NOT display
+ an unrelated video.
+ */
+
+ else{
+
+   youtubePlayer.srcdoc=`
+
+   <html>
+
+   <body style="
+   margin:0;
+   height:100%;
+   display:flex;
+   align-items:center;
+   justify-content:center;
+   background:#020b11;
+   color:#60e7ff;
+   font-family:Arial;
+   text-align:center;
+   ">
+
+   <div>
+
+   <div style="
+   font-size:46px;
+   margin-bottom:14px;
+   ">
+   ▶
+   </div>
+
+   <strong>
+   DESTINATION VIDEO
+   </strong>
+
+   <br><br>
+
+   Tap OPEN RELATED VIDEO
+
+   </div>
+
+   </body>
+
+   </html>
+   `;
+
+ }
+
+
+ showScreen(6);
 
 }
 
 
-/* =====================================================
+/* =========================================================
+   EXTERNAL RELATED VIDEO
+
+   Searches YouTube using the EXACT
+   destination topic.
+========================================================= */
+
+document.getElementById(
+"externalVideo"
+).addEventListener(
+"click",
+()=>{
+
+ if(!selectedStation)return;
+
+ const query=
+ MEDIA[selectedStation].search;
+
+ const url=
+ "https://www.youtube.com/results?search_query="
+ +
+ encodeURIComponent(query);
+
+ window.open(
+ url,
+ "_blank"
+ );
+
+});
+
+
+/* =========================================================
    STOP YOUTUBE
-===================================================== */
+========================================================= */
 
 function stopYouTube(){
 
-    /*
-    Removing iframe URL stops audio/video
-    immediately when leaving Screen 6.
-    */
+ youtubePlayer.src="";
 
-    youtubePlayer.src = "";
+ youtubePlayer.srcdoc="";
 
 }
 
 
-/* =====================================================
-   SCREEN 2 EXIT
-===================================================== */
+/* =========================================================
+   ARRIVAL TIMER
+========================================================= */
 
-document
-.getElementById("exit2")
-.addEventListener(
-"click",
-exitTour
-);
+function clearArrivalTimer(){
+
+ if(arrivalTimer){
+
+   clearTimeout(arrivalTimer);
+
+   arrivalTimer=null;
+
+ }
+
+}
 
 
-/* =====================================================
+/* =========================================================
+   SCREEN 2
+========================================================= */
+
+document.getElementById(
+"exit2"
+).onclick=exitTour;
+
+
+/* =========================================================
    SCREEN 3
-===================================================== */
+========================================================= */
 
-document
-.getElementById("back3")
-.addEventListener(
-"click",
-function(){
+document.getElementById(
+"back3"
+).onclick=()=>{
 
-    showScreen(2);
+ showScreen(2);
 
-    playWelcome();
+ playWelcome();
 
-});
+};
 
 
-document
-.getElementById("exit3")
-.addEventListener(
-"click",
-exitTour
-);
+document.getElementById(
+"exit3"
+).onclick=exitTour;
 
 
-/* =====================================================
+/* =========================================================
    SCREEN 4
-===================================================== */
+========================================================= */
 
-document
-.getElementById("back4")
-.addEventListener(
-"click",
-function(){
+document.getElementById(
+"back4"
+).onclick=()=>{
 
-    stopYouTube();
+ selectedStation=null;
 
-    showScreen(3);
+ showScreen(3);
 
-});
+};
 
 
-document
-.getElementById("home4")
-.addEventListener(
-"click",
-goHome
-);
+document.getElementById(
+"home4"
+).onclick=goHome;
 
 
-document
-.getElementById("exit4")
-.addEventListener(
-"click",
-exitTour
-);
+document.getElementById(
+"exit4"
+).onclick=exitTour;
 
 
-/* =====================================================
+/* =========================================================
    SCREEN 5
-===================================================== */
+========================================================= */
 
-document
-.getElementById("back5")
-.addEventListener(
-"click",
-function(){
+document.getElementById(
+"back5"
+).onclick=()=>{
 
-    stopSimulation();
+ clearArrivalTimer();
 
-    stopTravelMusic();
+ stopSimulation();
 
-    showScreen(4);
+ stopTravelMusic();
 
-});
+ travelArrived=false;
 
+ showScreen(4);
 
-document
-.getElementById("home5")
-.addEventListener(
-"click",
-goHome
-);
+};
 
 
-document
-.getElementById("exit5")
-.addEventListener(
-"click",
-exitTour
-);
+document.getElementById(
+"home5"
+).onclick=goHome;
 
 
-document
-.getElementById("next5")
-.addEventListener(
-"click",
-function(){
-
-    if(!travelArrived){
-        return;
-    }
+document.getElementById(
+"exit5"
+).onclick=exitTour;
 
 
-    /*
-    ARRIVED
-    THEN OPEN VIDEO
-    */
+document.getElementById(
+"next5"
+).onclick=()=>{
 
-    openDestinationVideo();
+ if(travelArrived){
 
-});
+   openDestinationMedia();
+
+ }
+
+};
 
 
-/* =====================================================
+/* =========================================================
    SCREEN 6
-===================================================== */
+========================================================= */
 
-document
-.getElementById("back6")
-.addEventListener(
-"click",
-function(){
+document.getElementById(
+"back6"
+).onclick=()=>{
 
-    stopYouTube();
+ stopYouTube();
 
-    /*
-    Return to ARRIVED screen.
-    Robot does NOT move again.
-    */
+ selectedStation=null;
 
-    showScreen(5);
+ travelArrived=false;
 
-});
+ updateDestination();
 
+ showScreen(4);
 
-document
-.getElementById("home6")
-.addEventListener(
-"click",
-function(){
-
-    stopYouTube();
-
-    goHome();
-
-});
+};
 
 
-document
-.getElementById("next6")
-.addEventListener(
-"click",
-function(){
+document.getElementById(
+"home6"
+).onclick=()=>{
 
-    stopYouTube();
+ stopYouTube();
 
+ goHome();
 
-    /*
-    TOUR AT THIS STATION FINISHED.
-
-    Keep selected language.
-    Return to destination selection.
-    */
-
-    selectedStation = null;
-
-    updateDestination();
-
-    showScreen(4);
-
-});
+};
 
 
-document
-.getElementById("exit6")
-.addEventListener(
-"click",
-exitTour
-);
+document.getElementById(
+"next6"
+).onclick=()=>{
+
+ stopYouTube();
+
+ selectedStation=null;
+
+ travelArrived=false;
+
+ updateDestination();
+
+ showScreen(4);
+
+};
 
 
-/* =====================================================
-   HOME
-===================================================== */
+document.getElementById(
+"exit6"
+).onclick=exitTour;
+
+
+/* =========================================================
+   HOME = SCREEN 3
+========================================================= */
 
 function goHome(){
 
-    stopSimulation();
+ clearArrivalTimer();
 
-    stopTravelMusic();
+ stopSimulation();
 
-    stopYouTube();
+ stopTravelMusic();
 
+ stopYouTube();
 
-    welcomeVideo.pause();
+ welcomeVideo.pause();
 
+ selectedLanguage=null;
+ selectedStation=null;
+ travelArrived=false;
 
-    selectedLanguage = null;
-
-    selectedStation = null;
-
-    travelArrived = false;
-
-
-    /*
-    HOME = SCREEN 3
-    */
-
-    showScreen(3);
+ showScreen(3);
 
 }
 
 
-/* =====================================================
-   EXIT
-===================================================== */
+/* =========================================================
+   EXIT = SLEEP
+========================================================= */
 
 function exitTour(){
 
-    stopSimulation();
+ clearArrivalTimer();
 
-    stopTravelMusic();
+ stopSimulation();
 
-    stopYouTube();
+ stopTravelMusic();
 
+ stopYouTube();
 
-    welcomeVideo.pause();
+ welcomeVideo.pause();
 
+ selectedLanguage=null;
+ selectedStation=null;
+ travelArrived=false;
+ welcomeDone=false;
 
-    selectedLanguage = null;
+ try{
+ welcomeVideo.currentTime=0
+ }catch(e){}
 
-    selectedStation = null;
+ try{
+ sleepVideo.currentTime=0
+ }catch(e){}
 
-    travelArrived = false;
+ showScreen(1);
 
+ sleepVideo.muted=true;
 
-    try{
-
-        welcomeVideo.currentTime = 0;
-
-    }
-    catch(e){}
-
-
-    try{
-
-        sleepVideo.currentTime = 0;
-
-    }
-    catch(e){}
-
-
-    /*
-    EXIT ONLY = SLEEP MODE
-    */
-
-    showScreen(1);
-
-
-    sleepVideo.muted = true;
-
-    sleepVideo.play()
-    .catch(function(){});
+ sleepVideo.play().catch(()=>{});
 
 }
 
 
-/* =====================================================
+/* =========================================================
    INITIAL
-===================================================== */
+========================================================= */
 
 window.addEventListener(
 "load",
-function(){
+()=>{
 
-    /*
-    FOR NOW:
-    NO PHYSICAL SPIKE PRIME.
-    */
+ setSpikeConnection(false);
 
-    setSpikeConnection(false);
+ showScreen(1);
 
+ sleepVideo.muted=true;
 
-    showScreen(1);
-
-
-    sleepVideo.muted = true;
-
-    sleepVideo.play()
-    .catch(function(){});
+ sleepVideo.play().catch(()=>{});
 
 });
 
