@@ -1,204 +1,986 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width,
-                   initial-scale=1.0,
-                   maximum-scale=1.0,
-                   user-scalable=no">
+<meta charset="UTF-8">
 
-    <meta name="theme-color" content="#02070d">
+<meta name="viewport"
+content="width=device-width,
+initial-scale=1.0,
+maximum-scale=1.0,
+user-scalable=no">
 
-    <title>NOVUS | KRUSS Makers</title>
+<title>NOVUS | KRUSS Makers</title>
 
-    <link rel="stylesheet" href="style.css">
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+
+    background:
+    radial-gradient(
+        circle at 50% 30%,
+        #123b5b 0%,
+        #061a29 45%,
+        #02080e 100%
+    );
+
+    color:white;
+}
+
+/* =========================
+   MAIN PORTRAIT APP
+========================= */
+
+.app{
+
+    width:100vw;
+    height:100vh;
+
+    display:flex;
+    flex-direction:column;
+
+    align-items:center;
+
+    padding:
+    max(28px, env(safe-area-inset-top))
+    28px
+    max(20px, env(safe-area-inset-bottom));
+
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+    text-align:center;
+    flex:0 0 auto;
+}
+
+.novus{
+
+    font-size:72px;
+    font-weight:900;
+
+    letter-spacing:12px;
+
+    line-height:0.95;
+
+    color:#ffffff;
+
+    text-shadow:
+    0 0 10px #2edfff,
+    0 0 30px rgba(46,223,255,.60);
+}
+
+.by-kruss{
+
+    margin-top:8px;
+
+    font-size:16px;
+    font-weight:700;
+
+    letter-spacing:4px;
+
+    color:#59e4ff;
+}
+
+.tagline{
+
+    margin-top:18px;
+
+    font-size:22px;
+    font-weight:400;
+
+    letter-spacing:5px;
+
+    color:#e6fbff;
+}
+
+
+/* =========================
+   VIDEO AREA
+========================= */
+
+.video-area{
+
+    width:100%;
+
+    flex:1 1 auto;
+
+    min-height:0;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    padding-top:20px;
+}
+
+.video-frame{
+
+    position:relative;
+
+    width:min(88vw, 690px);
+
+    height:min(47vh, 560px);
+
+    min-height:340px;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    background:#000;
+
+    border:
+    2px solid
+    rgba(70,220,255,.50);
+
+    box-shadow:
+    0 0 28px rgba(0,210,255,.18),
+    0 0 60px rgba(0,210,255,.10);
+}
+
+.video-frame video{
+
+    width:100%;
+    height:100%;
+
+    display:block;
+
+    object-fit:cover;
+}
+
+
+/* =========================
+   VIDEO OVERLAY
+========================= */
+
+.video-frame::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+    linear-gradient(
+        to bottom,
+        transparent 60%,
+        rgba(0,8,16,.55)
+    );
+}
+
+
+/* =========================
+   SLEEP STATUS
+========================= */
+
+.sleep-badge{
+
+    position:absolute;
+
+    z-index:5;
+
+    left:50%;
+    bottom:18px;
+
+    transform:translateX(-50%);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    white-space:nowrap;
+
+    padding:10px 18px;
+
+    border-radius:40px;
+
+    background:rgba(0,8,15,.80);
+
+    border:
+    1px solid
+    rgba(90,225,255,.25);
+
+    font-size:13px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    color:#dffaff;
+}
+
+.sleep-light{
+
+    width:10px;
+    height:10px;
+
+    border-radius:50%;
+
+    background:#4ce1ff;
+
+    box-shadow:
+    0 0 10px #4ce1ff;
+
+    animation:sleepPulse 2s infinite;
+}
+
+@keyframes sleepPulse{
+
+    0%,100%{
+        opacity:.3;
+    }
+
+    50%{
+        opacity:1;
+    }
+}
+
+
+/* =========================
+   START BUTTON
+========================= */
+
+.start-area{
+
+    width:100%;
+
+    flex:0 0 auto;
+
+    text-align:center;
+
+    padding-top:20px;
+}
+
+.start-button{
+
+    width:min(88vw, 650px);
+
+    min-height:82px;
+
+    border:none;
+
+    border-radius:60px;
+
+    padding:18px 28px;
+
+    font-size:23px;
+
+    font-weight:900;
+
+    letter-spacing:2.5px;
+
+    color:#00151d;
+
+    background:
+    linear-gradient(
+        90deg,
+        #39d8ff,
+        #ddfbff,
+        #ffffff,
+        #ddfbff,
+        #39d8ff
+    );
+
+    box-shadow:
+    0 0 20px rgba(57,216,255,.55),
+    0 0 45px rgba(57,216,255,.20);
+
+    cursor:pointer;
+
+    animation:buttonPulse 2.2s infinite;
+}
+
+.start-button:active{
+    transform:scale(.96);
+}
+
+@keyframes buttonPulse{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.02);
+    }
+}
+
+.tap-text{
+
+    margin-top:9px;
+
+    font-size:11px;
+
+    font-weight:600;
+
+    letter-spacing:3px;
+
+    color:rgba(215,247,255,.48);
+}
+
+
+/* =========================
+   CONNECTION STATUS
+========================= */
+
+.bottom-area{
+
+    width:100%;
+
+    flex:0 0 auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding-top:16px;
+}
+
+.spike-status{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    min-width:320px;
+
+    padding:10px 20px;
+
+    border-radius:35px;
+
+    background:rgba(0,0,0,.32);
+
+    border:
+    1px solid
+    rgba(255,255,255,.10);
+}
+
+.connection-light{
+
+    width:13px;
+    height:13px;
+
+    border-radius:50%;
+
+    flex-shrink:0;
+}
+
+.connection-text{
+
+    font-size:13px;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+}
+
+
+/* RED */
+
+.spike-status.disconnected{
+    color:#ff96a1;
+}
+
+.spike-status.disconnected
+.connection-light{
+
+    background:#ff3048;
+
+    box-shadow:
+    0 0 7px #ff3048,
+    0 0 17px rgba(255,48,72,.85);
+
+    animation:redBlink 1.2s infinite;
+}
+
+@keyframes redBlink{
+
+    0%,100%{
+        opacity:.3;
+    }
+
+    50%{
+        opacity:1;
+    }
+}
+
+
+/* YELLOW */
+
+.spike-status.connecting{
+    color:#ffe58e;
+}
+
+.spike-status.connecting
+.connection-light{
+
+    background:#ffd43b;
+
+    box-shadow:
+    0 0 7px #ffd43b,
+    0 0 17px rgba(255,212,59,.85);
+
+    animation:yellowBlink .8s infinite;
+}
+
+@keyframes yellowBlink{
+
+    0%,100%{
+        opacity:.3;
+    }
+
+    50%{
+        opacity:1;
+    }
+}
+
+
+/* GREEN */
+
+.spike-status.connected{
+    color:#83ffb0;
+}
+
+.spike-status.connected
+.connection-light{
+
+    background:#35ff78;
+
+    box-shadow:
+    0 0 7px #35ff78,
+    0 0 17px rgba(53,255,120,.9);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.system-footer{
+
+    font-size:9px;
+
+    letter-spacing:4px;
+
+    text-align:center;
+
+    color:rgba(190,235,245,.25);
+}
+
+
+/* =========================
+   WAKE SCREEN
+========================= */
+
+.wake-screen{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:999;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:
+    radial-gradient(
+        circle,
+        #123954,
+        #04131f 55%,
+        #010508
+    );
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:opacity .35s ease;
+}
+
+.wake-screen.show{
+
+    opacity:1;
+
+    visibility:visible;
+}
+
+.wake-logo{
+
+    font-size:90px;
+
+    font-weight:900;
+
+    letter-spacing:12px;
+
+    text-shadow:
+    0 0 15px #48e1ff,
+    0 0 45px rgba(72,225,255,.45);
+}
+
+.loader{
+
+    display:flex;
+
+    gap:13px;
+
+    margin-top:35px;
+}
+
+.loader span{
+
+    width:13px;
+    height:13px;
+
+    border-radius:50%;
+
+    background:#45dfff;
+
+    box-shadow:
+    0 0 10px #45dfff;
+
+    animation:loaderAnimation 1.1s infinite;
+}
+
+.loader span:nth-child(2){
+    animation-delay:.18s;
+}
+
+.loader span:nth-child(3){
+    animation-delay:.36s;
+}
+
+@keyframes loaderAnimation{
+
+    0%,100%{
+        opacity:.3;
+        transform:scale(.7);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.25);
+    }
+}
+
+.wake-message{
+
+    margin-top:30px;
+
+    font-size:21px;
+
+    letter-spacing:5px;
+
+    color:#dffaff;
+}
+
+
+/* =========================
+   SMALLER IPAD
+========================= */
+
+@media(max-height:950px){
+
+    .app{
+        padding-top:18px;
+        padding-bottom:12px;
+    }
+
+    .novus{
+        font-size:58px;
+    }
+
+    .tagline{
+        margin-top:10px;
+        font-size:18px;
+    }
+
+    .video-area{
+        padding-top:10px;
+    }
+
+    .video-frame{
+        height:43vh;
+        min-height:280px;
+    }
+
+    .start-area{
+        padding-top:10px;
+    }
+
+    .start-button{
+        min-height:66px;
+        font-size:19px;
+    }
+
+    .bottom-area{
+        padding-top:9px;
+    }
+}
+
+</style>
+
 </head>
-
 
 <body>
 
-    <main id="welcomeScreen" class="welcome-screen">
 
+<div class="app">
 
-        <!-- =========================================
-             HEADER
-        ========================================== -->
 
-        <header class="header">
+    <!-- HEADER -->
 
-            <h1 class="novus-title">
-                NOVUS
-            </h1>
+    <header class="header">
 
-            <div class="kruss-title">
-                BY KRUSS MAKERS
-            </div>
+        <div class="novus">
+            NOVUS
+        </div>
 
-            <h2 class="tagline">
-                YOUR AI MUSEUM GUIDE
-            </h2>
+        <div class="by-kruss">
+            BY KRUSS MAKERS
+        </div>
 
-        </header>
+        <div class="tagline">
+            YOUR AI MUSEUM GUIDE
+        </div>
 
+    </header>
 
 
-        <!-- =========================================
-             VIDEO ROBOT SLEEP MODE
-        ========================================== -->
+    <!-- VIDEO -->
 
-        <section class="video-section">
+    <section class="video-area">
 
-            <div class="video-container">
+        <div class="video-frame">
 
-                <video
-                    id="sleepVideo"
-                    autoplay
-                    muted
-                    loop
-                    playsinline
-                    preload="auto">
+            <video
+                id="sleepVideo"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto">
 
-                    <source
-                        src="media/sleepmode.mp4"
-                        type="video/mp4">
+                <source
+                    src="media/sleepmode.mp4"
+                    type="video/mp4">
 
-                    Your browser does not support video playback.
+            </video>
 
-                </video>
 
+            <div class="sleep-badge">
 
-                <!-- DARK GRADIENT OVER VIDEO -->
+                <span class="sleep-light"></span>
 
-                <div class="video-overlay"></div>
-
-
-                <!-- SLEEP MODE INDICATOR -->
-
-                <div class="sleep-indicator">
-
-                    <span class="sleep-dot"></span>
-
-                    <span>
-                        NOVUS IS IN SLEEP MODE
-                    </span>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =========================================
-             BEGIN TOUR
-        ========================================== -->
-
-        <section class="start-section">
-
-            <button
-                id="beginTourButton"
-                class="begin-tour-button">
-
-                <span class="button-icon">
-                    ✦
-                </span>
-
-                <span id="buttonText">
-                    TOUCH HERE TO BEGIN TOUR
-                </span>
-
-            </button>
-
-
-            <div class="tap-message">
-
-                TAP TO WAKE NOVUS
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =========================================
-             SPIKE PRIME CONNECTION STATUS
-        ========================================== -->
-
-        <footer class="footer">
-
-            <div
-                id="spikeStatus"
-                class="spike-status disconnected">
-
-                <span
-                    id="connectionLight"
-                    class="connection-light">
-                </span>
-
-                <span
-                    id="connectionText"
-                    class="connection-text">
-
-                    SPIKE PRIME DISCONNECTED
-
-                </span>
-
-            </div>
-
-
-            <div class="system-text">
-
-                SMART • INTERACTIVE • AUTONOMOUS
-
-            </div>
-
-        </footer>
-
-
-    </main>
-
-
-
-    <!-- =========================================
-         WAKE-UP OVERLAY
-    ========================================== -->
-
-    <div
-        id="wakeOverlay"
-        class="wake-overlay">
-
-        <div class="wake-content">
-
-            <div class="wake-logo">
-                NOVUS
-            </div>
-
-            <div class="wake-loader">
-
-                <span></span>
-                <span></span>
-                <span></span>
-
-            </div>
-
-            <div id="wakeText" class="wake-text">
-
-                WAKING UP...
+                NOVUS IS IN SLEEP MODE
 
             </div>
 
         </div>
 
+    </section>
+
+
+    <!-- START -->
+
+    <section class="start-area">
+
+        <button
+            id="startButton"
+            class="start-button">
+
+            ✦ TOUCH HERE TO BEGIN TOUR
+
+        </button>
+
+        <div class="tap-text">
+            TAP TO WAKE NOVUS
+        </div>
+
+    </section>
+
+
+    <!-- SPIKE STATUS -->
+
+    <section class="bottom-area">
+
+        <div
+            id="spikeStatus"
+            class="spike-status disconnected">
+
+            <span
+                class="connection-light">
+            </span>
+
+            <span
+                id="connectionText"
+                class="connection-text">
+
+                SPIKE PRIME DISCONNECTED
+
+            </span>
+
+        </div>
+
+        <div class="system-footer">
+
+            SMART • INTERACTIVE • AUTONOMOUS
+
+        </div>
+
+    </section>
+
+
+</div>
+
+
+<!-- WAKE SCREEN -->
+
+<div
+    id="wakeScreen"
+    class="wake-screen">
+
+    <div class="wake-logo">
+        NOVUS
     </div>
 
+    <div class="loader">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </div>
+
+    <div
+        id="wakeMessage"
+        class="wake-message">
+
+        WAKING UP...
+
+    </div>
+
+</div>
 
 
-    <script src="script.js"></script>
+<script>
+
+const sleepVideo =
+document.getElementById("sleepVideo");
+
+const startButton =
+document.getElementById("startButton");
+
+const spikeStatus =
+document.getElementById("spikeStatus");
+
+const connectionText =
+document.getElementById("connectionText");
+
+const wakeScreen =
+document.getElementById("wakeScreen");
+
+const wakeMessage =
+document.getElementById("wakeMessage");
+
+
+let spikeConnected = false;
+
+
+/* =========================
+   INITIAL START
+========================= */
+
+window.addEventListener(
+"load",
+function(){
+
+    if(sleepVideo){
+
+        sleepVideo.muted = true;
+
+        sleepVideo.play().catch(
+        function(){
+
+            console.log(
+                "Waiting for user interaction."
+            );
+
+        });
+
+    }
+
+    setSpikeDisconnected();
+
+});
+
+
+/* =========================
+   SPIKE STATUS
+========================= */
+
+function clearSpikeState(){
+
+    spikeStatus.classList.remove(
+        "connected",
+        "disconnected",
+        "connecting"
+    );
+}
+
+
+function setSpikeDisconnected(){
+
+    spikeConnected = false;
+
+    clearSpikeState();
+
+    spikeStatus.classList.add(
+        "disconnected"
+    );
+
+    connectionText.textContent =
+        "SPIKE PRIME DISCONNECTED";
+}
+
+
+function setSpikeConnecting(){
+
+    spikeConnected = false;
+
+    clearSpikeState();
+
+    spikeStatus.classList.add(
+        "connecting"
+    );
+
+    connectionText.textContent =
+        "CONNECTING TO SPIKE PRIME...";
+}
+
+
+function setSpikeConnected(){
+
+    spikeConnected = true;
+
+    clearSpikeState();
+
+    spikeStatus.classList.add(
+        "connected"
+    );
+
+    connectionText.textContent =
+        "SPIKE PRIME CONNECTED";
+}
+
+
+/* =========================
+   BEGIN TOUR
+========================= */
+
+startButton.addEventListener(
+"click",
+function(){
+
+    if(sleepVideo){
+        sleepVideo.pause();
+    }
+
+    wakeScreen.classList.add(
+        "show"
+    );
+
+    wakeMessage.textContent =
+        "WAKING UP...";
+
+
+    setTimeout(function(){
+
+        wakeMessage.textContent =
+            "INITIALISING NOVUS...";
+
+    },900);
+
+
+    setTimeout(function(){
+
+        wakeMessage.textContent =
+            "PREPARING YOUR TOUR...";
+
+    },1800);
+
+
+    setTimeout(function(){
+
+        wakeMessage.textContent =
+            "NOVUS IS READY";
+
+    },2700);
+
+
+    setTimeout(function(){
+
+        wakeScreen.classList.remove(
+            "show"
+        );
+
+        if(sleepVideo){
+            sleepVideo.play();
+        }
+
+        /*
+        Paparan 2 nanti:
+
+        window.location.href =
+        "language.html";
+        */
+
+    },3600);
+
+});
+
+</script>
 
 </body>
-
 </html>
